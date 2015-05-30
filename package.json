@@ -4,7 +4,7 @@
   "description": "Editor Framework UI Kit",
   "author": "Firebox Technology",
   "hosts": {
-      "editor-framework": "0.0.1"
+      "editor-framework": "^0.1.0"
   },
   "widgets": {
   }
