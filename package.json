@@ -9,5 +9,8 @@
   },
   "widgets": {
     "editor-button": "widget/button/button.html"
-  }
+  },
+  "tests": [
+      "test/button.html"
+  ]
 }
