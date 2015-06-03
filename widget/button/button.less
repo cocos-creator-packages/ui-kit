@@ -1,0 +1,49 @@
+@color-button-text: #bdbdbd;
+@color-button-bg: #4a4a4a;
+@color-border-normal: #4a4a4a - 50%;
+@color-border-focus: #0c70a6;
+
+:host {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+button {
+    font-size: 10px;
+    margin: 0px;
+    min-width: 20px;
+
+    border: 1px solid @color-border-normal;
+    border-radius: 2px;
+    padding: 4px 8px;
+
+    cursor: pointer;
+
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: @color-button-text;
+    background-color: @color-button-bg;
+}
+
+button:hover {
+    border-color: @color-border-normal;
+    background-color: @color-button-bg + 10%;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    background-color: @color-button-bg - 10%;
+    color: @color-button-text - 10%;
+}
+
+:host([focused]) button {
+    border-color: @color-border-focus;
+}
+
+:host-context([disabled]) button, :host([disabled]) button {
+    border-color: @color-border-normal - 10%;
+    background-color: @color-button-bg - 30%;
+    color: @color-button-text - 50%;
+}

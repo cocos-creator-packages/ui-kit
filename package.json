@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "description": "Editor Framework UI Kit",
   "author": "Firebox Technology",
+  "build": true,
   "hosts": {
-      "editor-framework": "^0.1.0"
+    "editor-framework": "^0.1.0"
   },
   "widgets": {
+    "editor-button": "widget/button/button.html"
   }
 }
