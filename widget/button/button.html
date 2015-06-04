@@ -1,14 +1,14 @@
-<polymer-element
-    name="editor-button"
-    constructor="EditorButton"
-    >
-    <template>
-        <link rel="stylesheet" href="button.css">
+<!-- NOTE: the .btn element is important, it will make sure we can focus the button  -->
+<!-- and still click to get active state                                             -->
 
-        <button id="focus">
+<dom-module id="editor-button" >
+    <link rel="import" type="css" href="button.css">
+
+    <template>
+        <div class="btn">
             <content></content>
-        </button>
+        </div>
     </template>
 
     <script type="text/javascript" src="button.js"></script>
-</polymer-element>
+</dom-module>

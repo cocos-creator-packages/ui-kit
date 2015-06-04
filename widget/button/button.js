@@ -4,6 +4,6 @@ Editor.registerWidget( 'editor-button', {
     behaviors: [EditorUI.focusable],
 
     ready: function () {
-        this._initFocusable( this.$.focus );
+        this._initFocusable(this);
     },
 });

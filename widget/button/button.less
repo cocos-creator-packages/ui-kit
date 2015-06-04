@@ -1,15 +1,18 @@
 @color-button-text: #bdbdbd;
 @color-button-bg: #4a4a4a;
-@color-border-normal: #4a4a4a - 50%;
-@color-border-focus: #0c70a6;
+@color-button-bg-top: #5a5a5a;
+@color-button-bg-bottom: #444;
+@color-border-normal: #171717;
+@color-border-focus: #09f;
 
 :host {
     display: inline-block;
     box-sizing: border-box;
 }
 
-button {
-    font-size: 10px;
+.btn {
+    font-size: 12px;
+    font-weight: bold;
     margin: 0px;
     min-width: 20px;
 
@@ -21,29 +24,30 @@ button {
 
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: @color-button-text;
-    background-color: @color-button-bg;
+    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
-button:hover {
-    border-color: @color-border-normal;
-    background-color: @color-button-bg + 10%;
+.btn:hover {
+    background-image: linear-gradient(@color-button-bg-top + 10%, @color-button-bg-bottom + 10%);
 }
 
-button:focus {
+.btn:focus {
     outline: none;
 }
 
-button:active {
-    background-color: @color-button-bg - 10%;
-    color: @color-button-text - 10%;
+.btn:active {
+    color: @color-button-text - 50%;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    background-image: none;
+    background-color: @color-button-bg;
 }
 
-:host([focused]) button {
+:host[focused] .btn {
     border-color: @color-border-focus;
 }
 
-:host-context([disabled]) button, :host([disabled]) button {
-    border-color: @color-border-normal - 10%;
+:host[disabled] .btn {
+    border-color: @color-border-normal + 30%;
     background-color: @color-button-bg - 30%;
     color: @color-button-text - 50%;
 }

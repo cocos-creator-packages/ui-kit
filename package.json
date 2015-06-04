@@ -5,10 +5,27 @@
   "author": "Firebox Technology",
   "build": true,
   "hosts": {
-    "editor-framework": "^0.1.0"
+    "editor-framework": "^0.3.0"
+  },
+  "main": "main.js",
+  "menus": {
+    "Panel/UI Kit Preview": {
+      "message": "ui-kit:open"
+    }
   },
   "widgets": {
     "editor-button": "widget/button/button.html"
+  },
+  "panels": {
+    "panel": {
+      "frame": "panel/panel.html",
+      "type": "dockable",
+      "title": "UI Kit Preview",
+      "width": 800,
+      "height": 600,
+      "messages": [
+      ]
+    }
   },
   "tests": [
       "test/button.html"

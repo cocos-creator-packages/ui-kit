@@ -1,0 +1,22 @@
+<link rel="import" href="packages://ui-kit/widget/index.html">
+
+<dom-module id="ui-kit-preview">
+    <style>
+        :host {
+            padding: 10px;
+        }
+    </style>
+
+    <template>
+        <div>
+            <editor-button>Normal</editor-button>
+            <editor-button disabled>Disabled</editor-button>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+Editor.registerPanel( 'ui-kit.panel', {
+    is: 'ui-kit-preview',
+});
+</script>
