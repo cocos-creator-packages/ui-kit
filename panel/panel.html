@@ -11,6 +11,7 @@
     </style>
 
     <template>
+        <select id="select" on-change="_changeUI"></select>
         <ui-kit-preview-button></ui-kit-preview-button>
     </template>
 </dom-module>
@@ -18,6 +19,27 @@
 <script>
 Editor.registerPanel( 'ui-kit.panel', {
     is: 'ui-kit-preview',
+
+    created: function () {
+        // NOTE: 在这里添加要预览的element名称 name为显示的名称,value为polymer注册的name
+        this.uiKits = [
+            {name:'button',value:'ui-kit-preview-button'},
+        ];
+    },
+
+    ready: function () {
+        for (var item in this.uiKits) {
+            this.$.select.innerHTML += '<option value="'+this.uiKits[item].value+'">'+this.uiKits[item].name+'</option>';
+        }
+    },
+
+    _changeUI: function (event) {
+        var selectEl = event.target.value;
+        this.innerHTML = '';
+        this.appendChild(event.target);
+        var Ele = document.createElement(selectEl);
+        this.appendChild(Ele);
+    },
 });
 
 </script>
