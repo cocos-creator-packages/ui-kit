@@ -11,7 +11,6 @@
 }
 
 .btn {
-    font-size: .92857143rem;
     font-weight: bold;
     margin: 0px;
     min-width: 20px;
@@ -22,7 +21,8 @@
 
     cursor: pointer;
 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     color: @color-button-text;
     background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 
@@ -66,20 +66,24 @@ size
 ==================
 */
 
-:host.small .btn {
-    font-size: .85714286rem;
-}
-
 :host.mini .btn {
-    font-size: .71428571rem;
+    font-size: 0.8rem;
 }
 
-:host.large .btn {
+:host.small .btn {
     font-size: 1rem;
 }
 
+:host .btn {
+    font-size: 1.2rem;
+}
+
+:host.large .btn {
+    font-size: 1.4rem;
+}
+
 :host.big .btn {
-    font-size: 1.28571429rem;
+    font-size: 1.6rem;
 }
 
 /*
