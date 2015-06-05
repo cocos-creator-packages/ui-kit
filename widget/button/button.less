@@ -36,7 +36,7 @@
     outline: none;
 }
 
-.btn:active {
+:host[pressed] .btn {
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
     color: @color-button-text - 20%;
     background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
@@ -106,7 +106,7 @@ color
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host.black .btn:active {
+:host[pressed].black .btn {
     @color-button-text: white;
     @color-button-bg-top: #000 + 40%;
     @color-button-bg-bottom: #000;
@@ -129,7 +129,7 @@ color
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host.yellow .btn:active {
+:host[pressed].yellow .btn {
     @color-button-text: white;
     @color-button-bg-top: #F2C61F + 40%;
     @color-button-bg-bottom: #F2C61F;
@@ -151,7 +151,7 @@ color
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host.green .btn:active {
+:host[pressed].green .btn {
     @color-button-text: white;
     @color-button-bg-top: #0A0 + 40%;
     @color-button-bg-bottom: #0A0;
@@ -173,7 +173,7 @@ color
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host.blue .btn:active {
+:host[pressed].blue .btn {
     @color-button-text: white;
     @color-button-bg-top: #3B83C0 + 40%;
     @color-button-bg-bottom: #3B83C0;
@@ -195,7 +195,7 @@ color
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host.orange .btn:active {
+:host[pressed].orange .btn {
     @color-button-text: white;
     @color-button-bg-top: #D36E3F + 40%;
     @color-button-bg-bottom: #D36E3F;
@@ -218,7 +218,7 @@ color
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host.purple .btn:active {
+:host[pressed].purple .btn {
     @color-button-text: white;
     @color-button-bg-top: #564F8A + 40%;
     @color-button-bg-bottom: #564F8A;
@@ -240,7 +240,7 @@ color
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host.red .btn:active {
+:host[pressed].red .btn {
     @color-button-text: white;
     @color-button-bg-top: #c42d2d + 40%;
     @color-button-bg-bottom: #c42d2d;
@@ -262,7 +262,7 @@ color
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host.gray .btn:active {
+:host[pressed].gray .btn {
     @color-button-text: #676767;
     @color-button-bg-top: #E0E0E0 + 40%;
     @color-button-bg-bottom: #E0E0E0;

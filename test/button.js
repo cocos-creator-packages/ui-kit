@@ -3,7 +3,6 @@ Tester.checkLeaks(false);
 describe('<editor-button>', function() {
     var buttonEL;
     beforeEach(function ( done ) {
-        Editor.sendToCore('console:clear');
         buttonEL = fixture('widget');
         done();
     });
@@ -17,7 +16,7 @@ describe('<editor-button>', function() {
 
     it('can be space', function( done ) {
         buttonEL.addEventListener('keyup', function(event) {
-            if (event.keyCode === "space") {
+            if (Editor.KeyCode(event.keyCode) === 'space') {
                 done();
             }
         });
@@ -26,7 +25,7 @@ describe('<editor-button>', function() {
 
     it('can be enter', function( done ) {
         buttonEL.addEventListener('keyup', function(event) {
-            if (event.keyCode === "enter") {
+            if (Editor.KeyCode(event.keyCode) === 'enter') {
                 done();
             }
         });
