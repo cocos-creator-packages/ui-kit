@@ -7,14 +7,14 @@
             margin: 10px;
         }
 
-        .title {
+        h2 {
+            margin: 0px;
             padding: 5px;
             font-size: 18px;
-            color: rgb(255, 255, 255);
-            border-bottom: 1px solid rgb(187, 187, 187);
+            color: #ccc;
         }
 
-        .discription {
+        .desc {
             font-size: 12px;
             color: rgb(126, 126, 126);
             padding-left: 10px;
@@ -68,11 +68,9 @@
 
     <template>
         <div class="item">
-            <div class="title">
-                #Button-Class.size
-                <div class="discription">
-                    set Class whith The sample size!
-                </div>
+            <h2>editor-button.{size}</h2>
+            <div class="desc">
+                Custom button size by class
             </div>
             <div class="content">
                 <div class="icon">Preview</div>
@@ -88,11 +86,9 @@
         </div>
 
         <div class="item">
-            <div class="title">
-                #Button-Class.color
-                <div class="discription">
-                    set Class whith The sample color!
-                </div>
+            <h2>editor-button.{color}</h2>
+            <div class="desc">
+                Custom button color by class
             </div>
             <div class="content">
                 <div class="icon">Preview</div>
@@ -112,37 +108,52 @@
         </div>
 
         <div class="item">
-            <div class="title">
-                #Button-[nofocus]
-                <div class="discription">
-                    set Attribute 'nofocus'!
-                </div>
+            <h2>editor-button[nofocus]</h2>
+            <div class="desc">
+                Implied that the button will not focus
             </div>
 
             <div class="content">
                 <div class="icon">Preview</div>
                 <div class="code">Source</div>
                 <div class="preview">
-                    <editor-button>Default</editor-button>
-                    <editor-button nofocus>Nofocus</editor-button>
+                    <editor-button>Normal</editor-button>
+                    <editor-button nofocus>No Focus</editor-button>
                 </div>
             </div>
         </div>
 
         <div class="item">
-            <div class="title">
-                #Button-[disabled]
-                <div class="discription">
-                    set Attribute 'disabled'!
-                </div>
+            <h2>editor-button[disabled]</h2>
+            <div class="desc">
+                Disabled the button
             </div>
 
             <div class="content">
                 <div class="icon">Preview</div>
                 <div class="code">Source</div>
                 <div class="preview">
-                    <editor-button>Default</editor-button>
+                    <editor-button>Normal</editor-button>
                     <editor-button disabled>Disabled</editor-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>editor-button with different size</h2>
+            <div class="desc">
+                Button with different size
+            </div>
+
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-button style="width: 80px;">80px</editor-button>
+                    <editor-button style="width: 100px;">100px</editor-button>
+                    <editor-button style="width: 120px;">120px</editor-button>
+                    <editor-button style="width: 140px;">140px</editor-button>
+                    <editor-button>I'm a long looong loooong button </editor-button>
                 </div>
             </div>
         </div>
