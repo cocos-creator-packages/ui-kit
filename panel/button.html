@@ -1,0 +1,171 @@
+<dom-module id="ui-kit-preview-button">
+    <style>
+        :host {
+        }
+
+        .item {
+            margin: 10px;
+        }
+
+        .title {
+            padding: 5px;
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(187, 187, 187);
+        }
+
+        .discription {
+            font-size: 12px;
+            color: rgb(126, 126, 126);
+            padding-left: 10px;
+            margin: 10px;
+            border-left: 2px solid rgb(126, 126, 126);
+        }
+
+        .content {
+            background: rgb(51, 51, 51);
+            padding: 20px;
+            position: relative;
+
+        }
+        .icon {
+            width: 40px;
+            height: 16px;
+            background: white;
+            opacity: 0.6;
+            position: absolute;
+            right: 41px;
+            top: 0;
+            font-size: 10px;
+            color: black;
+            cursor: pointer;
+            text-align: center;
+        }
+        .code {
+            width: 40px;
+            height: 16px;
+            background: white;
+            opacity: 0.6;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 10px;
+            color: black;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .preview {
+            display: flex;
+            flex-flow:row wrap ;
+            justify-content:flex-start;
+        }
+
+        editor-button {
+            margin: 5px;
+        }
+    </style>
+
+    <template>
+        <div class="item">
+            <div class="title">
+                #Button-Class.size
+                <div class="discription">
+                    set Class whith The sample size!
+                </div>
+            </div>
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-button class="mini">Mini</editor-button>
+                    <editor-button class="small">Small</editor-button>
+                    <editor-button>Normal</editor-button>
+                    <editor-button class="large">Large</editor-button>
+                    <editor-button class="big">Big</editor-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="title">
+                #Button-Class.color
+                <div class="discription">
+                    set Class whith The sample color!
+                </div>
+            </div>
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-button nofocus>Default</editor-button>
+                    <editor-button class="black" nofocus>Black</editor-button>
+                    <editor-button class="yellow" nofocus>Yellow</editor-button>
+                    <editor-button class="green" nofocus>Green</editor-button>
+                    <editor-button class="blue" nofocus>Blue</editor-button>
+                    <editor-button class="orange" nofocus>Orange</editor-button>
+                    <editor-button class="purple" nofocus>Purple</editor-button>
+                    <editor-button class="red" nofocus>Red</editor-button>
+                    <editor-button class="gray" nofocus>gray</editor-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="title">
+                #Button-[nofocus]
+                <div class="discription">
+                    set Attribute 'nofocus'!
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-button>Default</editor-button>
+                    <editor-button nofocus>Nofocus</editor-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="title">
+                #Button-[disabled]
+                <div class="discription">
+                    set Attribute 'disabled'!
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-button>Default</editor-button>
+                    <editor-button disabled>Disabled</editor-button>
+                </div>
+            </div>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'ui-kit-preview-button',
+
+    ready: function () {
+
+        // TODO: view source code
+        // var codeBtns = this.getElementsByClassName('code');
+        // for (var i = 0; i < codeBtns.length; ++i) {
+        //     codeBtns[i].addEventListener('click',function (event) {
+        //         var preview = event.target.nextElementSibling;
+        //         var markDown = document.createElement('marked-element');
+        //         markDown.markdown = '```html\r\n'+preview.innerHTML+'\r\n```';
+        //         preview.appendChild(markDown);
+        //     });
+        // }
+    },
+});
+
+</script>
