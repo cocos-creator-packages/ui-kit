@@ -22,9 +22,10 @@ Editor.registerPanel( 'ui-kit.panel', {
     is: 'ui-kit-preview',
 
     created: function () {
+        // NOTE: 在这里添加要预览的element名称 name为显示的名称,value为polymer注册的name
         this.uiKits = [
             {name:'button',value:'ui-kit-preview-button'},
-            {name:'input',value:'ui-kit-preview-input'}
+            {name:'input',value:'ui-kit-preview-input'},
         ];
     },
 
