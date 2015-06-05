@@ -1,4 +1,5 @@
 <link rel="import" href="button.html">
+<link rel="import" href="input.html">
 <link rel="import" href="app://bower_components/marked-element/marked-element.html">
 <link rel="import" href="packages://ui-kit/widget/index.html">
 <dom-module id="ui-kit-preview">
@@ -11,6 +12,7 @@
     </style>
 
     <template>
+        <select id="select" on-change="_changeUI"></select>
         <ui-kit-preview-button></ui-kit-preview-button>
     </template>
 </dom-module>
@@ -18,6 +20,27 @@
 <script>
 Editor.registerPanel( 'ui-kit.panel', {
     is: 'ui-kit-preview',
+
+    created: function () {
+        this.uiKits = [
+            {name:'button',value:'ui-kit-preview-button'},
+            {name:'input',value:'ui-kit-preview-input'}
+        ];
+    },
+
+    ready: function () {
+        for (var item in this.uiKits) {
+            this.$.select.innerHTML += '<option value="'+this.uiKits[item].value+'">'+this.uiKits[item].name+'</option>';
+        }
+    },
+
+    _changeUI: function (event) {
+        var selectEl = event.target.value;
+        this.innerHTML = '';
+        this.appendChild(event.target);
+        var Ele = document.createElement(selectEl);
+        this.appendChild(Ele);
+    },
 });
 
 </script>

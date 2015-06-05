@@ -1,0 +1,64 @@
+@color-outter-border : #555;
+@color-outter-border-focus : #0c70a6;
+@color-inner-border : black;
+@color-bg : #232323;
+@color-input : #aaa;
+@color-unit : #ddd;
+@color-button : #474747;
+@color-bg-disabled : #3a3a3a;
+
+:host {
+    display: flex;
+    position: relative;
+
+    box-sizing: border-box;
+    width: 120px;
+    min-width: 60px;
+    border: 1px solid @color-outter-border;
+    cursor: default;
+    background: @color-bg;
+}
+
+:host:focus {
+    outline: none;
+}
+
+:host:hover {
+    border: 1px solid @color-outter-border + 30%;
+}
+:host[focused] {
+    border: 1px solid @color-outter-border-focus;
+}
+
+:host[invalid] {
+    border: 1px solid red;
+}
+
+
+
+.input-area {
+    display: block;
+    padding: 2px 4px;
+    border: 0;
+    margin: 0;
+    font-size: 12px;
+    width: 100%;
+
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: transparent;
+    color: @color-input;
+
+    pointer-events: auto;
+    user-select: auto;
+    cursor: auto;
+}
+
+.input-area::-webkit-input-placeholder {
+    font-style: italic;
+    color: #666;
+    text-shadow: none;
+}
+
+.input-area:focus {
+    outline: none;
+}
