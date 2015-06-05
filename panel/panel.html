@@ -1,17 +1,17 @@
+<link rel="import" href="button.html">
+<link rel="import" href="app://bower_components/marked-element/marked-element.html">
 <link rel="import" href="packages://ui-kit/widget/index.html">
-
 <dom-module id="ui-kit-preview">
     <style>
         :host {
             padding: 10px;
+            overflow-y: scroll;
+            overflow-x: hidden;
         }
     </style>
 
     <template>
-        <div>
-            <editor-button>Normal</editor-button>
-            <editor-button disabled>Disabled</editor-button>
-        </div>
+        <ui-kit-preview-button></ui-kit-preview-button>
     </template>
 </dom-module>
 
@@ -19,4 +19,5 @@
 Editor.registerPanel( 'ui-kit.panel', {
     is: 'ui-kit-preview',
 });
+
 </script>
