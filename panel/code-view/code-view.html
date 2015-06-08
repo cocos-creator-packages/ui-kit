@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="css" href="app://bower_components/highlight/styles/zenburn.css">
+<script type="text/javascript" src="app://bower_components/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="htmlformat.js"></script>
+
+<dom-module id="code-view">
+<template>
+</template>
+</dom-module>
+<script>
+var encodeHtml = function(str){
+    var s = "";
+    if (str.length == 0) return "";
+    s = str.replace(/&/g, "&gt;");
+    s = s.replace(/</g, "&lt;");
+    s = s.replace(/>/g, "&gt;");
+    s = s.replace(/ /g, "&nbsp;");
+    s = s.replace(/\'/g, "&#39;");
+    s = s.replace(/\"/g, "&quot;");
+    s = s.replace(/\n/g, "<br>");
+    return s;
+};
+Polymer( {
+    is: 'code-view',
+
+    properties: {
+        sourceCode: {
+            type: String,
+            notify: true,
+            value: '',
+        }
+    },
+
+    init: function () {
+        var pre = document.createElement('pre');
+        var code = document.createElement('code');
+        code.setAttribute('class','html');
+        code.innerHTML = encodeHtml(style_html(this.sourceCode,4,'',80));
+        pre.appendChild(code);
+        this.appendChild(pre);
+        hljs.initHighlighting();
+        hljs.highlightBlock(pre);
+    },
+});
+</script>
