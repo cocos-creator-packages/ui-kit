@@ -112,7 +112,7 @@ color
 
 
 :host.yellow .btn {
-    @color-button-text: white;
+    @color-button-text: #1A1A1A;
     @color-button-bg-top: #F2C61F + 40%;
     @color-button-bg-bottom: #F2C61F;
     color: @color-button-text;
@@ -126,7 +126,7 @@ color
 }
 
 :host[pressed].yellow .btn {
-    @color-button-text: white;
+    @color-button-text: #1A1A1A;
     @color-button-bg-top: #F2C61F + 40%;
     @color-button-bg-bottom: #F2C61F;
     color: @color-button-text - 20%;
@@ -244,7 +244,7 @@ color
     background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
-:host.gray .btn {
+:host.white .btn {
     @color-button-text: #676767;
     @color-button-bg-top: #E0E0E0 + 40%;
     @color-button-bg-bottom: #E0E0E0;
@@ -252,13 +252,13 @@ color
     background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
-:host.gray .btn:hover {
+:host.white .btn:hover {
     @color-button-bg-top: #E0E0E0 + 40%;
     @color-button-bg-bottom: #E0E0E0;
     background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host[pressed].gray .btn {
+:host[pressed].white .btn {
     @color-button-text: #676767;
     @color-button-bg-top: #E0E0E0 + 40%;
     @color-button-bg-bottom: #E0E0E0;
