@@ -3,8 +3,10 @@ Tester.checkLeaks(false);
 describe('<editor-button>', function() {
     var buttonEL;
     beforeEach(function ( done ) {
-        buttonEL = fixture('widget');
-        done();
+        fixture('widget', function ( el ) {
+            buttonEL = el;
+            done();
+        });
     });
 
     it('can be click', function( done ) {
