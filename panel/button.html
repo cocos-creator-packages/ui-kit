@@ -64,6 +64,17 @@
         editor-button {
             margin: 5px;
         }
+
+        pre {
+            display: flex;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        code {
+            width: 100%;
+        }
     </style>
 
     <template>
@@ -82,6 +93,11 @@
                     <editor-button class="large">Large</editor-button>
                     <editor-button class="big">Big</editor-button>
                 </div>
+                <input type="hidden" value='<editor-button class="mini">Mini</editor-button>
+                <editor-button class="small">Small</editor-button>
+                <editor-button>Normal</editor-button>
+                <editor-button class="large">Large</editor-button>
+                <editor-button class="big">Big</editor-button>'>
             </div>
         </div>
 
@@ -104,6 +120,15 @@
                     <editor-button class="red">Red</editor-button>
                     <editor-button class="gray">Gray</editor-button>
                 </div>
+                <input type="hidden" value='<editor-button>Default</editor-button>
+                <editor-button class="black">Black</editor-button>
+                <editor-button class="yellow">Yellow</editor-button>
+                <editor-button class="green">Green</editor-button>
+                <editor-button class="blue">Blue</editor-button>
+                <editor-button class="orange">Orange</editor-button>
+                <editor-button class="purple">Purple</editor-button>
+                <editor-button class="red">Red</editor-button>
+                <editor-button class="gray">Gray</editor-button>'>
             </div>
         </div>
 
@@ -120,6 +145,8 @@
                     <editor-button>Normal</editor-button>
                     <editor-button no-focus>No Focus</editor-button>
                 </div>
+                <input type="hidden" value='<editor-button>Normal</editor-button>
+                <editor-button no-focus>No Focus</editor-button>'/>
             </div>
         </div>
 
@@ -136,6 +163,8 @@
                     <editor-button>Normal</editor-button>
                     <editor-button disabled>Disabled</editor-button>
                 </div>
+                <input type="hidden" value="<editor-button>Normal</editor-button>
+                <editor-button disabled>Disabled</editor-button>"/>
             </div>
         </div>
 
@@ -155,27 +184,49 @@
                     <editor-button style="width: 140px;">140px</editor-button>
                     <editor-button>I'm a long looong loooong button </editor-button>
                 </div>
+                <input type="hidden" value='<editor-button style="width: 80px;">80px</editor-button>
+                <editor-button style="width: 100px;">100px</editor-button>
+                <editor-button style="width: 120px;">120px</editor-button>
+                <editor-butto style="width: 140px;">140px</editor-button>
+                <editor-button>I`m a long looong loooong button </editor-button>'/>
             </div>
         </div>
     </template>
 </dom-module>
 
 <script>
+
 Polymer( {
     is: 'ui-kit-preview-button',
 
     ready: function () {
+        var codeBtns = this.getElementsByClassName('code');
+        var preBtn = this.getElementsByClassName('icon');
 
-        // TODO: view source code
-        // var codeBtns = this.getElementsByClassName('code');
-        // for (var i = 0; i < codeBtns.length; ++i) {
-        //     codeBtns[i].addEventListener('click',function (event) {
-        //         var preview = event.target.nextElementSibling;
-        //         var markDown = document.createElement('marked-element');
-        //         markDown.markdown = '```html\r\n'+preview.innerHTML+'\r\n```';
-        //         preview.appendChild(markDown);
-        //     });
-        // }
+        for (var i = 0; i < codeBtns.length; ++i) {
+            codeBtns[i].addEventListener('click',function (event) {
+                if (event.target.parentElement.getElementsByTagName('code-view').length > 0) {
+                    return;
+                }
+                var preview = event.target.nextElementSibling;
+                event.target.nextElementSibling.style.display = 'none';
+                var codeView = document.createElement('code-view');
+                codeView.sourceCode = preview.nextElementSibling.value;
+                codeView.init();
+                preview.parentElement.appendChild(codeView);
+            });
+        }
+
+        for (var i = 0; i < preBtn.length; ++i) {
+            preBtn[i].addEventListener('click',function (event) {
+                if (event.target.parentElement.getElementsByTagName('code-view').length == 0) {
+                    return;
+                }
+                var codeView = event.target.parentElement.getElementsByTagName('code-view')[0];
+                event.target.parentElement.removeChild(codeView);
+                event.target.nextElementSibling.nextElementSibling.style.display = 'flex';
+            });
+        }
     },
 });
 
