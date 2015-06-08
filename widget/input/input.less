@@ -10,9 +10,7 @@
 :host {
     display: flex;
     position: relative;
-
     box-sizing: border-box;
-    width: 120px;
     min-width: 60px;
     border: 1px solid @color-outter-border;
     cursor: default;
@@ -39,11 +37,11 @@
     background: @color-bg-disabled;
 }
 
-:host[disabled] .input-area {
+:host[disabled] #inputArea {
     color: @color-input - 50%;
 }
 
-:host[disabled] * {
+:host[disabled] #inputArea {
     pointer-events: none;
 }
 
@@ -52,7 +50,6 @@
     padding: 2px 4px;
     border: 0;
     margin: 0;
-    font-size: 12px;
     width: 100%;
 
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -73,4 +70,24 @@
 
 #inputArea:focus {
     outline: none;
+}
+
+:host.mini #inputArea {
+    font-size: 0.8rem;
+}
+
+:host.small #inputArea {
+    font-size: 1rem;
+}
+
+:host #inputArea {
+    font-size: 1.2rem;
+}
+
+:host.large #inputArea {
+    font-size: 1.6rem;
+}
+
+:host.big #inputArea {
+    font-size: 2rem;
 }
