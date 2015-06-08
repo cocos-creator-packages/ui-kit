@@ -22,6 +22,10 @@ Editor.registerWidget( 'editor-input', {
     },
 
     valueChanged: function () {
-        // TODO
+        this.$.inputArea.bindValue = this.value;
+    },
+
+    clear: function () {
+        this.value = '';
     },
 });
