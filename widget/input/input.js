@@ -9,6 +9,11 @@ Editor.registerWidget( 'editor-input', {
             notify: true,
             value: ''
         },
+        invalid: {
+            type: Boolean,
+            notify: true,
+            value: false
+        },
         value: {
             type: String,
             notify: true,
@@ -18,11 +23,11 @@ Editor.registerWidget( 'editor-input', {
     },
 
     ready: function () {
-        this._initFocusable(this.$.inputArea);
+        this._initFocusable(this.$.input);
     },
 
     valueChanged: function () {
-        this.$.inputArea.bindValue = this.value;
+        this.$.input.bindValue = this.value;
     },
 
     clear: function () {

@@ -37,15 +37,15 @@
     background: @color-bg-disabled;
 }
 
-:host[disabled] #inputArea {
+:host[disabled] #input {
     color: @color-input - 50%;
 }
 
-:host[disabled] #inputArea {
+:host[disabled] #input {
     pointer-events: none;
 }
 
-#inputArea {
+#input {
     display: block;
     padding: 2px 4px;
     border: 0;
@@ -62,32 +62,32 @@
     border: 1px solid black;
 }
 
-#inputArea::-webkit-input-placeholder {
+#input::-webkit-input-placeholder {
     font-style: italic;
     color: #666;
     text-shadow: none;
 }
 
-#inputArea:focus {
+#input:focus {
     outline: none;
 }
 
-:host.mini #inputArea {
+:host.mini #input {
     font-size: 0.8rem;
 }
 
-:host.small #inputArea {
+:host.small #input {
     font-size: 1rem;
 }
 
-:host #inputArea {
+:host #input {
     font-size: 1.2rem;
 }
 
-:host.large #inputArea {
+:host.large #input {
     font-size: 1.6rem;
 }
 
-:host.big #inputArea {
+:host.big #input {
     font-size: 2rem;
 }
