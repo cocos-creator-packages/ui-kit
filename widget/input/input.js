@@ -19,7 +19,7 @@ Editor.registerWidget( 'editor-input', {
             notify: true,
             value: '',
             observer: 'valueChanged'
-        }
+        },
     },
 
     ready: function () {
@@ -33,4 +33,26 @@ Editor.registerWidget( 'editor-input', {
     clear: function () {
         this.value = '';
     },
+
+    _keyDownAction: function (event) {
+        console.log(event);
+        if (event.which === 13) {
+            this.lastValue = this.value;
+            this.setBlur();
+        }
+        else if (event.which === 27) {
+            this.value = this.lastValue;
+            this.setBlur();
+        }
+    },
+
+    _onFocus: function ( event ) {
+        this._setFocused(true);
+        this.lastValue = this.value;
+    },
+
+   _onBlur: function ( event ) {
+       this._setFocused(false);
+   },
+
 });

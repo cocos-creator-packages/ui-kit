@@ -55,6 +55,25 @@ describe('<editor-input>', function() {
         expect(inputEl.hasAttribute('focused')).to.be.eql(false);
         done();
     });
+
+    it('can be confirm<press Enter>', function( done ) {
+        Tester.focus(inputEl);
+        inputEl.value = 'testValue';
+        expect(inputEl.lastValue).to.be.eql('');
+        Tester.keydown(inputEl.$.input,'enter');
+        expect(inputEl.value).to.be.eql('testValue');
+        done();
+    });
+
+    it('can be undo<press ESC>', function( done ) {
+        Tester.focus(inputEl);
+        inputEl.value = 'testValue';
+        expect(inputEl.lastValue).to.be.eql('');
+        Tester.keydown(inputEl.$.input,'esc');
+        expect(inputEl.value).to.be.eql('');
+        done();
+    });
+
 });
 
 describe('<editor-input value="{{foo}}">', function() {
