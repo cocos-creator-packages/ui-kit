@@ -47,7 +47,7 @@ Editor.registerPanel( 'ui-kit.panel', {
 
     _onSelect: function (event) {
         var viewDOM = Polymer.dom(this.$.view);
-        viewDOM.removeChild(viewDOM.firstChild);
+        viewDOM.removeChild(viewDOM.firstElementChild);
 
         var selectEl = event.target.value;
         var el = document.createElement(selectEl);
