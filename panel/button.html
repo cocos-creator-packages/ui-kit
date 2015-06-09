@@ -1,4 +1,4 @@
-<dom-module id="ui-kit-preview-button">
+<dom-module id="editor-button-preview">
     <style>
         :host {
         }
@@ -108,22 +108,6 @@
         </div>
 
         <div class="item">
-            <h2>editor-button[no-focus]</h2>
-            <div class="desc">
-                Implied that the button will not focus
-            </div>
-
-            <div class="content">
-                <div class="icon">Preview</div>
-                <div class="code">Source</div>
-                <div class="preview">
-                    <editor-button>Normal</editor-button>
-                    <editor-button no-focus>No Focus</editor-button>
-                </div>
-            </div>
-        </div>
-
-        <div class="item">
             <h2>editor-button[disabled]</h2>
             <div class="desc">
                 Disabled the button
@@ -142,6 +126,22 @@
                     <editor-button class="purple" disabled>Purple</editor-button>
                     <editor-button class="red" disabled>Red</editor-button>
                     <editor-button class="gray" disabled>Gray</editor-button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>editor-button[no-focus]</h2>
+            <div class="desc">
+                Implied that the button will not focus
+            </div>
+
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-button>Normal</editor-button>
+                    <editor-button no-focus>No Focus</editor-button>
                 </div>
             </div>
         </div>
@@ -169,7 +169,7 @@
 
 <script>
 Polymer( {
-    is: 'ui-kit-preview-button',
+    is: 'editor-button-preview',
 
     ready: function () {
 

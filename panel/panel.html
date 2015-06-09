@@ -28,7 +28,7 @@
             </select>
         </div>
         <div id="view" flex-1>
-            <ui-kit-preview-button></ui-kit-preview-button>
+            <editor-button-preview></editor-button-preview>
         </div>
     </template>
 </dom-module>
@@ -40,8 +40,8 @@ Editor.registerPanel( 'ui-kit.panel', {
     ready: function () {
         // NOTE: add preview page here
         this.previewPages = [
-            { name: 'button', value: 'ui-kit-preview-button' },
-            { name: 'input',  value: 'ui-kit-preview-input' },
+            { name: '<editor-button>', value: 'editor-button-preview' },
+            { name: '<editor-input>',  value: 'editor-input-preview' },
         ];
     },
 
