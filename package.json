@@ -14,7 +14,8 @@
     }
   },
   "widgets": {
-    "editor-button": "widget/button/button.html"
+    "editor-button": "widget/button/button.html",
+    "editor-input": "widget/input/input.html"
   },
   "panels": {
     "panel": {
@@ -28,6 +29,7 @@
     }
   },
   "tests": [
-      "test/button.html"
+      "test/button.html",
+      "test/input.html"
   ]
 }
