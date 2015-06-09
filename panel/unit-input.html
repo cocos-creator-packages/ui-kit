@@ -1,0 +1,155 @@
+<dom-module id="ui-kit-preview-unit-input">
+    <style>
+        :host {
+        }
+
+        .item {
+            margin: 10px;
+        }
+
+        h2 {
+            margin: 0px;
+            padding: 5px;
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        .desc {
+            font-size: 12px;
+            color: rgb(126, 126, 126);
+            padding-left: 10px;
+            margin: 10px;
+            border-left: 2px solid rgb(126, 126, 126);
+        }
+
+        .content {
+            background: rgb(51, 51, 51);
+            padding: 20px;
+            position: relative;
+
+        }
+        .icon {
+            width: 40px;
+            height: 16px;
+            background: white;
+            opacity: 0.6;
+            position: absolute;
+            right: 41px;
+            top: 0;
+            font-size: 10px;
+            color: black;
+            cursor: pointer;
+            text-align: center;
+        }
+        .code {
+            width: 40px;
+            height: 16px;
+            background: white;
+            opacity: 0.6;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 10px;
+            color: black;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .preview {
+            display: flex;
+            flex-flow:row wrap ;
+            justify-content:flex-start;
+            line-height: 30px;
+        }
+
+        .input {
+            width: 200px;
+        }
+
+        editor-unit-input {
+            margin: 5px;
+        }
+    </style>
+
+    <template>
+        <div class="item">
+            <h2>editor-unit-input.[disabled]</h2>
+            <div class="desc">
+                set attribute 'disabled'
+            </div>
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-unit-input></editor-unit-input>
+                    <editor-unit-input disabled></editor-unit-input>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>editor-unit-input.[invalid]</h2>
+            <div class="desc">
+                set attribute 'invalid'
+            </div>
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-unit-input value="{{bindValue}}" invalid></editor-unit-input>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>editor-unit-input.{size}</h2>
+            <div class="desc">
+                set class size
+            </div>
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview" style="flex-flow:column">
+                    <editor-unit-input class="mini input" placeholder="mini"></editor-unit-input>
+                    <editor-unit-input class="small input" placeholder="small"></editor-unit-input>
+                    <editor-unit-input class="input" placeholder="normal"></editor-unit-input>
+                    <editor-unit-input class="large input" placeholder="large"></editor-unit-input>
+                    <editor-unit-input class="big input" placeholder="big"></editor-unit-input>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>editor-unit-input.[value]</h2>
+            <div class="desc">
+                bind value
+            </div>
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-unit-input value="{{bindValue}}"></editor-unit-input>
+                    <editor-unit-input value="{{bindValue}}"></editor-unit-input>
+                </div>
+            </div>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'ui-kit-preview-unit-input',
+
+    properties: {
+        bindValue: {
+            type: Number,
+            notify: true,
+            value: 0,
+        }
+    },
+
+    ready: function () {
+    },
+});
+
+</script>
