@@ -1,0 +1,159 @@
+@color-outter-border : #555;
+@color-outter-border-focus : #0c70a6;
+@color-inner-border : black;
+@color-bg : #232323;
+@color-input : #aaa;
+@color-unit : #ddd;
+@color-button : #474747;
+@color-bg-disabled : #3a3a3a;
+
+:host {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    min-width: 60px;
+    border: 1px solid @color-outter-border;
+    cursor: default;
+    background: @color-bg;
+    flex-flow: row;
+}
+
+:host:focus {
+    outline: none;
+}
+
+:host:hover {
+    border: 1px solid @color-outter-border + 30%;
+}
+:host[focused] {
+    border: 1px solid @color-outter-border-focus;
+}
+
+:host[invalid] {
+    border: 1px solid red;
+}
+
+:host[disabled],:host[disabled] .btn {
+    pointer-events: none;
+    background: @color-bg-disabled;
+    color: #aaa - 50%;
+}
+
+:host[disabled] #inputArea {
+    color: @color-input - 50%;
+}
+
+:host[disabled] #inputArea {
+    pointer-events: none;
+}
+
+:host[disabled] * {
+    pointer-events: none;
+}
+
+#inputArea {
+    display: flex;
+    padding: 2px 4px;
+    border: 0;
+    margin: 0;
+    flex: 1;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: transparent;
+    color: @color-input;
+
+    pointer-events: auto;
+    user-select: auto;
+    cursor: auto;
+    border: 1px solid black;
+}
+
+#inputArea::selection {
+    background: rgb(208, 207, 207);
+}
+
+#inputArea::-webkit-outer-spin-button,
+#inputArea::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+#inputArea:focus {
+    outline: none;
+}
+
+:host.mini #inputArea {
+    font-size: 0.8rem;
+}
+
+:host.small #inputArea {
+    font-size: 1rem;
+}
+
+:host #inputArea {
+    font-size: 1.2rem;
+}
+
+:host.large #inputArea {
+    font-size: 1.6rem;
+}
+
+:host.big #inputArea {
+    font-size: 2rem;
+}
+
+:host.mini .btns {
+    font-size: 0.6rem;
+}
+
+:host.small .btns {
+    font-size: 0.6rem;
+}
+
+:host .btns {
+    font-size: 0.8rem;
+}
+
+:host.large .btns {
+    font-size: 1rem;
+}
+
+:host.big .btns {
+    font-size: 1.2rem;
+}
+
+.btns {
+    flex: 0 0 10px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    color: #aaa;
+}
+
+.btn {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #474747;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset;
+    border: 1px solid #000;
+    padding-left: 1px;
+    border-left: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #6c6c6c;
+}
+
+.btn:active {
+    background: #393939;
+    color: #aaa - 50%;
+}
+
+.btn:first-child {
+    border-bottom: none;
+}

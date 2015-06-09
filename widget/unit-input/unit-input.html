@@ -1,0 +1,33 @@
+<link rel="import" href="app://bower_components/iron-input/iron-input.html">
+
+<dom-module id="editor-unit-input">
+    <link rel="import" type="css" href="unit-input.css">
+
+    <template>
+        <input is="iron-input" id="inputArea" value="{{value::input}}"
+                type="number"
+                placeholder="-"
+                on-focus="_onFocus"
+                on-blur="_onBlur"
+                on-change="_onChange"
+                />
+        <div class="btns">
+            <span class="btn"
+                on-click="_stepUp"
+                on-mousedown="_growUp"
+                on-mouseup="_stopGrow"
+                >
+                <i class="fa fa-caret-up"></i>
+            </span>
+            <span class="btn"
+                on-click="_stepDown"
+                on-mousedown="_growDown"
+                on-mouseup="_stopGrow"
+                >
+                <i class="fa fa-caret-down"></i>
+            </span>
+        </div>
+    </template>
+
+    <script type="text/javascript" src="unit-input.js"></script>
+</dom-module
