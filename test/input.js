@@ -9,50 +9,44 @@ describe('<editor-input>', function() {
         });
     });
 
-    it('can be disabled', function( done ) {
+    it('should be disabled', function( done ) {
         inputEl.disabled = true;
         expect(inputEl.hasAttribute('disabled')).to.be.eql(true);
         done();
     });
 
-    it('can be set value', function( done ) {
-        inputEl.value = 'testValue';
-        expect(inputEl.$.input.value).to.be.eql('testValue');
-        done();
-    });
-
-    it('can be bidding value', function( done ) {
-        inputEl.value = 'testValue';
-        expect(inputEl.$.input.bindValue).to.be.eql('testValue');
-        done();
-    });
-
-    it('can be clear value', function( done ) {
-        inputEl.value = 'testValue';
-        expect(inputEl.$.input.bindValue).to.be.eql('testValue');
-        inputEl.clear();
-        expect(inputEl.value).to.be.eql('');
-        expect(inputEl.$.input.bindValue).to.be.eql('');
-        done();
-    });
-
-    it('test invalid', function( done ) {
+    it('should be invalid', function( done ) {
         inputEl.invalid = true;
         expect(inputEl.hasAttribute('invalid')).to.be.eql(true);
         done();
     });
 
-    it('can be focus', function( done ) {
+    it('should be focused', function( done ) {
         Tester.focus(inputEl);
         expect(inputEl.hasAttribute('focused')).to.be.eql(true);
         done();
     });
 
-    it('can be blur', function( done ) {
+    it('should be blur', function( done ) {
         Tester.focus(inputEl);
         expect(inputEl.hasAttribute('focused')).to.be.eql(true);
         Tester.blur(inputEl);
         expect(inputEl.hasAttribute('focused')).to.be.eql(false);
+        done();
+    });
+
+    it('should set el.$.input.value through el.value', function( done ) {
+        inputEl.value = 'testValue';
+        expect(inputEl.$.input.value).to.be.eql('testValue');
+        done();
+    });
+
+    it('should empty value after clear() called', function( done ) {
+        inputEl.value = 'testValue';
+        expect(inputEl.$.input.bindValue).to.be.eql('testValue');
+        inputEl.clear();
+        expect(inputEl.value).to.be.eql('');
+        expect(inputEl.$.input.bindValue).to.be.eql('');
         done();
     });
 });
@@ -103,7 +97,7 @@ describe('<editor-input disabled>', function() {
         });
     });
 
-    it('set element attribute disabled', function( done ) {
+    it('should be disabled', function( done ) {
         expect(inputEl.disabled).to.be.eql(true);
         done();
     });
@@ -119,7 +113,7 @@ describe('<editor-input invalid>', function() {
         });
     });
 
-    it('set element attribute invalid', function( done ) {
+    it('should be invalid', function( done ) {
         expect(inputEl.invalid).to.be.eql(true);
         done();
     });
