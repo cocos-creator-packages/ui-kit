@@ -1,0 +1,142 @@
+<dom-module id="ui-kit-preview-loading">
+    <style>
+        :host {
+        }
+
+        .item {
+            margin: 10px;
+        }
+
+        h2 {
+            margin: 0px;
+            padding: 5px;
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        .desc {
+            font-size: 12px;
+            color: rgb(126, 126, 126);
+            padding-left: 10px;
+            margin: 10px;
+            border-left: 2px solid rgb(126, 126, 126);
+        }
+
+        .content {
+            background: rgb(51, 51, 51);
+            padding: 20px;
+            position: relative;
+
+        }
+        .icon {
+            width: 40px;
+            height: 16px;
+            background: white;
+            opacity: 0.6;
+            position: absolute;
+            right: 41px;
+            top: 0;
+            font-size: 10px;
+            color: black;
+            cursor: pointer;
+            text-align: center;
+        }
+        .code {
+            width: 40px;
+            height: 16px;
+            background: white;
+            opacity: 0.6;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 10px;
+            color: black;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .preview {
+            display: flex;
+            flex-flow:row wrap ;
+            justify-content:flex-start;
+            line-height: 30px;
+        }
+
+        .input {
+            width: 200px;
+        }
+
+        editor-loading {
+            margin: 5px;
+        }
+    </style>
+
+    <template>
+        <div class="item">
+            <h2>editor-loading-text</h2>
+            <div class="desc">
+                set content text!
+            </div>
+            <div class="content">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-loading></editor-loading>
+                    <editor-loading>Loading</editor-loading>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>editor-loading-{invert}</h2>
+            <div class="desc">
+                set class 'invert'
+            </div>
+            <div class="content" style="background: #CFCFCF">
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview">
+                    <editor-loading>normal</editor-loading>
+                    <editor-loading class="invert">invert</editor-loading>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>editor-loading-{size}</h2>
+            <div class="desc">
+                editor-loading with different size
+            </div>
+            <div class="content" >
+                <div class="icon">Preview</div>
+                <div class="code">Source</div>
+                <div class="preview" style="flex-flow:column;justify-content: flex-start;">
+                    <editor-loading class="min">Min</editor-loading>
+                    <editor-loading class="small">Small</editor-loading>
+                    <editor-loading>Normal</editor-loading>
+                    <editor-loading class="large">Large</editor-loading>
+                    <editor-loading class="big">Big</editor-loading>
+                </div>
+            </div>
+        </div>
+
+    </template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'ui-kit-preview-loading',
+
+    properties: {
+        bindValue: {
+            type: String,
+            notify: true,
+            value: 'test',
+        }
+    },
+
+    ready: function () {
+    },
+});
+
+</script>
