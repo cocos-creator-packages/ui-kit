@@ -11,9 +11,9 @@ Editor.registerWidget( 'editor-input', {
         },
         invalid: {
             type: Boolean,
-            notify: true,
             value: false
         },
+
         value: {
             type: String,
             notify: true,
