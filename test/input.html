@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>editor-input tests</title>
+        <meta charset="utf-8">
+        <link rel="import" href="packages://tester/env/env-widget.html">
+        <link rel="import" href="widgets://editor-input/input.html">
+    </head>
+
+    <body>
+        <widget-fixture id="widget">
+            <template>
+                <editor-input></editor-input>
+            </template>
+        </widget-fixture>
+        <widget-fixture id="value">
+            <template>
+                <editor-input value="foobar"></editor-input>
+            </template>
+        </widget-fixture>
+        <widget-fixture id="disabled">
+            <template>
+                <editor-input disabled></editor-input>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="invalid">
+            <template>
+                <editor-input invalid></editor-input>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="bind-to-object">
+            <template>
+                <template is="dom-bind">
+                    <editor-input id="input" value="{{foo}}"></editor-input>
+                </template>
+            </template>
+        </widget-fixture>
+        <script src="input.js"></script>
+    </body>
+</html>
