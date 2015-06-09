@@ -34,7 +34,7 @@ Editor.registerWidget( 'editor-input', {
         this.value = '';
     },
 
-    _keyDownAction: function (event) {
+    _keyDown: function (event) {
         if (event.which === 13) {
             this.lastValue = this.value;
             this.setBlur();
