@@ -12,7 +12,7 @@
             desc="Set placeholder attribute"
         >
             <editor-input placeholder="placeholder"></editor-input>
-            <editor-input ></editor-input>
+            <editor-input on-changed="_onChanged" on-input-changed="_onInputChanged"></editor-input>
         </preview-item>
 
         <preview-item
@@ -46,8 +46,8 @@
             title="editor-input[value]"
             desc="Binds the value"
         >
-            <editor-input value="{{bindValue}}"></editor-input>
-            <editor-input value="{{bindValue}}"></editor-input>
+            <editor-input input-value="{{bindValue}}"></editor-input>
+            <editor-input input-value="{{bindValue}}"></editor-input>
         </preview-item>
     </template>
 </dom-module>
@@ -65,6 +65,14 @@ Polymer( {
     },
 
     ready: function () {
+    },
+
+    _onChanged: function (event) {
+        Editor.log(event.target.value);
+    },
+
+    _onInputChanged: function () {
+        Editor.log(event.target.inputValue);
     },
 });
 

@@ -14,23 +14,74 @@ Editor.registerWidget( 'editor-input', {
             value: false
         },
 
+        inputValue: {
+            type: String,
+            notify: true,
+            value: '',
+            observer: '_inputValueChanged'
+        },
+
         value: {
             type: String,
             notify: true,
             value: '',
-            observer: 'valueChanged'
+            observer: '_valueChanged'
         }
+
     },
 
     ready: function () {
         this._initFocusable(this.$.input);
     },
 
-    valueChanged: function () {
-        this.$.input.bindValue = this.value;
+    _inputValueChanged: function () {
+        this.fire('input-changed');
+    },
+
+    _valueChanged: function () {
+        this.inputValue = this.value;
+        this.fire('changed');
     },
 
     clear: function () {
         this.value = '';
+        this.inputValue = '';
     },
+
+    confirm: function () {
+        this.value = this.inputValue;
+    },
+
+    cancel: function() {
+        this.inputValue = this.value;
+    },
+
+    _onKeyDown: function (event) {
+        // keydown 'enter'
+        if (event.keyCode === 13) {
+            if (this.value !== this.inputValue) {
+                this.confirm();
+                this.setBlur();
+            }
+            else {
+                this.setBlur();
+            }
+        }
+        // keydown 'esc'
+        else if (event.keyCode === 27) {
+            this.cancel();
+            this.setBlur();
+        }
+    },
+
+    _onFocus: function ( event ) {
+        this._setFocused(true);
+        this.value = this.inputValue;
+    },
+
+    _onBlur: function ( event ) {
+        this._setFocused(false);
+        this.confirm();
+    },
+
 });
