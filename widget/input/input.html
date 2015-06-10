@@ -4,7 +4,7 @@
     <link rel="import" type="css" href="input.css">
 
     <template>
-        <input is="iron-input" id="input" value="{{inputValue::input}}"
+        <input is="iron-input" id="input" bind-value="{{inputValue}}"
                 type="text"
                 placeholder="{{placeholder}}"
                 on-focus="_onFocus"

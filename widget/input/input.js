@@ -57,14 +57,17 @@ Editor.registerWidget( 'editor-input', {
     },
 
     _onKeyDown: function (event) {
+        // keydown 'enter'
         if (event.keyCode === 13) {
             if (this.value !== this.inputValue) {
                 this.confirm();
                 this.setBlur();
-            }else {
+            }
+            else {
                 this.setBlur();
             }
         }
+        // keydown 'esc'
         else if (event.keyCode === 27) {
             this.cancel();
             this.setBlur();
@@ -76,9 +79,9 @@ Editor.registerWidget( 'editor-input', {
         this.value = this.inputValue;
     },
 
-   _onBlur: function ( event ) {
-       this._setFocused(false);
-       this.confirm();
-   },
+    _onBlur: function ( event ) {
+        this._setFocused(false);
+        this.confirm();
+    },
 
 });
