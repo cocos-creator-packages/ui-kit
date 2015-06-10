@@ -1,7 +1,11 @@
 Editor.registerWidget( 'editor-input', {
     is: 'editor-input',
 
-    behaviors: [EditorUI.focusable,Polymer.IronValidatableBehavior],
+    behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
+
+    listeners: {
+        'focused-changed': '_onFocusedChanged'
+    },
 
     properties: {
         placeholder: {
@@ -9,6 +13,7 @@ Editor.registerWidget( 'editor-input', {
             notify: true,
             value: ''
         },
+
         invalid: {
             type: Boolean,
             value: false
@@ -71,17 +76,17 @@ Editor.registerWidget( 'editor-input', {
         else if (event.keyCode === 27) {
             this.cancel();
             this.setBlur();
+            EditorUI.focusParent(this);
         }
     },
 
-    _onFocus: function ( event ) {
-        this._setFocused(true);
-        this.value = this.inputValue;
-    },
-
-    _onBlur: function ( event ) {
-        this._setFocused(false);
-        this.confirm();
+    _onFocusedChanged: function ( event ) {
+        if ( event.detail.value ) {
+            this.value = this.inputValue;
+        }
+        else {
+            this.confirm();
+        }
     },
 
 });

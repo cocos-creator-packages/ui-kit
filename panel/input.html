@@ -96,11 +96,11 @@ Polymer( {
     },
 
     _onChanged: function (event) {
-        Editor.log(event.target.value);
+        Editor.log('on-changed invoked, event.target.value = ' + event.target.value);
     },
 
     _onInputChanged: function () {
-        Editor.log(event.target.inputValue);
+        Editor.log('on-input-changed invoked, event.target.inputValue = ' + event.target.inputValue);
     },
 });
 
