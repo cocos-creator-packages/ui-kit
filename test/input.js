@@ -21,18 +21,28 @@ describe('<editor-input>', function() {
         done();
     });
 
-    it('can be bidding value', function( done ) {
-        inputEl.value = 'testValue';
-        expect(inputEl.$.input.bindValue).to.be.eql('testValue');
+    it('can be restore value', function( done ) {
+        Tester.focus(inputEl);
+        inputEl.inputValue = 'testValue';
+        inputEl.restore();
+        expect(inputEl.value).to.be.eql('');
+        done();
+    });
+
+    it('can be confirm value', function( done ) {
+        Tester.focus(inputEl);
+        inputEl.inputValue = 'testValue';
+        inputEl.confirm();
+        expect(inputEl.value).to.be.eql('testValue');
         done();
     });
 
     it('can be clear value', function( done ) {
         inputEl.value = 'testValue';
-        expect(inputEl.$.input.bindValue).to.be.eql('testValue');
+        expect(inputEl.inputValue).to.be.eql('testValue');
         inputEl.clear();
         expect(inputEl.value).to.be.eql('');
-        expect(inputEl.$.input.bindValue).to.be.eql('');
+        expect(inputEl.inputValue).to.be.eql('');
         done();
     });
 
@@ -58,8 +68,8 @@ describe('<editor-input>', function() {
 
     it('can be confirm<press Enter>', function( done ) {
         Tester.focus(inputEl);
-        inputEl.value = 'testValue';
-        expect(inputEl.lastValue).to.be.eql('');
+        inputEl.inputValue = 'testValue';
+        expect(inputEl.value).to.be.eql('');
         Tester.keydown(inputEl.$.input,'enter');
         expect(inputEl.value).to.be.eql('testValue');
         done();
@@ -67,8 +77,8 @@ describe('<editor-input>', function() {
 
     it('can be undo<press ESC>', function( done ) {
         Tester.focus(inputEl);
-        inputEl.value = 'testValue';
-        expect(inputEl.lastValue).to.be.eql('');
+        inputEl.inputValue = 'testValue';
+        expect(inputEl.value).to.be.eql('');
         Tester.keydown(inputEl.$.input,'esc');
         expect(inputEl.value).to.be.eql('');
         done();
@@ -107,7 +117,7 @@ describe('<editor-input value="foobar">', function() {
 
     it('should init value with foobar', function( done ) {
         expect(inputEl.value).to.be.eql('foobar');
-        expect(inputEl.$.input.bindValue).to.be.eql('foobar');
+        expect(inputEl.inputValue).to.be.eql('foobar');
         expect(inputEl.$.input.value).to.be.eql('foobar');
         done();
     });

@@ -7,35 +7,38 @@
     </head>
 
     <body>
-        <widget-fixture id="widget">
+        <widget-fixture id="widget" src="widgets://editor-input/input.html">
             <template>
                 <editor-input></editor-input>
             </template>
         </widget-fixture>
-        <widget-fixture id="value">
+
+        <widget-fixture id="value" src="widgets://editor-input/input.html">
             <template>
                 <editor-input value="foobar"></editor-input>
             </template>
         </widget-fixture>
-        <widget-fixture id="disabled">
+
+        <widget-fixture id="disabled" src="widgets://editor-input/input.html">
             <template>
                 <editor-input disabled></editor-input>
             </template>
         </widget-fixture>
 
-        <widget-fixture id="invalid">
+        <widget-fixture id="invalid" src="widgets://editor-input/input.html">
             <template>
                 <editor-input invalid></editor-input>
             </template>
         </widget-fixture>
 
-        <widget-fixture id="bind-to-object">
+        <widget-fixture id="bind-to-object" src="widgets://editor-input/input.html">
             <template>
                 <template is="dom-bind">
                     <editor-input id="input" value="{{foo}}"></editor-input>
                 </template>
             </template>
         </widget-fixture>
+        
         <script src="input.js"></script>
     </body>
 </html>
