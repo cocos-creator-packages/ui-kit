@@ -8,15 +8,15 @@
 
     <template>
         <preview-item
-            title="editor-input[placeholder]"
+            header="editor-input[placeholder]"
             desc="Set placeholder attribute"
         >
             <editor-input placeholder="placeholder"></editor-input>
-            <editor-input on-changed="_onChanged" on-input-changed="_onInputChanged"></editor-input>
+            <editor-input></editor-input>
         </preview-item>
 
         <preview-item
-            title="editor-input[disabled]"
+            header="editor-input[disabled]"
             desc="Disable the input"
         >
             <editor-input placeholder="normal"></editor-input>
@@ -24,14 +24,14 @@
         </preview-item>
 
         <preview-item
-            title="editor-input[invalid]"
+            header="editor-input[invalid]"
             desc="Invalid the input"
         >
             <editor-input value="Invalid input" invalid></editor-input>
         </preview-item>
 
         <preview-item
-            title="editor-input.{size}"
+            header="editor-input.{size}"
             desc="Different size for the input"
             vertical
         >
@@ -43,11 +43,33 @@
         </preview-item>
 
         <preview-item
-            title="editor-input[value]"
+            header="editor-input[value]"
             desc="Binds the value"
         >
-            <editor-input input-value="{{bindValue}}"></editor-input>
-            <editor-input input-value="{{bindValue}}"></editor-input>
+            <div>
+                <span>bind to input-value</span>
+                <editor-input input-value="{{myInputValue}}"></editor-input>
+                <editor-input input-value="{{myInputValue}}"></editor-input>
+            </div>
+            <div>
+                <span>bind to value</span>
+                <editor-input value="{{myValue}}"></editor-input>
+                <editor-input value="{{myValue}}"></editor-input>
+            </div>
+        </preview-item>
+
+        <preview-item
+            header="editor-input[event]"
+            desc="Binds the value"
+        >
+            <div>
+                <span>on-changed: </span>
+                <editor-input on-changed="_onChanged"></editor-input>
+            </div>
+            <div>
+                <span>on-input-changed: </span>
+                <editor-input on-input-changed="_onInputChanged"></editor-input>
+            </div>
         </preview-item>
     </template>
 </dom-module>
@@ -57,10 +79,16 @@ Polymer( {
     is: 'editor-input-preview',
 
     properties: {
-        bindValue: {
+        myValue: {
             type: String,
             notify: true,
-            value: 'test',
+            value: 'My Value',
+        },
+
+        myInputValue: {
+            type: String,
+            notify: true,
+            value: 'My Input Value',
         }
     },
 

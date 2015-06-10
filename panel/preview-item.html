@@ -5,7 +5,7 @@
             margin: 10px;
         }
 
-        .title {
+        .header {
             margin: 0px;
             padding: 5px;
             font-size: 18px;
@@ -61,7 +61,7 @@
     </style>
 
     <template>
-        <div class="title">{{title}}</div>
+        <div class="header">{{header}}</div>
         <div class="desc">{{desc}}</div>
         <div class="content">
             <div class="btn prev">Preview</div>
@@ -85,7 +85,7 @@ Polymer( {
             reflectToAttribute: true
         },
 
-        title: {
+        header: {
             type: String,
             value: 'Title',
         },
