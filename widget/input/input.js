@@ -25,7 +25,7 @@ Editor.registerWidget( 'editor-input', {
             type: String,
             notify: true,
             value: '',
-            observer: '_ValueChanged'
+            observer: '_valueChanged'
         }
 
     },
@@ -38,7 +38,7 @@ Editor.registerWidget( 'editor-input', {
         this.fire('input-changed');
     },
 
-    _ValueChanged: function () {
+    _valueChanged: function () {
         this.inputValue = this.value;
         this.fire('changed');
     },
@@ -52,7 +52,7 @@ Editor.registerWidget( 'editor-input', {
         this.value = this.inputValue;
     },
 
-    restore: function() {
+    cancel: function() {
         this.inputValue = this.value;
     },
 
@@ -60,14 +60,14 @@ Editor.registerWidget( 'editor-input', {
         if (event.keyCode === 13) {
             if (this.value !== this.inputValue) {
                 this.confirm();
-                this.setBlur(true);
+                this.setBlur();
             }else {
-                this.setBlur(false);
+                this.setBlur();
             }
         }
         else if (event.keyCode === 27) {
-            this.restore();
-            this.setBlur(true);
+            this.cancel();
+            this.setBlur();
         }
     },
 
@@ -76,12 +76,9 @@ Editor.registerWidget( 'editor-input', {
         this.value = this.inputValue;
     },
 
-   _onBlur: function ( event,notify) {
+   _onBlur: function ( event ) {
        this._setFocused(false);
        this.confirm();
-       if (notify) {
-           this.fire('changed');
-       }
    },
 
 });

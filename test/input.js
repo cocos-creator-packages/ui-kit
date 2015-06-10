@@ -42,10 +42,10 @@ describe('<editor-input>', function() {
     });
 
 
-    it('can be restore value', function( done ) {
+    it('can be cancel value', function( done ) {
         Tester.focus(inputEl);
         inputEl.inputValue = 'testValue';
-        inputEl.restore();
+        inputEl.cancel();
         expect(inputEl.value).to.be.eql('');
         done();
     });
