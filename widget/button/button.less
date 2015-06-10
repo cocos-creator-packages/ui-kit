@@ -11,25 +11,27 @@
 }
 
 .btn {
-    font-weight: bold;
+    font-weight: ;
     margin: 0px;
     min-width: 20px;
+    text-align: center;
+    padding: 7px 30px;
 
-    border: 1px solid @color-border-normal;
+    border: 1px solid #666666;
     border-radius: 2px;
-    padding: 4px 8px;
 
     cursor: pointer;
 
     /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
     font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+    color: #fafafa;
+    background: #4d4d4d;
+    transition: background 200ms ease;
 
 }
 
 .btn:hover {
-    background-image: linear-gradient(@color-button-bg-top + 10%, @color-button-bg-bottom + 10%);
+    background: #333333;
 }
 
 .btn:focus {
@@ -37,19 +39,17 @@
 }
 
 :host[pressed] .btn {
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+    color: #808080;
+    background:#262626;
 }
 
 :host[focused] .btn {
-    border-color: @color-border-focus;
+    border-color:#;
 }
 
 :host[disabled] .btn {
-    border-color: @color-border-normal + 20%;
-    background-image: linear-gradient(@color-button-bg-top - 10%, @color-button-bg-bottom - 10%);
-    color: @color-button-text - 80%;
+    background: #4d4d4d;
+    color:#808080;
 }
 
 :host[no-focus] .btn {
