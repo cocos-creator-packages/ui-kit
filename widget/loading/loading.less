@@ -11,17 +11,17 @@
     text-align: center;
 }
 
-.text {
+#text {
     text-align: center;
-    margin-top: 2.4em;
+    margin-top: 3em;
 }
 
 :host:before {
   position: absolute;
   content: '';
   top: 0;
-  border-radius: 500rem;
-  border: .2em solid rgba(0,0,0,.1);
+  border-radius: 10em;
+  border: .2em solid rgba(255,255,255,.1);
   left: 50%;
 }
 
@@ -33,19 +33,18 @@
 }
 
 :host:after {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 50%;
-  -webkit-animation: loader .6s linear;
-  animation: loader .6s linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  border-radius: 500rem;
-  border-color: #aaa transparent transparent;
-  border-style: solid;
-  border-width: .2em;
-  box-shadow: 0 0 0 1px transparent;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    animation: loader .8s linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border-radius: 10em;
+    border-color: #FFF transparent transparent;
+    border-style: solid;
+    border-width: .2em;
+    box-shadow: 0 0 0 1px transparent;
 }
 
 @keyframes loader {
@@ -57,6 +56,23 @@
   }
 }
 
+@keyframes loader_reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+:host[disabled] {
+    visibility: hidden;
+}
+
+:host.reverse:after {
+    animation: loader_reverse .8s linear;
+    animation-iteration-count: infinite;
+}
 
 :host.min {
     font-size: .4em;
@@ -74,18 +90,55 @@
     font-size: 1.8em;
 }
 
-:host.big .text{
-    margin-top: 2.5em;
+// speed
+
+:host.most-slow:after {
+    animation-duration: 2s;
 }
 
-:host.invert {
-    color: black;
+:host.slow:after {
+    animation-duration: 1s;
 }
 
-:host.invert:before {
-    // border-color: rgba(255, 255, 255, 0.5);
-    border: .2em solid rgba(0,0,0,.1);
+:host.fast:after {
+    animation-duration: 0.6s;
 }
-:host.invert:after {
-    border-color: rgb(10, 10, 10) transparent transparent;
+
+:host.most-fast:after {
+    animation-duration: 0.3s;
+}
+
+:host.oneself:before{
+    opacity: 0;
+}
+
+
+// Color
+
+:host.orange:after {
+    border-color: rgb(255,75,0) transparent transparent;
+}
+
+:host.green:after {
+    border-color: rgb(0, 194, 8) transparent transparent;
+}
+
+:host.black:after {
+    border-color: #000000 transparent transparent;
+}
+
+:host.yellow:after {
+    border-color: rgb(255, 200, 0) transparent transparent;
+}
+
+:host.blue:after {
+    border-color: rgb(24, 134, 236) transparent transparent;
+}
+
+:host.red:after {
+    border-color: rgb(231, 37, 37) transparent transparent;
+}
+
+:host.purple:after {
+    border-color: rgb(114, 26, 214) transparent transparent;
 }

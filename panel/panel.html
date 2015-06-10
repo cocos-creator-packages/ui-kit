@@ -1,20 +1,38 @@
+<link rel="import" href="packages://ui-kit/widget/index.html">
+<link rel="import" href="preview-item.html">
+
 <link rel="import" href="button.html">
 <link rel="import" href="input.html">
 <link rel="import" href="loading.html">
-<link rel="import" href="packages://ui-kit/widget/index.html">
 
 <dom-module id="ui-kit-preview">
     <style>
         :host {
-            padding: 10px;
-            overflow-y: scroll;
+            @apply(--layout-vertical);
+        }
+
+        .toolbar {
+            margin: 10px;
+        }
+
+        #view {
+            margin: 10px;
+            overflow-y: auto;
             overflow-x: hidden;
         }
     </style>
 
     <template>
-        <select id="select" on-change="_changeUI"></select>
-        <ui-kit-preview-button></ui-kit-preview-button>
+        <div class="toolbar">
+            <select on-change="_onSelect">
+                <template is="dom-repeat" items="{{previewPages}}">
+                    <option value="{{item.value}}">{{item.name}}</option>
+                </template>
+            </select>
+        </div>
+        <div id="view" flex-1>
+            <editor-button-preview></editor-button-preview>
+        </div>
     </template>
 </dom-module>
 
@@ -22,27 +40,22 @@
 Editor.registerPanel( 'ui-kit.panel', {
     is: 'ui-kit-preview',
 
-    created: function () {
-        // NOTE: 在这里添加要预览的element名称 name为显示的名称,value为polymer注册的name
-        this.uiKits = [
-            {name:'button',value:'ui-kit-preview-button'},
-            {name:'input',value:'ui-kit-preview-input'},
-            {name:'loading',value:'ui-kit-preview-loading'},
+    ready: function () {
+        // NOTE: add preview page here
+        this.previewPages = [
+            { name: '<editor-button>', value: 'editor-button-preview' },
+            { name: '<editor-input>',  value: 'editor-input-preview' },
+            { name: '<editor-loading>',  value: 'editor-loading-preview' },
         ];
     },
 
-    ready: function () {
-        for (var item in this.uiKits) {
-            this.$.select.innerHTML += '<option value="'+this.uiKits[item].value+'">'+this.uiKits[item].name+'</option>';
-        }
-    },
+    _onSelect: function (event) {
+        var viewDOM = Polymer.dom(this.$.view);
+        viewDOM.removeChild(viewDOM.firstElementChild);
 
-    _changeUI: function (event) {
         var selectEl = event.target.value;
-        this.innerHTML = '';
-        this.appendChild(event.target);
-        var Ele = document.createElement(selectEl);
-        this.appendChild(Ele);
+        var el = document.createElement(selectEl);
+        viewDOM.appendChild(el);
     },
 });
 
