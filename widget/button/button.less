@@ -44,7 +44,7 @@
 }
 
 :host[focused] .btn {
-    border-color:#;
+    border-color:#666;
 }
 
 :host[disabled] .btn {
@@ -53,7 +53,7 @@
 }
 
 :host[no-focus] .btn {
-    border-color: @color-border-normal !important;
+    border-color: #666;
 }
 
 /*
@@ -88,33 +88,24 @@ color
 ==================
 */
 
-:host.black .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #000 + 40%;
-    @color-button-bg-bottom: #000;
+:host.white .btn {
+    @color-button-text: #fafafa;
     color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+    transition: color 200ms ease;
+    background: none;
+    border: none;
 }
 
-:host[disabled].black .btn {
-    @color-button-bg-top: #323131;
-    @color-button-bg-bottom: #272626;
-    color: @color-button-text - 80%;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+:host[disabled].white .btn {
+    color: #5b5b5b;
 }
 
-:host.black .btn:hover {
-    @color-button-bg-top: #000 + 40%;
-    @color-button-bg-bottom: #000;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+:host.white .btn:hover {
+    color: #666666;
 }
 
-:host[pressed].black .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #000 + 40%;
-    @color-button-bg-bottom: #000;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+:host[pressed].white .btn {
+    color: #6d6d6d;
 }
 
 
