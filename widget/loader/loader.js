@@ -10,20 +10,20 @@ Editor.registerWidget( 'editor-loader', {
     },
 
     ready: function () {
-        this.stopUpdate = false;
-        this.originPosition = '';
-        this.node = null;
+        this._stopUpdate = false;
+        this._originPosition = '';
+        this._node = null;
     },
 
     initLoader: function (node) {
-        this.stopUpdate = false;
-        this.node = node;
-        this.node.style.pointerEvents = 'none';
-        this.stopLoading = false;
-        this.originPosition = window.getComputedStyle(node)['position'];
+        this._stopUpdate = false;
+        this._node = node;
 
-        if (this.originPosition !== 'absolute') {
-            this.node.style.position = 'relative';
+        this.stopLoading = false;
+        this._originPosition = window.getComputedStyle(node)['position'];
+
+        if (this._originPosition !== 'absolute' && this._originPosition !== 'relative' && this._originPosition !== 'fixed') {
+            this._node.style.position = 'relative';
         }
 
         this.style.background = 'rgba(0,0,0,.5)';
@@ -42,7 +42,7 @@ Editor.registerWidget( 'editor-loader', {
 
     _update: function () {
         window.requestAnimationFrame(function () {
-            if (this.stopUpdate) {
+            if (this._stopUpdate) {
                 return;
             }
             this.$.animate.style.marginTop = this.getBoundingClientRect().height / 2 - this.$.animate.getBoundingClientRect().height / 2;
@@ -51,9 +51,8 @@ Editor.registerWidget( 'editor-loader', {
     },
 
     clear: function () {
-        this.stopUpdate = true;
-        this.node.style.pointerEvents = 'auto';
-        this.node.style.position = this.originPosition;
+        this._stopUpdate = true;
+        this._node.style.position = this._originPosition;
         this.remove();
     },
 });
