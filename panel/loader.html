@@ -95,31 +95,6 @@
 <script>
 Polymer( {
     is: 'editor-loader-preview',
-
-    properties: {
-        myValue: {
-            type: String,
-            notify: true,
-            value: 'My Value',
-        },
-
-        myInputValue: {
-            type: String,
-            notify: true,
-            value: 'My Input Value',
-        }
-    },
-
-    ready: function () {
-    },
-
-    _onChanged: function (event) {
-        Editor.log(event.target.value);
-    },
-
-    _onInputChanged: function () {
-        Editor.log(event.target.inputValue);
-    },
 });
 
 </script>
