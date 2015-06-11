@@ -328,3 +328,63 @@ color
     color: @color-button-text - 20%;
     background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
+
+:host.flat .btn {
+    @color-button-text: #fafafa;
+    @color-button-bg: #4d4d4d;
+    @color-button-border:#666;
+    color: @color-button-text;
+    background: @color-button-bg;
+    border: 1px solid @color-button-border;
+    transition: background 200ms ease;
+    font-weight: normal;
+    padding: 7px 40px;
+}
+
+:host.flat[disabled] .btn {
+    @color-button-text: #808080;
+    @color-button-bg: #4d4d4d;
+    color: @color-button-text;
+    background: @color-button-bg;
+}
+
+:host.flat .btn:hover {
+    @color-button-bg: #333333;
+    background: @color-button-bg;
+}
+
+:host.flat[pressed] .btn {
+    @color-button-text: #808080;
+    @color-button-bg: #333;
+    color: @color-button-text;
+    background: @color-button-bg;
+    box-shadow: none;
+}
+
+:host.transparent .btn {
+    @color-button-text: #fafafa;
+    color: @color-button-text;
+    background: none;
+    border: none;
+    transition: color 200ms ease;
+    font-weight: normal;
+    padding: 7px 30px;
+}
+
+:host.transparent[disabled] .btn {
+    @color-button-text: #808080;
+    color: @color-button-text;
+    background: none;
+}
+
+:host.transparent .btn:hover {
+    @color-button-text: #808080;
+    color: @color-button-text;
+}
+
+:host.transparent[pressed] .btn {
+    @color-button-text: #525252;
+    color: @color-button-text;
+    background: none;
+    box-shadow: none;
+}
