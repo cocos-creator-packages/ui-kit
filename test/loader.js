@@ -24,4 +24,23 @@ describe('<editor-loader>', function() {
         expect(div.getElementsByTagName('editor-loader').length).to.be.eql(0);
         done();
     });
+
+    it('should be set mask', function( done ) {
+        loaderEl.mask = true;
+        expect(loaderEl.hasAttribute('mask')).to.be.eql(true);
+        sinon.spy(loaderEl,'initLoader');
+        loaderEl.ready();
+        assert( loaderEl.initLoader.calledOnce );
+        loaderEl.mask = false;
+        expect(loaderEl.hasAttribute('mask')).to.be.eql(false);
+        done();
+    });
+
+    it('should be set attribute mask', function( done ) {
+        loaderEl.setAttribute('mask','');
+        sinon.spy(loaderEl,'initLoader');
+        loaderEl.ready();
+        assert( loaderEl.initLoader.calledOnce );
+        done();
+    });
 });
