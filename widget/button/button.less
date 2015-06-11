@@ -11,27 +11,25 @@
 }
 
 .btn {
-    font-weight: ;
+    font-weight: bold;
     margin: 0px;
     min-width: 20px;
-    text-align: center;
-    padding: 7px 30px;
 
-    border: 1px solid #666666;
+    border: 1px solid @color-border-normal;
     border-radius: 2px;
+    padding: 4px 8px;
 
     cursor: pointer;
 
     /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
     font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    color: #fafafa;
-    background: #4d4d4d;
-    transition: background 200ms ease;
+    color: @color-button-text;
+    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 
 }
 
 .btn:hover {
-    background: #333333;
+    background-image: linear-gradient(@color-button-bg-top + 10%, @color-button-bg-bottom + 10%);
 }
 
 .btn:focus {
@@ -39,21 +37,23 @@
 }
 
 :host[pressed] .btn {
-    color: #808080;
-    background:#262626;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    color: @color-button-text - 20%;
+    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 :host[focused] .btn {
-    border-color:#666;
+    border-color: @color-border-focus;
 }
 
 :host[disabled] .btn {
-    background: #4d4d4d;
-    color:#808080;
+    border-color: @color-border-normal + 20%;
+    background-image: linear-gradient(@color-button-bg-top - 10%, @color-button-bg-bottom - 10%);
+    color: @color-button-text - 80%;
 }
 
 :host[no-focus] .btn {
-    border-color: #666666;
+    border-color: @color-border-normal !important;
 }
 
 /*
@@ -88,24 +88,33 @@ color
 ==================
 */
 
-:host.white .btn {
-    @color-button-text: #fafafa;
+:host.black .btn {
+    @color-button-text: white;
+    @color-button-bg-top: #000 + 40%;
+    @color-button-bg-bottom: #000;
     color: @color-button-text;
-    transition: color 200ms ease;
-    background: none;
-    border: none;
+    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
-:host[disabled].white .btn {
-    color: #5b5b5b;
+:host[disabled].black .btn {
+    @color-button-bg-top: #323131;
+    @color-button-bg-bottom: #272626;
+    color: @color-button-text - 80%;
+    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
-:host.white .btn:hover {
-    color: #666666;
+:host.black .btn:hover {
+    @color-button-bg-top: #000 + 40%;
+    @color-button-bg-bottom: #000;
+    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
-:host[pressed].white .btn {
-    color: #6d6d6d;
+:host[pressed].black .btn {
+    @color-button-text: white;
+    @color-button-bg-top: #000 + 40%;
+    @color-button-bg-bottom: #000;
+    color: @color-button-text - 20%;
+    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 
@@ -318,4 +327,64 @@ color
     @color-button-bg-bottom: #E0E0E0;
     color: @color-button-text - 20%;
     background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+}
+
+:host.flat .btn {
+    @color-button-text: #fafafa;
+    @color-button-bg: #4d4d4d;
+    @color-button-border:#666;
+    color: @color-button-text;
+    background: @color-button-bg;
+    border: 1px solid @color-button-border;
+    transition: background 200ms ease;
+    font-weight: normal;
+    padding: 7px 40px;
+}
+
+:host.flat[disabled] .btn {
+    @color-button-text: #808080;
+    @color-button-bg: #4d4d4d;
+    color: @color-button-text;
+    background: @color-button-bg;
+}
+
+:host.flat .btn:hover {
+    @color-button-bg: #333333;
+    background: @color-button-bg;
+}
+
+:host.flat[pressed] .btn {
+    @color-button-text: #808080;
+    @color-button-bg: #333;
+    color: @color-button-text;
+    background: @color-button-bg;
+    box-shadow: none;
+}
+
+:host.transparent .btn {
+    @color-button-text: #fafafa;
+    color: @color-button-text;
+    background: none;
+    border: none;
+    transition: color 200ms ease;
+}
+
+:host.transparent[disabled] .btn {
+    @color-button-text: #808080;
+    @color-button-bg: #4d4d4d;
+    color: @color-button-text;
+    background: @color-button-bg;
+}
+
+:host.transparent .btn:hover {
+    @color-button-bg: #333333;
+    background: @color-button-bg;
+}
+
+:host.transparent[pressed] .btn {
+    @color-button-text: #808080;
+    @color-button-bg: #333;
+    color: @color-button-text;
+    background: @color-button-bg;
+    box-shadow: none;
 }
