@@ -367,24 +367,24 @@ color
     background: none;
     border: none;
     transition: color 200ms ease;
+    font-weight: normal;
+    padding: 7px 30px;
 }
 
 :host.transparent[disabled] .btn {
     @color-button-text: #808080;
-    @color-button-bg: #4d4d4d;
     color: @color-button-text;
-    background: @color-button-bg;
+    background: none;
 }
 
 :host.transparent .btn:hover {
-    @color-button-bg: #333333;
-    background: @color-button-bg;
+    @color-button-text: #808080;
+    color: @color-button-text;
 }
 
 :host.transparent[pressed] .btn {
-    @color-button-text: #808080;
-    @color-button-bg: #333;
+    @color-button-text: #525252;
     color: @color-button-text;
-    background: @color-button-bg;
+    background: none;
     box-shadow: none;
 }
