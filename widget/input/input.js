@@ -66,11 +66,9 @@ Editor.registerWidget( 'editor-input', {
         if (event.keyCode === 13) {
             if (this.value !== this.inputValue) {
                 this.confirm();
-                this.setBlur();
             }
-            else {
-                this.setBlur();
-            }
+            this.setBlur();
+            EditorUI.focusParent(this);
         }
         // keydown 'esc'
         else if (event.keyCode === 27) {
