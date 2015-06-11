@@ -1,0 +1,125 @@
+<dom-module id="editor-loader-preview">
+    <style>
+        editor-loader {
+            margin: 5px;
+        }
+        preview-item:shadow .content.preview-item {
+            min-height: 100px;
+        }
+    </style>
+
+    <template>
+        <preview-item
+            header="editor-loader[text]"
+            desc="Set attribute [text='xxx'] "
+        >
+            <editor-loader></editor-loader>
+            <editor-loader text="Loading"></editor-loader>
+        </preview-item>
+
+        <preview-item
+            header="editor-loader.{reverse}"
+            desc="Set class with 'reverse' "
+        >
+            <editor-loader class="reverse" text="Reverse"></editor-loader>
+        </preview-item>
+
+        <preview-item
+            header="editor-loader.{size}"
+            desc="Set class with different size "
+        >
+            <editor-loader class="min" text="Min"></editor-loader>
+            <editor-loader class="small" text="Small"></editor-loader>
+            <editor-loader text="Normal"></editor-loader>
+            <editor-loader class="large" text="Large"></editor-loader>
+            <editor-loader class="big" text="Big"></editor-loader>
+        </preview-item>
+
+        <preview-item
+            header="editor-loader.{speed}"
+            desc="Set class with different speed "
+        >
+        <editor-loader class="large most-slow" text="Most Slow"></editor-loader>
+            <editor-loader class="large slow" text="Slow"></editor-loader>
+            <editor-loader class="large" text="Normal"></editor-loader>
+            <editor-loader class="large fast" text="Fast"></editor-loader>
+            <editor-loader class="large most-fast" text="Most Fast"></editor-loader>
+        </preview-item>
+
+        <preview-item
+            header="editor-loader.{oneself}"
+            desc="Set class with 'oneself'"
+        >
+            <editor-loader class="min oneself"></editor-loader>
+            <editor-loader class="small oneself"></editor-loader>
+            <editor-loader class="oneself"></editor-loader>
+            <editor-loader class="large oneself"></editor-loader>
+            <editor-loader class="big oneself"></editor-loader>
+        </preview-item>
+
+        <preview-item
+            header="editor-loader's mask"
+            desc="call editor-loader.initLoader(node)"
+        >
+            <div style="width:100%;height:100px;text-align:center;line-height: 100px;background:rgb(215, 113, 140);" id="testNode">
+                I'm a `Div`
+            </div>
+            <div style="margin-top:10px;">
+                <editor-button onclick="load()">Load</editor-button>
+                <editor-button onclick="clearLoader()">Clear</editor-button>
+            </div>
+            <script>
+                var loader = document.createElement('editor-loader');
+                loader.text = 'Loading';
+                var node = document.getElementById('testNode');
+                loader.initLoader(node);
+                function load() {
+                    loader.initLoader(node);
+                }
+                function clearLoader() {
+                    loader.clear();
+                }
+            </script>
+        </preview-item>
+
+        <preview-item
+            header="editor-loader[disabled]"
+            desc="Set attribute 'disabled'"
+        >
+            <editor-loader disabled></editor-loader>
+        </preview-item>
+
+    </template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'editor-loader-preview',
+
+    properties: {
+        myValue: {
+            type: String,
+            notify: true,
+            value: 'My Value',
+        },
+
+        myInputValue: {
+            type: String,
+            notify: true,
+            value: 'My Input Value',
+        }
+    },
+
+    ready: function () {
+    },
+
+    _onChanged: function (event) {
+        Editor.log(event.target.value);
+    },
+
+    _onInputChanged: function () {
+        Editor.log(event.target.inputValue);
+    },
+});
+
+</script>
