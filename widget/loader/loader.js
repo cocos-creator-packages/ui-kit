@@ -2,13 +2,6 @@ Editor.registerWidget( 'editor-loader', {
     is: 'editor-loader',
 
     properties: {
-        disabled: {
-            type: Boolean,
-            notify: true,
-            value: false,
-            reflectToAttribute: true
-        },
-
         text: {
             type: String,
             notify: true,

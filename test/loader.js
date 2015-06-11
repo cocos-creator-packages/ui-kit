@@ -9,12 +9,6 @@ describe('<editor-loader>', function() {
         });
     });
 
-    it('should be disabled', function( done ) {
-        loaderEl.disabled = true;
-        expect(loaderEl.hasAttribute('disabled')).to.be.eql(true);
-        done();
-    });
-
     it('should be initLoader', function( done ) {
         var div = document.createElement('div');
         loaderEl.initLoader(div);
