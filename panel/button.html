@@ -1,64 +1,14 @@
-<dom-module id="ui-kit-preview-button">
+<template id="size">
+    <editor-button class="mini">Mini</editor-button>
+    <editor-button class="small">Small</editor-button>
+    <editor-button>Normal</editor-button>
+    <editor-button class="large">Large</editor-button>
+    <editor-button class="big">Big</editor-button>
+</template>
+
+<dom-module id="editor-button-preview">
     <style>
         :host {
-        }
-
-        .item {
-            margin: 10px;
-        }
-
-        h2 {
-            margin: 0px;
-            padding: 5px;
-            font-size: 18px;
-            color: #ccc;
-        }
-
-        .desc {
-            font-size: 12px;
-            color: rgb(126, 126, 126);
-            padding-left: 10px;
-            margin: 10px;
-            border-left: 2px solid rgb(126, 126, 126);
-        }
-
-        .content {
-            background: rgb(51, 51, 51);
-            padding: 20px;
-            position: relative;
-
-        }
-        .icon {
-            width: 40px;
-            height: 16px;
-            background: white;
-            opacity: 0.6;
-            position: absolute;
-            right: 41px;
-            top: 0;
-            font-size: 10px;
-            color: black;
-            cursor: pointer;
-            text-align: center;
-        }
-        .code {
-            width: 40px;
-            height: 16px;
-            background: white;
-            opacity: 0.6;
-            position: absolute;
-            right: 0;
-            top: 0;
-            font-size: 10px;
-            color: black;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .preview {
-            display: flex;
-            flex-flow:row wrap ;
-            justify-content:flex-start;
         }
 
         editor-button {
@@ -67,126 +17,78 @@
     </style>
 
     <template>
-        <div class="item">
-            <h2>editor-button.{size}</h2>
-            <div class="desc">
-                Custom button size by class
-            </div>
-            <div class="content">
-                <div class="icon">Preview</div>
-                <div class="code">Source</div>
-                <div class="preview">
-                    <editor-button class="mini">Mini</editor-button>
-                    <editor-button class="small">Small</editor-button>
-                    <editor-button>Normal</editor-button>
-                    <editor-button class="large">Large</editor-button>
-                    <editor-button class="big">Big</editor-button>
-                </div>
-            </div>
-        </div>
+        <preview-item
+            header="editor-button.{size}"
+            desc="Custom button size by class"
+        >
+            <editor-button class="mini">Mini</editor-button>
+            <editor-button class="small">Small</editor-button>
+            <editor-button>Normal</editor-button>
+            <editor-button class="large">Large</editor-button>
+            <editor-button class="big">Big</editor-button>
+        </preview-item>
 
-        <div class="item">
-            <h2>editor-button.{color}</h2>
-            <div class="desc">
-                Custom button color by class
-            </div>
-            <div class="content">
-                <div class="icon">Preview</div>
-                <div class="code">Source</div>
-                <div class="preview">
-                    <editor-button>Default</editor-button>
-                    <editor-button class="black">Black</editor-button>
-                    <editor-button class="yellow">Yellow</editor-button>
-                    <editor-button class="green">Green</editor-button>
-                    <editor-button class="blue">Blue</editor-button>
-                    <editor-button class="orange">Orange</editor-button>
-                    <editor-button class="purple">Purple</editor-button>
-                    <editor-button class="red">Red</editor-button>
-                    <editor-button class="gray">Gray</editor-button>
-                    <editor-button class="flat" >Flat</editor-button>
-                </div>
-            </div>
-        </div>
+        <preview-item
+            header="editor-button.{color}"
+            desc="Custom button color by class"
+        >
+            <editor-button>Default</editor-button>
+            <editor-button class="black">Black</editor-button>
+            <editor-button class="yellow">Yellow</editor-button>
+            <editor-button class="green">Green</editor-button>
+            <editor-button class="blue">Blue</editor-button>
+            <editor-button class="orange">Orange</editor-button>
+            <editor-button class="purple">Purple</editor-button>
+            <editor-button class="red">Red</editor-button>
+            <editor-button class="gray">Gray</editor-button>
+        </preview-item>
 
-        <div class="item">
-            <h2>editor-button[no-focus]</h2>
-            <div class="desc">
-                Implied that the button will not focus
-            </div>
+        <preview-item
+            header="editor-button[disabled]"
+            desc="Disabled the button"
+        >
+            <editor-button disabled>Default</editor-button>
+            <editor-button class="black" disabled>Black</editor-button>
+            <editor-button class="yellow" disabled>Yellow</editor-button>
+            <editor-button class="green" disabled>Green</editor-button>
+            <editor-button class="blue" disabled>Blue</editor-button>
+            <editor-button class="orange" disabled>Orange</editor-button>
+            <editor-button class="purple" disabled>Purple</editor-button>
+            <editor-button class="red" disabled>Red</editor-button>
+            <editor-button class="gray" disabled>Gray</editor-button>
+        </preview-item>
 
-            <div class="content">
-                <div class="icon">Preview</div>
-                <div class="code">Source</div>
-                <div class="preview">
-                    <editor-button>Normal</editor-button>
-                    <editor-button no-focus>No Focus</editor-button>
-                </div>
-            </div>
-        </div>
+        <preview-item
+            header="editor-button[no-focus]"
+            desc="Implied that the button will not focus"
+        >
+            <editor-button>Normal</editor-button>
+            <editor-button no-focus>No Focus</editor-button>
+        </preview-item>
 
-        <div class="item">
-            <h2>editor-button[disabled]</h2>
-            <div class="desc">
-                Disabled the button
-            </div>
-
-            <div class="content">
-                <div class="icon">Preview</div>
-                <div class="code">Source</div>
-                <div class="preview">
-                    <editor-button disabled>Default</editor-button>
-                    <editor-button class="black" disabled>Black</editor-button>
-                    <editor-button class="yellow" disabled>Yellow</editor-button>
-                    <editor-button class="green" disabled>Green</editor-button>
-                    <editor-button class="blue" disabled>Blue</editor-button>
-                    <editor-button class="orange" disabled>Orange</editor-button>
-                    <editor-button class="purple" disabled>Purple</editor-button>
-                    <editor-button class="red" disabled>Red</editor-button>
-                    <editor-button class="gray" disabled>Gray</editor-button>
-                    <editor-button class="flat" disabled>Flat</editor-button>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="item">
-            <h2>editor-button with different width</h2>
-            <div class="desc">
-                Button with different size
-            </div>
-
-            <div class="content">
-                <div class="icon">Preview</div>
-                <div class="code">Source</div>
-                <div class="preview">
-                    <editor-button style="width: 80px;">80px</editor-button>
-                    <editor-button style="width: 100px;">100px</editor-button>
-                    <editor-button style="width: 120px;">120px</editor-button>
-                    <editor-button style="width: 140px;">140px</editor-button>
-                    <editor-button>I'm a long looong loooong button </editor-button>
-                </div>
-            </div>
-        </div>
+        <preview-item
+            header="editor-button with different width"
+            desc="Button with different width"
+        >
+            <editor-button style="width: 80px;">80px</editor-button>
+            <editor-button style="width: 100px;">100px</editor-button>
+            <editor-button style="width: 120px;">120px</editor-button>
+            <editor-button style="width: 140px;">140px</editor-button>
+            <editor-button>I'm a long looong loooong button </editor-button>
+        </preview-item>
+        
+        <preview-item
+            header="editor-button.flat"
+            desc="Flat Button"
+        >
+            <editor-button class="flat">Flat</editor-button>
+        </preview-item>
     </template>
 </dom-module>
 
 <script>
 Polymer( {
-    is: 'ui-kit-preview-button',
-
-    ready: function () {
-
-        // TODO: view source code
-        // var codeBtns = this.getElementsByClassName('code');
-        // for (var i = 0; i < codeBtns.length; ++i) {
-        //     codeBtns[i].addEventListener('click',function (event) {
-        //         var preview = event.target.nextElementSibling;
-        //         var markDown = document.createElement('marked-element');
-        //         markDown.markdown = '```html\r\n'+preview.innerHTML+'\r\n```';
-        //         preview.appendChild(markDown);
-        //     });
-        // }
-    },
+    is: 'editor-button-preview',
 });
 
 </script>

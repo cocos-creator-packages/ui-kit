@@ -4,12 +4,14 @@
     <link rel="import" type="css" href="input.css">
 
     <template>
-        <input is="iron-input" id="input" value="{{value::input}}" bindValue="{{value::input}}"
+        <input is="iron-input" id="input" bind-value="{{inputValue}}"
                 type="text"
                 placeholder="{{placeholder}}"
                 on-focus="_onFocus"
                 on-blur="_onBlur"
+                on-keydown="_onKeyDown"
                 />
+
     </template>
 
     <script type="text/javascript" src="input.js"></script>

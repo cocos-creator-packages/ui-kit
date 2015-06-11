@@ -3,6 +3,11 @@ Editor.registerWidget( 'editor-button', {
 
     behaviors: [EditorUI.focusable, Polymer.IronButtonState],
 
+    listeners: {
+        'focus': '_onFocus',
+        'blur': '_onBlur',
+    },
+
     properties: {
         noFocus: {
             type: Boolean,
