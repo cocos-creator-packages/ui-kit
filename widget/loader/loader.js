@@ -16,7 +16,6 @@ Editor.registerWidget( 'editor-loader', {
     },
 
     initLoader: function (node) {
-        this.disabled = false;
         this.stopUpdate = false;
         this.node = node;
         this.node.style.pointerEvents = 'none';
@@ -55,7 +54,6 @@ Editor.registerWidget( 'editor-loader', {
         this.stopUpdate = true;
         this.node.style.pointerEvents = 'auto';
         this.node.style.position = this.originPosition;
-        this.disabled = true;
         this.remove();
     },
 });
