@@ -17,7 +17,6 @@ Editor.registerWidget( 'editor-loader', {
     },
 
     ready: function () {
-        this._stopUpdate = false;
         this._originPosition = '';
         this._node = null;
 
@@ -27,7 +26,7 @@ Editor.registerWidget( 'editor-loader', {
     },
 
     initLoader: function (node) {
-        this._stopUpdate = false;
+        this.mask = true;
         this._node = node;
 
         this.stopLoading = false;
@@ -43,27 +42,10 @@ Editor.registerWidget( 'editor-loader', {
         this.style.top = 0;
         this.style.right = 0;
         this.style.bottom = 0;
-        this.$.animate.style.position = 'absolute';
-        this.$.animate.style.left = '50%';
-        this.$.animate.style.marginLeft = -this.$.animate.getBoundingClientRect().width / 2 - 5;
-        this.$.animate.style.marginTop = this.getBoundingClientRect().height / 2 - this.$.animate.getBoundingClientRect().height / 2;
         node.appendChild(this);
-        this._update();
-    },
-
-    _update: function () {
-        window.requestAnimationFrame(function () {
-            if (this._stopUpdate) {
-                return;
-            }
-            this.$.animate.style.marginLeft = -this.$.animate.getBoundingClientRect().width / 2 - 5;
-            this.$.animate.style.marginTop = this.getBoundingClientRect().height / 2 - this.$.animate.getBoundingClientRect().height / 2;
-            this._update();
-        }.bind(this));
     },
 
     clear: function () {
-        this._stopUpdate = true;
         this._node.style.position = this._originPosition;
         this.remove();
     },

@@ -71,6 +71,13 @@
   }
 }
 
+:host[mask] #animate {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
 :host.reverse #animate:after {
     animation: loader_reverse .8s linear;
     animation-iteration-count: infinite;
