@@ -7,29 +7,21 @@ Editor.registerWidget( 'editor-loader', {
             notify: true,
             value: '',
         },
-
-        mask: {
-            type: Boolean,
-            notify: true,
-            value: false,
-            reflectToAttribute: true,
-        }
     },
 
     ready: function () {
         this._originPosition = '';
         this._node = null;
 
-        if (this.mask && this.parentElement) {
+        if (this.hasAttribute('mask') && this.parentElement) {
             this.initLoader(this.parentElement);
         }
     },
 
     initLoader: function (node) {
-        this.mask = true;
+        this.setAttribute('mask','');
         this._node = node;
 
-        this.stopLoading = false;
         this._originPosition = window.getComputedStyle(node)['position'];
 
         if (this._originPosition !== 'absolute' && this._originPosition !== 'relative' && this._originPosition !== 'fixed') {
