@@ -3,7 +3,7 @@
         editor-loader {
             margin: 5px;
         }
-        preview-item:shadow .content.preview-item {
+        preview-item::shadow#preview {
             min-height: 100px;
         }
     </style>
@@ -13,15 +13,28 @@
             header="editor-loader[text]"
             desc="Set attribute [text='xxx'] "
         >
-            <editor-loader></editor-loader>
-            <editor-loader text="Loading"></editor-loader>
+            <editor-loader text="Loading" mask></editor-loader>
         </preview-item>
 
         <preview-item
             header="editor-loader.{reverse}"
             desc="Set class with 'reverse' "
         >
-            <editor-loader class="reverse" text="Reverse"></editor-loader>
+            <editor-loader mask class="reverse" text="Reverse"></editor-loader>
+        </preview-item>
+
+        <preview-item
+            header="editor-loader.{oneself}"
+            desc="Set class with 'oneself'"
+        >
+            <editor-loader class="oneself" mask></editor-loader>
+        </preview-item>
+
+        <preview-item
+            header="editor-loader[mask]"
+            desc="NO attribute 'mask'"
+        >
+            <editor-loader text="No mask"></editor-loader>
         </preview-item>
 
         <preview-item
@@ -47,22 +60,10 @@
         </preview-item>
 
         <preview-item
-            header="editor-loader.{oneself}"
-            desc="Set class with 'oneself'"
+            header="javascript API"
+            desc="call `editor-loader.initLoader(node)`"
         >
-            <editor-loader class="min oneself"></editor-loader>
-            <editor-loader class="small oneself"></editor-loader>
-            <editor-loader class="oneself"></editor-loader>
-            <editor-loader class="large oneself"></editor-loader>
-            <editor-loader class="big oneself"></editor-loader>
-        </preview-item>
-
-        <preview-item
-            header="editor-loader's mask"
-            desc="call editor-loader.initLoader(node)"
-        >
-            <div style="width:100%;height:100px;text-align:center;line-height: 100px;background:rgb(215, 113, 140);" id="testNode">
-                I'm a `Div`
+            <div style="width:100%;height:100px;text-align:center;line-height: 100px;background:rgb(4, 133, 205);" id="testNode">
             </div>
             <div style="margin-top:10px;">
                 <editor-button onclick="load()">Load</editor-button>
@@ -70,7 +71,7 @@
             </div>
             <script>
                 var loader = document.createElement('editor-loader');
-                loader.text = 'Loading';
+                loader.text = 'I\'m Automatically generate';
                 var node = document.getElementById('testNode');
                 loader.initLoader(node);
                 function load() {

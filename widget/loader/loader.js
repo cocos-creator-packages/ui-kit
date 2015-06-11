@@ -6,6 +6,13 @@ Editor.registerWidget( 'editor-loader', {
             type: String,
             notify: true,
             value: '',
+        },
+
+        mask: {
+            type: Boolean,
+            notify: true,
+            value: false,
+            reflectToAttribute: true,
         }
     },
 
@@ -13,6 +20,10 @@ Editor.registerWidget( 'editor-loader', {
         this._stopUpdate = false;
         this._originPosition = '';
         this._node = null;
+
+        if (this.mask && this.parentElement) {
+            this.initLoader(this.parentElement);
+        }
     },
 
     initLoader: function (node) {
@@ -45,6 +56,7 @@ Editor.registerWidget( 'editor-loader', {
             if (this._stopUpdate) {
                 return;
             }
+            this.$.animate.style.marginLeft = -this.$.animate.getBoundingClientRect().width / 2 - 5;
             this.$.animate.style.marginTop = this.getBoundingClientRect().height / 2 - this.$.animate.getBoundingClientRect().height / 2;
             this._update();
         }.bind(this));
