@@ -1,0 +1,122 @@
+
+:host {
+    position: relative;
+    z-index: 999;
+}
+
+#animate {
+    width: auto!important;
+    height: auto!important;
+    min-width: 2.6585em;
+    font-size: .9em;
+    border-radius: 500rem;
+    color: #fff;
+    text-align: center;
+    line-height: 50%;
+}
+
+#text {
+    text-align: center;
+    position: relative;
+    padding-top: 3em;
+    width: 100%;
+}
+
+#animate:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  border-radius: 10em;
+  border: .2em solid rgba(255,255,255,.1);
+  left: 50%;
+}
+
+#animate:after, #animate:before {
+  width: 2.2585em;
+  height: 2.2585em;
+  margin-left: -2.2585em/2 - 0.2em;
+  margin-top: -0.1em;
+}
+
+#animate:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    animation: loader .8s linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border-radius: 10em;
+    border-color: #FFF transparent transparent;
+    border-style: solid;
+    border-width: .2em;
+    box-shadow: 0 0 0 1px transparent;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader_reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+:host[mask] #animate {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+:host.reverse #animate:after {
+    animation: loader_reverse .8s linear;
+    animation-iteration-count: infinite;
+}
+
+:host.min #animate{
+    font-size: .4em;
+}
+
+:host.small #animate{
+    font-size: .6em;
+}
+
+:host.large #animate{
+    font-size: 1.2em;
+}
+
+:host.big #animate{
+    font-size: 1.8em;
+}
+
+// speed
+
+:host.very-slow #animate:after {
+    animation-duration: 2s;
+}
+
+:host.slow #animate:after {
+    animation-duration: 1s;
+}
+
+:host.fast #animate:after {
+    animation-duration: 0.6s;
+}
+
+:host.very-fast #animate:after {
+    animation-duration: 0.3s;
+}
+
+:host.oneself #animate:before{
+    opacity: 0;
+}
