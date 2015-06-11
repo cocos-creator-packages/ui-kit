@@ -25,20 +25,23 @@ describe('<editor-loader>', function() {
         done();
     });
 
-    it('should be set mask', function( done ) {
-        loaderEl.mask = true;
-        expect(loaderEl.hasAttribute('mask')).to.be.eql(true);
-        sinon.spy(loaderEl,'initLoader');
-        loaderEl.ready();
-        assert( loaderEl.initLoader.calledOnce );
-        loaderEl.mask = false;
-        expect(loaderEl.hasAttribute('mask')).to.be.eql(false);
+});
+
+describe('<editor-loader mask>', function() {
+    var loaderEl;
+    beforeEach(function ( done ) {
+        fixture('mask', function ( el ) {
+            loaderEl = el;
+            done();
+        });
+    });
+    afterEach(function ( done ) {
+        loaderEl.initLoader.restore();
         done();
     });
 
-    it('should be set attribute mask', function( done ) {
-        loaderEl.setAttribute('mask','');
-        sinon.spy(loaderEl,'initLoader');
+    it('should be set mask', function( done ) {
+        sinon.spy(loaderEl, 'initLoader');
         loaderEl.ready();
         assert( loaderEl.initLoader.calledOnce );
         done();
