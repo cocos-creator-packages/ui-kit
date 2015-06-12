@@ -16,7 +16,8 @@
   "widgets": {
     "editor-button": "widget/button/button.html",
     "editor-input": "widget/input/input.html",
-    "editor-loader": "widget/loader/loader.html"
+    "editor-loader": "widget/loader/loader.html",
+    "editor-checkbox": "widget/checkbox/checkbox.html"
   },
   "panels": {
     "panel": {
@@ -32,6 +33,7 @@
   "tests": [
       "test/button.html",
       "test/input.html",
-      "test/loader.html"
+      "test/loader.html",
+      "test/checkbox.html"
   ]
 }
