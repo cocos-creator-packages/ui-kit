@@ -9,7 +9,7 @@ Editor.registerWidget( 'editor-button', {
     },
 
     properties: {
-        noFocus: {
+        nofocus: {
             type: Boolean,
             value: false,
             notify: true,
@@ -18,7 +18,7 @@ Editor.registerWidget( 'editor-button', {
     },
 
     ready: function () {
-        this.noNavigate = this.noFocus;
+        this.noNavigate = this.nofocus;
         this._initFocusable(this);
     },
 });
