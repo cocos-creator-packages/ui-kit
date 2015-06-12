@@ -19,6 +19,7 @@ Editor.registerWidget( 'editor-checkbox', {
             type: Boolean,
             value: false,
             notify: true,
+            readOnly: true,
             reflectToAttribute: true,
         }
     },
@@ -30,7 +31,7 @@ Editor.registerWidget( 'editor-checkbox', {
     },
 
     _onChanged: function () {
-        this.checked = this.value;
+        this._setChecked(this.value);
         this.fire('changed');
     },
 
