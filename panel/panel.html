@@ -4,6 +4,7 @@
 <link rel="import" href="button.html">
 <link rel="import" href="input.html">
 <link rel="import" href="loader.html">
+<link rel="import" href="checkbox.html">
 
 <dom-module id="ui-kit-preview">
     <style>
@@ -46,6 +47,7 @@ Editor.registerPanel( 'ui-kit.panel', {
             { name: '<editor-button>', value: 'editor-button-preview' },
             { name: '<editor-input>',  value: 'editor-input-preview' },
             { name: '<editor-loader>',  value: 'editor-loader-preview' },
+            { name: '<editor-checkbox>',  value: 'editor-checkbox-preview' },
         ];
     },
 
@@ -57,6 +59,7 @@ Editor.registerPanel( 'ui-kit.panel', {
         var el = document.createElement(selectEl);
         viewDOM.appendChild(el);
     },
+
 });
 
 </script>

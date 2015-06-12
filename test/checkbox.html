@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>paper-input tests</title>
+        <meta charset="utf-8">
+        <link rel="import" href="packages://tester/env/env-widget.html">
+    </head>
+
+    <body>
+        <widget-fixture id="widget" src="widgets://editor-checkbox/checkbox.html">
+            <template>
+                <editor-checkbox></editor-checkbox>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="bind-to-object" src="widgets://editor-checkbox/checkbox.html">
+            <template>
+                <template is="dom-bind">
+                    <editor-checkbox id="checkbox" value="{{foo}}"></editor-input>
+                </template>
+            </template>
+        </widget-fixture>
+        <script src="checkbox.js"></script>
+    </body>
+</html>
