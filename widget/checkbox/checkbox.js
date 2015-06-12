@@ -4,8 +4,7 @@ Editor.registerWidget( 'editor-checkbox', {
     listeners: {
         'focus': '_onFocus',
         'blur': '_onBlur',
-        'click': '_onClick',
-        'keydown': '_onKeyDown'
+        'click': '_onClick'
     },
 
     properties: {
@@ -24,7 +23,7 @@ Editor.registerWidget( 'editor-checkbox', {
         }
     },
 
-    behaviors: [EditorUI.focusable],
+    behaviors: [EditorUI.focusable,Polymer.IronButtonState],
 
     ready: function () {
         this._initFocusable(this);
@@ -37,12 +36,5 @@ Editor.registerWidget( 'editor-checkbox', {
 
     _onClick: function (event) {
         this.value = !this.value;
-    },
-
-    _onKeyDown: function (event) {
-        // keypress 'space'
-        if (event.keyCode === 32) {
-            this.value = !this.value;
-        }
     },
 });

@@ -9,7 +9,7 @@ describe('<editor-checkbox>', function() {
         });
     });
 
-    it('can be click', function( done ) {
+    it('can be clicked', function( done ) {
         Tester.click(checkboxEl);
         expect(checkboxEl.hasAttribute('checked')).to.be.eql(true);
         expect(checkboxEl.value).to.be.eql(true);
@@ -30,15 +30,28 @@ describe('<editor-checkbox>', function() {
         done();
     });
 
-    it('can be press space', function( done ) {
+    it('can be invoked by press space', function( done ) {
         checkboxEl.value = false;
         Tester.pressSpace(checkboxEl);
-        expect(checkboxEl.hasAttribute('checked')).to.be.eql(true);
-        expect(checkboxEl.value).to.be.eql(true);
-        done();
+        setTimeout(function() {
+            expect(checkboxEl.hasAttribute('checked')).to.be.eql(true);
+            expect(checkboxEl.value).to.be.eql(true);
+            done();
+        },10);
     });
 
-    it('listen to "on-changed"', function( done ) {
+    it('can be invoked by press enter', function( done ) {
+        checkboxEl.value = false;
+        Tester.pressEnter(checkboxEl);
+        setTimeout(function() {
+            expect(checkboxEl.hasAttribute('checked')).to.be.eql(true);
+            expect(checkboxEl.value).to.be.eql(true);
+            done();
+        },10);
+
+    });
+
+    it('should fire changed event when value changed', function( done ) {
         checkboxEl.addEventListener('changed',function() {
             done();
         });
@@ -57,7 +70,7 @@ describe('<editor-checkbox value="{{foo}}">', function() {
         });
     });
 
-    it('shoudl bind value to foo', function(done) {
+    it('should bind value to foo', function(done) {
         checkboxEl.foo = true;
         expect(checkboxEl.$.checkbox.value).to.be.eql(true);
         expect(checkboxEl.$.checkbox.checked).to.be.eql(true);
