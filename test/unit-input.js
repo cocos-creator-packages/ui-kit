@@ -46,7 +46,7 @@ describe('<editor-unit-input>', function() {
         Tester.focus(unit);
         unit.inputValue = 123;
         unit.cancel();
-        expect(unit.value).to.be.eql('');
+        expect(unit.value).to.be.eql(0);
         done();
     });
 
