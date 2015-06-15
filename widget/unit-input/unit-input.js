@@ -3,10 +3,6 @@ Polymer({
 
     behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
 
-    listeners: {
-        'keyup': '_onKeyUp',
-    },
-
     properties: {
         invalid: {
             type: Boolean,
@@ -88,6 +84,7 @@ Polymer({
 
     cancel: function() {
         this._inputValue = this.value.toString();
+        this.fire('changed');
     },
 
     _onKeyDown: function (event) {
@@ -117,13 +114,6 @@ Polymer({
         }
     },
 
-    _onKeyUp: function (event) {
-        if (event.keyCode === 38 || event.keyCode === 40) {
-            this.confirm();
-            this.fire('changed');
-        }
-    },
-
     _stepUp: function () {
         if (this._nullToFloat(this._inputValue) + this.step >= this._max) {
             this._inputValue = this._max;
@@ -136,7 +126,8 @@ Polymer({
     _stepDown: function () {
         if (this._nullToFloat(this._inputValue) - this.step <= this._min) {
             this._inputValue = this._min;
-        }else {
+        }
+        else {
             this._inputValue = this._nullToFloat(this._inputValue) - this.step;
         }
     },
@@ -195,7 +186,7 @@ Polymer({
 
     _onBindValueChanged: function () {
         if (this.inputValue === this._convert(this._inputValue)) {
-            this.fire('input-changed');
+
             return;
         }
         this.inputValue = this._convert(this._inputValue);
