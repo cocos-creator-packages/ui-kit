@@ -16,12 +16,6 @@ Polymer({
             observer: 'valueChanged',
         },
 
-        _inputValue: {
-            type: String,
-            notify: true,
-            value: '0',
-        },
-
         inputValue: {
             type: Number,
             notify: true,
@@ -55,10 +49,13 @@ Polymer({
     ready: function () {
         this._initFocusable(this.$.input);
         this._updateMinMax();
+        if (this.$.input.bindValue === '') {
+            this.$.input.bindValue = '0';
+        }
     },
 
     attached: function () {
-        this.value = this.inputValue = this._convert(this._inputValue);
+        this.value = this.inputValue = this._convert(this.$.input.bindValue);
     },
 
     _updateMinMax: function () {
@@ -67,30 +64,30 @@ Polymer({
     },
 
     inputValueChanged: function () {
-        this._inputValue = this.inputValue.toString();
+        this.$.input.bindValue = this.inputValue.toString();
         this.fire('input-changed');
     },
 
     valueChanged: function () {
         this.value = this._convert(this.value);
-        this._inputValue = this._convert(this.value).toString();
+        this.$.input.bindValue = this._convert(this.value).toString();
     },
 
     confirm: function () {
-        this.value = this._convert(this._inputValue);
-        this.inputValue = this._convert(this._inputValue);
-        this._inputValue = this.value.toString();
+        this.value = this._convert(this.$.input.bindValue);
+        this.inputValue = this._convert(this.$.input.bindValue);
+        this.$.input.bindValue = this.value.toString();
     },
 
     cancel: function() {
-        this._inputValue = this.value.toString();
+        this.$.input.bindValue = this.value.toString();
         this.fire('changed');
     },
 
     _onKeyDown: function (event) {
         // keydown 'enter'
         if (event.keyCode === 13) {
-            if (this.value !== this._inputValue) {
+            if (this.value !== this.$.input.bindValue) {
                 this.confirm();
             }
             this.setBlur();
@@ -115,20 +112,20 @@ Polymer({
     },
 
     _stepUp: function () {
-        if (this._nullToFloat(this._inputValue) + this.step >= this._max) {
-            this._inputValue = this._max;
+        if (this._nullToFloat(this.$.input.bindValue) + this.step >= this._max) {
+            this.$.input.bindValue = this._max;
         }
         else {
-            this._inputValue = this._nullToFloat(this._inputValue) + this.step;
+            this.$.input.bindValue = this._nullToFloat(this.$.input.bindValue) + this.step;
         }
     },
 
     _stepDown: function () {
-        if (this._nullToFloat(this._inputValue) - this.step <= this._min) {
-            this._inputValue = this._min;
+        if (this._nullToFloat(this.$.input.bindValue) - this.step <= this._min) {
+            this.$.input.bindValue = this._min;
         }
         else {
-            this._inputValue = this._nullToFloat(this._inputValue) - this.step;
+            this.$.input.bindValue = this._nullToFloat(this.$.input.bindValue) - this.step;
         }
     },
 
@@ -185,16 +182,15 @@ Polymer({
     },
 
     _onBindValueChanged: function () {
-        if (this.inputValue === this._convert(this._inputValue)) {
-
+        if (this.value === this._convert(this.$.input.bindValue)) {
+            this.fire('input-changed');
             return;
         }
-        this.inputValue = this._convert(this._inputValue);
+        this.inputValue = this._convert(this.$.input.bindValue);
     },
 
     _onChange: function () {
         this.confirm();
         this.fire('changed');
     },
-
 });
