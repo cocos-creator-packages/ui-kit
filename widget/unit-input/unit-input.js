@@ -70,6 +70,7 @@ Polymer({
 
     valueChanged: function () {
         this.value = this._convert(this.value);
+        this.inputValue = this.value;
         this.$.input.bindValue = this._convert(this.value).toString();
     },
 
@@ -87,9 +88,8 @@ Polymer({
     _onKeyDown: function (event) {
         // keydown 'enter'
         if (event.keyCode === 13) {
-            if (this.value !== this.$.input.bindValue) {
-                this.confirm();
-            }
+            this.confirm();
+            this.fire('changed');
             this.setBlur();
             EditorUI.focusParent(this);
         }

@@ -61,8 +61,10 @@ describe('<editor-unit-input>', function() {
     it('can be invoked by press "up" and "down"', function( done ) {
         unit.value = 123;
         Tester.keydown(unit.$.input,'up');
+        unit.confirm();
         expect(unit.inputValue).to.be.eql(124);
         Tester.keydown(unit.$.input,'down');
+        unit.confirm();
         expect(unit.inputValue).to.be.eql(123);
         done();
     });
@@ -70,8 +72,10 @@ describe('<editor-unit-input>', function() {
     it('can be click "up" & "down" btn', function( done ) {
         unit.value = 123;
         Tester.click(unit.getElementsByClassName('btn')[0]);
+        unit.confirm();
         expect(unit.inputValue).to.be.eql(124);
         Tester.click(unit.getElementsByClassName('btn')[1]);
+        unit.confirm();
         expect(unit.inputValue).to.be.eql(123);
         done();
     });
