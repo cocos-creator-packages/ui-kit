@@ -48,7 +48,7 @@ Polymer({
     },
 
     created: function () {
-        this.lastTrueValue = 0;
+        this._lastValidValue = 0;
     },
 
     ready: function () {
@@ -57,10 +57,6 @@ Polymer({
         if (this.$.input.bindValue === '') {
             this.$.input.bindValue = '0';
         }
-    },
-
-    attached: function () {
-        this.value = this.inputValue = this._convert(this.$.input.bindValue);
     },
 
     _updateMinMax: function () {
@@ -121,19 +117,19 @@ Polymer({
 
     _stepUp: function () {
         if (this._nullToFloat(this.$.input.bindValue) + this.step >= this._max) {
-            this.$.input.bindValue = this._max;
+            this.$.input.bindValue = this._max.toString();
         }
         else {
-            this.$.input.bindValue = this._nullToFloat(this.$.input.bindValue) + this.step;
+            this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) + this.step).toString();
         }
     },
 
     _stepDown: function () {
         if (this._nullToFloat(this.$.input.bindValue) - this.step <= this._min) {
-            this.$.input.bindValue = this._min;
+            this.$.input.bindValue = this._min.toString();
         }
         else {
-            this.$.input.bindValue = this._nullToFloat(this.$.input.bindValue) - this.step;
+            this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) - this.step).toString();
         }
     },
 
@@ -167,7 +163,7 @@ Polymer({
 
     _convert: function ( val ) {
         if (val === '' || isNaN(val)) {
-            return this.lastTrueValue;
+            return this._lastValidValue;
         }
         val = parseFloat(parseFloat(val));
         if ( isNaN(val) )
@@ -175,7 +171,7 @@ Polymer({
         if (this._min && this._max) {
             val = Math.min( Math.max( val, this._min ), this._max );
         }
-        this.lastTrueValue = val;
+        this._lastValidValue = val;
         return val;
     },
 
