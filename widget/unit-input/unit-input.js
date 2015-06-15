@@ -195,8 +195,8 @@ Polymer({
         this.inputValue = this._convert(this.$.input.bindValue);
     },
 
-    _onChange: function () {
+    _onBlur: function () {
         this.confirm();
-        this.fire('changed');
+        this.setBlur();
     },
 });
