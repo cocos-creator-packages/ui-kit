@@ -3,6 +3,10 @@ Polymer({
 
     behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
 
+    listeners: {
+        'keydown': '_onKeyDown',
+    },
+
     properties: {
         invalid: {
             type: Boolean,
@@ -99,8 +103,11 @@ Polymer({
             this.setBlur();
             EditorUI.focusParent(this);
         }
+    },
+
+    _onInputKeyDown: function (event) {
         // keydown 'up'
-        else if (event.keyCode === 38) {
+        if (event.keyCode === 38) {
             event.preventDefault();
             this._stepUp();
         }
