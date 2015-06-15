@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>editor-unit-input tests</title>
+        <meta charset="utf-8">
+        <link rel="import" href="packages://tester/env/env-widget.html">
+    </head>
+
+    <body>
+        <widget-fixture id="widget" src="widgets://editor-unit-input/unit-input.html">
+            <template>
+                <editor-unit-input></editor-unit-input>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="bind-to-object" src="widgets://editor-unit-input/unit-input.html">
+            <template>
+                <template is="dom-bind">
+                    <editor-unit-input id="input" value="{{foo}}"></editor-unit-input>
+                </template>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="disabled" src="widgets://editor-unit-input/unit-input.html">
+            <template>
+                <editor-unit-input disabled></editor-unit-input>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="invalid" src="widgets://editor-unit-input/unit-input.html">
+            <template>
+                <editor-unit-input invalid></editor-unit-input>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="value" src="widgets://editor-unit-input/unit-input.html">
+            <template>
+                <editor-unit-input value="1"></editor-unit-input>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="limit" src="widgets://editor-unit-input/unit-input.html">
+            <template>
+                <editor-unit-input min="5" max="10" value="0"></editor-unit-input>
+            </template>
+        </widget-fixture>
+
+        <script src="unit-input.js"></script>
+    </body>
+</html>
