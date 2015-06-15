@@ -16,18 +16,21 @@ Polymer({
         value: {
             type: Number,
             notify: true,
+            value: 0,
             observer: 'valueChanged',
         },
 
         _inputValue: {
             type: String,
             notify: true,
+            value: 0,
             observer: '_inputValueChanged',
         },
 
         inputValue: {
             type: Number,
             notify: true,
+            value: 0,
             observer: 'inputValueChanged',
         },
 
@@ -89,6 +92,7 @@ Polymer({
     },
 
     _onKeyDown: function (event) {
+        event.preventDefault();
         // keydown 'enter'
         if (event.keyCode === 13) {
             if (this.value !== this._inputValue) {
