@@ -5,6 +5,7 @@ Polymer({
 
     listeners: {
         'keydown': '_onKeyDown',
+        'focused-changed': '_onFocusedChanged'
     },
 
     properties: {
@@ -195,8 +196,9 @@ Polymer({
         this.inputValue = this._convert(this.$.input.bindValue);
     },
 
-    _onBlur: function () {
-        this.confirm();
-        this.setBlur();
+    _onFocusedChanged: function (event) {
+        if (!event.detail.value) {
+            this.confirm();
+        }
     },
 });
