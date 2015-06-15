@@ -4,15 +4,21 @@
     <link rel="import" type="css" href="unit-input.css">
 
     <template>
-        <input id="input" value="{{_inputValue::input}}"
+        <input is="iron-input" id="input" bind-value="{{_inputValue}}"
                 type="text"
+                on-bind-value-changed="_onBindValueChanged"
                 placeholder="-"
+                on-focus="_onFocus"
+                on-blur="_onBlur"
                 on-change="_onChange"
                 on-keydown="_onKeyDown"
-                on-input="_onInput"
-                />
+                >
+        </input>
         <div class="btngroup">
             <span class="btn"
+                tabindex="-1"
+                on-focus="_onFocus"
+                on-blur="_onBlur"
                 on-click="_stepUp"
                 on-mousedown="_increase"
                 on-mouseup="_stopRoll"
@@ -20,6 +26,9 @@
                 <i class="fa fa-caret-up"></i>
             </span>
             <span class="btn"
+                tabindex="-1"
+                on-focus="_onFocus"
+                on-blur="_onBlur"
                 on-click="_stepDown"
                 on-mousedown="_decrease"
                 on-mouseup="_stopRoll"

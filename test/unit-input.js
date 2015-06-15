@@ -97,7 +97,7 @@ describe('<editor-unit-input value="{{foo}}">', function() {
 
     it('shoudl work when binding value to undefined', function() {
         scopeEL.foo = undefined;
-        expect(scopeEL.$.input.value).to.be.eql('');
+        expect(scopeEL.$.input.value).to.be.eql(0);
     });
 });
 
