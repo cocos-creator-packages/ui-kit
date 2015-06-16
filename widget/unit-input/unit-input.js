@@ -54,18 +54,12 @@ Polymer({
 
     ready: function () {
         this._initFocusable(this.$.input);
-        // this._updateMinMax();
 
         this.value = this._convert(this.value);
         this.inputValue = this.value;
         this.$.input.bindValue = this.value.toString();
         this._inited = true;
     },
-
-    // _updateMinMax: function () {
-    //     this.min = (this.min!==null) ? parseFloat(this.min) : -Number.MAX_VALUE;
-    //     this.max = (this.max!==null) ? parseFloat(this.max) : Number.MAX_VALUE;
-    // },
 
     inputValueChanged: function () {
         this.$.input.bindValue = this.inputValue.toString();
