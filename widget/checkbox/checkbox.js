@@ -1,6 +1,8 @@
 Editor.registerWidget( 'editor-checkbox', {
     is: 'editor-checkbox',
 
+    behaviors: [EditorUI.focusable,Polymer.IronButtonState],
+
     listeners: {
         'focus': '_onFocus',
         'blur': '_onBlur',
@@ -21,12 +23,18 @@ Editor.registerWidget( 'editor-checkbox', {
             notify: true,
             readOnly: true,
             reflectToAttribute: true,
-        }
+        },
+
+        nofocus: {
+            type: Boolean,
+            value: false,
+            notify: true,
+            reflectToAttribute: true,
+        },
     },
 
-    behaviors: [EditorUI.focusable,Polymer.IronButtonState],
-
     ready: function () {
+        this.noNavigate = this.nofocus;
         this._initFocusable(this);
     },
 
