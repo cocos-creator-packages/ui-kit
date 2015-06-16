@@ -10,18 +10,10 @@ Editor.registerWidget( 'editor-checkbox', {
     },
 
     properties: {
-        value: {
-            type: Boolean,
-            value: false,
-            notify: true,
-            observer: '_onChanged'
-        },
-
         checked: {
             type: Boolean,
             value: false,
             notify: true,
-            readOnly: true,
             reflectToAttribute: true,
         },
 
@@ -38,11 +30,7 @@ Editor.registerWidget( 'editor-checkbox', {
         this._initFocusable(this);
     },
 
-    _onChanged: function () {
-        this._setChecked(this.value);
-    },
-
     _onClick: function (event) {
-        this.value = !this.value;
+        this.checked = !this.checked;
     },
 });
