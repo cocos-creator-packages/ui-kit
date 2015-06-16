@@ -37,13 +37,13 @@ Polymer({
         min: {
             type: Number,
             notify: true,
-            value: null,
+            value: -Number.MAX_VALUE,
         },
 
         max: {
             type: Number,
             notify: true,
-            value: null,
+            value: Number.MAX_VALUE,
         }
     },
 
@@ -54,7 +54,7 @@ Polymer({
 
     ready: function () {
         this._initFocusable(this.$.input);
-        this._updateMinMax();
+        // this._updateMinMax();
 
         this.value = this._convert(this.value);
         this.inputValue = this.value;
@@ -62,10 +62,10 @@ Polymer({
         this._inited = true;
     },
 
-    _updateMinMax: function () {
-        this._min = (this.min!==null) ? parseFloat(this.min) : -Number.MAX_VALUE;
-        this._max = (this.max!==null) ? parseFloat(this.max) : Number.MAX_VALUE;
-    },
+    // _updateMinMax: function () {
+    //     this.min = (this.min!==null) ? parseFloat(this.min) : -Number.MAX_VALUE;
+    //     this.max = (this.max!==null) ? parseFloat(this.max) : Number.MAX_VALUE;
+    // },
 
     inputValueChanged: function () {
         this.$.input.bindValue = this.inputValue.toString();
@@ -119,8 +119,8 @@ Polymer({
     },
 
     _stepUp: function () {
-        if (this._nullToFloat(this.$.input.bindValue) + this.step >= this._max) {
-            this.$.input.bindValue = this._max.toString();
+        if (this._nullToFloat(this.$.input.bindValue) + this.step >= this.max) {
+            this.$.input.bindValue = this.max.toString();
         }
         else {
             this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) + this.step).toString();
@@ -128,8 +128,8 @@ Polymer({
     },
 
     _stepDown: function () {
-        if (this._nullToFloat(this.$.input.bindValue) - this.step <= this._min) {
-            this.$.input.bindValue = this._min.toString();
+        if (this._nullToFloat(this.$.input.bindValue) - this.step <= this.min) {
+            this.$.input.bindValue = this.min.toString();
         }
         else {
             this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) - this.step).toString();
@@ -171,8 +171,8 @@ Polymer({
         val = parseFloat(parseFloat(val));
         if ( isNaN(val) )
             val = 0;
-        if (this._min && this._max) {
-            val = Math.min( Math.max( val, this._min ), this._max );
+        if (this.min && this.max) {
+            val = Math.min( Math.max( val, this.min ), this.max );
         }
         this._lastValidValue = val;
         return val;
