@@ -32,7 +32,6 @@ Editor.registerWidget( 'editor-checkbox', {
 
     _onChanged: function () {
         this._setChecked(this.value);
-        this.fire('changed');
     },
 
     _onClick: function (event) {

@@ -23,7 +23,6 @@ Editor.registerWidget( 'editor-input', {
             type: String,
             notify: true,
             value: '',
-            observer: '_inputValueChanged'
         },
 
         value: {
@@ -39,13 +38,8 @@ Editor.registerWidget( 'editor-input', {
         this._initFocusable(this.$.input);
     },
 
-    _inputValueChanged: function () {
-        this.fire('input-changed');
-    },
-
     _valueChanged: function () {
         this.inputValue = this.value;
-        this.fire('changed');
     },
 
     clear: function () {
