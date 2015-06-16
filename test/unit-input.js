@@ -1,4 +1,5 @@
 Tester.checkLeaks(false);
+var Async = require('async');
 
 describe('<editor-unit-input>', function() {
     var unit;
@@ -78,6 +79,91 @@ describe('<editor-unit-input>', function() {
         unit.confirm();
         expect(unit.inputValue).to.be.eql(123);
         done();
+    });
+
+    it('should be focused after click increase or decrease button', function( done ) {
+        Tester.focus(unit.getElementsByClassName('btn')[0]);
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        Tester.click(unit.getElementsByClassName('btn')[1],0,0,0);
+        setTimeout(function () {
+            expect(unit.hasAttribute('focused')).to.be.eql(true);
+            done();
+        },10);
+    });
+
+    it('it should change the value after click increase or decrease button', function( done ) {
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        Tester.click(unit.getElementsByClassName('btn')[1],0,0,0);
+        setTimeout(function () {
+            expect(unit.value).to.be.eql(1);
+            done();
+        },10);
+    });
+
+    it('the input should show "0" after click decrease button', function( done ) {
+        unit.value = 1;
+        Tester.click(unit.getElementsByClassName('btn')[1],0,0,0);
+        setTimeout(function () {
+            expect(unit.$.input.bindValue).to.be.eql('0');
+            done();
+        },10);
+    });
+
+    it('the input should show "0" after click increase button', function( done ) {
+        unit.value = -1;
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        setTimeout(function () {
+            expect(unit.$.input.bindValue).to.be.eql('0');
+            done();
+        },10);
+    });
+
+    it('should not change the value after _stepUp or _stepDown invoked', function( done ) {
+        unit.value = 123;
+        unit._stepUp();
+        expect(unit.value).to.be.eql(123);
+        unit._stepDown();
+        expect(unit.value).to.be.eql(123);
+        done();
+    });
+
+    it('should be focused for unit-input when increase or decrease button focused.',function ( done ) {
+        Async.series({
+            increase: function (cb) {
+                Tester.focus(unit.getElementsByClassName('btn')[0]);
+                expect(unit.focused).to.be.eql(true);
+                Tester.blur(unit.getElementsByClassName('btn')[0]);
+
+                setTimeout(function () {
+                    expect(unit.focused).to.be.eql(false);
+                    cb(null,true);
+                },10);
+            },
+            decrease: function (cb) {
+                Tester.focus(unit.getElementsByClassName('btn')[1]);
+                expect(unit.focused).to.be.eql(true);
+                Tester.blur(unit.getElementsByClassName('btn')[1]);
+
+                setTimeout(function () {
+                    expect(unit.focused).to.be.eql(false);
+                    cb(null,true);
+                },10);
+            },
+            input: function (cb) {
+                Tester.focus(unit.$.input);
+                expect(unit.focused).to.be.eql(true);
+                Tester.blur(unit.$.input);
+
+                setTimeout(function () {
+                    expect(unit.focused).to.be.eql(false);
+                    cb(null,true);
+                },10);
+            },
+        },function (err,result) {
+            done();
+        });
     });
 
 });
