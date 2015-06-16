@@ -80,6 +80,84 @@ describe('<editor-unit-input>', function() {
         done();
     });
 
+    it('can be click "increase", "decrease" keep focus', function( done ) {
+        Tester.focus(unit.getElementsByClassName('btn')[0]);
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        Tester.click(unit.getElementsByClassName('btn')[1],0,0,0);
+        setTimeout(function () {
+            expect(unit.hasAttribute('focused')).to.be.eql(true);
+            done();
+        },10);
+    });
+
+    it('can be click "increase", "decrease" without value changed', function( done ) {
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        Tester.click(unit.getElementsByClassName('btn')[1],0,0,0);
+        setTimeout(function () {
+            expect(unit.value).to.be.eql(1);
+            done();
+        },10);
+    });
+
+    it('default value = "1",and press "_decrease"', function( done ) {
+        unit.value = 1;
+        Tester.click(unit.getElementsByClassName('btn')[1],0,0,0);
+        setTimeout(function () {
+            expect(unit.$.input.bindValue).to.be.eql('0');
+            done();
+        },10);
+    });
+
+    it('default value = "-1",and press "_increase"', function( done ) {
+        unit.value = -1;
+        Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
+        setTimeout(function () {
+            expect(unit.$.input.bindValue).to.be.eql('0');
+            done();
+        },10);
+    });
+
+    it('call "_stepUp","_stepDown" can be change value', function( done ) {
+        unit.value = 123;
+        unit._stepUp();
+        expect(unit.value).to.be.eql(123);
+        unit._stepDown();
+        expect(unit.value).to.be.eql(123);
+        done();
+    });
+
+    it('focus " input", "increase-btn", "decrease-btn focus",then test unit-input`s focused"',function ( done ) {
+        Tester.focus(unit.getElementsByClassName('btn')[0]);
+        expect(unit.focused).to.be.eql(true);
+        Tester.blur(unit.getElementsByClassName('btn')[0]);
+
+        setTimeout(function () {
+            expect(unit.focused).to.be.eql(false);
+
+            Tester.focus(unit.getElementsByClassName('btn')[1]);
+            expect(unit.focused).to.be.eql(true);
+            Tester.blur(unit.getElementsByClassName('btn')[1]);
+
+            setTimeout(function () {
+                expect(unit.focused).to.be.eql(false);
+
+                Tester.focus(unit.$.input);
+                expect(unit.focused).to.be.eql(true);
+                Tester.blur(unit.$.input);
+
+                setTimeout(function () {
+                    expect(unit.focused).to.be.eql(false);
+                    done();
+                },10);
+
+            },10);
+
+        },10);
+
+    });
+
 });
 
 
