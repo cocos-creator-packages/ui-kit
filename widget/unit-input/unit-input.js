@@ -49,14 +49,17 @@ Polymer({
 
     created: function () {
         this._lastValidValue = 0;
+        this._inited = false;
     },
 
     ready: function () {
         this._initFocusable(this.$.input);
         this._updateMinMax();
-        if (this.$.input.bindValue === '') {
-            this.$.input.bindValue = '0';
-        }
+
+        this.value = this._convert(this.value);
+        this.inputValue = this.value;
+        this.$.input.bindValue = this.value.toString();
+        this._inited = true;
     },
 
     _updateMinMax: function () {
@@ -185,7 +188,10 @@ Polymer({
     },
 
     _onBindValueChanged: function () {
-        if (this.value === this._convert(this.$.input.bindValue)) {
+        if ( !this._inited )
+            return;
+
+        if (this.inputValue === this._convert(this.$.input.bindValue)) {
             this.fire('input-changed');
             return;
         }
@@ -193,7 +199,12 @@ Polymer({
     },
 
     _onFocusedChanged: function (event) {
-        if (!event.detail.value) {
+        if ( !this._inited )
+            return;
+
+        if ( event.detail.value ) {
+            this.value = this.inputValue;
+        } else {
             this.confirm();
         }
     },
