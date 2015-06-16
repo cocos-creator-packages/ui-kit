@@ -1,0 +1,190 @@
+:host {
+    // font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+
+}
+
+.bg {
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1;
+    margin: 0 .125em;
+    background-color: #e8e8e8;
+    border-color: #e8e8e8;
+    background-image: none;
+    padding: .5em .8em;
+    position: relative;
+    color: rgba(0,0,0,.6);
+    text-transform: none;
+    border-radius: .35em;
+    font-weight: bold;
+    box-sizing: border-box;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
+:host.image .bg {
+    width: auto!important;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 9999px;
+    vertical-align: baseline;
+    text-transform: none;
+    background: #e8e8e8;
+    padding: .6em .8em .6em .5em;
+    border-radius: .2857rem;
+    box-shadow: none;
+}
+
+:host.image::shadow img {
+    display: inline-block;
+    vertical-align: top;
+    height: 2.2em;
+    margin: -.6em .5em -.6em -.5em;
+    border-radius: .2857rem;
+}
+
+:host::shadow .fa {
+    margin: 0 0.5rem;
+    height: 1em;
+}
+
+:host.mini .bg {
+    font-size: 1rem;
+    padding: 0.3em 0.4em;
+}
+
+:host.small .bg {
+    font-size: 1rem;
+}
+
+:host .bg {
+    font-size: 1.2rem;
+}
+
+:host.large .bg {
+    font-size: 1.6rem;
+}
+
+:host.big .bg {
+    font-size: 2rem;
+}
+
+:host[disabled] .bg{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+:host.pointing .bg {
+    margin-top: 1em;
+    border-radius: .2815em;
+    font-weight: bold !important;
+}
+
+:host.pointing .bg::before {
+    position: absolute;
+    content: '';
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 2;
+    width: .6em;
+    height: .6em;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+    background-color: #e8e8e8;
+    background-image: none;
+    margin-left: -.3em;
+    top: -.3em;
+    left: 50%;
+}
+
+:host.left .bg::before {
+    margin: 0;
+    margin-top: 1em;
+    margin-left: -.3em;
+    left: 0;
+}
+
+:host.left .bg {
+    margin: 0;
+    margin-left: 1em;
+}
+
+:host.right .bg::before {
+    margin-top: 1em;
+    margin-right: -.2em;
+    right: 0;
+    left: inherit;
+}
+
+:host.right .bg {
+    margin: 0;
+    margin-right: 1em;
+}
+
+
+:host.bottom .bg::before {
+    margin-left: -.3em;
+    top: auto;
+    right: auto;
+    bottom: -.3em;
+    left: 50%;
+}
+
+:host.bottom .bg {
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+
+//color
+
+:host.black .bg,:host.black .bg::before{
+    background: #000000;
+    color: #ffffff;
+}
+
+:host.yellow .bg,:host.yellow .bg::before{
+    background: #e4b320;
+    color: #ffffff;
+}
+
+:host.green .bg,:host.green .bg::before{
+    background: #14c314;
+    color: #ffffff;
+}
+
+:host.blue .bg,:host.blue .bg::before{
+    background: #2376e4;
+    color: #ffffff;
+}
+
+:host.orange .bg,:host.orange .bg::before{
+    background: #e47423;
+    color: #ffffff;
+}
+
+:host.purple .bg,:host.purple .bg::before{
+    background: #8245b8;
+    color: #ffffff;
+}
+
+:host.red .bg,:host.red .bg::before{
+    background: #c80c0c;
+    color: #ffffff;
+}
+
+:host.white .bg{
+    background: #ffffff;
+    color: rgb(51, 51, 51);
+}
+
+
+:host.circle .bg{
+    min-width: 2em;
+    min-height: 2em;
+    padding: .5em!important;
+    line-height: 1em;
+    text-align: center;
+    border-radius: 500rem;
+}
