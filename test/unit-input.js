@@ -1,4 +1,5 @@
 Tester.checkLeaks(false);
+var Async = require('async');
 
 describe('<editor-unit-input>', function() {
     var unit;
@@ -80,7 +81,7 @@ describe('<editor-unit-input>', function() {
         done();
     });
 
-    it('can be click "increase", "decrease" keep focus', function( done ) {
+    it('should be focused after click increase or decrease button', function( done ) {
         Tester.focus(unit.getElementsByClassName('btn')[0]);
         Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
         Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
@@ -91,7 +92,7 @@ describe('<editor-unit-input>', function() {
         },10);
     });
 
-    it('can be click "increase", "decrease" without value changed', function( done ) {
+    it('it should change the value after click increase or decrease button', function( done ) {
         Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
         Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
         Tester.click(unit.getElementsByClassName('btn')[1],0,0,0);
@@ -101,7 +102,7 @@ describe('<editor-unit-input>', function() {
         },10);
     });
 
-    it('default value = "1",and press "_decrease"', function( done ) {
+    it('the input should show "0" after click decrease button', function( done ) {
         unit.value = 1;
         Tester.click(unit.getElementsByClassName('btn')[1],0,0,0);
         setTimeout(function () {
@@ -110,7 +111,7 @@ describe('<editor-unit-input>', function() {
         },10);
     });
 
-    it('default value = "-1",and press "_increase"', function( done ) {
+    it('the input should show "0" after click increase button', function( done ) {
         unit.value = -1;
         Tester.click(unit.getElementsByClassName('btn')[0],0,0,0);
         setTimeout(function () {
@@ -119,7 +120,7 @@ describe('<editor-unit-input>', function() {
         },10);
     });
 
-    it('call "_stepUp","_stepDown" can be change value', function( done ) {
+    it('should not change the value after _stepUp or _stepDown invoked', function( done ) {
         unit.value = 123;
         unit._stepUp();
         expect(unit.value).to.be.eql(123);
@@ -128,34 +129,32 @@ describe('<editor-unit-input>', function() {
         done();
     });
 
-    it('focus " input", "increase-btn", "decrease-btn focus",then test unit-input`s focused"',function ( done ) {
+    it('should be focused for unit-input when increase or decrease button focused.',function ( done ) {
         Tester.focus(unit.getElementsByClassName('btn')[0]);
         expect(unit.focused).to.be.eql(true);
         Tester.blur(unit.getElementsByClassName('btn')[0]);
 
-        setTimeout(function () {
+        Async.series(function() {
             expect(unit.focused).to.be.eql(false);
-
+        },function () {
             Tester.focus(unit.getElementsByClassName('btn')[1]);
             expect(unit.focused).to.be.eql(true);
             Tester.blur(unit.getElementsByClassName('btn')[1]);
 
-            setTimeout(function () {
+            Async.series(function () {
                 expect(unit.focused).to.be.eql(false);
-
+            },function () {
                 Tester.focus(unit.$.input);
                 expect(unit.focused).to.be.eql(true);
                 Tester.blur(unit.$.input);
 
-                setTimeout(function () {
+                Async.series(function () {
                     expect(unit.focused).to.be.eql(false);
+                },function () {
                     done();
-                },10);
-
-            },10);
-
-        },10);
-
+                });
+            })
+        });
     });
 
 });
