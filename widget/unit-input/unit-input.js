@@ -63,7 +63,6 @@ Polymer({
 
     inputValueChanged: function () {
         this.$.input.bindValue = this.inputValue.toString();
-        this.fire('input-changed');
     },
 
     valueChanged: function () {
@@ -76,12 +75,10 @@ Polymer({
         this.value = this._convert(this.$.input.bindValue);
         this.inputValue = this._convert(this.$.input.bindValue);
         this.$.input.bindValue = this.value.toString();
-        this.fire('changed');
     },
 
     cancel: function() {
         this.$.input.bindValue = this.value.toString();
-        this.fire('changed');
     },
 
     _onKeyDown: function (event) {
@@ -186,7 +183,6 @@ Polymer({
             return;
 
         if (this.inputValue === this._convert(this.$.input.bindValue)) {
-            this.fire('input-changed');
             return;
         }
         this.inputValue = this._convert(this.$.input.bindValue);
