@@ -52,7 +52,7 @@ describe('<editor-checkbox>', function() {
     });
 
     it('should fire changed event when value changed', function( done ) {
-        checkboxEl.addEventListener('changed',function() {
+        checkboxEl.addEventListener('value-changed',function() {
             done();
         });
         checkboxEl.value = false;
