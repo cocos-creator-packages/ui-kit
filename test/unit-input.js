@@ -130,30 +130,39 @@ describe('<editor-unit-input>', function() {
     });
 
     it('should be focused for unit-input when increase or decrease button focused.',function ( done ) {
-        Tester.focus(unit.getElementsByClassName('btn')[0]);
-        expect(unit.focused).to.be.eql(true);
-        Tester.blur(unit.getElementsByClassName('btn')[0]);
+        Async.series({
+            increase: function (cb) {
+                Tester.focus(unit.getElementsByClassName('btn')[0]);
+                expect(unit.focused).to.be.eql(true);
+                Tester.blur(unit.getElementsByClassName('btn')[0]);
 
-        Async.series(function() {
-            expect(unit.focused).to.be.eql(false);
-        },function () {
-            Tester.focus(unit.getElementsByClassName('btn')[1]);
-            expect(unit.focused).to.be.eql(true);
-            Tester.blur(unit.getElementsByClassName('btn')[1]);
+                setTimeout(function () {
+                    expect(unit.focused).to.be.eql(false);
+                    cb(null,true);
+                },10);
+            },
+            decrease: function (cb) {
+                Tester.focus(unit.getElementsByClassName('btn')[1]);
+                expect(unit.focused).to.be.eql(true);
+                Tester.blur(unit.getElementsByClassName('btn')[1]);
 
-            Async.series(function () {
-                expect(unit.focused).to.be.eql(false);
-            },function () {
+                setTimeout(function () {
+                    expect(unit.focused).to.be.eql(false);
+                    cb(null,true);
+                },10);
+            },
+            input: function (cb) {
                 Tester.focus(unit.$.input);
                 expect(unit.focused).to.be.eql(true);
                 Tester.blur(unit.$.input);
 
-                Async.series(function () {
+                setTimeout(function () {
                     expect(unit.focused).to.be.eql(false);
-                },function () {
-                    done();
-                });
-            })
+                    cb(null,true);
+                },10);
+            },
+        },function (err,result) {
+            done();
         });
     });
 
