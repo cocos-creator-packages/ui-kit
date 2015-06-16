@@ -12,12 +12,10 @@ describe('<editor-checkbox>', function() {
     it('can be clicked', function( done ) {
         Tester.click(checkboxEl);
         expect(checkboxEl.hasAttribute('checked')).to.be.eql(true);
-        expect(checkboxEl.value).to.be.eql(true);
         expect(checkboxEl.checked).to.be.eql(true);
-        checkboxEl.value = true;
+        checkboxEl.checked = true;
         Tester.click(checkboxEl);
         expect(checkboxEl.hasAttribute('checked')).to.be.eql(false);
-        expect(checkboxEl.value).to.be.eql(false);
         expect(checkboxEl.checked).to.be.eql(false);
         done();
     });
@@ -31,32 +29,32 @@ describe('<editor-checkbox>', function() {
     });
 
     it('can be invoked by press space', function( done ) {
-        checkboxEl.value = false;
+        checkboxEl.checked = false;
         Tester.pressSpace(checkboxEl);
         setTimeout(function() {
             expect(checkboxEl.hasAttribute('checked')).to.be.eql(true);
-            expect(checkboxEl.value).to.be.eql(true);
+            expect(checkboxEl.checked).to.be.eql(true);
             done();
         },10);
     });
 
     it('can be invoked by press enter', function( done ) {
-        checkboxEl.value = false;
+        checkboxEl.checked = false;
         Tester.pressEnter(checkboxEl);
         setTimeout(function() {
             expect(checkboxEl.hasAttribute('checked')).to.be.eql(true);
-            expect(checkboxEl.value).to.be.eql(true);
+            expect(checkboxEl.checked).to.be.eql(true);
             done();
         },10);
 
     });
 
     it('should fire changed event when value changed', function( done ) {
-        checkboxEl.addEventListener('value-changed',function() {
+        checkboxEl.addEventListener('checked-changed',function() {
             done();
         });
-        checkboxEl.value = false;
-        checkboxEl.value = true;
+        checkboxEl.checked = false;
+        checkboxEl.checked = true;
     });
 });
 
@@ -72,11 +70,9 @@ describe('<editor-checkbox value="{{foo}}">', function() {
 
     it('should bind value to foo', function(done) {
         checkboxEl.foo = true;
-        expect(checkboxEl.$.checkbox.value).to.be.eql(true);
         expect(checkboxEl.$.checkbox.checked).to.be.eql(true);
         expect(checkboxEl.$.checkbox.hasAttribute('checked')).to.be.eql(true);
         checkboxEl.foo = false;
-        expect(checkboxEl.$.checkbox.value).to.be.eql(false);
         expect(checkboxEl.$.checkbox.checked).to.be.eql(false);
         expect(checkboxEl.$.checkbox.hasAttribute('checked')).to.be.eql(false);
         done();
