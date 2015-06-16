@@ -17,7 +17,8 @@
     "editor-button": "widget/button/button.html",
     "editor-input": "widget/input/input.html",
     "editor-loader": "widget/loader/loader.html",
-    "editor-checkbox": "widget/checkbox/checkbox.html"
+    "editor-checkbox": "widget/checkbox/checkbox.html",
+    "editor-unit-input": "widget/unit-input/unit-input.html"
   },
   "panels": {
     "panel": {
@@ -34,6 +35,7 @@
       "test/button.html",
       "test/input.html",
       "test/loader.html",
-      "test/checkbox.html"
+      "test/checkbox.html",
+      "test/unit-input.html"
   ]
 }
