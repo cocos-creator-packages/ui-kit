@@ -18,7 +18,8 @@
     "editor-input": "widget/input/input.html",
     "editor-loader": "widget/loader/loader.html",
     "editor-checkbox": "widget/checkbox/checkbox.html",
-    "editor-unit-input": "widget/unit-input/unit-input.html"
+    "editor-unit-input": "widget/unit-input/unit-input.html",
+    "editor-label": "widget/label/label.html"
   },
   "panels": {
     "panel": {
@@ -36,6 +37,7 @@
       "test/input.html",
       "test/loader.html",
       "test/checkbox.html",
-      "test/unit-input.html"
+      "test/unit-input.html",
+      "test/label.html"
   ]
 }
