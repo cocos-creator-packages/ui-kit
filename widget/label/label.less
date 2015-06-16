@@ -1,5 +1,6 @@
 :host {
-    font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+    // font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+
 }
 
 .bg {
@@ -14,7 +15,8 @@
     position: relative;
     color: rgba(0,0,0,.6);
     text-transform: none;
-    border-radius: .2857rem;
+    border-radius: .35em;
+    font-weight: bold;
     box-sizing: border-box;
     -webkit-transition: background .2s ease;
     transition: background .2s ease;
@@ -47,7 +49,8 @@
 }
 
 :host.mini .bg {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    padding: 0.3em 0.4em;
 }
 
 :host.small .bg {
@@ -73,6 +76,7 @@
 
 :host.pointing .bg {
     margin-top: 1em;
+    border-radius: .2815em;
     font-weight: bold !important;
 }
 
