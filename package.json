@@ -19,7 +19,8 @@
     "editor-loader": "widget/loader/loader.html",
     "editor-checkbox": "widget/checkbox/checkbox.html",
     "editor-unit-input": "widget/unit-input/unit-input.html",
-    "editor-label": "widget/label/label.html"
+    "editor-label": "widget/label/label.html",
+    "editor-select": "widget/select/select.html"
   },
   "panels": {
     "panel": {

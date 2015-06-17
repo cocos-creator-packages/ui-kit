@@ -1,0 +1,54 @@
+<dom-module id="editor-select-preview">
+    <style>
+        editor-select {
+            width: 200px;
+        }
+
+        editor-label {
+            margin: 2px 0px;
+        }
+    </style>
+
+    <template>
+        <preview-item
+            header="editor-select"
+            desc=""
+        >
+            <editor-select placeholder="select a item">
+                <editor-option value="English">
+                    English
+                </editor-option>
+                <editor-option value="Chinese">
+                    <editor-label class="mini blue">
+                        Chinese
+                    </editor-label>
+                </editor-option>
+                <editor-option value="French">
+                    <editor-label class="mini blue">
+                        French
+                    </editor-label>
+                </editor-option>
+                <editor-option value="Italy">
+                    Italy
+                </editor-option>
+                <editor-option value="Japan">
+                    <editor-label class="mini blue">
+                        Japan
+                    </editor-label>
+                </editor-option>
+                <editor-option value="New york">
+                    <editor-label class="mini blue">
+                        New york
+                    </editor-label>
+                </editor-option>
+            </editor-select>
+        </preview-item>
+    </template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'editor-select-preview',
+});
+
+</script>

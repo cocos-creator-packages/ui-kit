@@ -1,0 +1,70 @@
+@color-outter-border: black;
+@color-outter-border-focus: #0c70a6;
+@color-inner-border: #555;
+@color-bg: #474747;
+@color-text: #aaa;
+
+:host {
+    display: flex;
+    position: relative;
+
+    box-sizing: border-box;
+    font-size: 12px;
+    min-width: 60px;
+    border: 1px solid @color-outter-border;
+}
+
+:host[focused] {
+    border-color: @color-outter-border-focus;
+}
+
+:host[focused] .border {
+    border-color: #171717;
+}
+
+:host[focuschild] {
+    border-color: @color-outter-border-focus;
+}
+
+:host[focuschild] .border {
+    border-color: #171717;
+}
+
+.border {
+    position: relative;
+    border: 1px solid @color-inner-border;
+    width: 100%;
+
+    padding: 3px 4px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: @color-text;
+
+    background-color: @color-bg;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row;
+}
+
+#text {
+    overflow-x: hidden;
+    margin-right: 5px;
+    flex: 1;
+    display: none;
+}
+
+.fa {
+    width: 8px;
+    text-align: center;
+}
+
+#placeholder {
+    overflow-x: hidden;
+    margin-right: 5px;
+    flex: 1;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+#options {
+    display: none;
+}
