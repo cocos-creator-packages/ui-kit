@@ -53,10 +53,6 @@
     padding: 0.3em 0.4em;
 }
 
-:host.mini .bg::before {
-    margin-top: .8em !important;
-}
-
 :host.small .bg {
     font-size: 1rem;
 }
@@ -138,6 +134,15 @@
 :host.bottom .bg {
     margin: 0;
     margin-bottom: 1em;
+}
+
+
+:host.mini.left .bg::before {
+    margin-top: .8em;
+}
+
+:host.mini.right .bg::before {
+    margin-top: .8em;
 }
 
 
