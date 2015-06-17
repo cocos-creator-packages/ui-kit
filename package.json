@@ -9,7 +9,7 @@
   },
   "main": "main.js",
   "menus": {
-    "Panel/UI Kit Preview": {
+    "Developer/UI-Kit Preview": {
       "message": "ui-kit:open"
     }
   },
