@@ -1,0 +1,64 @@
+:host {
+    display: flex;
+    flex:1;
+    background: #474747;
+}
+
+.content::shadow li {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-right: 5px;
+    list-style: none;
+    float:left;
+}
+
+.content::shadow li:last-child {
+    margin-right: 0;
+}
+
+.content {
+    display: flex;
+    flex:1;
+    flex-flow: row;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 2px;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #aaa;
+}
+
+// editor-button repain
+
+:host::shadow editor-button .btn{
+    font-size: 1.2rem !important;
+    padding: 0.3rem 0.3rem !important;
+    font-weight: normal !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0px !important;
+}
+
+:host::shadow editor-button .btn .fa {
+    font-size: 1.6rem;
+}
+
+:host::shadow editor-button .btn:active{
+    background: #363535 !important;
+    box-shadow: none !important;
+}
+
+:host::shadow editor-button .btn:hover{
+    background: #474747 + 10% !important;
+}
+
+:host::shadow editor-button[pressed] .btn {
+    background: #363535 !important;
+    box-shadow: none !important;
+}
