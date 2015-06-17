@@ -249,18 +249,18 @@ describe('<editor-unit-input min="5" max="10" value="0">', function() {
         });
     });
 
-    it('can be reset value', function( done ) {
+    it('can reset the initial value', function( done ) {
         expect(inputEl.value).to.be.eql(5);
         done();
     });
 
-    it('can be limit min value', function( done ) {
+    it('can limit the value if it less than min', function( done ) {
         inputEl.value = 2;
         expect(inputEl.value).to.be.eql(5);
         done();
     });
 
-    it('can be limit max value', function( done ) {
+    it('can limit the value if it large than max', function( done ) {
         inputEl.value = 20;
         expect(inputEl.value).to.be.eql(10);
         done();
