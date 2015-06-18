@@ -1,4 +1,3 @@
-Tester.checkLeaks(false);
 var Async = require('async');
 
 describe('<editor-unit-input>', function() {

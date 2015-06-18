@@ -1,5 +1,3 @@
-Tester.checkLeaks(false);
-
 describe('<editor-label>', function() {
     var labelEl;
     beforeEach(function ( done ) {

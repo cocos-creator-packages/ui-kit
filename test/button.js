@@ -1,5 +1,3 @@
-Tester.checkLeaks(false);
-
 describe('<editor-button>', function() {
     var buttonEL;
     beforeEach(function ( done ) {

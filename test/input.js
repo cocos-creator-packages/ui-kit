@@ -1,5 +1,3 @@
-Tester.checkLeaks(false);
-
 describe('<editor-input>', function() {
     var inputEl;
     beforeEach(function ( done ) {

@@ -1,5 +1,3 @@
-Tester.checkLeaks(false);
-
 describe('<editor-loader>', function() {
     var loaderEl;
     beforeEach(function ( done ) {
