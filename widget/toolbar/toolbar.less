@@ -1,19 +1,7 @@
 :host {
-    display: flex;
-    flex:1;
-    background: #474747;
-}
-
-.content::shadow > * {
-    margin-right: 5px;
-}
-
-.content {
-    display: flex;
-    flex:1;
-    flex-flow: row;
     position: relative;
     display: flex;
+    flex: 1;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
@@ -22,7 +10,13 @@
     white-space: nowrap;
     overflow: hidden;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+
     color: #aaa;
+    background-color: #474747;
+}
+
+:host ::content > * {
+    margin-right: 5px;
 }
 
 // editor-button repain
@@ -38,11 +32,6 @@
 
 :host ::content .btn.editor-button .fa {
     font-size: 1.6rem;
-}
-
-:host ::content .btn.editor-button:active {
-    background: #363535;
-    box-shadow: none;
 }
 
 :host ::content .btn.editor-button:hover {
