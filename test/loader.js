@@ -9,14 +9,14 @@ describe('<editor-loader>', function() {
         });
     });
 
-    it('should be initLoader', function( done ) {
+    it('should finish calling initLoader with one element', function( done ) {
         var div = document.createElement('div');
         loaderEl.initLoader(div);
         expect(div.getElementsByTagName('editor-loader').length).to.be.eql(1);
         done();
     });
 
-    it('should be clear loader', function( done ) {
+    it('should have zero element after clear loader', function( done ) {
         var div = document.createElement('div');
         loaderEl.initLoader(div);
         expect(div.getElementsByTagName('editor-loader').length).to.be.eql(1);
@@ -40,7 +40,7 @@ describe('<editor-loader mask>', function() {
         done();
     });
 
-    it('should be set mask', function( done ) {
+    it('should set mask attribute', function( done ) {
         sinon.spy(loaderEl, 'initLoader');
         loaderEl.ready();
         assert( loaderEl.initLoader.calledOnce );

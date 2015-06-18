@@ -9,14 +9,14 @@ describe('<editor-button>', function() {
         });
     });
 
-    it('can be click', function( done ) {
+    it('can be clicked', function( done ) {
         buttonEL.addEventListener('click', function() {
             done();
         });
         Tester.click(buttonEL);
     });
 
-    it('can be space', function( done ) {
+    it('can be invoked by press space', function( done ) {
         buttonEL.addEventListener('keyup', function(event) {
             if (Editor.KeyCode(event.keyCode) === 'space') {
                 done();
@@ -25,7 +25,7 @@ describe('<editor-button>', function() {
         Tester.pressSpace(buttonEL);
     });
 
-    it('can be enter', function( done ) {
+    it('can be invoked by press enter', function( done ) {
         buttonEL.addEventListener('keyup', function(event) {
             if (Editor.KeyCode(event.keyCode) === 'enter') {
                 done();
@@ -46,7 +46,7 @@ describe('<editor-button>', function() {
         done();
     });
 
-    it('can be blur', function( done ) {
+    it('can be blured', function( done ) {
         Tester.focus(buttonEL);
         expect(buttonEL.hasAttribute('focused')).to.be.eql(true);
         Tester.blur(buttonEL);
