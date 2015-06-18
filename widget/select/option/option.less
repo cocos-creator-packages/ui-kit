@@ -1,15 +1,19 @@
-#item {
-    min-height: 20px;
-    color: #aaa;
-    margin: 0px 5px;
-    align-items: center;
-    padding: 0px 5px;
+:host {
     display: flex;
     flex: 1;
+    align-items: center;
+    padding: 4px 4px;
+    margin: 0px 4px;
+
+    color: #aaa;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     cursor: pointer;
 }
 
-#item:hover {
-    background: rgb(32, 118, 219);
+:host:hover {
+    background-color: #3f3f3f;
+}
+
+:host[selected] {
+    background-color: #2865c7;
 }

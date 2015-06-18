@@ -6,7 +6,10 @@
 @color-text: #aaa;
 
 :host {
-    // display: flex;
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+
     position: relative;
 
     box-sizing: border-box;
@@ -25,21 +28,15 @@
     z-index: 999;
 }
 
-#items {
-    display: flex;
-    flex-flow: column;
-    flex: 1;
-}
-
-#items::shadow editor-option{
-    display: flex;
+:host::shadow editor-option{
+    display: inline-block;
     height: auto;
 }
 
-#items::shadow editor-option:first-child{
+:host::shadow editor-option:first-child{
     margin-top: 5px;
 }
 
-#items::shadow editor-option:last-child{
+:host::shadow editor-option:last-child{
     margin-bottom: 5px;
 }

@@ -14,11 +14,24 @@ Editor.registerWidget( 'editor-select-panel', {
             type: Object,
             value: null
         },
+
+        select: {
+            type: String,
+            value: '',
+        }
     },
 
     ready: function () {
         this.noNavigate = this.nofocus;
         this._initFocusable(this);
+    },
+
+    attached: function () {
+        for (var i = 0; i < this.children.length; ++i) {
+            if (this.children[i].value === this.owner.value) {
+                this.children[i].selected = true;
+            }
+        }
     },
 
     _onFocusedChanged: function (event) {
@@ -28,7 +41,7 @@ Editor.registerWidget( 'editor-select-panel', {
             }
         }
         else {
-            this.hide();
+            // this.hide();
         }
     },
 

@@ -1,6 +1,7 @@
 <dom-module id="editor-select-preview">
     <style>
         editor-select {
+            margin: 5px;
             width: 200px;
         }
 
@@ -11,39 +12,44 @@
 
     <template>
         <preview-item
-            header="editor-select"
-            desc=""
+            header="editor-select[placeholder]"
+            desc="set attribute with 'placeholder'"
         >
-            <editor-select placeholder="select a item">
-                <editor-option value="English">
-                    English
-                </editor-option>
-                <editor-option value="Chinese">
-                    <editor-label class="mini blue">
-                        Chinese
-                    </editor-label>
-                </editor-option>
-                <editor-option value="French">
-                    <editor-label class="mini blue">
-                        French
-                    </editor-label>
-                </editor-option>
-                <editor-option value="Italy">
-                    Italy
-                </editor-option>
-                <editor-option value="Japan">
-                    <editor-label class="mini blue">
-                        Japan
-                    </editor-label>
-                </editor-option>
-                <editor-option value="New york">
-                    <editor-label class="mini blue">
-                        New york
-                    </editor-label>
+            <editor-select></editor-select>
+            <editor-select placeholder="select a item"></editor-select>
+        </preview-item>
+
+        <preview-item
+            header="editor-select with item"
+            desc="add <editor-option> into <editor-select>"
+        >
+            <editor-select>
+                <editor-option value="item1">item1</editor-option>
+                <editor-option value="item2">item2</editor-option>
+                <editor-option value="item3">item3</editor-option>
+                <editor-option value="item4">item4</editor-option>
+                <editor-option value="item5">item5</editor-option>
+            </editor-select>
+        </preview-item>
+
+        <preview-item
+            header="editor-select with default value"
+            desc="set attribute with 'value'"
+        >
+            <editor-select value="item2">
+                <editor-option value="item1">item1</editor-option>
+                <editor-option value="item2">item2</editor-option>
+                <editor-option value="item3">item3</editor-option>
+                <editor-option value="item4">item4</editor-option>
+                <editor-option value="item5">item5</editor-option>
+                <editor-option value="item6">
+                    <editor-label class="mini">label</editor-label>
                 </editor-option>
             </editor-select>
         </preview-item>
     </template>
+
+</template>
 </dom-module>
 
 <script>

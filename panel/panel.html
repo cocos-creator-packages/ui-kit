@@ -7,7 +7,7 @@
 <link rel="import" href="checkbox.html">
 <link rel="import" href="unit-input.html">
 <link rel="import" href="label.html">
-<link rel="import" href="select.html">
+<link rel="import" href="toolbar.html">
 
 <dom-module id="ui-kit-preview">
     <style>
@@ -35,7 +35,7 @@
             </select>
         </div>
         <div id="view" flex-1>
-            <editor-label-preview></editor-label-preview>
+            <editor-toolbar-preview></editor-toolbar-preview>
         </div>
     </template>
 </dom-module>
@@ -53,7 +53,7 @@ Editor.registerPanel( 'ui-kit.panel', {
             { name: '<editor-loader>',  value: 'editor-loader-preview' },
             { name: '<editor-checkbox>',  value: 'editor-checkbox-preview' },
             { name: '<editor-label>',  value: 'editor-label-preview' },
-            { name: '<editor-select>',  value: 'editor-select-preview' },
+            { name: '<editor-toolbar>',  value: 'editor-toolbar-preview' },
         ];
     },
 

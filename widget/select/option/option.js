@@ -11,11 +11,17 @@ Editor.registerWidget( 'editor-option', {
             notify: true,
             value: ''
         },
+
+        selected: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+        },
     },
 
     _onClick: function (event) {
-        var panel = event.currentTarget.parentElement.parentNode;
-        var root = event.currentTarget.parentElement.parentNode.owner;
+        var panel = event.currentTarget.parentNode;
+        var root = event.currentTarget.parentNode.owner;
         root.value = this.value;
         panel.hide();
     },

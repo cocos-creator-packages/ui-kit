@@ -40,7 +40,7 @@ Editor.registerWidget( 'editor-select', {
         if (!this._panel) {
             this._panel = document.createElement('editor-select-panel');
             this._panel.owner = this;
-            this._panel.$.items.innerHTML = this.$.options.innerHTML;
+            this._panel.innerHTML = this.$.options.innerHTML;
             document.body.appendChild(this._panel);
             this._updateOptions();
         }
@@ -78,10 +78,10 @@ Editor.registerWidget( 'editor-select', {
             this.focuschild = false;
         }
         else {
-            if (this._panel && this._panel.focused === false) {
-                this._panel.remove();
-                this._panel = null;
-            }
+            // if (this._panel && this._panel.focused === false) {
+            //     this._panel.remove();
+            //     this._panel = null;
+            // }
         }
     },
 });

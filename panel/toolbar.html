@@ -1,0 +1,36 @@
+<dom-module id="editor-toolbar-preview">
+    <style>
+
+    </style>
+
+    <template>
+        <preview-item
+            header="editor-toolbar"
+            desc="toolbar elements preview"
+        >
+            <editor-toolbar>
+                    <editor-input value="text-input"></editor-input>
+
+                    <editor-button>
+                        <i class="fa fa-github"></i>
+                    </editor-button>
+
+                    <editor-unit-input></editor-unit-input>
+
+                    <editor-label class="mini pointing left">Label</editor-label>
+
+                    <editor-checkbox>CheckBox</editor-checkbox>
+
+                    <editor-checkbox class="toggle">Toggle</editor-checkbox>
+            </editor-toolbar>
+        </preview-item>
+
+    </template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'editor-toolbar-preview',
+});
+
+</script>
