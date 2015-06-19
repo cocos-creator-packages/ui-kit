@@ -12,17 +12,20 @@ Editor.registerWidget( 'editor-loader', {
     ready: function () {
         this._originPosition = '';
         this._node = null;
+    },
 
-        if (this.hasAttribute('mask') && this.parentElement) {
-            this.initLoader(this.parentElement);
+    attached: function () {
+        var parentEL = this.parentElement;
+        if (this.hasAttribute('mask') && parentEL) {
+            this.maskAt(parentEL);
         }
     },
 
-    initLoader: function (node) {
+    maskAt: function ( parentEL ) {
         this.setAttribute('mask','');
-        this._node = node;
+        this._node = parentEL;
 
-        this._originPosition = window.getComputedStyle(node)['position'];
+        this._originPosition = window.getComputedStyle(parentEL).position;
 
         if (this._originPosition !== 'absolute' && this._originPosition !== 'relative' && this._originPosition !== 'fixed') {
             this._node.style.position = 'relative';
@@ -34,11 +37,16 @@ Editor.registerWidget( 'editor-loader', {
         this.style.top = 0;
         this.style.right = 0;
         this.style.bottom = 0;
-        node.appendChild(this);
+
+        if ( this.parentElement !== parentEL ) {
+            Polymer.dom(parentEL).appendChild(this);
+        }
     },
 
     clear: function () {
-        this._node.style.position = this._originPosition;
+        if ( this._node ) {
+            this._node.style.position = this._originPosition;
+        }
         this.remove();
     },
 });

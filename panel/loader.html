@@ -61,7 +61,7 @@
 
         <preview-item
             header="javascript API"
-            desc="call `editor-loader.initLoader(node)`"
+            desc="call `editor-loader.maskAt(node)`"
         >
             <div style="width:100%;height:100px;text-align:center;line-height: 100px;background:rgb(4, 133, 205);" id="testNode">
             </div>
@@ -73,9 +73,9 @@
                 var loader = document.createElement('editor-loader');
                 loader.text = 'I\'m Automatically generate';
                 var node = document.getElementById('testNode');
-                loader.initLoader(node);
+                loader.maskAt(node);
                 function load() {
-                    loader.initLoader(node);
+                    loader.maskAt(node);
                 }
                 function clearLoader() {
                     loader.clear();
