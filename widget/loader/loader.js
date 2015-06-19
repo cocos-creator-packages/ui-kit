@@ -31,7 +31,7 @@ Editor.registerWidget( 'editor-loader', {
             this._node.style.position = 'relative';
         }
 
-        this.style.background = 'rgba(0,0,0,.5)';
+        this.style.background = 'rgba(0,0,0,0.3)';
         this.style.position = 'absolute';
         this.style.left = 0;
         this.style.top = 0;
@@ -47,6 +47,6 @@ Editor.registerWidget( 'editor-loader', {
         if ( this._node ) {
             this._node.style.position = this._originPosition;
         }
-        this.remove();
+        Polymer.dom(Polymer.dom(this).parentNode).removeChild(this);
     },
 });
