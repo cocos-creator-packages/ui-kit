@@ -5,8 +5,9 @@
 }
 
 #animate {
-    width: auto!important;
-    height: auto!important;
+    position: relative;
+    width: auto;
+    height: auto;
     min-width: 2.6585em;
     font-size: .9em;
     border-radius: 500rem;
@@ -71,12 +72,19 @@
   }
 }
 
-:host[mask] #animate {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+:host[mask] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+/* DISABLE: we use flex center above    */
+/* :host[mask] #animate {               */
+/*     position: absolute;              */
+/*     left: 50%;                       */
+/*     top: 50%;                        */
+/*     transform: translate(-50%,-50%); */
+/* }                                    */
 
 :host.reverse #animate:after {
     animation: loader_reverse .8s linear;
