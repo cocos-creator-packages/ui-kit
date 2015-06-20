@@ -1,4 +1,3 @@
-
 :host {
     position: relative;
     z-index: 999;
@@ -12,31 +11,29 @@
     font-size: .9em;
     border-radius: 500rem;
     color: #fff;
-    text-align: center;
     line-height: 50%;
 }
 
 #text {
     text-align: center;
-    position: relative;
     padding-top: 3em;
     width: 100%;
 }
 
 #animate:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  border-radius: 10em;
-  border: .2em solid rgba(255,255,255,.1);
-  left: 50%;
+    position: absolute;
+    content: '';
+    top: 0;
+    border-radius: 10em;
+    border: .2em solid rgba(255,255,255,.1);
+    left: 50%;
 }
 
 #animate:after, #animate:before {
-  width: 2.2585em;
-  height: 2.2585em;
-  margin-left: -2.2585em/2 - 0.2em;
-  margin-top: -0.1em;
+    width: 2.2585em;
+    height: 2.2585em;
+    margin-left: -2.2585em/2 - 0.2em;
+    margin-top: -0.1em;
 }
 
 #animate:after {
@@ -55,27 +52,27 @@
 }
 
 @keyframes loader {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes loader_reverse {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 
 :host[mask] {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 /* DISABLE: we use flex center above    */
