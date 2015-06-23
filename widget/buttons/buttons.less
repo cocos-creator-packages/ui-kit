@@ -1,8 +1,9 @@
 :host {
     display: inline-block;
     box-sizing: border-box;
-    border-radius: 3px;
+    border-radius: 2px;
     overflow: hidden;
+    font-size: 1.2rem;
 }
 
 .btns {
@@ -10,8 +11,69 @@
     flex-flow: row;
 }
 
-:host ::content .btn.editor-button {
-    border: none;
-    border-radius: 0px;
-    background: #444444;
+:host::shadow editor-buttons-item {
+    border-right: 1px solid #444444;
+}
+
+:host::shadow editor-buttons-item:last-child{
+    border-right: 0px;
+}
+
+:host::shadow editor-buttons-item:first-child{
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+:host::shadow editor-buttons-item:last-child{
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+
+// size
+
+:host.small::shadow editor-buttons-item{
+    font-size: 1rem;
+    padding: .5rem .4rem;
+}
+
+:host.large::shadow editor-buttons-item{
+    font-size: 1.8rem;
+    padding: .5rem 1.5rem;
+}
+
+:host.big::shadow editor-buttons-item{
+    font-size: 2.5rem;
+    padding: .5rem 2rem;
+}
+
+:host[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+// colors
+
+:host.red::shadow editor-buttons-item[selected] {
+    color: red;
+}
+
+:host.yellow::shadow editor-buttons-item[selected] {
+    color: #FFEA0F;
+}
+
+:host.white::shadow editor-buttons-item[selected] {
+    color: white;
+}
+
+:host.purple::shadow editor-buttons-item[selected] {
+    color: #9c20fe;
+}
+
+:host.orange::shadow editor-buttons-item[selected] {
+    color: #f98221;
+}
+
+:host.green::shadow editor-buttons-item[selected] {
+    color: #58c800;
 }
