@@ -9,8 +9,9 @@
     position: relative;
 
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 1.2rem;
     min-width: 60px;
+    min-height: 24px;
     border: 1px solid @color-outter-border;
 }
 
@@ -18,7 +19,7 @@
     border-color: @color-outter-border-focus;
 }
 
-:host[focused] .border {
+:host[focused] #border {
     border-color: #171717;
 }
 
@@ -26,11 +27,21 @@
     border-color: @color-outter-border-focus;
 }
 
-:host[focuschild] .border {
+:host[focuschild] #border {
     border-color: #171717;
 }
 
-.border {
+:host[disabled] #border{
+    background-color: #393939;
+    color: #555;
+    pointer-events: none;
+}
+
+:host[disabled] #placeholder {
+    opacity: 1;
+}
+
+#border {
     position: relative;
     border: 1px solid @color-inner-border;
     width: 100%;

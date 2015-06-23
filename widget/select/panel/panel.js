@@ -6,7 +6,7 @@ Editor.registerWidget( 'editor-select-panel', {
     listeners: {
         'focus': '_onFocus',
         'blur': '_onBlur',
-        'focused-changed': '_onFocusedChanged'
+        'focused-changed': '_onFocusedChanged',
     },
 
     properties: {
@@ -41,16 +41,17 @@ Editor.registerWidget( 'editor-select-panel', {
             }
         }
         else {
-            // this.hide();
+            this.hide();
         }
     },
 
     hide: function () {
+        this.remove();
         if (this.owner) {
             this.owner.focuschild = false;
             this.owner._panel = null;
+            EditorUI.removeHitGhost();
             this.owner.setFocus();
         }
-        this.remove();
     },
 });

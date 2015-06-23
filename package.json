@@ -39,6 +39,7 @@
       "test/loader.html",
       "test/checkbox.html",
       "test/unit-input.html",
-      "test/label.html"
+      "test/label.html",
+      "test/select.html"
   ]
 }

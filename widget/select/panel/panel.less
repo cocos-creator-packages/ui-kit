@@ -34,9 +34,16 @@
 }
 
 :host::shadow editor-option:first-child{
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 :host::shadow editor-option:last-child{
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+}
+
+:host.upward {
+    border-bottom: 0px;
+    border-left: 1px solid @color-outter-border-focus;
+    border-right: 1px solid @color-outter-border-focus;
+    border-top: 1px solid @color-outter-border-focus;
 }

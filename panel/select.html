@@ -20,6 +20,27 @@
         </preview-item>
 
         <preview-item
+            header="editor-select[disabled]"
+            desc="set attribute with 'disabled'"
+        >
+            <editor-select disabled></editor-select>
+
+            <editor-select value="value" disabled></editor-select>
+
+            <editor-select placeholder="placeholder" disabled></editor-select>
+        </preview-item>
+
+        <preview-item
+            header="editor-option[disabled]"
+            desc="set <editor-option>'s attribute with 'disabled'"
+        >
+            <editor-select value="normal">
+                <editor-option value="normal">normal</editor-option>
+                <editor-option value="disabled" disabled>disabled</editor-option>
+            </editor-select>
+        </preview-item>
+
+        <preview-item
             header="editor-select with item"
             desc="add <editor-option> into <editor-select>"
         >
@@ -42,11 +63,48 @@
                 <editor-option value="item3">item3</editor-option>
                 <editor-option value="item4">item4</editor-option>
                 <editor-option value="item5">item5</editor-option>
-                <editor-option value="item6">
-                    <editor-label class="mini">label</editor-label>
-                </editor-option>
+                <editor-option value="item6">item6</editor-option>
             </editor-select>
         </preview-item>
+
+        <preview-item
+            header="editor-select items with custom element"
+            desc="you can set different element in <editor-option>,not only text."
+        >
+            <editor-select value="I'm a &lt;editor-label&gt;">
+                <editor-option value="I'm a text">I'm a text</editor-option>
+                <editor-option value="I'm a &lt;editor-label&gt;">
+                    <editor-label class="mini">I'm a &lt;editor-label&gt; </editor-label>
+                </editor-option>
+                <editor-option value="FontAwesome">
+                    <i class="fa fa-github"></i>
+                </editor-option>
+
+                <editor-option value="FontAwesome && text">
+                    <i class="fa fa-github"></i>
+                    Github
+                </editor-option>
+                <editor-option value="custom css tyle">
+                    <div style="color: yellow;text-align:center;">custom css tyle</div>
+                </editor-option>
+                <editor-option value="more">more...</editor-option>
+            </editor-select>
+        </preview-item>
+
+        <preview-item
+            header="call Event 'on-value-changed'"
+            desc="listen to 'on-value-changed' event"
+        >
+            <editor-select id="testEvent" on-value-changed="_onValueChanged" value="item2">
+                <editor-option value="item1">item1</editor-option>
+                <editor-option value="item2">item2</editor-option>
+                <editor-option value="item3">item3</editor-option>
+                <editor-option value="item4">item4</editor-option>
+                <editor-option value="item5">item5</editor-option>
+                <editor-option value="item6">item6</editor-option>
+            </editor-select>
+        </preview-item>
+
     </template>
 
 </template>
@@ -55,6 +113,10 @@
 <script>
 Polymer( {
     is: 'editor-select-preview',
+
+    _onValueChanged: function () {
+        Editor.log('_onValueChanged:' + this.$.testEvent.value);
+    },
 });
 
 </script>
