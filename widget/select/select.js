@@ -5,7 +5,8 @@ Editor.registerWidget( 'editor-select', {
 
     listeners: {
         'focus': '_onFocus',
-        'blur': '_onBlur'
+        'blur': '_onBlur',
+        'click': '_onClick'
     },
 
     properties: {

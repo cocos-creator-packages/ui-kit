@@ -19,7 +19,7 @@
     border-color: @color-outter-border-focus;
 }
 
-:host[focused] #border {
+:host[focused] .border {
     border-color: #171717;
 }
 
@@ -27,11 +27,11 @@
     border-color: @color-outter-border-focus;
 }
 
-:host[focuschild] #border {
+:host[focuschild] .border {
     border-color: #171717;
 }
 
-:host[disabled] #border{
+:host[disabled] .border{
     background-color: #393939;
     color: #555;
     pointer-events: none;
@@ -41,7 +41,7 @@
     opacity: 1;
 }
 
-#border {
+.border {
     position: relative;
     border: 1px solid @color-inner-border;
     width: 100%;

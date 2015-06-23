@@ -21,8 +21,7 @@ Editor.registerWidget( 'editor-option', {
 
     _onClick: function (event) {
         var panel = event.currentTarget.parentNode;
-        var root = event.currentTarget.parentNode.owner;
-        root.value = this.value;
+        panel.owner.value = this.value;
         panel.hide();
     },
 });
