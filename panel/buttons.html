@@ -1,0 +1,31 @@
+<dom-module id="editor-buttons-preview">
+    <style>
+        :host {
+        }
+
+        editor-buttons {
+            margin: 5px;
+        }
+    </style>
+
+    <template>
+        <preview-item
+            header="editor-buttons"
+            desc=""
+        >
+            <editor-buttons>
+                <editor-button>1</editor-button>
+                <editor-button>2</editor-button>
+                <editor-button>3</editor-button>
+                <editor-button>4</editor-button>
+            </editor-buttons>
+        </preview-item>
+    </template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'editor-buttons-preview',
+});
+
+</script>
