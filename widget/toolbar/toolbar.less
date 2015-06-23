@@ -1,7 +1,7 @@
 :host {
     position: relative;
-    height: 24px;
-    min-height: 30px;
+    height: 30px;
+    min-height: 24px;
     box-sizing: border-box;
 
     display: flex;
@@ -9,7 +9,7 @@
     flex-wrap: nowrap;
     align-items: center;
 
-    padding: 4px;
+    padding: 4px 2px;
     font-size: 1rem;
     white-space: nowrap;
     overflow: hidden;
@@ -21,6 +21,10 @@
 
 :host ::content > * {
     margin-right: 5px;
+}
+
+:host ::content:last-child {
+    margin-right: 0px;
 }
 
 // editor-button repain
