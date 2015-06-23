@@ -49,7 +49,6 @@ Editor.registerWidget( 'editor-select', {
                     this._panel.hide();
                 }
 
-                this._fromGhost = true;
                 this.setFocus();
             }.bind(this));
             document.body.appendChild(this._panel);
