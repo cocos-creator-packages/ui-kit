@@ -1,5 +1,3 @@
-Tester.checkLeaks(false);
-
 describe('<editor-input>', function() {
     var inputEl;
     beforeEach(function ( done ) {
@@ -27,7 +25,7 @@ describe('<editor-input>', function() {
         done();
     });
 
-    it('should be blur', function( done ) {
+    it('should be blured', function( done ) {
         Tester.focus(inputEl);
         expect(inputEl.hasAttribute('focused')).to.be.eql(true);
         Tester.blur(inputEl);
@@ -35,14 +33,14 @@ describe('<editor-input>', function() {
         done();
     });
 
-    it('should set el.$.input.value through el.value', function( done ) {
+    it('should set el.$.input.value to el.value', function( done ) {
         inputEl.value = 'testValue';
         expect(inputEl.$.input.value).to.be.eql('testValue');
         done();
     });
 
 
-    it('can be cancel value', function( done ) {
+    it('can cancel value', function( done ) {
         Tester.focus(inputEl);
         inputEl.inputValue = 'testValue';
         inputEl.cancel();
@@ -50,7 +48,7 @@ describe('<editor-input>', function() {
         done();
     });
 
-    it('can be confirm value', function( done ) {
+    it('can confirm value', function( done ) {
         Tester.focus(inputEl);
         inputEl.inputValue = 'testValue';
         inputEl.confirm();
@@ -77,12 +75,12 @@ describe('<editor-input value="{{foo}}">', function() {
         });
     });
 
-    it('shoudl bind value to foo', function() {
+    it('should bind value to foo', function() {
         scopeEL.foo = 'foo';
         expect(scopeEL.$.input.value).to.be.eql('foo');
     });
 
-    it('shoudl work when binding value to undefined', function() {
+    it('should work binding value to undefined', function() {
         scopeEL.foo = undefined;
         expect(scopeEL.$.input.value).to.be.eql(undefined);
     });
@@ -97,7 +95,7 @@ describe('<editor-input value="foobar">', function() {
         });
     });
 
-    it('should init value with foobar', function( done ) {
+    it('should initialize value to foobar', function( done ) {
         expect(inputEl.value).to.be.eql('foobar');
         expect(inputEl.inputValue).to.be.eql('foobar');
         expect(inputEl.$.input.value).to.be.eql('foobar');

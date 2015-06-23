@@ -10,35 +10,30 @@ Editor.registerWidget( 'editor-loader', {
     },
 
     ready: function () {
-        this._originPosition = '';
-        this._node = null;
+    },
 
-        if (this.hasAttribute('mask') && this.parentElement) {
-            this.initLoader(this.parentElement);
+    attached: function () {
+        if ( this.hasAttribute('mask') ) {
+            this.maskAt(Polymer.dom(this).parentNode);
         }
     },
 
-    initLoader: function (node) {
+    maskAt: function ( parentEL ) {
         this.setAttribute('mask','');
-        this._node = node;
 
-        this._originPosition = window.getComputedStyle(node)['position'];
-
-        if (this._originPosition !== 'absolute' && this._originPosition !== 'relative' && this._originPosition !== 'fixed') {
-            this._node.style.position = 'relative';
-        }
-
-        this.style.background = 'rgba(0,0,0,.5)';
+        this.style.background = 'rgba(0,0,0,0.3)';
         this.style.position = 'absolute';
         this.style.left = 0;
         this.style.top = 0;
         this.style.right = 0;
         this.style.bottom = 0;
-        node.appendChild(this);
+
+        if ( Polymer.dom(this).parentNode !== parentEL ) {
+            Polymer.dom(parentEL).appendChild(this);
+        }
     },
 
     clear: function () {
-        this._node.style.position = this._originPosition;
-        this.remove();
+        Polymer.dom(Polymer.dom(this).parentNode).removeChild(this);
     },
 });

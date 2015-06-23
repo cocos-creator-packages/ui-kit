@@ -1,5 +1,3 @@
-Tester.checkLeaks(false);
-
 describe('<editor-loader>', function() {
     var loaderEl;
     beforeEach(function ( done ) {
@@ -9,16 +7,16 @@ describe('<editor-loader>', function() {
         });
     });
 
-    it('should be initLoader', function( done ) {
+    it('should finish calling maskAt with one element', function( done ) {
         var div = document.createElement('div');
-        loaderEl.initLoader(div);
+        loaderEl.maskAt(div);
         expect(div.getElementsByTagName('editor-loader').length).to.be.eql(1);
         done();
     });
 
-    it('should be clear loader', function( done ) {
+    it('should have zero element after clear loader', function( done ) {
         var div = document.createElement('div');
-        loaderEl.initLoader(div);
+        loaderEl.maskAt(div);
         expect(div.getElementsByTagName('editor-loader').length).to.be.eql(1);
         loaderEl.clear();
         expect(div.getElementsByTagName('editor-loader').length).to.be.eql(0);
@@ -36,14 +34,14 @@ describe('<editor-loader mask>', function() {
         });
     });
     afterEach(function ( done ) {
-        loaderEl.initLoader.restore();
+        loaderEl.maskAt.restore();
         done();
     });
 
-    it('should be set mask', function( done ) {
-        sinon.spy(loaderEl, 'initLoader');
-        loaderEl.ready();
-        assert( loaderEl.initLoader.calledOnce );
+    it('should set mask attribute', function( done ) {
+        sinon.spy(loaderEl, 'maskAt');
+        loaderEl.attached();
+        assert( loaderEl.maskAt.calledOnce );
         done();
     });
 });

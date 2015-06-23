@@ -1,5 +1,3 @@
-Tester.checkLeaks(false);
-
 describe('<editor-checkbox>', function() {
     var checkboxEl;
     beforeEach(function ( done ) {
