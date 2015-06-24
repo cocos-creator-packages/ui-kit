@@ -6,7 +6,6 @@ Editor.registerWidget( 'editor-buttons-item', {
     listeners: {
         'focus': '_onFocus',
         'blur': '_onBlur',
-        'click': '_onClick'
     },
 
     properties: {
@@ -22,8 +21,4 @@ Editor.registerWidget( 'editor-buttons-item', {
         this.noNavigate = this.nofocus;
         this._initFocusable(this);
     },
-
-    _onClick: function () {
-        this.selected = !this.selected;
-    }
 });
