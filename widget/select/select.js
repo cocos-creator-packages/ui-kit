@@ -1,12 +1,15 @@
 Editor.registerWidget( 'editor-select', {
     is: 'editor-select',
 
-    behaviors: [EditorUI.focusable, Polymer.IronButtonState],
+    behaviors: [EditorUI.focusable],
 
     listeners: {
         'focus': '_onFocus',
         'blur': '_onBlur',
-        'click': '_onClick'
+        'click': '_showOrHideMenu',
+        'keydown': '_onKeyDown',
+        'keyup': '_onKeyUp'
+
     },
 
     properties: {
@@ -37,7 +40,7 @@ Editor.registerWidget( 'editor-select', {
         this.contentInnerHTML = this.$.options.innerHTML;
     },
 
-    _onClick: function (event) {
+    _showOrHideMenu: function (event) {
         event.stopPropagation();
 
         if (!this._menu) {
@@ -58,6 +61,17 @@ Editor.registerWidget( 'editor-select', {
             if (this._menu) {
                 this._menu.hide();
             }
+        }
+    },
+
+    _onKeyDown: function (event) {
+        event.preventDefault();
+    },
+
+    _onKeyUp: function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13 || event.keyCode === 32) {
+            this._showOrHideMenu(event);
         }
     },
 

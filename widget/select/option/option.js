@@ -17,9 +17,22 @@ Editor.registerWidget( 'editor-option', {
             value: false,
             reflectToAttribute: true
         },
+
+        disabled: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+        }
     },
 
     _onClick: function (event) {
+        this.fire('selected');
+    },
+
+    _confirm: function () {
+        if (this.disabled) {
+            return;
+        }
         this.fire('selected');
     },
 });

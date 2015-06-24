@@ -45,7 +45,7 @@
             desc="add <editor-option> into <editor-select>"
         >
             <editor-select>
-                <editor-option value="item1">item1</editor-option>
+                <editor-option value="item1" on-click="_onclick">item1</editor-option>
                 <editor-option value="item2">item2</editor-option>
                 <editor-option value="item3">item3</editor-option>
                 <editor-option value="item4">item4</editor-option>
@@ -116,6 +116,10 @@ Polymer( {
 
     _onValueChanged: function () {
         Editor.log('_onValueChanged:' + this.$.testEvent.value);
+    },
+
+    _onclick: function () {
+        console.log('click');
     },
 });
 
