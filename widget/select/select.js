@@ -40,23 +40,23 @@ Editor.registerWidget( 'editor-select', {
     _onClick: function (event) {
         event.stopPropagation();
 
-        if (!this._panel) {
-            this._panel = document.createElement('editor-select-panel');
-            this._panel.owner = this;
-            this._panel.innerHTML = this.contentInnerHTML;
+        if (!this._menu) {
+            this._menu = document.createElement('editor-select-menu');
+            this._menu.owner = this;
+            this._menu.innerHTML = this.contentInnerHTML;
             EditorUI.addHitGhost('cursor', '998', function (event) {
-                if (this._panel) {
-                    this._panel.hide();
+                if (this._menu) {
+                    this._menu.hide();
                 }
 
                 this.setFocus();
             }.bind(this));
-            document.body.appendChild(this._panel);
-            this._panel.setFocus();
+            document.body.appendChild(this._menu);
+            this._menu.setFocus();
             this._updateOptions();
         }else {
-            if (this._panel) {
-                this._panel.hide();
+            if (this._menu) {
+                this._menu.hide();
             }
         }
     },
@@ -74,23 +74,23 @@ Editor.registerWidget( 'editor-select', {
 
     _updateOptions: function () {
         window.requestAnimationFrame ( function () {
-            if (!this._panel)
+            if (!this._menu)
                 return;
 
-            if (this.getBoundingClientRect().bottom + this._panel.getBoundingClientRect().height > document.body.getBoundingClientRect().bottom) {
-                this._panel.style.top = 'auto';
-                this._panel.style.borderTop = '1px solid #0c70a6';
-                this._panel.style.borderBottom = '0px';
-                this._panel.style.bottom = document.body.getBoundingClientRect().height - this.getBoundingClientRect().bottom + 29;
+            if (this.getBoundingClientRect().bottom + this._menu.getBoundingClientRect().height > document.body.getBoundingClientRect().bottom) {
+                this._menu.style.top = 'auto';
+                this._menu.style.borderTop = '1px solid #0c70a6';
+                this._menu.style.borderBottom = '0px';
+                this._menu.style.bottom = document.body.getBoundingClientRect().height - this.getBoundingClientRect().bottom + 29;
             }else {
-                this._panel.style.bottom = 'auto';
-                this._panel.style.borderBottom = '1px solid #0c70a6';
-                this._panel.style.borderTop = '0px';
-                this._panel.style.top = this.getBoundingClientRect().top + 23;
+                this._menu.style.bottom = 'auto';
+                this._menu.style.borderBottom = '1px solid #0c70a6';
+                this._menu.style.borderTop = '0px';
+                this._menu.style.top = this.getBoundingClientRect().top + 23;
             }
-            this._panel.style.position = 'absolute';
-            this._panel.style.width = this.getBoundingClientRect().width;
-            this._panel.style.left = this.getBoundingClientRect().left;
+            this._menu.style.position = 'absolute';
+            this._menu.style.width = this.getBoundingClientRect().width;
+            this._menu.style.left = this.getBoundingClientRect().left;
 
             this._updateOptions();
         }.bind(this));

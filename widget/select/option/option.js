@@ -20,8 +20,6 @@ Editor.registerWidget( 'editor-option', {
     },
 
     _onClick: function (event) {
-        var panel = event.currentTarget.parentNode;
-        panel.owner.value = this.value;
-        panel.hide();
+        this.fire('selected');
     },
 });

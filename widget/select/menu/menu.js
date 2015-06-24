@@ -1,5 +1,5 @@
-Editor.registerWidget( 'editor-select-panel', {
-    is: 'editor-select-panel',
+Editor.registerWidget( 'editor-select-menu', {
+    is: 'editor-select-menu',
 
     behaviors: [EditorUI.focusable],
 
@@ -28,6 +28,11 @@ Editor.registerWidget( 'editor-select-panel', {
 
     attached: function () {
         for (var i = 0; i < this.children.length; ++i) {
+            this.children[i].addEventListener('selected',function (event) {
+                this.owner.value = event.target.value;
+                this.hide();
+            }.bind(this));
+
             if (this.children[i].value === this.owner.value) {
                 this.children[i].selected = true;
             }
@@ -49,7 +54,7 @@ Editor.registerWidget( 'editor-select-panel', {
         this.remove();
         if (this.owner) {
             this.owner.focuschild = false;
-            this.owner._panel = null;
+            this.owner._menu = null;
             EditorUI.removeHitGhost();
             this.owner.setFocus();
         }

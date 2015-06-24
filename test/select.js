@@ -21,7 +21,7 @@ describe('<editor-select>', function() {
 
     it('can be click', function( done ) {
         Tester.click(selectEl);
-        expect(selectEl._panel === undefined ? false : true).to.be.eql(true);
+        expect(selectEl._menu === undefined ? false : true).to.be.eql(true);
         done();
     });
 });
