@@ -1,0 +1,49 @@
+@color-outter-border: #171717;
+@color-outter-border-focus: #0c70a6;
+@color-inner-border: black;
+@color-bg: #2a2a2a;
+@color-bg-selected: #2865c7;
+@color-text: #aaa;
+
+:host {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+
+    position: relative;
+
+    box-sizing: border-box;
+    font-size: 12px;
+    width: 120px;
+    min-width: 60px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgb(42, 42, 42);
+
+    // by default options show below fire-ui-select
+    border-top: 0px;
+    border-left: 1px solid @color-outter-border-focus;
+    border-right: 1px solid @color-outter-border-focus;
+    border-bottom: 1px solid @color-outter-border-focus;
+    z-index: 999;
+}
+
+:host::shadow editor-option{
+    display: inline-block;
+    height: auto;
+}
+
+:host::shadow editor-option:first-child{
+    margin-top: 3px;
+}
+
+:host::shadow editor-option:last-child{
+    margin-bottom: 3px;
+}
+
+:host.upward {
+    border-bottom: 0px;
+    border-left: 1px solid @color-outter-border-focus;
+    border-right: 1px solid @color-outter-border-focus;
+    border-top: 1px solid @color-outter-border-focus;
+}

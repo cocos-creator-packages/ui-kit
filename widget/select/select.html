@@ -1,0 +1,19 @@
+<link rel="import" href="menu/menu.html">
+<link rel="import" href="option/option.html">
+
+<dom-module id="editor-select">
+    <link rel="import" type="css" href="select.css">
+
+    <template>
+        <div class="border">
+            <span id="placeholder">{{placeholder}}</span>
+            <span id="text">{{value}}</span>
+            <i class="fa fa-caret-down"></i>
+        </div>
+        <div id="options">
+            <content></content>
+        </div>
+    </template>
+
+    <script type="text/javascript" src="select.js"></script>
+</dom-module>
