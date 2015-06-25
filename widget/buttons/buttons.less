@@ -1,3 +1,10 @@
+@color-button-text: #bdbdbd;
+@color-button-bg: #4a4a4a;
+@color-button-bg-top: #5a5a5a;
+@color-button-bg-bottom: #444;
+@color-border-normal: #171717;
+@color-border-focus: #09f;
+
 :host {
     display: inline-block;
     box-sizing: border-box;
@@ -8,7 +15,7 @@
 
 .btns {
     display: flex;
-    flex-flow: row;
+    flex-flow: row nowrap;
 }
 
 :host::shadow editor-buttons-item {
@@ -76,4 +83,32 @@
 
 :host.green::shadow editor-buttons-item[selected] {
     color: #58c800;
+}
+
+
+// classical
+
+:host.classical {
+    border: 1px solid #1f1f1f;
+}
+
+:host.classical::shadow editor-buttons-item {
+    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+    border: 1px solid #666565;
+    border-left: 0px;
+    padding: 0.3rem 0.3rem;
+}
+
+:host.classical::shadow editor-buttons-item:first-child {
+    border-left: 1px solid #666565;
+}
+
+:host.classical::shadow editor-buttons-item[selected] {
+    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+    box-shadow: inset 0 2px 20px rgba(0,0,0,0.9);
+}
+
+:host.classical::shadow editor-buttons-item[pressed] {
+    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+    box-shadow: inset 0 2px 20px rgba(0,0,0,0.7);
 }
