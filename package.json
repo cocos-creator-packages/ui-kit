@@ -5,7 +5,7 @@
   "author": "Firebox Technology",
   "build": true,
   "hosts": {
-    "editor-framework": "^0.3.4"
+    "editor-framework": "^0.3.10"
   },
   "main": "main.js",
   "menus": {
