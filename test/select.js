@@ -15,13 +15,13 @@ describe('<editor-select>', function() {
 
     it('should be set placeholder', function( done ) {
         selectEl.placeholder = 'placeholder';
-        expect(selectEl.$.placeholder.innerHTML).to.be.eql('placeholder');
+        expect(selectEl.$.text.classList.contains('placeholder')).to.be.eql(true);
         done();
     });
 
     it('can be click', function( done ) {
         Tester.click(selectEl);
-        expect(selectEl._menu === undefined ? false : true).to.be.eql(true);
+        expect(selectEl.$.menu.hidden).to.be.eql(false);
         done();
     });
 });
@@ -39,9 +39,10 @@ describe('<editor-select> with items', function() {
     it('can be set value', function( done ) {
         scopeEL.value = '1';
         Tester.click(scopeEL);
-        var options = document.getElementsByTagName('editor-option');
-        for (var i = 0; i < options.length; i++) {
-            if (options[i].selected === true && options[i].value === '1') {
+
+        var options = Polymer.dom(scopeEL).children;
+        for ( var i = 0; i < options.length; ++i ) {
+            if (options[i].getAttribute('selected') !== null && options[i].value === '1') {
                 done();
             }
         }

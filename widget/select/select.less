@@ -23,14 +23,6 @@
     border-color: #171717;
 }
 
-:host[focuschild] {
-    border-color: @color-outter-border-focus;
-}
-
-:host[focuschild] .border {
-    border-color: #171717;
-}
-
 :host[disabled] .border{
     background-color: #393939;
     color: #555;
@@ -60,20 +52,16 @@
     overflow-x: hidden;
     margin-right: 5px;
     flex: 1;
-    display: none;
+}
+
+#text.placeholder {
+    opacity: 0.5;
+    font-style: italic;
 }
 
 .fa {
     width: 8px;
     text-align: center;
-}
-
-#placeholder {
-    overflow-x: hidden;
-    margin-right: 5px;
-    flex: 1;
-    opacity: 0.5;
-    font-style: italic;
 }
 
 #options {

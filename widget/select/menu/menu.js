@@ -6,98 +6,95 @@ Editor.registerWidget( 'editor-select-menu', {
     listeners: {
         'focus': '_onFocus',
         'blur': '_onBlur',
-        'focused-changed': '_onFocusedChanged',
         'keydown': '_onKeyDown',
-        'keyup': '_onKeyUp',
+        'mousedown': '_onMouseDown',
+        'click': '_onClick',
     },
 
     properties: {
-        owner: {
-            type: Object,
-            value: null
-        },
-
-        select: {
+        value: {
             type: String,
             value: '',
+            notify: true,
         }
     },
 
     ready: function () {
-        this.noNavigate = this.nofocus;
+        this.noNavigate = true;
         this._initFocusable(this);
-        this.selectedItem = null;
     },
 
-    attached: function () {
-        for (var i = 0; i < this.children.length; ++i) {
-            this.children[i].addEventListener('selected',function (event) {
-                this.owner.value = event.target.value;
-                this.hide();
-            }.bind(this));
+    _onMouseDown: function ( event ) {
+        event.stopPropagation();
+    },
 
-            if (this.children[i].value === this.owner.value) {
-                this.children[i].selected = true;
-                this.selectedItem = this.children[i];
-            }
-        }
-
-        for (var j = 0; j < this.children.length; ++j) {
-            if (this.children[j].value === this.owner.value) {
-                this.children[j].selected = true;
-                this.selectedItem = this.children[j];
-                return;
-            }
-        }
-
-        if (!this.selectedItem && this.children.length > 0) {
-            this.selectedItem = this.children[0];
-            this.selectedItem.selected = true;
-        }
+    _onClick: function ( event ) {
+        this.confirm();
     },
 
     _onKeyDown: function (event) {
+        var items;
+
+        // up-arrow
         if (event.keyCode === 38) {
-            if (this.selectedItem && this.selectedItem.previousElementSibling) {
-                this.selectedItem.selected = false;
-                this.selectedItem = this.selectedItem.previousElementSibling;
-                this.selectedItem.selected = true;
+            event.preventDefault();
+            event.stopPropagation();
+
+            if ( !this.$.selector.selectedItem ) {
+                items = this.$.selector.items;
+                if ( items.length > 0 ) {
+                    this.$.selector.select(items[items.length-1].value);
+                }
+            }
+            else {
+                this.$.selector.selectPrevious();
             }
         }
+        // down-arrow
         else if (event.keyCode === 40) {
-            if (this.selectedItem && this.selectedItem.nextElementSibling) {
-                this.selectedItem.selected = false;
-                this.selectedItem = this.selectedItem.nextElementSibling;
-                this.selectedItem.selected = true;
+            event.preventDefault();
+            event.stopPropagation();
+
+            if ( !this.$.selector.selectedItem ) {
+                items = this.$.selector.items;
+                if ( items.length > 0 ) {
+                    this.$.selector.select(items[0].value);
+                }
+            }
+            else {
+                this.$.selector.selectNext();
             }
         }
-    },
+        // space, enter
+        else if (event.keyCode === 13 || event.keyCode === 32) {
+            event.preventDefault();
+            event.stopPropagation();
 
-    _onKeyUp: function (event) {
-        if (event.keyCode === 13 || event.keyCode === 32) {
-            this.selectedItem._confirm();
-            this.owner._showOrHideMenu(event);
+            this.confirm();
         }
-    },
+        // esc
+        else if (event.keyCode === 27) {
+            event.preventDefault();
+            event.stopPropagation();
 
-    _onFocusedChanged: function (event) {
-        if ( event.detail.value ) {
-            if (this.owner) {
-                this.owner.focuschild = true;
-            }
-        }
-        else {
-            this.hide();
+            this.cancel();
         }
     },
 
-    hide: function () {
-        this.remove();
-        if (this.owner) {
-            this.owner.focuschild = false;
-            this.owner._menu = null;
-            EditorUI.removeHitGhost();
-            this.owner.setFocus();
+    confirm: function () {
+        if ( this.$.selector.selectedItem.disabled ) {
+            this.cancel();
+            return;
         }
+
+        this.value = this.$.selector.selected;
+        this.hidden = true;
+        EditorUI.focusParent(this);
+    },
+
+    cancel: function () {
+        this.$.selector.select(this.value);
+        this.hidden = true;
+        EditorUI.focusParent(this);
     },
 });

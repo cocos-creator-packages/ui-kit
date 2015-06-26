@@ -6,13 +6,12 @@
 
     <template>
         <div class="border">
-            <span id="placeholder">{{placeholder}}</span>
-            <span id="text">{{value}}</span>
+            <span id="text" class$="{{_textClass(value)}}">{{_text(value)}}</span>
             <i class="fa fa-caret-down"></i>
         </div>
-        <div id="options">
+        <editor-select-menu id="menu" value="{{value}}" hidden>
             <content></content>
-        </div>
+        </editor-select-menu>
     </template>
 
     <script type="text/javascript" src="select.js"></script>
