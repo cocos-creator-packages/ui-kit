@@ -147,8 +147,8 @@ Polymer({
 
         this.setFocus();
 
-        this.timeoutID = setTimeout( function () {
-            this.holdingID = setInterval( function () {
+        this._timeoutID = setTimeout( function () {
+            this._holdingID = setInterval( function () {
                 this._stepUp();
             }.bind(this), 50);
         }.bind(this), 500 );
@@ -160,8 +160,8 @@ Polymer({
 
         this.setFocus();
 
-        this.timeoutID = setTimeout( function () {
-            this.holdingID = setInterval( function () {
+        this._timeoutID = setTimeout( function () {
+            this._holdingID = setInterval( function () {
                 this._stepDown();
             }.bind(this), 50);
         }.bind(this), 500 );
@@ -170,11 +170,11 @@ Polymer({
     _onStopRoll: function ( event ) {
         event.stopPropagation();
 
-        clearInterval(this.holdingID);
-        this.holdingID = null;
+        clearInterval(this._holdingID);
+        this._holdingID = null;
 
-        clearTimeout(this.timeoutID);
-        this.timeoutID = null;
+        clearTimeout(this._timeoutID);
+        this._timeoutID = null;
 
         setTimeout(function() {
             this.confirm();
