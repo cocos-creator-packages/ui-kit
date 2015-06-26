@@ -1,0 +1,34 @@
+@color-outter-border: #171717;
+@color-outter-border-focus: #0c70a6;
+@color-inner-border: black;
+@color-bg: #2a2a2a;
+@color-bg-selected: #2865c7;
+@color-text: #aaa;
+
+:host {
+    position: fixed;
+    z-index: 999;
+
+    box-sizing: border-box;
+    font-size: 12px;
+    width: 120px;
+    min-width: 60px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgb(42, 42, 42);
+
+    padding: 3px 4px 3px 4px;
+
+    // by default options show below fire-ui-select
+    border-top: 0px;
+    border-left: 1px solid @color-outter-border-focus;
+    border-right: 1px solid @color-outter-border-focus;
+    border-bottom: 1px solid @color-outter-border-focus;
+}
+
+:host.upward {
+    border-bottom: 0px;
+    border-left: 1px solid @color-outter-border-focus;
+    border-right: 1px solid @color-outter-border-focus;
+    border-top: 1px solid @color-outter-border-focus;
+}

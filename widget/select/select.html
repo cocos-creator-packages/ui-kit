@@ -1,0 +1,18 @@
+<link rel="import" href="menu/menu.html">
+<link rel="import" href="option/option.html">
+
+<dom-module id="editor-select">
+    <link rel="import" type="css" href="select.css">
+
+    <template>
+        <div class="border">
+            <span id="text" class$="{{_textClass(value)}}">{{_text(value)}}</span>
+            <i class="fa fa-caret-down"></i>
+        </div>
+        <editor-select-menu id="menu" value="{{value}}" hidden>
+            <content></content>
+        </editor-select-menu>
+    </template>
+
+    <script type="text/javascript" src="select.js"></script>
+</dom-module>
