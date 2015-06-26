@@ -1,7 +1,7 @@
 Editor.registerWidget( 'editor-select-menu', {
     is: 'editor-select-menu',
 
-    behaviors: [EditorUI.focusable],
+    behaviors: [EditorUI.focusable, Polymer.IronMultiSelectableBehavior],
 
     listeners: {
         'focus': '_onFocus',
@@ -40,14 +40,14 @@ Editor.registerWidget( 'editor-select-menu', {
             event.preventDefault();
             event.stopPropagation();
 
-            if ( !this.$.selector.selectedItem ) {
-                items = this.$.selector.items;
+            if ( !this.selectedItem ) {
+                items = this.items;
                 if ( items.length > 0 ) {
-                    this.$.selector.select(items[items.length-1].value);
+                    this.select(items[items.length-1].value);
                 }
             }
             else {
-                this.$.selector.selectPrevious();
+                this.selectPrevious();
             }
         }
         // down-arrow
@@ -55,14 +55,14 @@ Editor.registerWidget( 'editor-select-menu', {
             event.preventDefault();
             event.stopPropagation();
 
-            if ( !this.$.selector.selectedItem ) {
-                items = this.$.selector.items;
+            if ( !this.selectedItem ) {
+                items = this.items;
                 if ( items.length > 0 ) {
-                    this.$.selector.select(items[0].value);
+                    this.select(items[0].value);
                 }
             }
             else {
-                this.$.selector.selectNext();
+                this.selectNext();
             }
         }
         // space, enter
@@ -82,18 +82,18 @@ Editor.registerWidget( 'editor-select-menu', {
     },
 
     confirm: function () {
-        if ( this.$.selector.selectedItem.disabled ) {
+        if ( this.selectedItem && this.selectedItem.disabled ) {
             this.cancel();
             return;
         }
 
-        this.value = this.$.selector.selected;
+        this.value = this.selected;
         this.hidden = true;
         EditorUI.focusParent(this);
     },
 
     cancel: function () {
-        this.$.selector.select(this.value);
+        this.select(this.value);
         this.hidden = true;
         EditorUI.focusParent(this);
     },

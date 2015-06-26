@@ -1,17 +1,15 @@
 <link rel="import" href="app://bower_components/iron-selector/iron-selector.html">
 
 <dom-module id="editor-select-menu">
+    <style>
+        :host {
+            @apply(--layout-vertical);
+        }
+    </style>
     <link rel="import" type="css" href="menu.css">
 
     <template>
-        <iron-selector id="selector" class="layout vertical"
-            selected="[[value]]"
-            selected-class=""
-            selected-attribute="selected"
-            attr-for-selected="value"
-        >
-            <content></content>
-        </iron-selector>
+        <content></content>
     </template>
 
     <script type="text/javascript" src="menu.js"></script>

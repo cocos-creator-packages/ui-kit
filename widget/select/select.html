@@ -9,7 +9,13 @@
             <span id="text" class$="{{_textClass(value)}}">{{_text(value)}}</span>
             <i class="fa fa-caret-down"></i>
         </div>
-        <editor-select-menu id="menu" value="{{value}}" hidden>
+        <editor-select-menu id="menu" hidden
+            value="{{value}}"
+            selected="[[value]]"
+            selected-class=""
+            selected-attribute="selected"
+            attr-for-selected="value"
+        >
             <content></content>
         </editor-select-menu>
     </template>
