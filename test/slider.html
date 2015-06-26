@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>editor-slider tests</title>
+        <meta charset="utf-8">
+        <link rel="import" href="packages://tester/env/env-widget.html">
+    </head>
+
+    <body>
+        <widget-fixture id="widget" src="packages://ui-kit/widget/slider/slider.html">
+            <template>
+                <editor-slider></editor-slider>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="unit-input" src="packages://ui-kit/widget/slider/slider.html">
+            <template>
+                <editor-slider></editor-slider>
+            </template>
+        </widget-fixture>
+
+        <widget-fixture id="limit" src="packages://ui-kit/widget/slider/slider.html">
+            <template>
+                <editor-slider min="5" max="10" value="0"></editor-slider>
+            </template>
+        </widget-fixture>
+        <script src="slider.js"></script>
+    </body>
+</html>

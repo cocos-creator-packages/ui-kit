@@ -1,0 +1,119 @@
+:host {
+    display: flex;
+    align-items: center;
+}
+
+:host[input] editor-unit-input {
+    display: flex;
+}
+
+:host[disabled]{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.edge {
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    cursor: pointer;
+}
+
+#base {
+    display: inline-block;
+    position: relative;
+    background-color: #5C5C5C;
+    padding: 1px 0px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#plan {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    box-shadow: 0 1px 3px -1px #fff inset,0 1px 1px 0 rgba(0,0,0,0.9);
+    background: #949494;
+    transform: translate(-50%,-50%);
+    cursor: inherit;
+    transition: background 0.3s ease;
+}
+
+editor-unit-input {
+    width: 60px;
+    margin-left: 10px;
+    display: none;
+}
+
+// colors
+
+:host.black #plan{
+    background: black;
+    box-shadow: 0 1px 3px -1px #919191 inset, 0 1px 1px 0 rgba(0, 0, 0, 1);
+}
+
+:host.white #plan{
+    background: #CFC9C9;
+}
+
+:host.red #plan{
+    background: rgb(255, 20, 20);
+}
+
+:host.green #plan{
+    background: #22ba03;
+}
+
+:host.purple #plan{
+    background: #9206cb;
+}
+
+:host.blue #plan{
+    background: #0093FF;
+}
+
+:host.yellow #plan{
+    background: #fefb0b;
+}
+
+:host[focused] #plan{
+    background: #0c70a6;
+}
+
+// nofocus
+
+:host[nofocus] #plan {
+    background: #949494;
+}
+
+:host[nofocus].black #plan{
+    background: black;
+    box-shadow: 0 1px 3px -1px #919191 inset, 0 1px 1px 0 rgba(0, 0, 0, 1);
+}
+
+:host[nofocus].white #plan{
+    background: #CFC9C9;
+}
+
+:host[nofocus].red #plan{
+    background: rgb(255, 20, 20);
+}
+
+:host[nofocus].green #plan{
+    background: #22ba03;
+}
+
+:host[nofocus].purple #plan{
+    background: #9206cb;
+}
+
+:host[nofocus].blue #plan{
+    background: #0093FF;
+}
+
+:host[nofocus].yellow #plan{
+    background: #fefb0b;
+}
