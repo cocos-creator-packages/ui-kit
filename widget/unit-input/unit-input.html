@@ -18,9 +18,9 @@
                 tabindex="-1"
                 on-focus="_onFocus"
                 on-blur="_onBlur"
-                on-click="_stepUp"
-                on-mousedown="_increase"
-                on-mouseup="_stopRoll"
+                on-click="_onIncreaseClick"
+                on-mousedown="_onIncrease"
+                on-mouseup="_onStopRoll"
                 >
                 <i class="fa fa-caret-up"></i>
             </span>
@@ -28,9 +28,9 @@
                 tabindex="-1"
                 on-focus="_onFocus"
                 on-blur="_onBlur"
-                on-click="_stepDown"
-                on-mousedown="_decrease"
-                on-mouseup="_stopRoll"
+                on-click="_onDecreaseClick"
+                on-mousedown="_onDecrease"
+                on-mouseup="_onStopRoll"
                 >
                 <i class="fa fa-caret-down"></i>
             </span>

@@ -109,6 +109,20 @@ Polymer({
         }
     },
 
+    _onIncreaseClick: function ( event ) {
+        event.stopPropagation();
+        // event.preventDefault();
+
+        this._stepUp();
+    },
+
+    _onDecreaseClick: function ( event ) {
+        event.stopPropagation();
+        // event.preventDefault();
+
+        this._stepDown();
+    },
+
     _stepUp: function () {
         if (this._nullToFloat(this.$.input.bindValue) + this.step >= this.max) {
             this.$.input.bindValue = this.max.toString();
@@ -127,7 +141,12 @@ Polymer({
         }
     },
 
-    _increase: function (event) {
+    _onIncrease: function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        this.setFocus();
+
         this.timeoutID = setTimeout( function () {
             this.holdingID = setInterval( function () {
                 this._stepUp();
@@ -135,7 +154,12 @@ Polymer({
         }.bind(this), 500 );
     },
 
-    _decrease: function (event) {
+    _onDecrease: function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        this.setFocus();
+
         this.timeoutID = setTimeout( function () {
             this.holdingID = setInterval( function () {
                 this._stepDown();
@@ -143,7 +167,9 @@ Polymer({
         }.bind(this), 500 );
     },
 
-    _stopRoll: function () {
+    _onStopRoll: function ( event ) {
+        event.stopPropagation();
+
         clearInterval(this.holdingID);
         this.holdingID = null;
 
