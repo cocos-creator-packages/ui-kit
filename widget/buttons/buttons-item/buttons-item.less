@@ -1,0 +1,57 @@
+@color-button-text: #bdbdbd;
+@color-button-bg: #4a4a4a;
+@color-button-bg-top: #5a5a5a;
+@color-button-bg-bottom: #444;
+@color-border-normal: #171717;
+@color-border-focus: #09f;
+
+:host {
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: #444444;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0px;
+    min-width: 35px;
+    text-align: center;
+    flex-grow: 1;
+    padding: 0.5rem 0.4rem;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    color: @color-button-text;
+
+    transition: all 0.1s ease;
+}
+
+:host ::content .fa {
+    padding: 0.2rem 0.4rem;
+}
+
+:host:hover {
+    background-color: #444444 + 20%;
+}
+
+:host:focus {
+    outline: none;
+}
+
+:host[pressed] {
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    color: @color-button-text - 20%;
+    background-color: #444444 - 20%;
+}
+
+:host[disabled] {
+    background-image: linear-gradient(@color-button-bg-top - 10%, @color-button-bg-bottom - 10%);
+    color: @color-button-text - 80%;
+}
+
+:host[selected] {
+    background-color: #2A2A2A;
+    color: #279DFF;
+    border-color: #343333;
+}
