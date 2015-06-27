@@ -59,7 +59,7 @@ Editor.registerWidget( 'editor-slider', {
     },
 
     _onMouseDown: function (event) {
-        EditorUI.addDragGhost('pointer');
+        EditorUI.addDragGhost('ew-resize');
 
         var rect = this.$.track.getBoundingClientRect();
         var mouseDownX = rect.left;
