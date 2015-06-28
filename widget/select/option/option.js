@@ -1,4 +1,4 @@
-Editor.registerWidget( 'editor-option', {
+Polymer({
     is: 'editor-option',
 
     properties: {

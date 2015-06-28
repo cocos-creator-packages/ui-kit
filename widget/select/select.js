@@ -106,10 +106,10 @@ Editor.registerWidget( 'editor-select', {
                 this.$.menu.style.top = 'auto';
                 this.$.menu.style.borderTop = '1px solid #0c70a6';
 
-                this.$.menu.style.bottom = (bodyBcr.height-bcr.bottom+29) + 'px';
+                this.$.menu.style.bottom = (bodyBcr.height - bcr.bottom + bcr.height + 5) + 'px';
                 this.$.menu.style.borderBottom = '0px';
             } else {
-                this.$.menu.style.top = (bcr.top + 23) + 'px';
+                this.$.menu.style.top = (bcr.top + bcr.height - 1) + 'px';
                 this.$.menu.style.borderTop = '0px';
 
                 this.$.menu.style.bottom = 'auto';

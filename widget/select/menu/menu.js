@@ -1,4 +1,4 @@
-Editor.registerWidget( 'editor-select-menu', {
+Polymer({
     is: 'editor-select-menu',
 
     behaviors: [EditorUI.focusable, Polymer.IronMultiSelectableBehavior],
