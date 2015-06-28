@@ -5,9 +5,12 @@ The UI kit used in Editor Framework
 ## Elements:
 
  - `<editor-button>`
- - `<editor-input>`
- - `<editor-unit-input>`
+ - `<editor-buttons>`
  - `<editor-checkbox>`
- - `<editor-loader>`
+ - `<editor-input>`
  - `<editor-label>`
+ - `<editor-loader>`
+ - `<editor-select>`
+ - `<editor-slider>`
  - `<editor-toolbar>`
+ - `<editor-unit-input>`

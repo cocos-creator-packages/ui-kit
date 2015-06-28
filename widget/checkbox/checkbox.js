@@ -6,7 +6,7 @@ Editor.registerWidget( 'editor-checkbox', {
     listeners: {
         'focus': '_onFocus',
         'blur': '_onBlur',
-        'click': '_onClick'
+        'click': '_onClick',
     },
 
     properties: {

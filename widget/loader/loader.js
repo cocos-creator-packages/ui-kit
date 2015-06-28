@@ -7,6 +7,12 @@ Editor.registerWidget( 'editor-loader', {
             notify: true,
             value: '',
         },
+
+        maskColor: {
+            type: String,
+            notify: true,
+            value: 'rgba(0,0,0,0.3)',
+        },
     },
 
     ready: function () {
@@ -21,7 +27,7 @@ Editor.registerWidget( 'editor-loader', {
     maskAt: function ( parentEL ) {
         this.setAttribute('mask','');
 
-        this.style.background = 'rgba(0,0,0,0.3)';
+        this.style.background = this.maskColor;
         this.style.position = 'absolute';
         this.style.left = 0;
         this.style.top = 0;

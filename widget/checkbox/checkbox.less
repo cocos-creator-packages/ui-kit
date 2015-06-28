@@ -36,7 +36,7 @@
     color: @color-text-focus;
     opacity: 0;
     transition: opacity 0.1s ease;
-    background: none !important;
+    background: none;
 }
 
 #box {
@@ -269,14 +269,14 @@
 }
 
 // no-focus
-:host[nofocus] {
-    color: @color-text !important;
+:host[nofocus][focused] {
+    color: @color-text;
 }
 
-:host[nofocus] #box{
-    border: 1px solid @color-border-normal !important;
+:host[nofocus][focused] #box{
+    border: 1px solid @color-border-normal;
 }
 
-:host[nofocus] #togglebox:after{
+:host[nofocus][focused] #togglebox:after{
     border: 1px solid rgb(79, 79, 79);
 }

@@ -1,11 +1,11 @@
 {
   "name": "ui-kit",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Editor Framework UI Kit",
   "author": "Firebox Technology",
   "build": true,
   "hosts": {
-    "editor-framework": "^0.3.4"
+    "editor-framework": "^0.3.10"
   },
   "main": "main.js",
   "menus": {
@@ -15,12 +15,14 @@
   },
   "widgets": {
     "editor-button": "widget/button/button.html",
-    "editor-input": "widget/input/input.html",
-    "editor-loader": "widget/loader/loader.html",
+    "editor-buttons": "widget/buttons/buttons.html",
     "editor-checkbox": "widget/checkbox/checkbox.html",
-    "editor-unit-input": "widget/unit-input/unit-input.html",
+    "editor-input": "widget/input/input.html",
     "editor-label": "widget/label/label.html",
-    "editor-select": "widget/select/select.html"
+    "editor-loader": "widget/loader/loader.html",
+    "editor-select": "widget/select/select.html",
+    "editor-slider": "widget/slider/slider.html",
+    "editor-unit-input": "widget/unit-input/unit-input.html"
   },
   "panels": {
     "panel": {
@@ -35,11 +37,13 @@
   },
   "tests": [
       "test/button.html",
-      "test/input.html",
-      "test/loader.html",
+      "test/buttons.html",
       "test/checkbox.html",
-      "test/unit-input.html",
+      "test/input.html",
       "test/label.html",
-      "test/select.html"
+      "test/loader.html",
+      "test/select.html",
+      "test/slider.html",
+      "test/unit-input.html"
   ]
 }

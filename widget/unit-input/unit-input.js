@@ -109,6 +109,20 @@ Polymer({
         }
     },
 
+    _onIncreaseClick: function ( event ) {
+        event.stopPropagation();
+        // event.preventDefault();
+
+        this._stepUp();
+    },
+
+    _onDecreaseClick: function ( event ) {
+        event.stopPropagation();
+        // event.preventDefault();
+
+        this._stepDown();
+    },
+
     _stepUp: function () {
         if (this._nullToFloat(this.$.input.bindValue) + this.step >= this.max) {
             this.$.input.bindValue = this.max.toString();
@@ -127,28 +141,40 @@ Polymer({
         }
     },
 
-    _increase: function (event) {
-        this.timeoutID = setTimeout( function () {
-            this.holdingID = setInterval( function () {
+    _onIncrease: function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        this.setFocus();
+
+        this._timeoutID = setTimeout( function () {
+            this._holdingID = setInterval( function () {
                 this._stepUp();
             }.bind(this), 50);
         }.bind(this), 500 );
     },
 
-    _decrease: function (event) {
-        this.timeoutID = setTimeout( function () {
-            this.holdingID = setInterval( function () {
+    _onDecrease: function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        this.setFocus();
+
+        this._timeoutID = setTimeout( function () {
+            this._holdingID = setInterval( function () {
                 this._stepDown();
             }.bind(this), 50);
         }.bind(this), 500 );
     },
 
-    _stopRoll: function () {
-        clearInterval(this.holdingID);
-        this.holdingID = null;
+    _onStopRoll: function ( event ) {
+        event.stopPropagation();
 
-        clearTimeout(this.timeoutID);
-        this.timeoutID = null;
+        clearInterval(this._holdingID);
+        this._holdingID = null;
+
+        clearTimeout(this._timeoutID);
+        this._timeoutID = null;
 
         setTimeout(function() {
             this.confirm();
