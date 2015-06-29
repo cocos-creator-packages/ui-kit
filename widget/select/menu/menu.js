@@ -29,7 +29,9 @@ Polymer({
     },
 
     _onClick: function ( event ) {
-        this.confirm();
+        this.async(function () {
+            this.confirm();
+        }.bind(this), 1);
     },
 
     _onKeyDown: function (event) {
