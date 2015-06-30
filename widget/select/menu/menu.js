@@ -100,7 +100,7 @@ Polymer({
             this.text = this.selectedItem.text;
         }
         else {
-           this.text = this.selectedItem.innerText;
+            this.text = this.selectedItem.innerText;
         }
 
         this.hidden = true;

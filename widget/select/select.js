@@ -57,7 +57,7 @@ Editor.registerWidget( 'editor-select', {
                 this.text = this.$.menu.selectedItem.text;
             }
             else {
-               this.text = this.$.menu.selectedItem.innerText;
+                this.text = this.$.menu.selectedItem.innerText;
             }
         }
     },
@@ -93,7 +93,7 @@ Editor.registerWidget( 'editor-select', {
                 this.text = this.$.menu.selectedItem.text;
             }
             else {
-               this.text = this.$.menu.selectedItem.innerText;
+                this.text = this.$.menu.selectedItem.innerText;
             }
         }
     },
