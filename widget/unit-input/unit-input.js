@@ -84,12 +84,18 @@ Editor.registerWidget( 'editor-unit-input', {
     _onKeyDown: function (event) {
         // keydown 'enter'
         if (event.keyCode === 13) {
+            event.preventDefault();
+            event.stopPropagation();
+
             this.confirm();
             this.setBlur();
             EditorUI.focusParent(this);
         }
         // keydown 'esc'
         else if (event.keyCode === 27) {
+            event.preventDefault();
+            event.stopPropagation();
+
             this.cancel();
             this.setBlur();
             EditorUI.focusParent(this);

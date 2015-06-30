@@ -58,6 +58,9 @@ Editor.registerWidget( 'editor-input', {
     _onKeyDown: function (event) {
         // keydown 'enter'
         if (event.keyCode === 13) {
+            event.preventDefault();
+            event.stopPropagation();
+
             if (this.value !== this.inputValue) {
                 this.confirm();
             }
@@ -66,6 +69,9 @@ Editor.registerWidget( 'editor-input', {
         }
         // keydown 'esc'
         else if (event.keyCode === 27) {
+            event.preventDefault();
+            event.stopPropagation();
+
             this.cancel();
             this.setBlur();
             EditorUI.focusParent(this);
