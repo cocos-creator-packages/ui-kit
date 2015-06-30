@@ -53,7 +53,12 @@ Editor.registerWidget( 'editor-select', {
 
     attached: function (event) {
         if (this.$.menu.selectedItem) {
-           this.text = this.$.menu.selectedItem.text;
+            if (this.$.menu.selectedItem.text) {
+                this.text = this.$.menu.selectedItem.text;
+            }
+            else {
+               this.text = this.$.menu.selectedItem.innerText;
+            }
         }
     },
 
@@ -84,7 +89,12 @@ Editor.registerWidget( 'editor-select', {
 
     _valueChanged: function () {
         if (this.$.menu && this.$.menu.selectedItem) {
-            this.text = this.$.menu.selectedItem.text;
+            if (this.$.menu.selectedItem.text) {
+                this.text = this.$.menu.selectedItem.text;
+            }
+            else {
+               this.text = this.$.menu.selectedItem.innerText;
+            }
         }
     },
 
