@@ -1,7 +1,7 @@
 Polymer({
     is: 'editor-select-menu',
 
-    behaviors: [EditorUI.focusable, Polymer.IronMultiSelectableBehavior, Editor.registerWidget],
+    behaviors: [EditorUI.focusable, Polymer.IronMultiSelectableBehavior],
 
     listeners: {
         'focus': '_onFocus',
