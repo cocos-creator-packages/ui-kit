@@ -30,12 +30,6 @@ Polymer({
         this._initFocusable(this);
     },
 
-    attached: function () {
-        if (this.selectedItem) {
-            this.confirm();
-        }
-    },
-
     _onMouseDown: function ( event ) {
         event.stopPropagation();
     },

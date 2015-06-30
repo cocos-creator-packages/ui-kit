@@ -43,6 +43,12 @@ Editor.registerWidget( 'editor-select', {
         }
     },
 
+    attached: function (event) {
+        if (this.$.menu.selectedItem) {
+            this.text = this.$.menu.selectedItem.text;
+        }
+    },
+
     toggleMenu: function () {
         this.$.menu.hidden = !this.$.menu.hidden;
 
