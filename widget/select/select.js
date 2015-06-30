@@ -22,6 +22,12 @@ Editor.registerWidget( 'editor-select', {
             type: String,
             value: '',
             notify: true,
+            observer: '_valueChanged'
+        },
+
+        text: {
+            type: String,
+            value: '',
         },
     },
 
@@ -60,6 +66,12 @@ Editor.registerWidget( 'editor-select', {
                 this.$.menu.hidden = true;
             }
         }.bind(this),1);
+    },
+
+    _valueChanged: function () {
+        if (this.$.menu && this.$.menu.selectedItem) {
+            this.$.menu.confirm();
+        }
     },
 
     _onKeyDown: function (event) {
@@ -126,7 +138,7 @@ Editor.registerWidget( 'editor-select', {
         if ( this.value === '' ) {
             return this.placeholder;
         }
-        return this.value;
+        return this.text;
     },
 
     _textClass: function ( value ) {

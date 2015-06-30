@@ -6,13 +6,14 @@
 
     <template>
         <div class="border">
-            <span id="text" class$="{{_textClass(value)}}">{{_text(value)}}</span>
+            <span id="text" class$="{{_textClass(value)}}">{{_text(text,value)}}</span>
             <i class="fa fa-caret-down"></i>
         </div>
         <editor-select-menu id="menu" hidden
             value="{{value}}"
             selected="[[value]]"
             selected-class=""
+            text="{{text}}"
             selected-attribute="selected"
             attr-for-selected="value"
         >

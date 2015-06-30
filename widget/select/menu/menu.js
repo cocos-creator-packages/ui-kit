@@ -1,7 +1,7 @@
 Polymer({
     is: 'editor-select-menu',
 
-    behaviors: [EditorUI.focusable, Polymer.IronMultiSelectableBehavior],
+    behaviors: [EditorUI.focusable, Polymer.IronMultiSelectableBehavior, Editor.registerWidget],
 
     listeners: {
         'focus': '_onFocus',
@@ -16,12 +16,24 @@ Polymer({
             type: String,
             value: '',
             notify: true,
-        }
+        },
+
+        text: {
+            type: String,
+            value: '',
+            notify: true,
+        },
     },
 
     ready: function () {
         this.noNavigate = true;
         this._initFocusable(this);
+    },
+
+    attached: function () {
+        if (this.selectedItem) {
+            this.confirm();
+        }
     },
 
     _onMouseDown: function ( event ) {
@@ -90,6 +102,7 @@ Polymer({
         }
 
         this.value = this.selected;
+        this.text = this.selectedItem.text;
         this.hidden = true;
         EditorUI.focusParent(this);
     },
