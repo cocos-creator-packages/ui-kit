@@ -29,6 +29,14 @@ Editor.registerWidget( 'editor-select', {
         this._initFocusable(this);
     },
 
+    add: function ( value, text ) {
+        var el = document.createElement('editor-option');
+        Polymer.dom(el).innerHTML = text;
+        el.value = value;
+
+        Polymer.dom(this).appendChild(el);
+    },
+
     showMenu: function () {
         if ( this.$.menu.hidden ) {
             this.$.menu.hidden = false;
