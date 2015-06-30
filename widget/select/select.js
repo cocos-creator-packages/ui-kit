@@ -45,7 +45,7 @@ Editor.registerWidget( 'editor-select', {
 
     attached: function (event) {
         if (this.$.menu.selectedItem) {
-            this.text = this.$.menu.selectedItem.text;
+           this.text = this.$.menu.selectedItem.text;
         }
     },
 
