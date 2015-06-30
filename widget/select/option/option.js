@@ -7,6 +7,11 @@ Polymer({
             value: ''
         },
 
+        text: {
+            type: String,
+            value: ''
+        },
+
         disabled: {
             type: Boolean,
             value: false,
