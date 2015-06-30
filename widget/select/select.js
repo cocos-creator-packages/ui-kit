@@ -134,11 +134,11 @@ Editor.registerWidget( 'editor-select', {
         }.bind(this));
     },
 
-    _text: function ( value ) {
-        if ( this.value === '' ) {
+    _text: function ( text ) {
+        if ( text === '' ) {
             return this.placeholder;
         }
-        return this.text;
+        return text;
     },
 
     _textClass: function ( value ) {
