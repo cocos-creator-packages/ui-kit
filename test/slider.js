@@ -45,11 +45,11 @@ describe('<editor-slider>', function() {
     });
 
     it('can be set value', function( done ) {
-        sliderEl.value = 50;
-        expect(sliderEl.$.unitinput.value).to.be.eql(50);
+        sliderEl.value = 20;
+        expect(sliderEl.$.unitinput.value).to.be.eql(20);
 
         var width = sliderEl.$.track.getBoundingClientRect().width;
-        expect(getComputedStyle(sliderEl.$.nubbin).left).to.be.eql(width/2 + 'px');
+        expect(getComputedStyle(sliderEl.$.nubbin).left).to.be.eql(0.2 * width + 'px');
         sliderEl.$.unitinput.value = 51;
         expect(sliderEl.value ).to.be.eql(51);
         done();

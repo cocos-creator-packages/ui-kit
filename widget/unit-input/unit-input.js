@@ -1,4 +1,4 @@
-Polymer({
+Editor.registerWidget( 'editor-unit-input', {
     is: 'editor-unit-input',
 
     behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
@@ -18,14 +18,14 @@ Polymer({
             type: Number,
             notify: true,
             value: 0,
-            observer: 'valueChanged',
+            observer: '_valueChanged',
         },
 
         inputValue: {
             type: Number,
             notify: true,
             value: 0,
-            observer: 'inputValueChanged',
+            observer: '_inputValueChanged',
         },
 
         step: {
@@ -61,11 +61,11 @@ Polymer({
         this._inited = true;
     },
 
-    inputValueChanged: function () {
+    _inputValueChanged: function () {
         this.$.input.bindValue = this.inputValue.toString();
     },
 
-    valueChanged: function () {
+    _valueChanged: function () {
         this.value = this._convert(this.value);
         this.inputValue = this.value;
         this.$.input.bindValue = this._convert(this.value).toString();
