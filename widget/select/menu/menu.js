@@ -96,7 +96,13 @@ Polymer({
         }
 
         this.value = this.selected;
-        this.text = this.selectedItem.text;
+        if (this.selectedItem.text) {
+            this.text = this.selectedItem.text;
+        }
+        else {
+            this.text = this.selectedItem.innerText;
+        }
+
         this.hidden = true;
         EditorUI.focusParent(this);
     },
