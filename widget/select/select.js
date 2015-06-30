@@ -76,7 +76,7 @@ Editor.registerWidget( 'editor-select', {
 
     _valueChanged: function () {
         if (this.$.menu && this.$.menu.selectedItem) {
-            this.$.menu.confirm();
+            this.text = this.$.menu.selectedItem.text;
         }
     },
 
