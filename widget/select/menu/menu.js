@@ -96,7 +96,7 @@ Polymer({
         }
 
         this.value = this.selected;
-        if (this.selectedItem.text;) {
+        if (this.selectedItem.text) {
             this.text = this.selectedItem.text;
         }
         else {
