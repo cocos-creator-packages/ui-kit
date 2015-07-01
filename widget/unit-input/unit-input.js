@@ -49,7 +49,6 @@ Editor.registerWidget( 'editor-unit-input', {
         hint: {
             type: String,
             value: '',
-            observer: '_hiddenHint'
         },
     },
 
@@ -64,6 +63,14 @@ Editor.registerWidget( 'editor-unit-input', {
         this.value = this._convert(this.value);
         this.inputValue = this.value;
         this.$.input.bindValue = this.value.toString();
+
+        if (!this.hint) {
+            this.$.hint.hidden = true;
+        }
+        else {
+            this.$.hint.hidden = false;
+        }
+
         this._inited = true;
     },
 
@@ -193,6 +200,13 @@ Editor.registerWidget( 'editor-unit-input', {
         }.bind(this), 1);
     },
 
+    _onHintMounseDown: function ( event ) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        this.setFocus();
+    },
+
     _convert: function ( val ) {
         if (val === '' || isNaN(val)) {
             return this._lastValidValue;
@@ -234,15 +248,6 @@ Editor.registerWidget( 'editor-unit-input', {
             this.value = this.inputValue;
         } else {
             this.confirm();
-        }
-    },
-
-    _hiddenHint: function () {
-        if (!this.hint) {
-            this.$.hint.hidden = true;
-        }
-        else {
-            this.$.hint.hidden = false;
         }
     },
 });

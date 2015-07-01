@@ -8,14 +8,12 @@
 @color-bg-disabled : #3a3a3a;
 
 :host {
-    display: flex;
     position: relative;
     box-sizing: border-box;
     min-width: 60px;
     border: 1px solid @color-outter-border;
     cursor: default;
     background: @color-bg;
-    flex-flow: row;
 }
 
 :host:focus {
@@ -55,6 +53,13 @@
     pointer-events: none;
 }
 
+.border {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    border: 1px solid black;
+}
+
 #input {
     display: flex;
     padding: 2px 4px;
@@ -68,20 +73,25 @@
     pointer-events: auto;
     user-select: auto;
     cursor: auto;
-    border: 1px solid black;
     border-right: 0px;
 }
 
 #hint {
-    display: flex;
-    align-items: center;
+    text-align: center;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-
+    background: #535353;
+    height: 12px;
+    border-radius: 1px;
     font-size: 9px;
-    color: #aaaaaa;
-    padding-right: 4px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    font-weight: bold;
+    color: #d1d1d1;
+    margin-right: 4px;
+    padding: 0px 5px;
+}
+
+:host[disabled] #hint {
+    background: #535353 - 10%;
+    color: #d1d1d1 - 40%;
 }
 
 #input::selection {
@@ -138,22 +148,19 @@
     display: flex;
     flex-direction: column;
     color: #aaa;
-    border-left: 1px solid black;
 }
 
 .btn {
     flex: 1 1 auto;
     display: flex;
     justify-content: center;
-    border: 0;
     margin: 0;
     padding: 0;
     text-align: center;
     background-color: #474747;
     box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset;
-    border: 1px solid #000;
     padding-left: 1px;
-    border-left: none;
+    border-top: 1px solid #000;
     cursor: pointer;
 }
 
@@ -167,5 +174,5 @@
 }
 
 .btn:first-child {
-    border-bottom: none;
+    border-top: none;
 }
