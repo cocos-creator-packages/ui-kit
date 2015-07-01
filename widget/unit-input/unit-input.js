@@ -44,7 +44,13 @@ Editor.registerWidget( 'editor-unit-input', {
             type: Number,
             notify: true,
             value: Number.MAX_VALUE,
-        }
+        },
+
+        hint: {
+            type: String,
+            value: '',
+            observer: '_hiddenHint'
+        },
     },
 
     created: function () {
@@ -228,6 +234,15 @@ Editor.registerWidget( 'editor-unit-input', {
             this.value = this.inputValue;
         } else {
             this.confirm();
+        }
+    },
+
+    _hiddenHint: function () {
+        if (!this.hint) {
+            this.$.hint.hidden = true;
+        }
+        else {
+            this.$.hint.hidden = false;
         }
     },
 });

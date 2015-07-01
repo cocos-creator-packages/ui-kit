@@ -13,9 +13,7 @@
                 on-keydown="_onInputKeyDown"
                 >
         </input>
-        <span class="hint" on-mousedown="_onFocus">
-            <content></content>
-        </span>
+        <span id="hint" on-mousedown="_onFocus">{{hint}}</span>
         <div class="btngroup">
             <span class="btn"
                 tabindex="-1"
