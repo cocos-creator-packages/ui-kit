@@ -1,9 +1,11 @@
+<link rel="import" href="app://bower_components/iron-behaviors/iron-button-state.html">
+
 <dom-module id="editor-section">
     <link rel="import" type="css" href="section.css">
     <template>
         <div class="header" on-click="_onFoldClick">
             <i class$="{{_foldClass(folded)}}"></i>
-            <div class="title">{{title}}</div>
+            <div class="title">{{text}}</div>
         </div>
         <div class="content">
             <content></content>
