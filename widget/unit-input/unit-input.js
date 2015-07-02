@@ -44,7 +44,12 @@ Editor.registerWidget( 'editor-unit-input', {
             type: Number,
             notify: true,
             value: Number.MAX_VALUE,
-        }
+        },
+
+        hint: {
+            type: String,
+            value: '',
+        },
     },
 
     created: function () {
@@ -58,6 +63,14 @@ Editor.registerWidget( 'editor-unit-input', {
         this.value = this._convert(this.value);
         this.inputValue = this.value;
         this.$.input.bindValue = this.value.toString();
+
+        if (!this.hint) {
+            this.$.hint.hidden = true;
+        }
+        else {
+            this.$.hint.hidden = false;
+        }
+
         this._inited = true;
     },
 
@@ -84,12 +97,18 @@ Editor.registerWidget( 'editor-unit-input', {
     _onKeyDown: function (event) {
         // keydown 'enter'
         if (event.keyCode === 13) {
+            event.preventDefault();
+            event.stopPropagation();
+
             this.confirm();
             this.setBlur();
             EditorUI.focusParent(this);
         }
         // keydown 'esc'
         else if (event.keyCode === 27) {
+            event.preventDefault();
+            event.stopPropagation();
+
             this.cancel();
             this.setBlur();
             EditorUI.focusParent(this);
@@ -179,6 +198,13 @@ Editor.registerWidget( 'editor-unit-input', {
         setTimeout(function() {
             this.confirm();
         }.bind(this), 1);
+    },
+
+    _onHintMounseDown: function ( event ) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        this.setFocus();
     },
 
     _convert: function ( val ) {

@@ -22,6 +22,12 @@ Editor.registerWidget( 'editor-select', {
             type: String,
             value: '',
             notify: true,
+            observer: '_valueChanged'
+        },
+
+        text: {
+            type: String,
+            value: '',
         },
     },
 
@@ -29,11 +35,30 @@ Editor.registerWidget( 'editor-select', {
         this._initFocusable(this);
     },
 
+    add: function ( value, text ) {
+        var el = document.createElement('editor-option');
+        Polymer.dom(el).innerHTML = text;
+        el.value = value;
+
+        Polymer.dom(this).appendChild(el);
+    },
+
     showMenu: function () {
         if ( this.$.menu.hidden ) {
             this.$.menu.hidden = false;
             this.$.menu.setFocus();
             this._updateMenu();
+        }
+    },
+
+    attached: function (event) {
+        if (this.$.menu.selectedItem) {
+            if (this.$.menu.selectedItem.text) {
+                this.text = this.$.menu.selectedItem.text;
+            }
+            else {
+                this.text = this.$.menu.selectedItem.innerText;
+            }
         }
     },
 
@@ -60,6 +85,17 @@ Editor.registerWidget( 'editor-select', {
                 this.$.menu.hidden = true;
             }
         }.bind(this),1);
+    },
+
+    _valueChanged: function () {
+        if (this.$.menu && this.$.menu.selectedItem) {
+            if (this.$.menu.selectedItem.text) {
+                this.text = this.$.menu.selectedItem.text;
+            }
+            else {
+                this.text = this.$.menu.selectedItem.innerText;
+            }
+        }
     },
 
     _onKeyDown: function (event) {
@@ -122,11 +158,11 @@ Editor.registerWidget( 'editor-select', {
         }.bind(this));
     },
 
-    _text: function ( value ) {
-        if ( this.value === '' ) {
+    _text: function ( text ) {
+        if ( text === '' ) {
             return this.placeholder;
         }
-        return this.value;
+        return text;
     },
 
     _textClass: function ( value ) {

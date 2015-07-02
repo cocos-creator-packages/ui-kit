@@ -16,7 +16,13 @@ Polymer({
             type: String,
             value: '',
             notify: true,
-        }
+        },
+
+        text: {
+            type: String,
+            value: '',
+            notify: true,
+        },
     },
 
     ready: function () {
@@ -90,6 +96,13 @@ Polymer({
         }
 
         this.value = this.selected;
+        if (this.selectedItem.text) {
+            this.text = this.selectedItem.text;
+        }
+        else {
+            this.text = this.selectedItem.innerText;
+        }
+
         this.hidden = true;
         EditorUI.focusParent(this);
     },

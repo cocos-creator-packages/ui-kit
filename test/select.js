@@ -47,4 +47,11 @@ describe('<editor-select> with items', function() {
             }
         }
     });
+
+
+    it('should be show text', function( done ) {
+        scopeEL.value = '2';
+        expect(scopeEL.$.text.innerHTML).to.be.eql('text2');
+        done();
+    });
 });
