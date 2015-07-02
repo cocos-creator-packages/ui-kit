@@ -1,0 +1,51 @@
+<dom-module id="editor-section-preview">
+    <style>
+        :host ::content #preview.preview-item {
+            flex-flow: column;
+        }
+    </style>
+    <template>
+        <preview-item
+            header="editor-section"
+            desc="set attribute with 'placeholder'"
+        >
+            <editor-section title="Editor.section">
+                I'm a section
+            </editor-section>
+        </preview-item>
+
+        <preview-item
+            header="editor-section.{size}"
+            desc="set class with different size"
+        >
+            <editor-section class="small" title="Editor.section.{small}">
+                small
+            </editor-section>
+
+            <editor-section title="Editor.section.{normal}">
+                normal
+            </editor-section>
+
+            <editor-section class="large" title="Editor.section.{large}">
+                large
+            </editor-section>
+
+            <editor-section class="big" title="Editor.section.{big}">
+                big
+            </editor-section>
+
+            <editor-section class="huge" title="Editor.section.{huge}">
+                huge
+            </editor-section>
+        </preview-item>
+    </template>
+
+</template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'editor-section-preview',
+});
+
+</script>
