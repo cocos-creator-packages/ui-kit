@@ -10,30 +10,33 @@
             desc="set attribute with 'placeholder'"
         >
             <editor-section title="Editor.section">
-                <editor-prop value="{{annoymous}}"></editor-prop>
-                <editor-prop name="numberNoAttrs" value="{{number.value}}"></editor-prop>
-                <editor-prop name="stringNoAttrs" value="{{string.value}}"></editor-prop>
-                <editor-prop name="booleanNoAttrs" value="{{boolean.value}}"></editor-prop>
-                <editor-prop attrs="{{float.attrs}}" value="{{float.value}}"></editor-prop>
-                <editor-prop attrs="{{floatMinMax.attrs}}" value="{{floatMinMax.value}}"></editor-prop>
-                <editor-prop attrs="{{integer.attrs}}" value="{{integer.value}}"></editor-prop>
-                <editor-prop attrs="{{integerMinMax.attrs}}" value="{{integerMinMax.value}}"></editor-prop>
-                <editor-prop attrs="{{enum.attrs}}" value="{{enum.value}}"></editor-prop>
-                <editor-prop attrs="{{vec2.attrs}}" value="{{vec2.value}}"></editor-prop>
+                I'm a section
             </editor-section>
-            <editor-section title="Editor.section">
-                <editor-prop value="{{annoymous}}"></editor-prop>
-                <editor-prop name="numberNoAttrs" value="{{number.value}}"></editor-prop>
-                <editor-prop name="stringNoAttrs" value="{{string.value}}"></editor-prop>
-                <editor-prop name="booleanNoAttrs" value="{{boolean.value}}"></editor-prop>
-                <editor-prop attrs="{{float.attrs}}" value="{{float.value}}"></editor-prop>
-                <editor-prop attrs="{{floatMinMax.attrs}}" value="{{floatMinMax.value}}"></editor-prop>
-                <editor-prop attrs="{{integer.attrs}}" value="{{integer.value}}"></editor-prop>
-                <editor-prop attrs="{{integerMinMax.attrs}}" value="{{integerMinMax.value}}"></editor-prop>
-                <editor-prop attrs="{{enum.attrs}}" value="{{enum.value}}"></editor-prop>
-                <editor-prop attrs="{{vec2.attrs}}" value="{{vec2.value}}"></editor-prop>
+        </preview-item>
+
+        <preview-item
+            header="editor-section.{size}"
+            desc="set class with different size"
+        >
+            <editor-section class="small" title="Editor.section.{small}">
+                small
             </editor-section>
 
+            <editor-section title="Editor.section.{normal}">
+                normal
+            </editor-section>
+
+            <editor-section class="large" title="Editor.section.{large}">
+                large
+            </editor-section>
+
+            <editor-section class="big" title="Editor.section.{big}">
+                big
+            </editor-section>
+
+            <editor-section class="huge" title="Editor.section.{huge}">
+                huge
+            </editor-section>
         </preview-item>
     </template>
 

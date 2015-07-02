@@ -12,16 +12,12 @@
     display: flex;
     flex-flow: row;
     padding: 4px 6px;
-    // font-size: 14px;
     font-weight: 700;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    // color: #b1b1b1;
-    // background: #242424;
 
     border-bottom: 1px solid #666;
     margin-bottom: 5px;
 
-    font-size: 1.4rem;
     color: #aaa;
     font-weight: bold;
     padding-bottom: 10px;
@@ -29,7 +25,6 @@
 }
 
 .title {
-    font-size: 12px;
     text-transform: capitalize;
     margin-left: 10px;
 }
@@ -43,6 +38,7 @@
     flex-flow: column nowrap;
     padding-top: 10px;
     padding: 4px 10px;
+    font-size: 1.4rem;
 }
 
 :host[folded] .content{
@@ -55,4 +51,26 @@
 
 :host[focused] .title{
     color: #00a6ff;
+}
+
+// size
+
+:host.small {
+    font-size: 1rem;
+}
+
+:host {
+    font-size: 1.2rem;
+}
+
+:host.large {
+    font-size: 1.4rem;
+}
+
+:host.big {
+    font-size: 1.8rem;
+}
+
+:host.huge {
+    font-size: 2rem;
 }
