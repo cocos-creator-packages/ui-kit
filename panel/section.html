@@ -1,0 +1,163 @@
+<dom-module id="editor-section-preview">
+    <style>
+        :host ::content #preview.preview-item {
+            flex-flow: column;
+        }
+    </style>
+    <template>
+        <preview-item
+            header="editor-section"
+            desc="set attribute with 'placeholder'"
+        >
+            <editor-section title="Editor.section">
+                <editor-prop value="{{annoymous}}"></editor-prop>
+                <editor-prop name="numberNoAttrs" value="{{number.value}}"></editor-prop>
+                <editor-prop name="stringNoAttrs" value="{{string.value}}"></editor-prop>
+                <editor-prop name="booleanNoAttrs" value="{{boolean.value}}"></editor-prop>
+                <editor-prop attrs="{{float.attrs}}" value="{{float.value}}"></editor-prop>
+                <editor-prop attrs="{{floatMinMax.attrs}}" value="{{floatMinMax.value}}"></editor-prop>
+                <editor-prop attrs="{{integer.attrs}}" value="{{integer.value}}"></editor-prop>
+                <editor-prop attrs="{{integerMinMax.attrs}}" value="{{integerMinMax.value}}"></editor-prop>
+                <editor-prop attrs="{{enum.attrs}}" value="{{enum.value}}"></editor-prop>
+                <editor-prop attrs="{{vec2.attrs}}" value="{{vec2.value}}"></editor-prop>
+            </editor-section>
+            <editor-section title="Editor.section">
+                <editor-prop value="{{annoymous}}"></editor-prop>
+                <editor-prop name="numberNoAttrs" value="{{number.value}}"></editor-prop>
+                <editor-prop name="stringNoAttrs" value="{{string.value}}"></editor-prop>
+                <editor-prop name="booleanNoAttrs" value="{{boolean.value}}"></editor-prop>
+                <editor-prop attrs="{{float.attrs}}" value="{{float.value}}"></editor-prop>
+                <editor-prop attrs="{{floatMinMax.attrs}}" value="{{floatMinMax.value}}"></editor-prop>
+                <editor-prop attrs="{{integer.attrs}}" value="{{integer.value}}"></editor-prop>
+                <editor-prop attrs="{{integerMinMax.attrs}}" value="{{integerMinMax.value}}"></editor-prop>
+                <editor-prop attrs="{{enum.attrs}}" value="{{enum.value}}"></editor-prop>
+                <editor-prop attrs="{{vec2.attrs}}" value="{{vec2.value}}"></editor-prop>
+            </editor-section>
+
+        </preview-item>
+    </template>
+
+</template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'editor-section-preview',
+
+    properties: {
+        annoymous: {
+            type: Number,
+            value: 0,
+        },
+
+        number: {
+            value: function () {
+                return {
+                    value: 20,
+                };
+            },
+        },
+
+        string: {
+            value: function () {
+                return {
+                    value: 'this is foobar',
+                };
+            },
+        },
+
+        boolean: {
+            value: function () {
+                return {
+                    value: false,
+                };
+            },
+        },
+
+        float: {
+            value: function () {
+                return {
+                    value: 123.456,
+                    attrs: {
+                        displayName: 'Float',
+                        type: 'float',
+                    },
+                };
+            },
+        },
+
+        floatMinMax: {
+            value: function () {
+                return {
+                    value: 20,
+                    attrs: {
+                        displayName: 'Float With Min Max',
+                        type: 'float',
+                        min: 10.0,
+                        max: 200.0,
+                    },
+                };
+            },
+        },
+
+        integer: {
+            value: function () {
+                return {
+                    value: 210,
+                    attrs: {
+                        displayName: 'Integer',
+                        type: 'integer',
+                    },
+                };
+            },
+        },
+
+        integerMinMax: {
+            value: function () {
+                return {
+                    value: 30,
+                    attrs: {
+                        displayName: 'Integer With Min Max',
+                        type: 'integer',
+                        min: 20,
+                        max: 50,
+                    },
+                };
+            },
+        },
+
+        enum: {
+            value: function () {
+                return {
+                    value: 'green',
+                    attrs: {
+                        displayName: 'Enum',
+                        type: 'enum',
+                        enumList: [
+                            { value: 'green', text: 'Green' },
+                            { value: 'blue', text: 'Blue' },
+                            { value: 'yellow', text: 'Yellow' },
+                            { value: 'red', text: 'Red' },
+                        ],
+                    },
+                };
+            },
+        },
+
+        vec2: {
+            value: function () {
+                return {
+                    value: new Fire.Vec2(10,20),
+                    attrs: {
+                        displayName: 'Fire.Vec2',
+                        type: 'Fire.Vec2',
+                    },
+                };
+            },
+        },
+    },
+
+
+});
+
+</script>
