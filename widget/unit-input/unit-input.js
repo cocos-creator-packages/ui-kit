@@ -80,6 +80,9 @@ Editor.registerWidget( 'editor-unit-input', {
 
     _valueChanged: function () {
         this.value = this._convert(this.value);
+        if (this.min !== undefined && this.max !== undefined) {
+            this.value = Math.clamp(this._convert(this.value),this.min,this.max);
+        }
         this.inputValue = this.value;
         this.$.input.bindValue = this._convert(this.value).toString();
     },
