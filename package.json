@@ -9,7 +9,7 @@
   },
   "main": "main.js",
   "menus": {
-    "Developer/UI-Kit Preview": {
+    "Developer/UI Preview/ui-kit": {
       "message": "ui-kit:open"
     }
   },
