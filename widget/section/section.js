@@ -1,7 +1,7 @@
 Editor.registerWidget( 'editor-section', {
     is: 'editor-section',
 
-    behaviors: [EditorUI.focusable, Polymer.IronButtonState],
+    behaviors: [EditorUI.focusable],
 
     listeners: {
         'focus': '_onFocus',
