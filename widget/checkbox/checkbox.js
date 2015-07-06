@@ -23,6 +23,11 @@ Editor.registerWidget( 'editor-checkbox', {
             notify: true,
             reflectToAttribute: true,
         },
+
+        readOnly: {
+            type: Boolean,
+            value: false
+        },
     },
 
     ready: function () {
@@ -31,6 +36,9 @@ Editor.registerWidget( 'editor-checkbox', {
     },
 
     _onClick: function (event) {
+        if (this.readOnly) {
+            return;
+        }
         this.checked = !this.checked;
     },
 });

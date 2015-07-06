@@ -55,6 +55,11 @@ Editor.registerWidget( 'editor-unit-input', {
             type: Number,
             value: 2,
         },
+
+        readOnly: {
+            type: Boolean,
+            value: false
+        },
     },
 
     created: function () {
@@ -124,14 +129,21 @@ Editor.registerWidget( 'editor-unit-input', {
     },
 
     _onInputKeyDown: function (event) {
+
         // keydown 'up'
         if (event.keyCode === 38) {
             event.preventDefault();
+            if (this.readOnly) {
+                return;
+            }
             this._stepUp();
         }
         // keydown 'down'
         else if (event.keyCode === 40) {
             event.preventDefault();
+            if (this.readOnly) {
+                return;
+            }
             this._stepDown();
         }
     },
