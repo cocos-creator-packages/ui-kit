@@ -95,3 +95,10 @@
 :host.big #input {
     font-size: 2rem;
 }
+
+// readonly
+
+:host[readonly] #input{
+    -webkit-user-select: text;
+    cursor: text;
+}

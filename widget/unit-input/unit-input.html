@@ -7,6 +7,7 @@
         <div class="border flex-1 layout horizontal center" >
             <input is="iron-input" id="input"
                     type="text"
+                    readonly$="{{readonly}}"
                     on-bind-value-changed="_onBindValueChanged"
                     placeholder="-"
                     on-focus="_onFocus"

@@ -30,7 +30,13 @@ Editor.registerWidget( 'editor-input', {
             notify: true,
             value: '',
             observer: '_valueChanged'
-        }
+        },
+
+        readonly: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true,
+        },
 
     },
 

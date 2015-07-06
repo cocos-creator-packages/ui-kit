@@ -23,6 +23,12 @@ Editor.registerWidget( 'editor-checkbox', {
             notify: true,
             reflectToAttribute: true,
         },
+
+        readonly: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true,
+        },
     },
 
     ready: function () {
