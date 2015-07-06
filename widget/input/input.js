@@ -32,9 +32,10 @@ Editor.registerWidget( 'editor-input', {
             observer: '_valueChanged'
         },
 
-        readOnly: {
+        readonly: {
             type: Boolean,
-            value: false
+            value: false,
+            reflectToAttribute: true,
         },
 
     },

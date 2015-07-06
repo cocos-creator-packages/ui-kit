@@ -24,9 +24,10 @@ Editor.registerWidget( 'editor-checkbox', {
             reflectToAttribute: true,
         },
 
-        readOnly: {
+        readonly: {
             type: Boolean,
-            value: false
+            value: false,
+            reflectToAttribute: true,
         },
     },
 
@@ -36,7 +37,7 @@ Editor.registerWidget( 'editor-checkbox', {
     },
 
     _onClick: function (event) {
-        if (this.readOnly) {
+        if (this.readonly) {
             return;
         }
         this.checked = !this.checked;
