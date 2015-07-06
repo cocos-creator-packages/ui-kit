@@ -23,8 +23,13 @@
     border-color: #171717;
 }
 
+:host[disabled] {
+    border-color: rgba(29, 29, 29, 0.7);
+}
+
 :host[disabled] .border{
     background-color: #393939;
+    border-color: #515151;
     color: #555;
     pointer-events: none;
 }
