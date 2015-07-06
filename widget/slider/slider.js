@@ -82,8 +82,4 @@ Editor.registerWidget( 'editor-slider', {
         document.addEventListener ( 'mousemove', mouseMoveHandle );
         document.addEventListener ( 'mouseup', mouseUpHandle );
     },
-
-    _inputValue: function (value) {
-        return value.toString();
-    },
 });
