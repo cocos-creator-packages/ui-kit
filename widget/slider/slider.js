@@ -88,7 +88,7 @@ Editor.registerWidget( 'editor-slider', {
         document.addEventListener ( 'mouseup', mouseUpHandle );
     },
 
-    _toFixed: function (value) {
-        return parseFloat(value.toFixed(this.precision));
+    _toFixed: function (value, precision) {
+        return parseFloat(value.toFixed(precision));
     },
 });
