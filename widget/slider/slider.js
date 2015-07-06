@@ -38,7 +38,7 @@ Editor.registerWidget( 'editor-slider', {
         this.value = Math.clamp( this.value, this.min, this.max );
         this.value = parseFloat(parseFloat(this.value).toFixed(2));
 
-        this.$.nubbin.style.left = (this.value-this.min)/(this.max-this.min) * 100 + '%';
+        this.$.nubbin.style.left = (this.value - this.min)/(this.max - this.min) * 100 + '%';
     },
 
     _onKeyDown: function ( event ) {
@@ -60,7 +60,6 @@ Editor.registerWidget( 'editor-slider', {
 
     _onMouseDown: function (event) {
         EditorUI.addDragGhost('ew-resize');
-
         var rect = this.$.track.getBoundingClientRect();
         var mouseDownX = rect.left;
 
@@ -82,5 +81,9 @@ Editor.registerWidget( 'editor-slider', {
         }).bind(this);
         document.addEventListener ( 'mousemove', mouseMoveHandle );
         document.addEventListener ( 'mouseup', mouseUpHandle );
+    },
+
+    _inputValue: function (value) {
+        return value.toString();
     },
 });
