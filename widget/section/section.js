@@ -1,12 +1,12 @@
 Editor.registerWidget( 'editor-section', {
     is: 'editor-section',
 
-    behaviors: [EditorUI.focusable, Polymer.IronButtonState],
+    behaviors: [EditorUI.focusable],
 
     listeners: {
         'focus': '_onFocus',
         'blur': '_onBlur',
-        'keyup': '_onKeyUp'
+        'keydown': '_onKeyDown'
     },
 
     properties: {
@@ -39,7 +39,10 @@ Editor.registerWidget( 'editor-section', {
         }
     },
 
-    _onKeyUp: function (event) {
+    _onKeyDown: function (event) {
+        if ( Polymer.dom(event).localTarget !== this )
+            return;
+
         // press 'enter' and 'space'
         if (event.keyCode === 13 || event.keyCode === 32) {
             event.preventDefault();

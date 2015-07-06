@@ -49,7 +49,10 @@ describe('<editor-slider>', function() {
         expect(sliderEl.$.unitinput.value).to.be.eql(20);
 
         var width = sliderEl.$.track.getBoundingClientRect().width;
-        expect(getComputedStyle(sliderEl.$.nubbin).left).to.be.eql(0.2 * width + 'px');
+        var left = getComputedStyle(sliderEl.$.nubbin).left;
+        left = Math.fround(parseFloat(left.substring(0,left.length-2))).toFixed(1);
+
+        expect(left).to.be.eql(Math.fround(0.2 * width).toFixed(1));
         sliderEl.$.unitinput.value = 51;
         expect(sliderEl.value ).to.be.eql(51);
         done();

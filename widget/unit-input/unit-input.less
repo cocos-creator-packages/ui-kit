@@ -77,7 +77,7 @@
 #hint {
     text-align: center;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    background: #535353;
+    background-color: #535353;
     height: 12px;
     border-radius: 1px;
     font-size: 9px;
@@ -87,13 +87,8 @@
     padding: 0px 5px;
 }
 
-:host[disabled] #hint {
-    background: #535353 - 10%;
-    color: #d1d1d1 - 40%;
-}
-
 #input::selection {
-    background: rgb(208, 207, 207);
+    background: #007acc;
 }
 
 #input:focus {
@@ -173,4 +168,30 @@
 
 .btn:first-child {
     border-top: none;
+}
+
+:host[disabled] #hint {
+    opacity: 0.5;
+}
+
+:host[hint-color^="red"] #hint {
+    background-color: #810000;
+}
+
+:host[hint-color^="green"] #hint {
+    background-color: #2e9000;
+}
+
+:host[hint-color^="blue"] #hint {
+    background-color: #007dff;
+}
+
+:host[hint-color^="orange"] #hint {
+    background-color: #ff6300;
+    color: white;
+}
+
+:host[hint-color^="yellow"] #hint {
+    background-color: #ffed00;
+    color: #575757;
 }
