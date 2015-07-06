@@ -41,7 +41,7 @@ Editor.registerWidget( 'editor-slider', {
 
     _valueChanged: function () {
         this.value = Math.clamp( this.value, this.min, this.max );
-        this.value = parseFloat(parseFloat(this.value).toFixed(this.precision));
+        this.value = parseFloat(this.value.toFixed(this.precision));
 
         this.$.nubbin.style.left = (this.value - this.min)/(this.max - this.min) * 100 + '%';
     },
