@@ -51,9 +51,9 @@ Editor.registerWidget( 'editor-unit-input', {
             value: '',
         },
 
-        fixed: {
+        precision: {
             type: Number,
-            value: 20,
+            value: 2,
         },
     },
 
@@ -155,7 +155,7 @@ Editor.registerWidget( 'editor-unit-input', {
             this.$.input.bindValue = this.max.toString();
         }
         else {
-            this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) + this.step).toFixed(this.fixed);
+            this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) + this.step).toFixed(this.precision);
         }
     },
 
@@ -164,7 +164,7 @@ Editor.registerWidget( 'editor-unit-input', {
             this.$.input.bindValue = this.min.toString();
         }
         else {
-            this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) - this.step).toFixed(this.fixed);
+            this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) - this.step).toFixed(this.precision);
         }
     },
 
@@ -225,7 +225,7 @@ Editor.registerWidget( 'editor-unit-input', {
         if (this.min && this.max) {
             val = Math.min( Math.max( val, this.min ), this.max );
         }
-        val = parseFloat(val.toFixed(this.fixed));
+        val = parseFloat(val.toFixed(this.precision));
         this._lastValidValue = val;
         return val;
     },
