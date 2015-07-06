@@ -27,6 +27,11 @@ Editor.registerWidget( 'editor-slider', {
             notify: true,
             reflectToAttribute: true,
         },
+
+        precision: {
+            type: Number,
+            value: 2,
+        },
     },
 
     ready: function () {
@@ -36,7 +41,7 @@ Editor.registerWidget( 'editor-slider', {
 
     _valueChanged: function () {
         this.value = Math.clamp( this.value, this.min, this.max );
-        this.value = parseFloat(parseFloat(this.value).toFixed(2));
+        this.value = parseFloat(parseFloat(this.value).toFixed(this.precision));
 
         this.$.nubbin.style.left = (this.value - this.min)/(this.max - this.min) * 100 + '%';
     },
@@ -81,5 +86,9 @@ Editor.registerWidget( 'editor-slider', {
         }).bind(this);
         document.addEventListener ( 'mousemove', mouseMoveHandle );
         document.addEventListener ( 'mouseup', mouseUpHandle );
+    },
+
+    _toFixed: function (value) {
+        return parseFloat(value.toFixed(this.precision));
     },
 });
