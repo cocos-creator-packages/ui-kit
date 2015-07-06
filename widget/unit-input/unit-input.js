@@ -50,12 +50,6 @@ Editor.registerWidget( 'editor-unit-input', {
             type: String,
             value: '',
         },
-
-        hintColor: {
-            type: String,
-            value: '',
-            reflectToAttribute: true,
-        }
     },
 
     created: function () {
