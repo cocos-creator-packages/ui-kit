@@ -37,9 +37,6 @@ Editor.registerWidget( 'editor-checkbox', {
     },
 
     _onClick: function (event) {
-        if (this.readonly) {
-            return;
-        }
         this.checked = !this.checked;
     },
 });
