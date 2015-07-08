@@ -21,9 +21,9 @@ Editor.registerWidget( 'editor-section', {
             reflectToAttribute: true,
         },
 
-        closeabled: {
+        closeable: {
             type: Boolean,
-            value: false,
+            value: false, 
             reflectToAttribute: true,
         },
 
@@ -81,7 +81,7 @@ Editor.registerWidget( 'editor-section', {
         }
     },
 
-    _remove: function (event) {
+    _onCloseClick: function (event) {
         event.stopPropagation();
         this.fire('remove');
     },

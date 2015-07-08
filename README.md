@@ -14,3 +14,4 @@ The UI kit used in Editor Framework
  - `<editor-slider>`
  - `<editor-toolbar>`
  - `<editor-unit-input>`
+ - `<editor-section>`
