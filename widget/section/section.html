@@ -6,11 +6,11 @@
         <div class="header" on-click="_onFoldClick">
             <div class="flex-1 left">
                 <i class$="{{_foldClass(folded)}}"></i>
+                <img class$="{{_iconClass(icon)}}" src$="{{icon}}"/>
                 <div class="title">{{text}}</div>
             </div>
             <div class="close" on-click="_remove">
                 <i class="fa fa-times"></i>
-                <span class="remove">REMOVE</span>
             </div>
         </div>
         <div class="content">

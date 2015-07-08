@@ -37,14 +37,9 @@
     width: 9px;
     transition: width .5s ease;
     overflow: hidden;
-    display: inline-block;
+    display: none;
     white-space: nowrap;
-    // color:rgb(255, 255, 255);
-    // background: white;
     border-radius: 2px;
-}
-
-.remove {
 }
 
 .title {
@@ -62,6 +57,12 @@
     flex-flow: column nowrap;
     padding: 5px 0px 5px 20px;
     font-size: 1.4rem;
+}
+
+.icon {
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
 }
 
 :host[folded] .content{
@@ -86,21 +87,12 @@
     width: 7px;
 }
 
-:host.small .close:hover {
-    width: 55px;
-}
-
-:host.small .close:active {
-    color: #a30000;
-}
-
 :host {
     font-size: 1.2rem;
 }
 
 .close:hover {
     color: #c80505;
-    width: 65px;
 }
 
 .close:active {
@@ -115,28 +107,12 @@
     width: 11px;
 }
 
-:host.large .close:hover {
-    width: 75px;
-}
-
-:host.large .close:active {
-    color: #a30000;
-}
-
 :host.big {
     font-size: 1.8rem;
 }
 
 :host.big .close {
     width: 15px;
-}
-
-:host.big .close:hover {
-    width: 95px;
-}
-
-:host.big .close:active {
-    color: #a30000;
 }
 
 :host.huge {
@@ -147,10 +123,10 @@
     width: 17px;
 }
 
-:host.huge .close:hover {
-    width: 115px;
+:host[closeabled] .close{
+    display: inline-block;
 }
 
-:host.huge .close:active {
-    color: #a30000;
+.hidden {
+    display: none;
 }
