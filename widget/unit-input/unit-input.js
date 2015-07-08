@@ -227,15 +227,9 @@ Editor.registerWidget( 'editor-unit-input', {
         event.preventDefault();
         event.stopPropagation();
         var lastValue = this.value;
-        EditorUI.startDrag('ew-resize', event,
-        // move
-        function (event, dx, dy, offsetx, offsety) {
+        EditorUI.startDrag('ew-resize', event,function (event, dx, dy, offsetx, offsety) {
             this.value = lastValue + offsetx * this.step;
-        }.bind(this),
-        // end
-        function() {
-            return;
-        });
+        }.bind(this),null);
         this.setFocus();
     },
 
