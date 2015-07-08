@@ -109,6 +109,8 @@ Editor.registerWidget( 'editor-unit-input', {
     },
 
     _onKeyDown: function (event) {
+        event.stopPropagation();
+
         // keydown 'enter'
         if (event.keyCode === 13) {
             event.preventDefault();

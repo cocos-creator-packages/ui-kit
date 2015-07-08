@@ -61,7 +61,18 @@ Editor.registerWidget( 'editor-input', {
         this.inputValue = this.value;
     },
 
+    select: function ( start, end ) {
+        if ( typeof start === 'number' && typeof end === 'number' ) {
+            this.$.input.setSelectionRange( start, end );
+        }
+        else {
+            this.$.input.select();
+        }
+    },
+
     _onKeyDown: function (event) {
+        event.stopPropagation();
+
         // keydown 'enter'
         if (event.keyCode === 13) {
             event.preventDefault();
