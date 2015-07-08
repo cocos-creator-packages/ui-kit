@@ -25,6 +25,17 @@
     cursor: pointer;
 }
 
+.close {
+    text-align: center;
+    padding: 0px 4px;
+    width: 9px;
+    transition: width .5s ease;
+    overflow: hidden;
+    display: none;
+    white-space: nowrap;
+    border-radius: 2px;
+}
+
 .title {
     text-transform: capitalize;
     margin-left: 5px;
@@ -40,6 +51,12 @@
     flex-flow: column nowrap;
     padding: 5px 0px 5px 20px;
     font-size: 1.4rem;
+}
+
+.icon {
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
 }
 
 :host[folded] .content{
@@ -60,18 +77,50 @@
     font-size: 1rem;
 }
 
+:host.small .close {
+    width: 7px;
+}
+
 :host {
     font-size: 1.2rem;
+}
+
+.close:hover {
+    color: #c80505;
+}
+
+.close:active {
+    color: #a30000;
 }
 
 :host.large {
     font-size: 1.4rem;
 }
 
+:host.large .close {
+    width: 11px;
+}
+
 :host.big {
     font-size: 1.8rem;
 }
 
+:host.big .close {
+    width: 15px;
+}
+
 :host.huge {
     font-size: 2rem;
+}
+
+:host.huge .close {
+    width: 17px;
+}
+
+:host[closeable] .close{
+    display: inline-block;
+}
+
+.hidden {
+    display: none;
 }

@@ -20,6 +20,17 @@ Editor.registerWidget( 'editor-section', {
             value: false,
             reflectToAttribute: true,
         },
+
+        closeable: {
+            type: Boolean,
+            value: false, 
+            reflectToAttribute: true,
+        },
+
+        icon: {
+            type: String,
+            value: ''
+        }
     },
 
     ready: function () {
@@ -37,6 +48,13 @@ Editor.registerWidget( 'editor-section', {
         else {
             return 'fa fold fa-caret-down';
         }
+    },
+
+    _iconClass: function (icon) {
+        if (this.icon) {
+            return 'icon';
+        }
+        return 'hidden';
     },
 
     _onKeyDown: function (event) {
@@ -61,6 +79,10 @@ Editor.registerWidget( 'editor-section', {
             event.stopPropagation();
             this.folded = false;
         }
+    },
 
+    _onCloseClick: function (event) {
+        event.stopPropagation();
+        this.fire('remove');
     },
  });
