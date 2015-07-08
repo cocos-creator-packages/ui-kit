@@ -25,6 +25,28 @@
     cursor: pointer;
 }
 
+.left {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.close {
+    text-align: center;
+    padding: 0px 4px;
+    width: 9px;
+    transition: width .5s ease;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    // color:rgb(255, 255, 255);
+    // background: white;
+    border-radius: 2px;
+}
+
+.remove {
+}
+
 .title {
     text-transform: capitalize;
     margin-left: 5px;
@@ -60,18 +82,75 @@
     font-size: 1rem;
 }
 
+:host.small .close {
+    width: 7px;
+}
+
+:host.small .close:hover {
+    width: 55px;
+}
+
+:host.small .close:active {
+    color: #a30000;
+}
+
 :host {
     font-size: 1.2rem;
+}
+
+.close:hover {
+    color: #c80505;
+    width: 65px;
+}
+
+.close:active {
+    color: #a30000;
 }
 
 :host.large {
     font-size: 1.4rem;
 }
 
+:host.large .close {
+    width: 11px;
+}
+
+:host.large .close:hover {
+    width: 75px;
+}
+
+:host.large .close:active {
+    color: #a30000;
+}
+
 :host.big {
     font-size: 1.8rem;
 }
 
+:host.big .close {
+    width: 15px;
+}
+
+:host.big .close:hover {
+    width: 95px;
+}
+
+:host.big .close:active {
+    color: #a30000;
+}
+
 :host.huge {
     font-size: 2rem;
+}
+
+:host.huge .close {
+    width: 17px;
+}
+
+:host.huge .close:hover {
+    width: 115px;
+}
+
+:host.huge .close:active {
+    color: #a30000;
 }

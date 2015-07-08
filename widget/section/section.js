@@ -61,6 +61,10 @@ Editor.registerWidget( 'editor-section', {
             event.stopPropagation();
             this.folded = false;
         }
+    },
 
+    _remove: function (event) {
+        event.stopPropagation();
+        this.fire('remove');
     },
  });
