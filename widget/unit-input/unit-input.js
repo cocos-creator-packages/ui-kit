@@ -227,6 +227,25 @@ Editor.registerWidget( 'editor-unit-input', {
         event.preventDefault();
         event.stopPropagation();
 
+        EditorUI.addDragGhost('ew-resize');
+        var lastClientX = event.clientX;
+        var lastValue = this.value;
+
+        var updateMouseMove = function (event) {
+            var offsetX = (event.clientX - lastClientX);
+            this.value = lastValue + offsetX * this.step;
+            event.stopPropagation();
+        };
+        updateMouseMove.call(this,event);
+
+        var mouseMoveHandle = updateMouseMove.bind(this);
+        var mouseUpHandle = (function(event) {
+            document.removeEventListener('mousemove', mouseMoveHandle);
+            document.removeEventListener('mouseup', mouseUpHandle);
+            EditorUI.removeDragGhost();
+        }).bind(this);
+        document.addEventListener ( 'mousemove', mouseMoveHandle );
+        document.addEventListener ( 'mouseup', mouseUpHandle );
         this.setFocus();
     },
 
