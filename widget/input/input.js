@@ -4,7 +4,7 @@ Editor.registerWidget( 'editor-input', {
     behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
 
     listeners: {
-        'focused-changed': '_onFocusedChanged'
+        'focused-changed': '_onFocusedChanged',
     },
 
     properties: {
@@ -55,10 +55,12 @@ Editor.registerWidget( 'editor-input', {
 
     confirm: function () {
         this.value = this.inputValue;
+        this.fire('confirm', null, {bubbles: false} );
     },
 
     cancel: function() {
         this.inputValue = this.value;
+        this.fire('cancel', null, {bubbles: false} );
     },
 
     select: function ( start, end ) {
@@ -71,8 +73,6 @@ Editor.registerWidget( 'editor-input', {
     },
 
     _onKeyDown: function (event) {
-        event.stopPropagation();
-
         // keydown 'enter'
         if (event.keyCode === 13) {
             event.preventDefault();

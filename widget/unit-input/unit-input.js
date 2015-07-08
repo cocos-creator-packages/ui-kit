@@ -102,15 +102,15 @@ Editor.registerWidget( 'editor-unit-input', {
         this.value = this._convert(this.$.input.bindValue);
         this.inputValue = this._convert(this.$.input.bindValue);
         this.$.input.bindValue = this.value.toString();
+        this.fire('confirm', null, {bubbles: false} );
     },
 
     cancel: function() {
         this.$.input.bindValue = this.value.toString();
+        this.fire('cancel', null, {bubbles: false} );
     },
 
     _onKeyDown: function (event) {
-        event.stopPropagation();
-
         // keydown 'enter'
         if (event.keyCode === 13) {
             event.preventDefault();
