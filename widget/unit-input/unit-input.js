@@ -228,7 +228,7 @@ Editor.registerWidget( 'editor-unit-input', {
         event.stopPropagation();
         var lastValue = this.inputValue;
         EditorUI.startDrag('ew-resize', event,function (event, dx, dy, offsetx, offsety) {
-            this.inputValue = lastValue + offsetx * this.step;
+            this.inputValue = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
         }.bind(this),null);
         this.setFocus();
     },
