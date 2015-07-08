@@ -55,15 +55,25 @@
                     <editor-option value="hello">Hello</editor-option>
                     <editor-option value="world">World</editor-option>
                 </editor-select>
+                <editor-buttons selected="{{select}}">
+                    <editor-buttons-item><i class="fa fa-play"></i></editor-buttons-item>
+                    <editor-buttons-item><i class="fa fa-stop"></i></editor-buttons-item>
+                </editor-buttons>
             </editor-toolbar>
         </preview-item>
-
     </template>
 </dom-module>
 
 <script>
 Polymer( {
     is: 'editor-toolbar-preview',
+
+    properties: {
+        select: {
+            type: Number,
+            value: 0
+        }
+    },
 });
 
 </script>
