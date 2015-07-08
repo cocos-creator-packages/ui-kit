@@ -191,3 +191,28 @@
 :host ::content .border.editor-select {
     padding: 0px 4px;
 }
+
+// editor-buttons
+
+:host::shadow editor-buttons {
+    height: 18px;
+    font-size: 1rem;
+    border: 1px solid #2a2a2a;
+}
+
+:host::shadow editor-buttons editor-buttons-item:first-child {
+    border-radius: 0px;
+}
+
+:host::shadow editor-buttons editor-buttons-item:last-child {
+    border-radius: 0px;
+}
+
+:host::shadow editor-buttons-item {
+    background-color: #555555;
+    padding: .1rem;
+}
+
+:host::shadow editor-buttons-item[selected] {
+    border-color: #555555;
+}
