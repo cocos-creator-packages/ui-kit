@@ -86,7 +86,7 @@ Editor.registerWidget( 'editor-unit-input', {
     },
 
     _inputValueChanged: function () {
-        this.$.input.bindValue = this.inputValue.toString();
+        this.$.input.bindValue = this._convert(this.inputValue).toString();
     },
 
     _valueChanged: function () {
@@ -100,7 +100,7 @@ Editor.registerWidget( 'editor-unit-input', {
 
     confirm: function () {
         this.value = this._convert(this.$.input.bindValue);
-        this.inputValue = this._convert(this.$.input.bindValue);
+        this.inputValue = this.value;
         this.$.input.bindValue = this.value.toString();
         this.fire('confirm', null, {bubbles: false} );
     },
@@ -233,7 +233,7 @@ Editor.registerWidget( 'editor-unit-input', {
         this.setFocus();
     },
 
-    _convert: function ( val ) {
+    _convert: function ( val, noFixedPrecision ) {
         if (val === '' || isNaN(val)) {
             return this._lastValidValue;
         }
@@ -243,8 +243,15 @@ Editor.registerWidget( 'editor-unit-input', {
         if (this.min && this.max) {
             val = Math.min( Math.max( val, this.min ), this.max );
         }
-        val = parseFloat(val.toFixed(this.precision));
+
+        if ( noFixedPrecision ) {
+            val = parseFloat(val);
+        }
+        else {
+            val = parseFloat(val.toFixed(this.precision));
+        }
         this._lastValidValue = val;
+
         return val;
     },
 
@@ -261,10 +268,7 @@ Editor.registerWidget( 'editor-unit-input', {
         if ( !this._inited )
             return;
 
-        if (this.inputValue === this._convert(this.$.input.bindValue)) {
-            return;
-        }
-        this.inputValue = this._convert(this.$.input.bindValue);
+        this.inputValue = this._convert(this.$.input.bindValue,true);
     },
 
     _onFocusedChanged: function (event) {
