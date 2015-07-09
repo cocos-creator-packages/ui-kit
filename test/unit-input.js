@@ -265,3 +265,21 @@ describe('<editor-unit-input min="5" max="10" value="0">', function() {
         done();
     });
 });
+
+describe('<editor-unit-input precision>', function() {
+    var inputEl;
+    beforeEach(function ( done ) {
+        fixture('precision', function ( el ) {
+            inputEl = el;
+            done();
+        });
+    });
+
+    it('should be invalid', function( done ) {
+        inputEl.$.input.bindValue = '14.12';
+        inputEl.inputValue = 14.123456;
+        expect(inputEl.inputValue).to.be.eql(14.123456);
+        expect(inputEl.$.input.bindValue).to.be.eql('14.12');
+        done();
+    });
+});
