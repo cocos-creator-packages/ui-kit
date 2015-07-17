@@ -42,12 +42,36 @@
             <editor-progress class="green" value="0.5">green</editor-progress>
             <editor-progress class="orange" value="0.5">orange</editor-progress>
         </preview-item>
+
+        <preview-item
+            header="editor-progress value"
+            desc="change value"
+        >
+            <editor-progress class="small" value="{{testValue}}">mini</editor-progress>
+            <editor-button on-click="_onDeclineClick">-</editor-button>
+            <editor-button on-click="_onIncreaseClick">+</editor-button>
+        </preview-item>
     </template>
 </dom-module>
 
 <script>
 Polymer( {
     is: 'editor-progress-preview',
+
+    properties: {
+        testValue: {
+            type: Number,
+            value: 0,
+        }
+    },
+
+    _onIncreaseClick: function (event) {
+        this.testValue += 0.05;
+    },
+
+    _onDeclineClick: function(event) {
+        this.testValue -= 0.05;
+    },
 });
 
 </script>

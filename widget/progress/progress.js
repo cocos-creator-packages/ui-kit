@@ -5,6 +5,7 @@ Editor.registerWidget( 'editor-progress', {
         value: {
             type: Number,
             value: 0,
+            notify: true,
             observer: '_valueChanged'
         },
         succeed: {
@@ -16,7 +17,7 @@ Editor.registerWidget( 'editor-progress', {
 
     _valueChanged: function () {
         this.value = Math.clamp(this.value,0,1);
-        if (this.value >=1) {
+        if (Math.clamp((this.value * 100).toFixed(2),0,100) >= 100) {
             this.succeed = true;
         }
         else {
