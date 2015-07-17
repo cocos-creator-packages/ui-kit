@@ -1,11 +1,11 @@
 {
   "name": "ui-kit",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Editor Framework UI Kit",
   "author": "Firebox Technology",
   "build": true,
   "hosts": {
-    "editor-framework": "^0.3.10"
+    "editor-framework": "^0.3.12"
   },
   "main": "main.js",
   "menus": {
