@@ -22,7 +22,6 @@ Editor.registerWidget( 'editor-select', {
             type: String,
             value: '',
             notify: true,
-            observer: '_valueChanged'
         },
 
         text: {
@@ -87,7 +86,7 @@ Editor.registerWidget( 'editor-select', {
         }.bind(this),1);
     },
 
-    _valueChanged: function () {
+    _onSelectedItemChanged: function ( event ) {
         if (this.$.menu && this.$.menu.selectedItem) {
             if (this.$.menu.selectedItem.text) {
                 this.text = this.$.menu.selectedItem.text;
