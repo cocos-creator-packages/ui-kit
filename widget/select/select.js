@@ -38,7 +38,7 @@ Editor.registerWidget( 'editor-select', {
     add: function ( value, text ) {
         var el = document.createElement('editor-option');
         Polymer.dom(el).innerHTML = text;
-        el.value = value;
+        el.value = value.toString();
 
         Polymer.dom(this).appendChild(el);
     },
@@ -165,8 +165,8 @@ Editor.registerWidget( 'editor-select', {
         return text;
     },
 
-    _textClass: function ( value ) {
-        if ( this.value === '' )
+    _textClass: function ( text ) {
+        if ( text === '' )
             return 'placeholder';
         return '';
     },
