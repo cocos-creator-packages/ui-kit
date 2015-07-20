@@ -13,6 +13,11 @@ Editor.registerWidget( 'editor-progress', {
             value: false,
             reflectToAttribute: true,
         },
+        failed: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true,
+        }
     },
 
     _valueChanged: function () {
@@ -29,7 +34,7 @@ Editor.registerWidget( 'editor-progress', {
         return 'width:' + Math.clamp(value * 100,0,100) + '%;';
     },
 
-    _value: function (value) {
+    _valueText: function (value) {
         return parseFloat( Math.clamp((value * 100).toFixed(2),0,100));
     },
 });

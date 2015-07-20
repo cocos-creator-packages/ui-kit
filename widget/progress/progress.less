@@ -9,6 +9,7 @@
     border-radius: .2rem;
     color: #515151;
     font-size: 12px;
+    padding: 2px;
 }
 
 .progress {
@@ -53,7 +54,6 @@
     line-height: 14px;
     min-width: 18px;
     min-height: 14px;
-    height: 14px;
 }
 
 :host.large .bar,:host.large .progress{
@@ -101,5 +101,12 @@
 
 :host[succeed] .progress{
     background-color: #47A029;
+    color: white;
+}
+
+// failed
+
+:host[failed] .progress{
+    background-color: #900;
     color: white;
 }
