@@ -21,7 +21,14 @@
     min-height: 20px;
     overflow: hidden;
     border-radius: .2rem;
+    transition-duration: 300ms;
+    transition: width .2s ease,background-color .2s ease;
 }
+//
+// .animate {
+//     transition-duration: 300ms;
+//     transition: width .2s ease,background-color .2s ease;
+// }
 
 .tip::after {
     content: '%';
@@ -107,4 +114,9 @@
 :host[state^=failed] .progress{
     background-color: #900;
     color: white;
+}
+
+:host[_no-animate] .progress{
+    transition-duration: none;
+    transition: none;
 }

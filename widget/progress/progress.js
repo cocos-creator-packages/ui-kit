@@ -16,21 +16,28 @@ Editor.registerWidget( 'editor-progress', {
         _noAnimate: {
             type: Boolean,
             value: false,
+            reflectToAttribute: true,
         },
     },
 
     reset: function () {
         this.state = 'normal';
         this._noAnimate = true;
-        this.value = 0.0;
-    },
 
-    _succeed: function () {
-        this._noAnimate = true;
-        this.value = 1.0;
+        requestAnimationFrame(function () {
+            this.value = 0.0;
+            this.$.progress.style.width = Math.clamp(this.value * 100,0,100) + '%';
+            this.async(function(){
+                this._noAnimate = false;
+            },1);
+        }.bind(this));
     },
 
     _valueChanged: function () {
+        if (this._noAnimate) {
+            return;
+        }
+        this._noAnimate = false;
         this.value = Math.clamp(this.value,0,1);
         if ( Math.clamp((this.value * 100).toFixed(2),0,100) >= 100 ) {
             this.state = 'succeed';
@@ -38,16 +45,7 @@ Editor.registerWidget( 'editor-progress', {
         else {
             this.state = 'normal';
         }
-    },
-
-    _progressStyle: function (value) {
-        var style = 'width:' + Math.clamp(value * 100,0,100) + '%;';
-
-        if (!this._noAnimate) {
-            style = style + ' transition-duration: 300ms;transition: width .2s ease,background-color .2s ease;';
-        }
-        this._noAnimate = false;
-        return style;
+        this.$.progress.style.width = Math.clamp(this.value * 100,0,100) + '%';
     },
 
     _valueText: function (value) {
