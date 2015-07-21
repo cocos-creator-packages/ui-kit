@@ -13,11 +13,22 @@ Editor.registerWidget( 'editor-progress', {
             value: false,
             reflectToAttribute: true,
         },
+        failed: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true,
+        }
+    },
+
+    reset: function () {
+        this.succeed = false;
+        this.failed = false;
+        this.value = 0.0;
     },
 
     _valueChanged: function () {
         this.value = Math.clamp(this.value,0,1);
-        if (Math.clamp((this.value * 100).toFixed(2),0,100) >= 100) {
+        if ( Math.clamp((this.value * 100).toFixed(2),0,100) >= 100 ) {
             this.succeed = true;
         }
         else {
@@ -29,7 +40,7 @@ Editor.registerWidget( 'editor-progress', {
         return 'width:' + Math.clamp(value * 100,0,100) + '%;';
     },
 
-    _value: function (value) {
+    _valueText: function (value) {
         return parseFloat( Math.clamp((value * 100).toFixed(2),0,100));
     },
 });
