@@ -51,7 +51,7 @@
             header="editor-progress value"
             desc="change value"
         >
-            <editor-progress class="small" id="pr" value="{{testValue}}">mini</editor-progress>
+            <editor-progress class="small" id="testProgress" value="{{testValue}}">mini</editor-progress>
             <editor-button on-click="_onDeclineClick">-</editor-button>
             <editor-button on-click="_onIncreaseClick">+</editor-button>
             <editor-button on-click="_onSucceedClick">succeed</editor-button>
@@ -80,7 +80,7 @@ Polymer( {
     },
 
     _onResetClick: function (event) {
-        this.$.pr.reset();
+        this.$.testProgress.reset();
     },
 
     _onSucceedClick: function (event) {

@@ -26,7 +26,6 @@ Editor.registerWidget( 'editor-progress', {
 
         requestAnimationFrame(function () {
             this.value = 0.0;
-            this.$.progress.style.width = Math.clamp(this.value * 100,0,100) + '%';
             this.async(function(){
                 this._noAnimate = false;
             },1);
@@ -34,10 +33,6 @@ Editor.registerWidget( 'editor-progress', {
     },
 
     _valueChanged: function () {
-        if (this._noAnimate) {
-            return;
-        }
-        this._noAnimate = false;
         this.value = Math.clamp(this.value,0,1);
         if ( Math.clamp((this.value * 100).toFixed(2),0,100) >= 100 ) {
             this.state = 'succeed';
