@@ -4,6 +4,10 @@
             margin: 5px;
             width: 100%;
         }
+
+        editor-button {
+            margin: 5px 10px;
+        }
     </style>
 
     <template>
@@ -47,9 +51,11 @@
             header="editor-progress value"
             desc="change value"
         >
-            <editor-progress class="small" value="{{testValue}}">mini</editor-progress>
+            <editor-progress class="small" id="testProgress" value="{{testValue}}">mini</editor-progress>
             <editor-button on-click="_onDeclineClick">-</editor-button>
             <editor-button on-click="_onIncreaseClick">+</editor-button>
+            <editor-button on-click="_onSucceedClick">succeed</editor-button>
+            <editor-button on-click="_onResetClick">reset</editor-button>
         </preview-item>
     </template>
 </dom-module>
@@ -71,6 +77,14 @@ Polymer( {
 
     _onDeclineClick: function(event) {
         this.testValue -= 0.05;
+    },
+
+    _onResetClick: function (event) {
+        this.$.testProgress.reset();
+    },
+
+    _onSucceedClick: function (event) {
+        this.testValue = 1.0;
     },
 });
 

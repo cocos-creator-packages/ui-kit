@@ -8,36 +8,39 @@ Editor.registerWidget( 'editor-progress', {
             notify: true,
             observer: '_valueChanged'
         },
-        succeed: {
+        state: {
+            type: String,
+            value: 'normal', // 'normal', 'failed' and 'succeed'
+            reflectToAttribute: true,
+        },
+        _noAnimate: {
             type: Boolean,
             value: false,
             reflectToAttribute: true,
         },
-        failed: {
-            type: Boolean,
-            value: false,
-            reflectToAttribute: true,
-        }
     },
 
     reset: function () {
-        this.succeed = false;
-        this.failed = false;
-        this.value = 0.0;
+        this.state = 'normal';
+        this._noAnimate = true;
+
+        requestAnimationFrame(function () {
+            this.value = 0.0;
+            this.async(function(){
+                this._noAnimate = false;
+            },1);
+        }.bind(this));
     },
 
     _valueChanged: function () {
         this.value = Math.clamp(this.value,0,1);
         if ( Math.clamp((this.value * 100).toFixed(2),0,100) >= 100 ) {
-            this.succeed = true;
+            this.state = 'succeed';
         }
         else {
-            this.succeed = false;
+            this.state = 'normal';
         }
-    },
-
-    _progressStyle: function (value) {
-        return 'width:' + Math.clamp(value * 100,0,100) + '%;';
+        this.$.progress.style.width = Math.clamp(this.value * 100,0,100) + '%';
     },
 
     _valueText: function (value) {
