@@ -20,9 +20,15 @@ Editor.registerWidget( 'editor-progress', {
         }
     },
 
+    reset: function () {
+        this.succeed = false;
+        this.failed = false;
+        this.value = 0.0;
+    },
+
     _valueChanged: function () {
         this.value = Math.clamp(this.value,0,1);
-        if (Math.clamp((this.value * 100).toFixed(2),0,100) >= 100) {
+        if ( Math.clamp((this.value * 100).toFixed(2),0,100) >= 100 ) {
             this.succeed = true;
         }
         else {
