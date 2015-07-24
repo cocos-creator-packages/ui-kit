@@ -1,0 +1,36 @@
+<dom-module id="editor-semver-preview">
+    <style>
+    </style>
+
+    <template>
+        <preview-item
+            header="editor-semver"
+            desc="default"
+        >
+            <editor-semver></editor-semver>
+        </preview-item>
+
+        <preview-item
+            header="editor-semver value"
+            desc="set value type of version"
+        >
+            <editor-semver value="1.0.0"></editor-semver>
+        </preview-item>
+
+        <preview-item
+            header="editor-semver[invalid]"
+            desc=""
+        >
+            <editor-semver value="1.0.xx"></editor-semver>
+        </preview-item>
+    </template>
+
+</template>
+</dom-module>
+
+<script>
+Polymer( {
+    is: 'editor-semver-preview',
+});
+
+</script>
