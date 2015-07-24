@@ -1,0 +1,13 @@
+<link rel="import" href="../input/input.html">
+
+<dom-module id="editor-semver">
+    <link rel="import" type="css" href="semver-input.css">
+    <template>
+        <input value="{{majorVersion::input}}"></input>
+        <span>.</span>
+        <input value="{{secondVersion::input}}"></input>
+        <span>.</span>
+        <input value="{{revision::input}}"></input>
+    </template>
+</dom-module>
+<script type="text/javascript" src="semver-input.js"></script>
