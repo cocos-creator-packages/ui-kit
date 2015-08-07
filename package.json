@@ -5,7 +5,7 @@
   "author": "Firebox Technology",
   "build": true,
   "hosts": {
-    "editor-framework": "^0.3.12"
+    "editor-framework": "^0.3.14"
   },
   "main": "main.js",
   "menus": {
@@ -31,19 +31,18 @@
       "title": "UI Kit Preview",
       "width": 800,
       "height": 600,
-      "messages": [
-      ]
+      "messages": []
     }
   },
   "tests": [
-      "test/button.html",
-      "test/buttons.html",
-      "test/checkbox.html",
-      "test/input.html",
-      "test/label.html",
-      "test/loader.html",
-      "test/select.html",
-      "test/slider.html",
-      "test/unit-input.html"
+    "test/button.html",
+    "test/buttons.html",
+    "test/checkbox.html",
+    "test/input.html",
+    "test/label.html",
+    "test/loader.html",
+    "test/select.html",
+    "test/slider.html",
+    "test/unit-input.html"
   ]
 }
