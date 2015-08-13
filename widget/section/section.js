@@ -23,7 +23,7 @@ Editor.registerWidget( 'editor-section', {
 
         closeable: {
             type: Boolean,
-            value: false, 
+            value: false,
             reflectToAttribute: true,
         },
 
@@ -43,11 +43,10 @@ Editor.registerWidget( 'editor-section', {
 
     _foldClass: function ( folded ) {
         if (folded) {
-            return 'fa fold fa-caret-right';
+            return 'fa fa-caret-right fold flex-none ';
         }
-        else {
-            return 'fa fold fa-caret-down';
-        }
+
+        return 'fa fa-caret-down fold flex-none';
     },
 
     _iconClass: function (icon) {
