@@ -18,6 +18,8 @@
     border: 1px solid @color-border-normal;
     border-radius: 2px;
     padding: 0.4rem 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     cursor: pointer;
 
@@ -157,7 +159,7 @@ color
 }
 
 :host[disabled].green .btn {
-    @color-button-text: #9D9D9D;
+    @color-button-text: #848383;
     @color-button-bg-top: #038603;
     @color-button-bg-bottom: #056905;
     color: @color-button-text;

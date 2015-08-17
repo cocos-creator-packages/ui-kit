@@ -53,9 +53,13 @@ Editor.registerWidget( 'editor-input', {
         this.inputValue = '';
     },
 
-    confirm: function () {
+    confirm: function ( pressEnter ) {
         this.value = this.inputValue;
-        this.fire('confirm', null, {bubbles: false} );
+        this.fire('confirm', {
+            confirmByEnter: pressEnter,
+        }, {
+            bubbles: false
+        } );
     },
 
     cancel: function() {
@@ -78,9 +82,7 @@ Editor.registerWidget( 'editor-input', {
             event.preventDefault();
             event.stopPropagation();
 
-            if (this.value !== this.inputValue) {
-                this.confirm();
-            }
+            this.confirm(true);
             this.setBlur();
             EditorUI.focusParent(this);
         }

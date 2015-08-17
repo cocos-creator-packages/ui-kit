@@ -22,7 +22,6 @@ Editor.registerWidget( 'editor-select', {
             type: String,
             value: '',
             notify: true,
-            observer: '_valueChanged'
         },
 
         text: {
@@ -38,7 +37,7 @@ Editor.registerWidget( 'editor-select', {
     add: function ( value, text ) {
         var el = document.createElement('editor-option');
         Polymer.dom(el).innerHTML = text;
-        el.value = value;
+        el.value = value.toString();
 
         Polymer.dom(this).appendChild(el);
     },
@@ -87,7 +86,7 @@ Editor.registerWidget( 'editor-select', {
         }.bind(this),1);
     },
 
-    _valueChanged: function () {
+    _onSelectedItemChanged: function ( event ) {
         if (this.$.menu && this.$.menu.selectedItem) {
             if (this.$.menu.selectedItem.text) {
                 this.text = this.$.menu.selectedItem.text;
@@ -165,8 +164,8 @@ Editor.registerWidget( 'editor-select', {
         return text;
     },
 
-    _textClass: function ( value ) {
-        if ( this.value === '' )
+    _textClass: function ( text ) {
+        if ( text === '' )
             return 'placeholder';
         return '';
     },

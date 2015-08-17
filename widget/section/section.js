@@ -83,6 +83,6 @@ Editor.registerWidget( 'editor-section', {
 
     _onCloseClick: function (event) {
         event.stopPropagation();
-        this.fire('remove');
+        this.fire('close');
     },
  });
