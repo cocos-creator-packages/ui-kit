@@ -166,6 +166,9 @@ Editor.registerWidget( 'editor-unit-input', {
     },
 
     _stepUp: function () {
+        if (this.readonly) {
+            return;
+        }
         if (this._nullToFloat(this.$.input.bindValue) + this.step >= this.max) {
             this.$.input.bindValue = this.max.toString();
         }
@@ -175,6 +178,9 @@ Editor.registerWidget( 'editor-unit-input', {
     },
 
     _stepDown: function () {
+        if (this.readonly) {
+            return;
+        }
         if (this._nullToFloat(this.$.input.bindValue) - this.step <= this.min) {
             this.$.input.bindValue = this.min.toString();
         }
@@ -226,6 +232,9 @@ Editor.registerWidget( 'editor-unit-input', {
     _onHintMounseDown: function ( event ) {
         event.preventDefault();
         event.stopPropagation();
+        if (this.readonly) {
+            return;
+        }
         var lastValue = this.inputValue;
         EditorUI.startDrag('ew-resize', event,function (event, dx, dy, offsetx, offsety) {
             this.inputValue = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
