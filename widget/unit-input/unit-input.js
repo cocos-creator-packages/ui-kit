@@ -226,7 +226,7 @@ Editor.registerWidget( 'editor-unit-input', {
     _onHintMounseDown: function ( event ) {
         event.preventDefault();
         event.stopPropagation();
-        
+
         var lastValue = this.inputValue;
         EditorUI.startDrag('ew-resize', event,function (event, dx, dy, offsetx, offsety) {
             this.inputValue = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
