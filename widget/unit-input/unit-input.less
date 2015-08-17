@@ -201,3 +201,11 @@
     -webkit-user-select: text;
     cursor: text;
 }
+
+:host[readonly] #hint {
+    pointer-events: none;
+}
+
+:host[readonly] .btn {
+    pointer-events: none;
+}
