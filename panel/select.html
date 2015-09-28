@@ -110,20 +110,15 @@
 
     </template>
 
-</template>
+    <script>
+        Editor.registerElement({
+            _onValueChanged: function () {
+                Editor.log('_onValueChanged:' + this.$.testEvent.value);
+            },
+
+            _onclick: function () {
+                console.log('click');
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-select-preview',
-
-    _onValueChanged: function () {
-        Editor.log('_onValueChanged:' + this.$.testEvent.value);
-    },
-
-    _onclick: function () {
-        console.log('click');
-    },
-});
-
-</script>

@@ -155,15 +155,12 @@
             <editor-slider input on-value-changed="_onValueChanged"></editor-slider>
         </preview-item>
     </template>
+
+    <script>
+        Editor.registerElement ({
+            _onValueChanged: function (event) {
+                Editor.log(event.target.value);
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-slider-preview',
-
-    _onValueChanged: function (event) {
-        Editor.log(event.target.value);
-    },
-});
-
-</script>

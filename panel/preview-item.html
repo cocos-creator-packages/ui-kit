@@ -72,42 +72,39 @@
             <div id="code"></div>
         </div>
     </template>
+
+    <script>
+        Editor.registerElement ({
+            properties: {
+                vertical: {
+                    type: Boolean,
+                    value: false,
+                    reflectToAttribute: true
+                },
+
+                header: {
+                    type: String,
+                    value: 'Title',
+                },
+
+                desc: {
+                    type: String,
+                    value: 'Description',
+                },
+
+                tmpl: {
+                    type: String,
+                    value: '',
+                },
+            },
+
+            ready: function () {
+                // var template = Polymer.dom(this.$.tmpl).querySelector('template');
+                // var fixturedFragment = document.importNode(template.content, true);
+                // var el = fixturedFragment.firstElementChild;
+                // Polymer.dom(this.$.preview).appendChild(el);
+                // Polymer.dom(this.$.code).innerHTML = template.content;
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'preview-item',
-
-    properties: {
-        vertical: {
-            type: Boolean,
-            value: false,
-            reflectToAttribute: true
-        },
-
-        header: {
-            type: String,
-            value: 'Title',
-        },
-
-        desc: {
-            type: String,
-            value: 'Description',
-        },
-
-        tmpl: {
-            type: String,
-            value: '',
-        },
-    },
-
-    ready: function () {
-        // var template = Polymer.dom(this.$.tmpl).querySelector('template');
-        // var fixturedFragment = document.importNode(template.content, true);
-        // var el = fixturedFragment.firstElementChild;
-        // Polymer.dom(this.$.preview).appendChild(el);
-        // Polymer.dom(this.$.code).innerHTML = template.content;
-    },
-});
-
-</script>

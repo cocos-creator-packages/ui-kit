@@ -322,26 +322,23 @@
         </preview-item>
 
     </template>
+
+    <script>
+        Editor.registerElement({
+            ready: function () {
+                this.selected1 = 1;
+                this.defaultSelected = 2;
+                this.selected2 = [0,1,2];
+                this.colorSelected = 0;
+            },
+
+            _onSelectedChanged: function (event) {
+                Editor.log('on-selected-changed: ' + event.target.selected);
+            },
+
+            _onMultiSelectedChanged: function (event) {
+                Editor.log('on-multi-selected-changed: ' + event.target.selectedValues);
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-buttons-preview',
-
-    ready: function () {
-        this.selected1 = 1;
-        this.defaultSelected = 2;
-        this.selected2 = [0,1,2];
-        this.colorSelected = 0;
-    },
-
-    _onSelectedChanged: function (event) {
-        Editor.log('on-selected-changed: ' + event.target.selected);
-    },
-
-    _onMultiSelectedChanged: function (event) {
-        Editor.log('on-multi-selected-changed: ' + event.target.selectedValues);
-    },
-});
-
-</script>

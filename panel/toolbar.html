@@ -62,18 +62,15 @@
             </editor-toolbar>
         </preview-item>
     </template>
+
+    <script>
+        Editor.registerElement ({
+            properties: {
+                select: {
+                    type: Number,
+                    value: 0
+                }
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-toolbar-preview',
-
-    properties: {
-        select: {
-            type: Number,
-            value: 0
-        }
-    },
-});
-
-</script>

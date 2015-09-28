@@ -145,19 +145,16 @@
         </preview-item>
 
     </template>
+
+    <script>
+        Editor.registerElement({
+            ready: function () {
+                this.checked = true;
+            },
+
+            _onChecked: function (event) {
+                Editor.log('on-checked,checked:' + event.target.checked);
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-checkbox-preview',
-
-    ready: function () {
-        this.checked = true;
-    },
-
-    _onChecked: function (event) {
-        Editor.log('on-checked,checked:' + event.target.checked);
-    },
-});
-
-</script>

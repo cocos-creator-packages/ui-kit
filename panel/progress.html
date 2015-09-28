@@ -58,34 +58,31 @@
             <editor-button on-click="_onResetClick">reset</editor-button>
         </preview-item>
     </template>
+
+    <script>
+        Editor.registerElement ({
+            properties: {
+                testValue: {
+                    type: Number,
+                    value: 0,
+                }
+            },
+
+            _onIncreaseClick: function (event) {
+                this.testValue += 0.05;
+            },
+
+            _onDeclineClick: function(event) {
+                this.testValue -= 0.05;
+            },
+
+            _onResetClick: function (event) {
+                this.$.testProgress.reset();
+            },
+
+            _onSucceedClick: function (event) {
+                this.testValue = 1.0;
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-progress-preview',
-
-    properties: {
-        testValue: {
-            type: Number,
-            value: 0,
-        }
-    },
-
-    _onIncreaseClick: function (event) {
-        this.testValue += 0.05;
-    },
-
-    _onDeclineClick: function(event) {
-        this.testValue -= 0.05;
-    },
-
-    _onResetClick: function (event) {
-        this.$.testProgress.reset();
-    },
-
-    _onSucceedClick: function (event) {
-        this.testValue = 1.0;
-    },
-});
-
-</script>

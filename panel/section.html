@@ -4,6 +4,7 @@
             flex-flow: column;
         }
     </style>
+
     <template>
         <preview-item
             header="editor-section"
@@ -55,12 +56,9 @@
         </preview-item>
     </template>
 
-</template>
+
+    <script>
+        Editor.registerElement({
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-section-preview',
-});
-
-</script>

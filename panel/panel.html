@@ -43,39 +43,36 @@
             <editor-button-preview></editor-button-preview>
         </div>
     </template>
+
+    <script>
+        Editor.registerPanel( 'ui-kit.panel', {
+            ready: function () {
+                // NOTE: add preview page here
+                this.previewPages = [
+                    { name: '<editor-button>', value: 'editor-button-preview' },
+                    { name: '<editor-buttons>', value: 'editor-buttons-preview' },
+                    { name: '<editor-input>',  value: 'editor-input-preview' },
+                    { name: '<editor-unit-input>',  value: 'editor-unit-input-preview' },
+                    { name: '<editor-loader>',  value: 'editor-loader-preview' },
+                    { name: '<editor-checkbox>',  value: 'editor-checkbox-preview' },
+                    { name: '<editor-label>',  value: 'editor-label-preview' },
+                    { name: '<editor-toolbar>',  value: 'editor-toolbar-preview' },
+                    { name: '<editor-select>',  value: 'editor-select-preview' },
+                    { name: '<editor-slider>',  value: 'editor-slider-preview' },
+                    { name: '<editor-section>',  value: 'editor-section-preview' },
+                    { name: '<editor-progress>',  value: 'editor-progress-preview' },
+                ];
+            },
+
+            _onSelect: function (event) {
+                var viewDOM = Polymer.dom(this.$.view);
+                viewDOM.removeChild(viewDOM.firstElementChild);
+
+                var selectEl = event.target.value;
+                var el = document.createElement(selectEl);
+                viewDOM.appendChild(el);
+            },
+
+        });
+    </script>
 </dom-module>
-
-<script>
-Editor.registerPanel( 'ui-kit.panel', {
-    is: 'ui-kit-preview',
-
-    ready: function () {
-        // NOTE: add preview page here
-        this.previewPages = [
-            { name: '<editor-button>', value: 'editor-button-preview' },
-            { name: '<editor-buttons>', value: 'editor-buttons-preview' },
-            { name: '<editor-input>',  value: 'editor-input-preview' },
-            { name: '<editor-unit-input>',  value: 'editor-unit-input-preview' },
-            { name: '<editor-loader>',  value: 'editor-loader-preview' },
-            { name: '<editor-checkbox>',  value: 'editor-checkbox-preview' },
-            { name: '<editor-label>',  value: 'editor-label-preview' },
-            { name: '<editor-toolbar>',  value: 'editor-toolbar-preview' },
-            { name: '<editor-select>',  value: 'editor-select-preview' },
-            { name: '<editor-slider>',  value: 'editor-slider-preview' },
-            { name: '<editor-section>',  value: 'editor-section-preview' },
-            { name: '<editor-progress>',  value: 'editor-progress-preview' },
-        ];
-    },
-
-    _onSelect: function (event) {
-        var viewDOM = Polymer.dom(this.$.view);
-        viewDOM.removeChild(viewDOM.firstElementChild);
-
-        var selectEl = event.target.value;
-        var el = document.createElement(selectEl);
-        viewDOM.appendChild(el);
-    },
-
-});
-
-</script>

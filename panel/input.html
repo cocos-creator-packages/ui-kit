@@ -79,36 +79,33 @@
             </div>
         </preview-item>
     </template>
+
+    <script>
+        Editor.registerElement({
+            properties: {
+                myValue: {
+                    type: String,
+                    notify: true,
+                    value: 'My Value',
+                },
+
+                myInputValue: {
+                    type: String,
+                    notify: true,
+                    value: 'My Input Value',
+                }
+            },
+
+            ready: function () {
+            },
+
+            _onChanged: function (event) {
+                Editor.log('on-changed invoked, event.target.value = ' + event.target.value);
+            },
+
+            _onInputChanged: function () {
+                Editor.log('on-input-changed invoked, event.target.inputValue = ' + event.target.inputValue);
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-input-preview',
-
-    properties: {
-        myValue: {
-            type: String,
-            notify: true,
-            value: 'My Value',
-        },
-
-        myInputValue: {
-            type: String,
-            notify: true,
-            value: 'My Input Value',
-        }
-    },
-
-    ready: function () {
-    },
-
-    _onChanged: function (event) {
-        Editor.log('on-changed invoked, event.target.value = ' + event.target.value);
-    },
-
-    _onInputChanged: function () {
-        Editor.log('on-input-changed invoked, event.target.inputValue = ' + event.target.inputValue);
-    },
-});
-
-</script>

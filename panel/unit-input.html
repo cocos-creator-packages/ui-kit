@@ -111,44 +111,41 @@
         </preview-item>
 
     </template>
+
+    <script>
+        Editor.registerElement({
+            properties: {
+                myValue: {
+                    type: Number,
+                    notify: true,
+                    value: 2,
+                },
+
+                myInputValue: {
+                    type: Number,
+                    notify: true,
+                    value: 0,
+                },
+
+                minMaxValue: {
+                    type: Number,
+                    notify: true,
+                    value: 1,
+                },
+                stepValue: {
+                    type: Number,
+                    notify: true,
+                    value: 1,
+                }
+            },
+
+            _onChanged: function (event) {
+                console.log(event.target.value);
+            },
+
+            _onInputChanged: function () {
+                console.log(event.target.inputValue);
+            },
+        });
+    </script>
 </dom-module>
-
-<script>
-Polymer( {
-    is: 'editor-unit-input-preview',
-
-    properties: {
-        myValue: {
-            type: Number,
-            notify: true,
-            value: 2,
-        },
-
-        myInputValue: {
-            type: Number,
-            notify: true,
-            value: 0,
-        },
-
-        minMaxValue: {
-            type: Number,
-            notify: true,
-            value: 1,
-        },
-        stepValue: {
-            type: Number,
-            notify: true,
-            value: 1,
-        }
-    },
-
-    _onChanged: function (event) {
-        console.log(event.target.value);
-    },
-
-    _onInputChanged: function () {
-        console.log(event.target.inputValue);
-    },
-});
-
-</script>
