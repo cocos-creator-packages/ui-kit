@@ -1,5 +1,4 @@
-Editor.registerWidget( 'editor-slider', {
-    is: 'editor-slider',
+Editor.registerElement({
 
     behaviors: [EditorUI.focusable],
 

@@ -1,6 +1,4 @@
-Editor.registerWidget( 'editor-button', {
-    is: 'editor-button',
-
+Editor.registerElement({
     behaviors: [EditorUI.focusable, Polymer.IronButtonState],
 
     listeners: {

@@ -1,3 +1,3 @@
-Editor.registerWidget( 'editor-toolbar', {
-    is: 'editor-toolbar',
+Editor.registerElement({
 });
+

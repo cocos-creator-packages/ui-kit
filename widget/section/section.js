@@ -1,6 +1,4 @@
-Editor.registerWidget( 'editor-section', {
-    is: 'editor-section',
-
+Editor.registerElement({
     behaviors: [EditorUI.focusable],
 
     listeners: {

@@ -1,6 +1,4 @@
-Polymer({
-    is: 'editor-select-menu',
-
+Editor.registerElement({
     behaviors: [EditorUI.focusable, Polymer.IronMultiSelectableBehavior],
 
     listeners: {

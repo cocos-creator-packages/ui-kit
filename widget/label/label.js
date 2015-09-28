@@ -1,6 +1,4 @@
-Editor.registerWidget( 'editor-label', {
-    is: 'editor-label',
-
+Editor.registerElement({
     properties: {
         disabled: {
             type: Boolean,

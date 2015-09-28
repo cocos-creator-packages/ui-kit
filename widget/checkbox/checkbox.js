@@ -1,6 +1,4 @@
-Editor.registerWidget( 'editor-checkbox', {
-    is: 'editor-checkbox',
-
+Editor.registerElement({
     behaviors: [EditorUI.focusable,Polymer.IronButtonState],
 
     listeners: {

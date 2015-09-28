@@ -1,6 +1,4 @@
-Editor.registerWidget( 'editor-buttons', {
-    is: 'editor-buttons',
-
+Editor.registerElement({
     behaviors: [EditorUI.focusable,Polymer.IronMultiSelectableBehavior],
 
     created: function () {

@@ -1,5 +1,4 @@
-Editor.registerWidget( 'editor-select', {
-    is: 'editor-select',
+Editor.registerElement({
 
     behaviors: [EditorUI.focusable],
 

@@ -1,5 +1,4 @@
-Editor.registerWidget( 'editor-unit-input', {
-    is: 'editor-unit-input',
+Editor.registerElement({
 
     behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
 

@@ -1,6 +1,4 @@
-Polymer({
-    is: 'editor-buttons-item',
-
+Editor.registerElement({
     behaviors: [EditorUI.focusable, Polymer.IronButtonState],
 
     listeners: {

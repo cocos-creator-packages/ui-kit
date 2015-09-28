@@ -1,6 +1,4 @@
-Polymer({
-    is: 'editor-option',
-
+Editor.registerElement({
     properties: {
         value: {
             type: String,

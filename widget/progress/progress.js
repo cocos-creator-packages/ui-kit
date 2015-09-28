@@ -1,6 +1,4 @@
-Editor.registerWidget( 'editor-progress', {
-    is: 'editor-progress',
-
+Editor.registerElement({
     properties: {
         value: {
             type: Number,

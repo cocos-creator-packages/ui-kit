@@ -1,6 +1,4 @@
-Editor.registerWidget( 'editor-loader', {
-    is: 'editor-loader',
-
+Editor.registerElement({
     properties: {
         text: {
             type: String,
