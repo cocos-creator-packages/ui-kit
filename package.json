@@ -22,16 +22,5 @@
       "height": 600,
       "messages": []
     }
-  },
-  "tests": [
-    "test/button.html",
-    "test/buttons.html",
-    "test/checkbox.html",
-    "test/input.html",
-    "test/label.html",
-    "test/loader.html",
-    "test/select.html",
-    "test/slider.html",
-    "test/unit-input.html"
-  ]
+  }
 }
