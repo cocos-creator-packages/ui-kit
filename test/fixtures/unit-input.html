@@ -1,0 +1,31 @@
+<link rel="import" href="packages://ui-kit/widget/unit-input/unit-input.html">
+
+<template id="simple">
+  <editor-unit-input></editor-unit-input>
+</template>
+
+<template id="bind">
+  <template is="dom-bind">
+    <editor-unit-input id="input" value="{{foo}}"></editor-unit-input>
+  </template>
+</template>
+
+<template id="disabled">
+  <editor-unit-input disabled></editor-unit-input>
+</template>
+
+<template id="invalid">
+  <editor-unit-input invalid></editor-unit-input>
+</template>
+
+<template id="value">
+  <editor-unit-input value="1"></editor-unit-input>
+</template>
+
+<template id="limit">
+  <editor-unit-input min="5" max="10" value="0"></editor-unit-input>
+</template>
+
+<template id="precision">
+  <editor-unit-input precision="2"></editor-unit-input>
+</template>
