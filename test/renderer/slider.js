@@ -3,28 +3,19 @@
 const Async = require('async');
 
 describe('<editor-slider>', function() {
-  let sliderEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/slider.html', 'simple', el => {
-      sliderEL = el;
-      document.body.appendChild(sliderEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    sliderEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/slider.html', 'simple');
 
   it('can be focused', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     Helper.focus(sliderEL);
     expect(sliderEL.hasAttribute('focused')).to.be.eql(true);
     done();
   });
 
   it('can be blured', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     Helper.focus(sliderEL);
     expect(sliderEL.hasAttribute('focused')).to.be.eql(true);
     Helper.blur(sliderEL);
@@ -33,6 +24,8 @@ describe('<editor-slider>', function() {
   });
 
   it('should be disabled', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     sliderEL.disabled = true;
     expect(sliderEL.hasAttribute('disabled')).to.be.eql(true);
     expect(sliderEL.$.unitinput.disabled).to.be.eql(true);
@@ -40,12 +33,16 @@ describe('<editor-slider>', function() {
   });
 
   it('should be set nofocus', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     sliderEL.setAttribute('nofocus','');
     expect(sliderEL.hasAttribute('nofocus')).to.be.eql(true);
     done();
   });
 
   it('should be show unit-input', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     sliderEL.setAttribute('input','');
     expect(window.getComputedStyle(sliderEL.$.unitinput).display).to.be.eql('flex');
     sliderEL.removeAttribute('input');
@@ -54,6 +51,8 @@ describe('<editor-slider>', function() {
   });
 
   it('can be set value', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     sliderEL.value = 20;
     expect(sliderEL.$.unitinput.value).to.be.eql(20);
 
@@ -69,22 +68,11 @@ describe('<editor-slider>', function() {
 });
 
 describe('<editor-slider input>', function() {
-  let sliderEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/slider.html', 'simple', el => {
-      sliderEL = el;
-      document.body.appendChild(sliderEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    sliderEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/slider.html', 'simple');
 
   it('can be click unit-input "up" & "down" btn', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     Async.series({
       increase: cb => {
         sliderEL.value = 50;
@@ -110,33 +98,26 @@ describe('<editor-slider input>', function() {
 });
 
 describe('<editor-slider min="5" max="10" value="0">', function() {
-  let sliderEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/slider.html', 'limit', el => {
-      sliderEL = el;
-      document.body.appendChild(sliderEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    sliderEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/slider.html', 'limit');
 
   it('can reset the initial value', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     expect(sliderEL.value).to.be.eql(5);
     done();
   });
 
   it('can limit the value if it less than min', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     sliderEL.value = 2;
     expect(sliderEL.value).to.be.eql(5);
     done();
   });
 
   it('can limit the value if it large than max', function( done ) {
+    let sliderEL = Helper.targetEL;
+
     sliderEL.value = 20;
     expect(sliderEL.value).to.be.eql(10);
     done();

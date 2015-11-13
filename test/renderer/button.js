@@ -1,22 +1,11 @@
 'use strict';
 
 describe('<editor-button>', function() {
-  let buttonEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/button.html', el => {
-      buttonEL = el;
-      document.body.appendChild(buttonEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    buttonEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/button.html');
 
   it('can be clicked', function( done ) {
+    let buttonEL = Helper.targetEL;
+
     buttonEL.addEventListener('click', function() {
       done();
     });
@@ -24,6 +13,8 @@ describe('<editor-button>', function() {
   });
 
   it('can be invoked by press space', function( done ) {
+    let buttonEL = Helper.targetEL;
+
     buttonEL.addEventListener('keyup', function(event) {
       if (Editor.KeyCode(event.keyCode) === 'space') {
         done();
@@ -33,6 +24,8 @@ describe('<editor-button>', function() {
   });
 
   it('can be invoked by press enter', function( done ) {
+    let buttonEL = Helper.targetEL;
+
     buttonEL.addEventListener('keyup', function(event) {
       if (Editor.KeyCode(event.keyCode) === 'enter') {
         done();
@@ -42,18 +35,24 @@ describe('<editor-button>', function() {
   });
 
   it('can be disabled', function( done ) {
+    let buttonEL = Helper.targetEL;
+
     buttonEL.disabled = true;
     expect(buttonEL.hasAttribute('disabled')).to.be.eql(true);
     done();
   });
 
   it('can be focused', function( done ) {
+    let buttonEL = Helper.targetEL;
+
     Helper.focus(buttonEL);
     expect(buttonEL.hasAttribute('focused')).to.be.eql(true);
     done();
   });
 
   it('can be blured', function( done ) {
+    let buttonEL = Helper.targetEL;
+
     Helper.focus(buttonEL);
     expect(buttonEL.hasAttribute('focused')).to.be.eql(true);
     Helper.blur(buttonEL);

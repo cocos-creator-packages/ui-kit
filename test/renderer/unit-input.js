@@ -3,40 +3,35 @@
 const Async = require('async');
 
 describe('<editor-unit-input>', function() {
-  let unitInputEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/unit-input.html', 'simple', el => {
-      unitInputEL = el;
-      document.body.appendChild(unitInputEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    unitInputEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/unit-input.html', 'simple');
 
   it('should be disabled', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.disabled = true;
     expect(unitInputEL.hasAttribute('disabled')).to.be.eql(true);
     done();
   });
 
   it('should be invalid', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.invalid = true;
     expect(unitInputEL.hasAttribute('invalid')).to.be.eql(true);
     done();
   });
 
   it('should be focused', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     Helper.focus(unitInputEL);
     expect(unitInputEL.hasAttribute('focused')).to.be.eql(true);
     done();
   });
 
   it('should be blur', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     Helper.focus(unitInputEL);
     expect(unitInputEL.hasAttribute('focused')).to.be.eql(true);
     Helper.blur(unitInputEL);
@@ -45,6 +40,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('should set el.$.input.value through el.value', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.value = 123;
     expect(unitInputEL.inputValue).to.be.eql(123);
     done();
@@ -52,6 +49,8 @@ describe('<editor-unit-input>', function() {
 
 
   it('can be cancel value', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     Helper.focus(unitInputEL);
     unitInputEL.inputValue = 123;
     unitInputEL.cancel();
@@ -60,6 +59,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('can be confirm value', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     Helper.focus(unitInputEL);
     unitInputEL.inputValue = 123;
     unitInputEL.confirm();
@@ -68,6 +69,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('can be invoked by press "up" and "down"', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.value = 123;
     Helper.keydown(unitInputEL.$.input,'up');
     unitInputEL.confirm();
@@ -79,6 +82,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('can be click "up" & "down" btn', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.value = 123;
     Helper.click(unitInputEL.getElementsByClassName('btn')[0]);
     unitInputEL.confirm();
@@ -90,6 +95,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('should be focused after click increase or decrease button', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     Helper.focus(unitInputEL.getElementsByClassName('btn')[0]);
     Helper.click(unitInputEL.getElementsByClassName('btn')[0],0,0,0);
     Helper.click(unitInputEL.getElementsByClassName('btn')[0],0,0,0);
@@ -101,6 +108,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('it should change the value after click increase or decrease button', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     Helper.click(unitInputEL.getElementsByClassName('btn')[0],0,0,0);
     Helper.click(unitInputEL.getElementsByClassName('btn')[0],0,0,0);
     Helper.click(unitInputEL.getElementsByClassName('btn')[1],0,0,0);
@@ -111,6 +120,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('the input should show "0" after click decrease button', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.value = 1;
     Helper.click(unitInputEL.getElementsByClassName('btn')[1],0,0,0);
     setTimeout(function () {
@@ -120,6 +131,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('the input should show "0" after click increase button', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.value = -1;
     Helper.click(unitInputEL.getElementsByClassName('btn')[0],0,0,0);
     setTimeout(function () {
@@ -129,6 +142,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('should not change the value after _stepUp or _stepDown invoked', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.value = 123;
     unitInputEL._stepUp();
     expect(unitInputEL.value).to.be.eql(123);
@@ -138,6 +153,8 @@ describe('<editor-unit-input>', function() {
   });
 
   it('should be focused for unitInputEL-input when increase or decrease button focused.',function ( done ) {
+    let unitInputEL = Helper.targetEL;
+
     Async.series({
       increase: cb => {
         Helper.focus(unitInputEL.getElementsByClassName('btn')[0]);
@@ -176,23 +193,11 @@ describe('<editor-unit-input>', function() {
 
 
 describe('<editor-unit-input value="{{foo}}">', function() {
-  let unitInputEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/unit-input.html', 'bind', el => {
-      unitInputEL = el;
-      document.body.appendChild(unitInputEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    unitInputEL.remove();
-    done();
-  });
-
+  Helper.runElement('packages://ui-kit/test/fixtures/unit-input.html', 'bind');
 
   it('shoudl bind value to foo', function() {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.foo = 1;
     expect(unitInputEL.$.input.value).to.be.eql(1);
     expect(unitInputEL.$.input.inputValue).to.be.eql(1);
@@ -200,28 +205,19 @@ describe('<editor-unit-input value="{{foo}}">', function() {
   });
 
   it('shoudl work when binding value to undefined', function() {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.foo = undefined;
     expect(unitInputEL.$.input.value).to.be.eql(0);
   });
 });
 
 describe('<editor-unit-input value="1">', function() {
-  let unitInputEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/unit-input.html', 'value', el => {
-      unitInputEL = el;
-      document.body.appendChild(unitInputEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    unitInputEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/unit-input.html', 'value');
 
   it('should init value with number 1', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     expect(unitInputEL.value).to.be.eql(1);
     expect(unitInputEL.inputValue).to.be.eql(1);
     expect(unitInputEL.$.input.value).to.be.eql('1');
@@ -231,22 +227,11 @@ describe('<editor-unit-input value="1">', function() {
 
 
 describe('<editor-unit-input disabled>', function() {
-  let unitInputEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/unit-input.html', 'disabled', el => {
-      unitInputEL = el;
-      document.body.appendChild(unitInputEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    unitInputEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/unit-input.html', 'disabled');
 
   it('should be disabled', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     expect(unitInputEL.disabled).to.be.eql(true);
     done();
   });
@@ -254,55 +239,37 @@ describe('<editor-unit-input disabled>', function() {
 
 
 describe('<editor-unit-input invalid>', function() {
-  let unitInputEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/unit-input.html', 'invalid', el => {
-      unitInputEL = el;
-      document.body.appendChild(unitInputEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    unitInputEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/unit-input.html', 'invalid');
 
   it('should be invalid', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     expect(unitInputEL.invalid).to.be.eql(true);
     done();
   });
 });
 
 describe('<editor-unit-input min="5" max="10" value="0">', function() {
-  let unitInputEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/unit-input.html', 'limit', el => {
-      unitInputEL = el;
-      document.body.appendChild(unitInputEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    unitInputEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/unit-input.html', 'limit');
 
   it('can reset the initial value', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     expect(unitInputEL.value).to.be.eql(5);
     done();
   });
 
   it('can limit the value if it less than min', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.value = 2;
     expect(unitInputEL.value).to.be.eql(5);
     done();
   });
 
   it('can limit the value if it large than max', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.value = 20;
     expect(unitInputEL.value).to.be.eql(10);
     done();
@@ -310,22 +277,11 @@ describe('<editor-unit-input min="5" max="10" value="0">', function() {
 });
 
 describe('<editor-unit-input precision>', function() {
-  let unitInputEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/unit-input.html', 'precision', el => {
-      unitInputEL = el;
-      document.body.appendChild(unitInputEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    unitInputEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/unit-input.html', 'precision');
 
   it('should be invalid', function( done ) {
+    let unitInputEL = Helper.targetEL;
+
     unitInputEL.$.input.bindValue = '14.12';
     unitInputEL.inputValue = 14.123456;
     expect(unitInputEL.inputValue).to.be.eql(14.123456);

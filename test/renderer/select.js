@@ -1,34 +1,27 @@
 'use strict';
 
 describe('<editor-select>', function() {
-  let selectEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/select.html', 'simple', el => {
-      selectEL = el;
-      document.body.appendChild(selectEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    selectEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/select.html', 'simple');
 
   it('should be disabled', function( done ) {
+    let selectEL = Helper.targetEL;
+
     selectEL.disabled = true;
     expect(selectEL.hasAttribute('disabled')).to.be.eql(true);
     done();
   });
 
   it('should be set placeholder', function( done ) {
+    let selectEL = Helper.targetEL;
+
     selectEL.placeholder = 'placeholder';
     expect(selectEL.$.text.classList.contains('placeholder')).to.be.eql(true);
     done();
   });
 
   it('can be click', function( done ) {
+    let selectEL = Helper.targetEL;
+
     Helper.click(selectEL);
     expect(selectEL.$.menu.hidden).to.be.eql(false);
     done();
@@ -37,22 +30,11 @@ describe('<editor-select>', function() {
 
 
 describe('<editor-select> with items', function() {
-  let selectEL;
-
-  beforeEach(function ( done ) {
-    Helper.createFrom('packages://ui-kit/test/fixtures/select.html', 'items', el => {
-      selectEL = el;
-      document.body.appendChild(selectEL);
-      done();
-    });
-  });
-
-  afterEach(function ( done ) {
-    selectEL.remove();
-    done();
-  });
+  Helper.runElement('packages://ui-kit/test/fixtures/select.html', 'items');
 
   it('can be set value', function( done ) {
+    let selectEL = Helper.targetEL;
+
     selectEL.value = '1';
     Helper.click(selectEL);
 
@@ -65,6 +47,8 @@ describe('<editor-select> with items', function() {
   });
 
   it('should be show text', function( done ) {
+    let selectEL = Helper.targetEL;
+
     selectEL.value = '2';
     expect(selectEL.$.text.innerHTML).to.be.eql('text2');
     done();
