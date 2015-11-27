@@ -5,72 +5,72 @@
 @color-text: #aaa;
 
 :host {
-    display: flex;
-    position: relative;
+  display: flex;
+  position: relative;
 
-    box-sizing: border-box;
-    font-size: 1.2rem;
-    min-width: 60px;
-    min-height: 24px;
-    border: 1px solid @color-outter-border;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  min-width: 60px;
+  min-height: 24px;
+  border: 1px solid @color-outter-border;
 }
 
 :host[focused] {
-    border-color: @color-outter-border-focus;
+  border-color: @color-outter-border-focus;
 }
 
 :host[focused] .border {
-    border-color: #171717;
+  border-color: #171717;
 }
 
 :host[disabled] {
-    border-color: rgba(29, 29, 29, 0.7);
+  border-color: rgba(29, 29, 29, 0.7);
 }
 
 :host[disabled] .border{
-    background-color: #393939;
-    border-color: #515151;
-    color: #555;
-    pointer-events: none;
+  background-color: #393939;
+  border-color: #515151;
+  color: #555;
+  pointer-events: none;
 }
 
 :host[disabled] #placeholder {
-    opacity: 1;
+  opacity: 1;
 }
 
 .border {
-    position: relative;
-    border: 1px solid @color-inner-border;
-    width: 100%;
+  position: relative;
+  border: 1px solid @color-inner-border;
+  width: 100%;
 
-    padding: 3px 4px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: @color-text;
+  padding: 3px 4px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: @color-text;
 
-    background-color: @color-bg;
-    cursor: pointer;
-    display: flex;
-    flex-flow: row;
+  background-color: @color-bg;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row;
 }
 
 #text {
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    margin-right: 5px;
-    flex: 1;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 5px;
+  flex: 1;
 }
 
 #text.placeholder {
-    opacity: 0.5;
-    font-style: italic;
+  opacity: 0.5;
+  font-style: italic;
 }
 
 .fa {
-    width: 8px;
-    text-align: center;
+  width: 8px;
+  text-align: center;
 }
 
 #options {
-    display: none;
+  display: none;
 }

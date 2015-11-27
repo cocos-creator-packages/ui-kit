@@ -8,204 +8,204 @@
 @color-bg-disabled : #3a3a3a;
 
 :host {
-    display: flex;
-    position: relative;
-    box-sizing: border-box;
-    min-width: 60px;
-    border: 1px solid @color-outter-border;
-    cursor: default;
-    background: @color-bg;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 60px;
+  border: 1px solid @color-outter-border;
+  cursor: default;
+  background: @color-bg;
 }
 
 :host:focus {
-    outline: none;
+  outline: none;
 }
 
 :host:hover {
-    border: 1px solid @color-outter-border + 30%;
+  border: 1px solid @color-outter-border + 30%;
 }
 :host[focused] {
-    border: 1px solid @color-outter-border-focus;
+  border: 1px solid @color-outter-border-focus;
 }
 
 :host[invalid] {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
 :host[disabled], :host[disabled] .btn {
-    pointer-events: none;
-    background: @color-bg-disabled;
-    color: #aaa - 50%;
+  pointer-events: none;
+  background: @color-bg-disabled;
+  color: #aaa - 50%;
 }
 
 :host[disabled] #input {
-    color: @color-input - 50%;
+  color: @color-input - 50%;
 }
 
 :host[disabled] #input {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 :host[disabled] #input::-webkit-input-placeholder{
-    color: #aaa - 80%;
+  color: #aaa - 80%;
 }
 
 :host[disabled] * {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .border {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 #input {
-    display: flex;
-    padding: 2px 4px;
-    border: 0;
-    margin: 0;
-    flex: 1;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: transparent;
-    color: @color-input;
+  display: flex;
+  padding: 2px 4px;
+  border: 0;
+  margin: 0;
+  flex: 1;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: transparent;
+  color: @color-input;
 
-    pointer-events: auto;
-    user-select: auto;
-    cursor: auto;
-    border-right: 0px;
+  pointer-events: auto;
+  user-select: auto;
+  cursor: auto;
+  border-right: 0px;
 }
 
 #hint {
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    background-color: #535353;
-    border-radius: 1px;
-    font-size: 9px;
-    font-weight: bold;
-    color: #d1d1d1;
-    cursor: ew-resize;
-    margin-right: 4px;
-    padding: 0px 5px;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  background-color: #535353;
+  border-radius: 1px;
+  font-size: 9px;
+  font-weight: bold;
+  color: #d1d1d1;
+  cursor: ew-resize;
+  margin-right: 4px;
+  padding: 0px 5px;
 }
 
 #input::selection {
-    background: #007acc;
+  background: #007acc;
 }
 
 #input:focus {
-    outline: none;
+  outline: none;
 }
 
 :host.mini #input {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 :host.small #input {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 :host #input {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 :host.large #input {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 :host.big #input {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 :host.mini .btngroup {
-    font-size: 0.6rem;
+  font-size: 0.6rem;
 }
 
 :host.small .btngroup {
-    font-size: 0.6rem;
+  font-size: 0.6rem;
 }
 
 :host .btngroup {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 :host.large .btngroup {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 :host.big .btngroup {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .btngroup {
-    flex: 0 0 10px;
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    color: #aaa;
+  flex: 0 0 10px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  color: #aaa;
 }
 
 .btn {
-    flex: 1 1 auto;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #474747;
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset;
-    padding-left: 1px;
-    border-top: 1px solid #000;
-    cursor: pointer;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #474747;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1) inset;
+  padding-left: 1px;
+  border-top: 1px solid #000;
+  cursor: pointer;
 }
 
 .btn:hover {
-    background: #6c6c6c;
+  background: #6c6c6c;
 }
 
 .btn:active {
-    background: #393939;
-    color: #aaa - 50%;
+  background: #393939;
+  color: #aaa - 50%;
 }
 
 .btn:first-child {
-    border-top: none;
+  border-top: none;
 }
 
 :host[disabled] #hint {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 :host[hint-color^="red"] #hint {
-    background-color: #BB0000;
+  background-color: #BB0000;
 }
 
 :host[hint-color^="green"] #hint {
-    background-color: #2e9000;
+  background-color: #2e9000;
 }
 
 :host[hint-color^="blue"] #hint {
-    background-color: #007dff;
+  background-color: #007dff;
 }
 
 :host[hint-color^="orange"] #hint {
-    background-color: #ff6300;
-    color: white;
+  background-color: #ff6300;
+  color: white;
 }
 
 :host[hint-color^="yellow"] #hint {
-    background-color: #ffed00;
-    color: #575757;
+  background-color: #ffed00;
+  color: #575757;
 }
 
 // readonly
 
 :host[readonly] #input{
-    -webkit-user-select: text;
-    cursor: text;
+  -webkit-user-select: text;
+  cursor: text;
 }
 
 :host[readonly] #hint {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 :host[readonly] .btn {
-    pointer-events: none;
+  pointer-events: none;
 }

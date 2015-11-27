@@ -7,289 +7,289 @@
 @color-checked : #0c90e6;
 
 :host {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
 
-    font-size: 12px;
-    white-space: nowrap;
-    text-align: left;
+  font-size: 12px;
+  white-space: nowrap;
+  text-align: left;
 
-    color: @color-text;
-    cursor: pointer;
+  color: @color-text;
+  cursor: pointer;
 }
 
 :host[focused] {
-    color: @color-text-focus;
+  color: @color-text-focus;
 }
 
 :host[pressed] #togglebox:after {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 :host[pressed] #box {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 #icon {
-    color: @color-text-focus;
-    opacity: 0;
-    transition: opacity 0.1s ease;
-    background: none;
+  color: @color-text-focus;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  background: none;
 }
 
 #box {
-    display: inline-block;
-    box-sizing: border-box;
-    width: 13px;
-    height: 13px;
-    min-width: 13px;
-    min-height: 13px;
-    margin-right: 4px;
-    border: 1px solid @color-border-normal;
-    font-size: 10px;
-    text-align: center;
-    background: @color-box-bg;
-    cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  min-height: 13px;
+  margin-right: 4px;
+  border: 1px solid @color-border-normal;
+  font-size: 10px;
+  text-align: center;
+  background: @color-box-bg;
+  cursor: pointer;
 }
 
 #togglebox {
-    display: inline-block;
-    position: relative;
-    min-width: 4rem;
-    min-height: 1.5rem;
-    display: none;
-    margin-right: 4px;
-    border-radius: 500rem;
+  display: inline-block;
+  position: relative;
+  min-width: 4rem;
+  min-height: 1.5rem;
+  display: none;
+  margin-right: 4px;
+  border-radius: 500rem;
 }
 
 #togglebox:before {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 15px;
-    background: #565656;
-    border-radius: 500rem;
-    transition: background-color 0.5s ease;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 15px;
+  background: #565656;
+  border-radius: 500rem;
+  transition: background-color 0.5s ease;
 }
 
 #togglebox:after {
-    position: absolute;
-    content: '';
-    width: 1.49rem;
-    height: 1.49rem;
-    background-color: #FFFFFF;
-    border-radius: 500rem;
-    left: 0rem;
-    transition: left 0.3s ease;
-    border: 1px solid rgb(79, 79, 79);
-    top: -1px;
+  position: absolute;
+  content: '';
+  width: 1.49rem;
+  height: 1.49rem;
+  background-color: #FFFFFF;
+  border-radius: 500rem;
+  left: 0rem;
+  transition: left 0.3s ease;
+  border: 1px solid rgb(79, 79, 79);
+  top: -1px;
 }
 
 .text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 :host[checked] #togglebox:before {
-    background: #818181;
+  background: #818181;
 }
 
 :host[checked] #togglebox:after{
-    left: 2.5rem;
+  left: 2.5rem;
 }
 
 :host[checked] #icon {
-    opacity: 1;
+  opacity: 1;
 }
 
 #box:hover {
-    border-color: @color-border-normal + 50%;
+  border-color: @color-border-normal + 50%;
 }
 
 :host[focused] #box {
-    border: 1px solid @color-border-focus;
+  border: 1px solid @color-border-focus;
 }
 
 :host[focused] #togglebox:after {
-    border: 1px solid @color-border-focus;
+  border: 1px solid @color-border-focus;
 }
 
 :host[disabled] {
-    pointer-events: none;
-    opacity: 0.5;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 :host.toggle {
-    line-height: 15px;
+  line-height: 15px;
 }
 
 :host.toggle #box{
-    display: none;
+  display: none;
 }
 
 :host.toggle #togglebox{
-    display: inline-block;
+  display: inline-block;
 }
 
 
 // color
 
 :host.green #icon{
-    color: #1ccd45;
+  color: #1ccd45;
 }
 
 :host[focused].green {
-    color: #1ccd45;
+  color: #1ccd45;
 }
 
 :host[focused].green #box {
-    border-color: #1ccd45;
+  border-color: #1ccd45;
 }
 
 :host[checked].green #togglebox:before{
-    background-color: #1ccd45;
-    color: #1ccd45;
+  background-color: #1ccd45;
+  color: #1ccd45;
 }
 
 :host.white #icon{
-    color: #ffffff;
+  color: #ffffff;
 }
 
 :host[focused].white {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 :host[focused].white #box {
-    border-color: #ffffff;
+  border-color: #ffffff;
 }
 
 :host[checked].white #togglebox:before{
-    background-color: #ffffff;
-    color: #ffffff;
+  background-color: #ffffff;
+  color: #ffffff;
 }
 
 :host.blue #icon{
-    color: #1b8bff;
+  color: #1b8bff;
 }
 
 :host[focused].blue {
-    color: #1b8bff;
+  color: #1b8bff;
 }
 
 :host[focused].blue #box {
-    border-color: #1b8bff;
+  border-color: #1b8bff;
 }
 
 :host[checked].blue #togglebox:before{
-    background-color: #1b8bff;
-    color: #1b8bff;
+  background-color: #1b8bff;
+  color: #1b8bff;
 }
 
 :host.red #icon{
-    color: #ee1102;
+  color: #ee1102;
 }
 
 :host[focused].red {
-    color: #ee1102;
+  color: #ee1102;
 }
 
 :host[focused].red #box {
-    border-color: #ee1102;
+  border-color: #ee1102;
 }
 
 :host[checked].red #togglebox:before{
-    background-color: #ee1102;
-    color: #ee1102;
+  background-color: #ee1102;
+  color: #ee1102;
 }
 
 :host.black #icon{
-    color: #000000;
+  color: #000000;
 }
 
 :host[focused].black {
-    color: #000000;
+  color: #000000;
 }
 
 :host[focused].black #box {
-    border-color: #000000;
+  border-color: #000000;
 }
 
 :host[checked].black #togglebox:before{
-    background-color: #000000;
-    color: #000000;
+  background-color: #000000;
+  color: #000000;
 }
 
 :host.yellow #icon{
-    color: #ffda16;
+  color: #ffda16;
 }
 
 :host[focused].yellow {
-    color: #ffda16;
+  color: #ffda16;
 }
 
 :host[focused].yellow #box {
-    border-color: #ffda16;
+  border-color: #ffda16;
 }
 
 :host[checked].yellow #togglebox:before{
-    background-color: #ffda16;
-    color: #ffda16;
+  background-color: #ffda16;
+  color: #ffda16;
 }
 
 :host.orange #icon{
-    color: #FF7E00;
+  color: #FF7E00;
 }
 
 :host[focused].orange {
-    color: #FF7E00;
+  color: #FF7E00;
 }
 
 :host[focused].orange #box {
-    border-color: #FF7E00;
+  border-color: #FF7E00;
 }
 
 :host[checked].orange #togglebox:before{
-    background-color: #FF7E00;
-    color: #FF7E00;
+  background-color: #FF7E00;
+  color: #FF7E00;
 }
 
 :host.purple #icon{
-    color: #635c97;
+  color: #635c97;
 }
 
 :host[focused].purple {
-    color: #635c97;
+  color: #635c97;
 }
 
 :host[focused].purple #box {
-    border-color: #635c97;
+  border-color: #635c97;
 }
 
 :host[checked].purple #togglebox:before{
-    background-color: #635c97;
-    color: #635c97;
+  background-color: #635c97;
+  color: #635c97;
 }
 
 :host[disabled] #icon {
-    color: #515151;
+  color: #515151;
 }
 
 // no-focus
 :host[nofocus][focused] {
-    color: @color-text;
+  color: @color-text;
 }
 
 :host[nofocus][focused] #box{
-    border: 1px solid @color-border-normal;
+  border: 1px solid @color-border-normal;
 }
 
 :host[nofocus][focused] #togglebox:after{
-    border: 1px solid rgb(79, 79, 79);
+  border: 1px solid rgb(79, 79, 79);
 }
 
 :host[readonly] {
-    pointer-events: none;
+  pointer-events: none;
 }

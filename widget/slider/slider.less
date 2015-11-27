@@ -1,125 +1,125 @@
 :host {
-    display: flex;
-    align-items: center;
-    min-height: 21px
+  display: flex;
+  align-items: center;
+  min-height: 21px
 }
 
 :host[input] editor-unit-input {
-    display: flex;
+  display: flex;
 }
 
 :host[disabled] {
-    opacity: 0.5;
-    pointer-events: none;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 #focus {
-    position: relative;
+  position: relative;
 
-    box-sizing: border-box;
-    height: 21px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 9px;
+  box-sizing: border-box;
+  height: 21px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 9px;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #track {
-    height: 2px;
+  height: 2px;
 
-    cursor: inherit;
-    background: #232323;
+  cursor: inherit;
+  background: #232323;
 }
 
 #nubbin {
-    display: inline-block;
-    position: relative;
-    width: 10px;
-    height: 10px;
-    margin-top: -6px;
-    margin-left: -5px;
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin-top: -6px;
+  margin-left: -5px;
 
-    cursor: inherit;
-    box-shadow:
-        0 1px 3px -1px #fff inset,
-        0 1px 1px 0 rgba(0,0,0,0.9);
-    border-radius: 100%;
-    background: #949494;
+  cursor: inherit;
+  box-shadow:
+  0 1px 3px -1px #fff inset,
+  0 1px 1px 0 rgba(0,0,0,0.9);
+  border-radius: 100%;
+  background: #949494;
 }
 
 editor-unit-input {
-    width: 60px;
-    margin-left: 10px;
-    display: none;
+  width: 60px;
+  margin-left: 10px;
+  display: none;
 }
 
 // colors
 
 :host.black #nubbin {
-    background: black;
-    box-shadow: 0 1px 3px -1px #919191 inset, 0 1px 1px 0 rgba(0, 0, 0, 1);
+  background: black;
+  box-shadow: 0 1px 3px -1px #919191 inset, 0 1px 1px 0 rgba(0, 0, 0, 1);
 }
 
 :host.white #nubbin {
-    background: #CFC9C9;
+  background: #CFC9C9;
 }
 
 :host.red #nubbin {
-    background: rgb(255, 20, 20);
+  background: rgb(255, 20, 20);
 }
 
 :host.green #nubbin {
-    background: #22ba03;
+  background: #22ba03;
 }
 
 :host.purple #nubbin {
-    background: #9206cb;
+  background: #9206cb;
 }
 
 :host.blue #nubbin {
-    background: #0093FF;
+  background: #0093FF;
 }
 
 :host.yellow #nubbin {
-    background: #fefb0b;
+  background: #fefb0b;
 }
 
 :host[focused] #nubbin {
-    background: #0c70a6;
+  background: #0c70a6;
 }
 
 // nofocus
 
 :host[nofocus] #nubbin {
-    background: #949494;
+  background: #949494;
 }
 
 :host[nofocus].black #nubbin {
-    background: black;
-    box-shadow: 0 1px 3px -1px #919191 inset, 0 1px 1px 0 rgba(0, 0, 0, 1);
+  background: black;
+  box-shadow: 0 1px 3px -1px #919191 inset, 0 1px 1px 0 rgba(0, 0, 0, 1);
 }
 
 :host[nofocus].white #nubbin {
-    background: #CFC9C9;
+  background: #CFC9C9;
 }
 
 :host[nofocus].red #nubbin {
-    background: rgb(255, 20, 20);
+  background: rgb(255, 20, 20);
 }
 
 :host[nofocus].green #nubbin {
-    background: #22ba03;
+  background: #22ba03;
 }
 
 :host[nofocus].purple #nubbin {
-    background: #9206cb;
+  background: #9206cb;
 }
 
 :host[nofocus].blue #nubbin {
-    background: #0093FF;
+  background: #0093FF;
 }
 
 :host[nofocus].yellow #nubbin {
-    background: #fefb0b;
+  background: #fefb0b;
 }

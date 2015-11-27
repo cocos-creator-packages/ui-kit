@@ -1,23 +1,23 @@
 <link rel="import" href="app://bower_components/iron-behaviors/iron-button-state.html">
 
 <dom-module id="editor-section">
-    <link rel="import" type="css" href="section.css">
+  <link rel="import" type="css" href="section.css">
 
-    <template>
-        <div class="header" on-click="_onFoldClick">
-            <div class="center flex-1 layout horizontal">
-                <i class$="{{_foldClass(folded)}}"></i>
-                <img class$="{{_iconClass(icon)}}" src$="{{icon}}"/>
-                <div class="title">{{text}}</div>
-            </div>
-            <div class="close" on-click="_onCloseClick">
-                <i class="fa fa-times"></i>
-            </div>
-        </div>
-        <div class="content">
-            <content></content>
-        </div>
-    </template>
+  <template>
+    <div class="header" on-click="_onFoldClick">
+      <div class="center flex-1 layout horizontal">
+        <i class$="{{_foldClass(folded)}}"></i>
+        <img class$="{{_iconClass(icon)}}" src$="{{icon}}"/>
+        <div class="title">{{text}}</div>
+      </div>
+      <div class="close" on-click="_onCloseClick">
+        <i class="fa fa-times"></i>
+      </div>
+    </div>
+    <div class="content">
+      <content></content>
+    </div>
+  </template>
 
-    <script type="text/javascript" src="section.js"></script>
+  <script type="text/javascript" src="section.js"></script>
 </dom-module>

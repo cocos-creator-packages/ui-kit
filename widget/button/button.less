@@ -6,57 +6,57 @@
 @color-border-focus: #09f;
 
 :host {
-    display: inline-block;
-    box-sizing: border-box;
-    flex: none;
+  display: inline-block;
+  box-sizing: border-box;
+  flex: none;
 }
 
 .btn {
-    font-weight: bold;
-    margin: 0px;
-    min-width: 20px;
-    text-align: center;
-    border: 1px solid @color-border-normal;
-    border-radius: 2px;
-    padding: 0.4rem 0.8rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-weight: bold;
+  margin: 0px;
+  min-width: 20px;
+  text-align: center;
+  border: 1px solid @color-border-normal;
+  border-radius: 2px;
+  padding: 0.4rem 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
-    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 
 }
 
 .btn:hover {
-    background-image: linear-gradient(@color-button-bg-top + 10%, @color-button-bg-bottom + 10%);
+  background-image: linear-gradient(@color-button-bg-top + 10%, @color-button-bg-bottom + 10%);
 }
 
 .btn:focus {
-    outline: none;
+  outline: none;
 }
 
 :host[pressed] .btn {
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 :host[focused] .btn {
-    border-color: @color-border-focus;
+  border-color: @color-border-focus;
 }
 
 :host[disabled] .btn {
-    border-color: @color-border-normal + 20%;
-    background-image: linear-gradient(@color-button-bg-top - 10%, @color-button-bg-bottom - 10%);
-    color: @color-button-text - 80%;
+  border-color: @color-border-normal + 20%;
+  background-image: linear-gradient(@color-button-bg-top - 10%, @color-button-bg-bottom - 10%);
+  color: @color-button-text - 80%;
 }
 
 :host[nofocus] .btn {
-    border-color: @color-border-normal;
+  border-color: @color-border-normal;
 }
 
 /*
@@ -66,23 +66,23 @@ size
 */
 
 :host.mini .btn {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 :host.small .btn {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 :host .btn {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 :host.large .btn {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 :host.big .btn {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 /*
@@ -92,242 +92,242 @@ color
 */
 
 :host.black .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #000 + 40%;
-    @color-button-bg-bottom: #000;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: white;
+  @color-button-bg-top: #000 + 40%;
+  @color-button-bg-bottom: #000;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host[disabled].black .btn {
-    @color-button-bg-top: #323131;
-    @color-button-bg-bottom: #272626;
-    color: @color-button-text - 80%;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-bg-top: #323131;
+  @color-button-bg-bottom: #272626;
+  color: @color-button-text - 80%;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host.black .btn:hover {
-    @color-button-bg-top: #000 + 40%;
-    @color-button-bg-bottom: #000;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+  @color-button-bg-top: #000 + 40%;
+  @color-button-bg-bottom: #000;
+  background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
 :host[pressed].black .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #000 + 40%;
-    @color-button-bg-bottom: #000;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  @color-button-text: white;
+  @color-button-bg-top: #000 + 40%;
+  @color-button-bg-bottom: #000;
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 
 :host.yellow .btn {
-    @color-button-text: #676767;
-    @color-button-bg-top: #F2C61F + 40%;
-    @color-button-bg-bottom: #F2C61F;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #676767;
+  @color-button-bg-top: #F2C61F + 40%;
+  @color-button-bg-bottom: #F2C61F;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host[disabled].yellow .btn {
-    @color-button-text: #88765B;
-    @color-button-bg-top: #d4a801;
-    @color-button-bg-bottom: #AD8309;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #88765B;
+  @color-button-bg-top: #d4a801;
+  @color-button-bg-bottom: #AD8309;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host.yellow .btn:hover {
-    @color-button-bg-top: #F2C61F + 40%;
-    @color-button-bg-bottom: #F2C61F;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+  @color-button-bg-top: #F2C61F + 40%;
+  @color-button-bg-bottom: #F2C61F;
+  background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
 :host[pressed].yellow .btn {
-    @color-button-text: #676767;
-    @color-button-bg-top: #F2C61F + 40%;
-    @color-button-bg-bottom: #F2C61F;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  @color-button-text: #676767;
+  @color-button-bg-top: #F2C61F + 40%;
+  @color-button-bg-bottom: #F2C61F;
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 :host.green .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #0A0 + 40%;
-    @color-button-bg-bottom: #0A0;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: white;
+  @color-button-bg-top: #0A0 + 40%;
+  @color-button-bg-bottom: #0A0;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host[disabled].green .btn {
-    @color-button-text: #848383;
-    @color-button-bg-top: #038603;
-    @color-button-bg-bottom: #056905;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #848383;
+  @color-button-bg-top: #038603;
+  @color-button-bg-bottom: #056905;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host.green .btn:hover {
-    @color-button-bg-top: #0A0 + 40%;
-    @color-button-bg-bottom: #0A0;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+  @color-button-bg-top: #0A0 + 40%;
+  @color-button-bg-bottom: #0A0;
+  background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
 :host[pressed].green .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #0A0 + 40%;
-    @color-button-bg-bottom: #0A0;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  @color-button-text: white;
+  @color-button-bg-top: #0A0 + 40%;
+  @color-button-bg-bottom: #0A0;
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 :host.blue .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #3B83C0 + 40%;
-    @color-button-bg-bottom: #3B83C0;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: white;
+  @color-button-bg-top: #3B83C0 + 40%;
+  @color-button-bg-bottom: #3B83C0;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host[disabled].blue .btn {
-    @color-button-text: #919191;
-    @color-button-bg-top: #437FB2;
-    @color-button-bg-bottom: #29577E;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #919191;
+  @color-button-bg-top: #437FB2;
+  @color-button-bg-bottom: #29577E;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host.blue .btn:hover {
-    @color-button-bg-top: #3B83C0 + 40%;
-    @color-button-bg-bottom: #3B83C0;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+  @color-button-bg-top: #3B83C0 + 40%;
+  @color-button-bg-bottom: #3B83C0;
+  background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
 :host[pressed].blue .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #3B83C0 + 40%;
-    @color-button-bg-bottom: #3B83C0;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  @color-button-text: white;
+  @color-button-bg-top: #3B83C0 + 40%;
+  @color-button-bg-bottom: #3B83C0;
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 :host.orange .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #D36E3F + 40%;
-    @color-button-bg-bottom: #D36E3F;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: white;
+  @color-button-bg-top: #D36E3F + 40%;
+  @color-button-bg-bottom: #D36E3F;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host[disabled].orange .btn {
-    @color-button-text: #A6A2A2;
-    @color-button-bg-top: #AD6848;
-    @color-button-bg-bottom: #894627;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #A6A2A2;
+  @color-button-bg-top: #AD6848;
+  @color-button-bg-bottom: #894627;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host.orange .btn:hover {
-    @color-button-bg-top: #D36E3F + 20%;
-    @color-button-bg-bottom: #D36E3F;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+  @color-button-bg-top: #D36E3F + 20%;
+  @color-button-bg-bottom: #D36E3F;
+  background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
 :host[pressed].orange .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #D36E3F + 40%;
-    @color-button-bg-bottom: #D36E3F;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  @color-button-text: white;
+  @color-button-bg-top: #D36E3F + 40%;
+  @color-button-bg-bottom: #D36E3F;
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 
 :host.purple .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #564F8A + 40%;
-    @color-button-bg-bottom: #564F8A;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: white;
+  @color-button-bg-top: #564F8A + 40%;
+  @color-button-bg-bottom: #564F8A;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host[disabled].purple .btn {
-    @color-button-text: #908B8B;
-    @color-button-bg-top: #544F7C;
-    @color-button-bg-bottom: #3C3762;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #908B8B;
+  @color-button-bg-top: #544F7C;
+  @color-button-bg-bottom: #3C3762;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host.purple .btn:hover {
-    @color-button-bg-top: #564F8A + 40%;
-    @color-button-bg-bottom: #564F8A;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+  @color-button-bg-top: #564F8A + 40%;
+  @color-button-bg-bottom: #564F8A;
+  background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
 :host[pressed].purple .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #564F8A + 40%;
-    @color-button-bg-bottom: #564F8A;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  @color-button-text: white;
+  @color-button-bg-top: #564F8A + 40%;
+  @color-button-bg-bottom: #564F8A;
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 :host.red .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #c42d2d + 40%;
-    @color-button-bg-bottom: #c42d2d;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: white;
+  @color-button-bg-top: #c42d2d + 40%;
+  @color-button-bg-bottom: #c42d2d;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host[disabled].red .btn {
-    @color-button-text: #848383;
-    @color-button-bg-top: #A02E2E;
-    @color-button-bg-bottom: #711717;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #848383;
+  @color-button-bg-top: #A02E2E;
+  @color-button-bg-bottom: #711717;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host.red .btn:hover {
-    @color-button-bg-top: #c42d2d + 40%;
-    @color-button-bg-bottom: #c42d2d;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+  @color-button-bg-top: #c42d2d + 40%;
+  @color-button-bg-bottom: #c42d2d;
+  background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
 :host[pressed].red .btn {
-    @color-button-text: white;
-    @color-button-bg-top: #c42d2d + 40%;
-    @color-button-bg-bottom: #c42d2d;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  @color-button-text: white;
+  @color-button-bg-top: #c42d2d + 40%;
+  @color-button-bg-bottom: #c42d2d;
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
 
 :host.gray .btn {
-    @color-button-text: #676767;
-    @color-button-bg-top: #E0E0E0 + 40%;
-    @color-button-bg-bottom: #E0E0E0;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #676767;
+  @color-button-bg-top: #E0E0E0 + 40%;
+  @color-button-bg-bottom: #E0E0E0;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host[disabled].gray .btn {
-    @color-button-text: #676666;
-    @color-button-bg-top: #919191;
-    @color-button-bg-bottom: #777676;
-    color: @color-button-text;
-    background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
+  @color-button-text: #676666;
+  @color-button-bg-top: #919191;
+  @color-button-bg-bottom: #777676;
+  color: @color-button-text;
+  background-image: linear-gradient(@color-button-bg-top, @color-button-bg-bottom);
 }
 
 :host.gray .btn:hover {
-    @color-button-bg-top: #E0E0E0 + 40%;
-    @color-button-bg-bottom: #E0E0E0;
-    background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
+  @color-button-bg-top: #E0E0E0 + 40%;
+  @color-button-bg-bottom: #E0E0E0;
+  background-image: linear-gradient(@color-button-bg-top + 20%, @color-button-bg-bottom + 20%);
 }
 
 :host[pressed].gray .btn {
-    @color-button-text: #676767;
-    @color-button-bg-top: #E0E0E0 + 40%;
-    @color-button-bg-bottom: #E0E0E0;
-    color: @color-button-text - 20%;
-    background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
+  @color-button-text: #676767;
+  @color-button-bg-top: #E0E0E0 + 40%;
+  @color-button-bg-bottom: #E0E0E0;
+  color: @color-button-text - 20%;
+  background-image: linear-gradient(@color-button-bg-top - 20%, @color-button-bg-bottom - 20%);
 }
