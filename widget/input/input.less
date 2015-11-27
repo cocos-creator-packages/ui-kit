@@ -8,97 +8,97 @@
 @color-bg-disabled : #3a3a3a;
 
 :host {
-    display: flex;
-    position: relative;
-    box-sizing: border-box;
-    min-width: 60px;
-    border: 1px solid @color-outter-border;
-    cursor: default;
-    background: @color-bg;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 60px;
+  border: 1px solid @color-outter-border;
+  cursor: default;
+  background: @color-bg;
 }
 
 :host:focus {
-    outline: none;
+  outline: none;
 }
 
 :host:hover {
-    border: 1px solid @color-outter-border + 30%;
+  border: 1px solid @color-outter-border + 30%;
 }
 :host[focused] {
-    border: 1px solid @color-outter-border-focus;
+  border: 1px solid @color-outter-border-focus;
 }
 
 :host[invalid] {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
 :host[disabled] {
-    pointer-events: none;
-    background: @color-bg-disabled;
+  pointer-events: none;
+  background: @color-bg-disabled;
 }
 
 :host[disabled] #input {
-    color: @color-input - 50%;
+  color: @color-input - 50%;
 }
 
 :host[disabled] #input {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 #input {
-    display: block;
-    padding: 2px 4px;
-    border: 0;
-    margin: 0;
-    width: 100%;
+  display: block;
+  padding: 2px 4px;
+  border: 0;
+  margin: 0;
+  width: 100%;
 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: transparent;
-    color: @color-input;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: transparent;
+  color: @color-input;
 
-    pointer-events: auto;
-    user-select: auto;
-    cursor: auto;
-    border: 1px solid black;
+  pointer-events: auto;
+  user-select: auto;
+  cursor: auto;
+  border: 1px solid black;
 }
 
 #input::-webkit-input-placeholder {
-    font-style: italic;
-    color: #666;
-    text-shadow: none;
+  font-style: italic;
+  color: #666;
+  text-shadow: none;
 }
 
 #input:focus {
-    outline: none;
+  outline: none;
 }
 
 #input::selection {
-    background: #007acc;
+  background: #007acc;
 }
 
 :host.mini #input {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 :host.small #input {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 :host #input {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 :host.large #input {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 :host.big #input {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 // readonly
 
 :host[readonly] #input{
-    -webkit-user-select: text;
-    cursor: text;
+  -webkit-user-select: text;
+  cursor: text;
 }

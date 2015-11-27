@@ -1,284 +1,297 @@
+'use strict';
+
 Editor.registerElement({
 
-    behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
+  behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
 
-    listeners: {
-        'keydown': '_onKeyDown',
-        'focused-changed': '_onFocusedChanged'
+  listeners: {
+    'keydown': '_onKeyDown',
+    'focused-changed': '_onFocusedChanged'
+  },
+
+  properties: {
+    invalid: {
+      type: Boolean,
+      value: false
     },
 
-    properties: {
-        invalid: {
-            type: Boolean,
-            value: false
-        },
-
-        value: {
-            type: Number,
-            notify: true,
-            value: 0,
-            observer: '_valueChanged',
-        },
-
-        inputValue: {
-            type: Number,
-            notify: true,
-            value: 0,
-            observer: '_inputValueChanged',
-        },
-
-        step: {
-            type: Number,
-            notify: true,
-            value: 1,
-        },
-
-        min: {
-            type: Number,
-            notify: true,
-            value: -Number.MAX_VALUE,
-        },
-
-        max: {
-            type: Number,
-            notify: true,
-            value: Number.MAX_VALUE,
-        },
-
-        hint: {
-            type: String,
-            value: '',
-        },
-
-        precision: {
-            type: Number,
-            value: 2,
-        },
-
-        readonly: {
-            type: Boolean,
-            value: false,
-            reflectToAttribute: true,
-        },
+    value: {
+      type: Number,
+      notify: true,
+      value: 0,
+      observer: '_valueChanged',
     },
 
-    created: function () {
-        this._lastValidValue = 0;
-        this._inited = false;
+    inputValue: {
+      type: Number,
+      notify: true,
+      value: 0,
+      observer: '_inputValueChanged',
     },
 
-    ready: function () {
-        this._initFocusable(this.$.input);
-
-        this.value = this._convert(this.value);
-        this.inputValue = this.value;
-        this.$.input.bindValue = this.value.toString();
-
-        if (!this.hint) {
-            this.$.hint.hidden = true;
-        }
-        else {
-            this.$.hint.hidden = false;
-        }
-
-        this._inited = true;
+    step: {
+      type: Number,
+      notify: true,
+      value: 1,
     },
 
-    _inputValueChanged: function () {
-        this.$.input.bindValue = this._convert(this.inputValue).toString();
+    min: {
+      type: Number,
+      notify: true,
+      value: -Number.MAX_VALUE,
     },
 
-    _valueChanged: function () {
-        this.value = this._convert(this.value);
-        if (this.min !== undefined && this.max !== undefined) {
-            this.value = Math.clamp(this._convert(this.value),this.min,this.max);
-        }
-        this.inputValue = this.value;
-        this.$.input.bindValue = this._convert(this.value).toString();
+    max: {
+      type: Number,
+      notify: true,
+      value: Number.MAX_VALUE,
     },
 
-    confirm: function () {
-        this.value = this._convert(this.$.input.bindValue);
-        this.inputValue = this.value;
-        this.$.input.bindValue = this.value.toString();
-        this.fire('confirm', null, {bubbles: false} );
+    hint: {
+      type: String,
+      value: '',
     },
 
-    cancel: function() {
-        this.$.input.bindValue = this.value.toString();
-        this.fire('cancel', null, {bubbles: false} );
+    precision: {
+      type: Number,
+      value: 2,
     },
 
-    _onKeyDown: function (event) {
-        // keydown 'enter'
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            this.confirm();
-            this.setBlur();
-            EditorUI.focusParent(this);
-        }
-        // keydown 'esc'
-        else if (event.keyCode === 27) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            this.cancel();
-            this.setBlur();
-            EditorUI.focusParent(this);
-        }
+    readonly: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
     },
+  },
 
-    _onInputKeyDown: function (event) {
+  created () {
+    this._lastValidValue = 0;
+    this._inited = false;
+  },
 
-        // keydown 'up'
-        if (event.keyCode === 38) {
-            event.preventDefault();
-            if (this.readonly) {
-                return;
-            }
-            this._stepUp();
-        }
-        // keydown 'down'
-        else if (event.keyCode === 40) {
-            event.preventDefault();
-            if (this.readonly) {
-                return;
-            }
-            this._stepDown();
-        }
-    },
+  ready () {
+    this._initFocusable(this.$.input);
 
-    _onIncreaseClick: function ( event ) {
-        event.stopPropagation();
-        // event.preventDefault();
+    this.value = this._convert(this.value);
+    this.inputValue = this.value;
+    this.$.input.bindValue = this.value.toString();
 
+    if (!this.hint) {
+      this.$.hint.hidden = true;
+    }
+    else {
+      this.$.hint.hidden = false;
+    }
+
+    this._inited = true;
+  },
+
+  _inputValueChanged () {
+    this.$.input.bindValue = this._convert(this.inputValue).toString();
+  },
+
+  _valueChanged () {
+    this.value = this._convert(this.value);
+    if (this.min !== undefined && this.max !== undefined) {
+      this.value = Math.clamp(this._convert(this.value),this.min,this.max);
+    }
+    this.inputValue = this.value;
+    this.$.input.bindValue = this._convert(this.value).toString();
+  },
+
+  confirm () {
+    this.value = this._convert(this.$.input.bindValue);
+    this.inputValue = this.value;
+    this.$.input.bindValue = this.value.toString();
+    this.fire('confirm', null, {bubbles: false} );
+
+    this.async(() => {
+      this.fire('end-editing');
+    },1);
+  },
+
+  cancel() {
+    this.$.input.bindValue = this.value.toString();
+    this.fire('cancel', null, {bubbles: false} );
+
+    this.async(() => {
+      this.fire('end-editing', {cancel: true});
+    },1);
+  },
+
+  _onKeyDown (event) {
+    // keydown 'enter'
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      this.confirm();
+      this.setBlur();
+      EditorUI.focusParent(this);
+    }
+    // keydown 'esc'
+    else if (event.keyCode === 27) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      this.cancel();
+      this.setBlur();
+      EditorUI.focusParent(this);
+    }
+  },
+
+  _onInputKeyDown (event) {
+
+    // keydown 'up'
+    if (event.keyCode === 38) {
+      event.preventDefault();
+      if (this.readonly) {
+        return;
+      }
+      this._stepUp();
+    }
+    // keydown 'down'
+    else if (event.keyCode === 40) {
+      event.preventDefault();
+      if (this.readonly) {
+        return;
+      }
+      this._stepDown();
+    }
+  },
+
+  _onIncreaseClick ( event ) {
+    event.stopPropagation();
+    // event.preventDefault();
+
+    this._stepUp();
+  },
+
+  _onDecreaseClick ( event ) {
+    event.stopPropagation();
+    // event.preventDefault();
+
+    this._stepDown();
+  },
+
+  _stepUp () {
+    if (this._nullToFloat(this.$.input.bindValue) + this.step >= this.max) {
+      this.$.input.bindValue = this.max.toString();
+    } else {
+      this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) + this.step).toFixed(this.precision);
+    }
+  },
+
+  _stepDown () {
+    if (this._nullToFloat(this.$.input.bindValue) - this.step <= this.min) {
+      this.$.input.bindValue = this.min.toString();
+    } else {
+      this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) - this.step).toFixed(this.precision);
+    }
+  },
+
+  _onIncrease (event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    this.setFocus();
+
+    this._timeoutID = setTimeout(() => {
+      this._holdingID = setInterval(() => {
         this._stepUp();
-    },
+      }, 50);
+    }, 500);
+  },
 
-    _onDecreaseClick: function ( event ) {
-        event.stopPropagation();
-        // event.preventDefault();
+  _onDecrease: function (event) {
+    event.stopPropagation();
+    event.preventDefault();
 
+    this.setFocus();
+
+    this._timeoutID = setTimeout(() => {
+      this._holdingID = setInterval(() => {
         this._stepDown();
-    },
+      }, 50);
+    }, 500);
+  },
 
-    _stepUp: function () {
-        if (this._nullToFloat(this.$.input.bindValue) + this.step >= this.max) {
-            this.$.input.bindValue = this.max.toString();
-        }
-        else {
-            this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) + this.step).toFixed(this.precision);
-        }
-    },
+  _onStopRoll ( event ) {
+    event.stopPropagation();
 
-    _stepDown: function () {
-        if (this._nullToFloat(this.$.input.bindValue) - this.step <= this.min) {
-            this.$.input.bindValue = this.min.toString();
-        }
-        else {
-            this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) - this.step).toFixed(this.precision);
-        }
-    },
+    clearInterval(this._holdingID);
+    this._holdingID = null;
 
-    _onIncrease: function (event) {
-        event.stopPropagation();
-        event.preventDefault();
+    clearTimeout(this._timeoutID);
+    this._timeoutID = null;
 
-        this.setFocus();
+    setTimeout(() => {
+      this.confirm();
+    }, 1);
+  },
 
-        this._timeoutID = setTimeout( function () {
-            this._holdingID = setInterval( function () {
-                this._stepUp();
-            }.bind(this), 50);
-        }.bind(this), 500 );
-    },
+  _onHintMounseDown: function ( event ) {
+    event.preventDefault();
+    event.stopPropagation();
 
-    _onDecrease: function (event) {
-        event.stopPropagation();
-        event.preventDefault();
+    var lastValue = this.inputValue;
+    EditorUI.startDrag('ew-resize', event, (event, dx, dy, offsetx, offsety) => {
+      this.inputValue = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
+    },null);
+    this.setFocus();
+  },
 
-        this.setFocus();
+  _convert ( val, noFixedPrecision ) {
+    if (val === '' || isNaN(val)) {
+      return this._lastValidValue;
+    }
+    val = parseFloat(parseFloat(val));
+    if ( isNaN(val) )
+      val = 0;
+    if (this.min && this.max) {
+      val = Math.min( Math.max( val, this.min ), this.max );
+    }
 
-        this._timeoutID = setTimeout( function () {
-            this._holdingID = setInterval( function () {
-                this._stepDown();
-            }.bind(this), 50);
-        }.bind(this), 500 );
-    },
+    if ( noFixedPrecision ) {
+      val = parseFloat(val);
+    }
+    else {
+      val = parseFloat(val.toFixed(this.precision));
+    }
+    this._lastValidValue = val;
 
-    _onStopRoll: function ( event ) {
-        event.stopPropagation();
+    return val;
+  },
 
-        clearInterval(this._holdingID);
-        this._holdingID = null;
+  _nullToFloat (val) {
+    if (!val) {
+      return 0;
+    }
 
-        clearTimeout(this._timeoutID);
-        this._timeoutID = null;
+    if ( isNaN(val) ) {
+      return 0;
+    }
 
-        setTimeout(function() {
-            this.confirm();
-        }.bind(this), 1);
-    },
+    return parseFloat(val);
+  },
 
-    _onHintMounseDown: function ( event ) {
-        event.preventDefault();
-        event.stopPropagation();
+  _onBindValueChanged () {
+    if ( !this._inited ) {
+      return;
+    }
 
-        var lastValue = this.inputValue;
-        EditorUI.startDrag('ew-resize', event,function (event, dx, dy, offsetx, offsety) {
-            this.inputValue = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
-        }.bind(this),null);
-        this.setFocus();
-    },
+    this.inputValue = this._convert(this.$.input.bindValue,true);
+  },
 
-    _convert: function ( val, noFixedPrecision ) {
-        if (val === '' || isNaN(val)) {
-            return this._lastValidValue;
-        }
-        val = parseFloat(parseFloat(val));
-        if ( isNaN(val) )
-            val = 0;
-        if (this.min && this.max) {
-            val = Math.min( Math.max( val, this.min ), this.max );
-        }
+  _onFocusedChanged (event) {
+    if ( !this._inited ) {
+      return;
+    }
 
-        if ( noFixedPrecision ) {
-            val = parseFloat(val);
-        }
-        else {
-            val = parseFloat(val.toFixed(this.precision));
-        }
-        this._lastValidValue = val;
-
-        return val;
-    },
-
-    _nullToFloat: function (val) {
-        if (!val) {
-            return 0;
-        }
-        if ( isNaN(val) )
-            return 0;
-        return parseFloat(val);
-    },
-
-    _onBindValueChanged: function () {
-        if ( !this._inited )
-            return;
-
-        this.inputValue = this._convert(this.$.input.bindValue,true);
-    },
-
-    _onFocusedChanged: function (event) {
-        if ( !this._inited )
-            return;
-
-        if ( event.detail.value ) {
-            this.value = this.inputValue;
-        } else {
-            this.confirm();
-        }
-    },
+    if ( event.detail.value ) {
+      this.value = this.inputValue;
+    } else {
+      this.confirm();
+    }
+  },
 });

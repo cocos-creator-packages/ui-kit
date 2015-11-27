@@ -1,85 +1,87 @@
+'use strict';
+
 Editor.registerElement({
-    behaviors: [EditorUI.focusable],
+  behaviors: [EditorUI.focusable],
 
-    listeners: {
-        'focus': '_onFocus',
-        'blur': '_onBlur',
-        'keydown': '_onKeyDown'
+  listeners: {
+    'focus': '_onFocus',
+    'blur': '_onBlur',
+    'keydown': '_onKeyDown'
+  },
+
+  properties: {
+    text: {
+      type: String,
+      value: ''
     },
 
-    properties: {
-        text: {
-            type: String,
-            value: ''
-        },
-
-        folded: {
-            type: Boolean,
-            value: false,
-            reflectToAttribute: true,
-        },
-
-        closeable: {
-            type: Boolean,
-            value: false,
-            reflectToAttribute: true,
-        },
-
-        icon: {
-            type: String,
-            value: ''
-        }
+    folded: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
     },
 
-    ready: function () {
-        this._initFocusable(this);
+    closeable: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
     },
 
-    _onFoldClick: function () {
-        this.folded = !this.folded;
-    },
+    icon: {
+      type: String,
+      value: ''
+    }
+  },
 
-    _foldClass: function ( folded ) {
-        if (folded) {
-            return 'fa fa-caret-right fold flex-none ';
-        }
+  ready () {
+    this._initFocusable(this);
+  },
 
-        return 'fa fa-caret-down fold flex-none';
-    },
+  _onFoldClick () {
+    this.folded = !this.folded;
+  },
 
-    _iconClass: function (icon) {
-        if (this.icon) {
-            return 'icon';
-        }
-        return 'hidden';
-    },
+  _foldClass ( folded ) {
+    if (folded) {
+      return 'fa fa-caret-right fold flex-none ';
+    }
 
-    _onKeyDown: function (event) {
-        if ( Polymer.dom(event).localTarget !== this )
-            return;
+    return 'fa fa-caret-down fold flex-none';
+  },
 
-        // press 'enter' and 'space'
-        if (event.keyCode === 13 || event.keyCode === 32) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.folded = !this.folded;
-        }
-        // press left
-        else if (event.keyCode === 37) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.folded = true;
-        }
-        // press right
-        else if (event.keyCode === 39) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.folded = false;
-        }
-    },
+  _iconClass (icon) {
+    if (icon) {
+      return 'icon';
+    }
+    return 'hidden';
+  },
 
-    _onCloseClick: function (event) {
-        event.stopPropagation();
-        this.fire('close');
-    },
+  _onKeyDown (event) {
+    if ( Polymer.dom(event).localTarget !== this )
+      return;
+
+    // press 'enter' and 'space'
+    if (event.keyCode === 13 || event.keyCode === 32) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.folded = !this.folded;
+    }
+    // press left
+    else if (event.keyCode === 37) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.folded = true;
+    }
+    // press right
+    else if (event.keyCode === 39) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.folded = false;
+    }
+  },
+
+  _onCloseClick (event) {
+    event.stopPropagation();
+    this.fire('close');
+  },
  });

@@ -6,52 +6,52 @@
 @color-border-focus: #09f;
 
 :host {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    background-color: #5C5C5C;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 0px;
-    min-width: 35px;
-    text-align: center;
-    flex-grow: 1;
-    padding: 0.5rem 0.4rem;
-    overflow: hidden;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: #5C5C5C;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0px;
+  min-width: 35px;
+  text-align: center;
+  flex-grow: 1;
+  padding: 0.5rem 0.4rem;
+  overflow: hidden;
+  white-space: nowrap;
 
-    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    color: @color-button-text;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: @color-button-text;
 
-    transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 :host ::content .fa {
-    padding: 0.2rem 0.4rem;
+  padding: 0.2rem 0.4rem;
 }
 
 :host:hover {
-    background-color: #555 + 20%;
+  background-color: #555 + 20%;
 }
 
 :host:focus {
-    outline: none;
+  outline: none;
 }
 
 :host[pressed] {
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-    color: @color-button-text - 20%;
-    background-color: #444444 - 20%;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  color: @color-button-text - 20%;
+  background-color: #444444 - 20%;
 }
 
 :host[disabled] {
-    background-image: linear-gradient(@color-button-bg-top - 10%, @color-button-bg-bottom - 10%);
-    color: @color-button-text - 80%;
+  background-image: linear-gradient(@color-button-bg-top - 10%, @color-button-bg-bottom - 10%);
+  color: @color-button-text - 80%;
 }
 
 :host[selected] {
-    background-color: #2A2A2A;
-    color: #279DFF;
-    border-color: #343333;
+  background-color: #2A2A2A;
+  color: #279DFF;
+  border-color: #343333;
 }
