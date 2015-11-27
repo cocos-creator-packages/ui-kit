@@ -237,7 +237,9 @@ Editor.registerElement({
     var lastValue = this.inputValue;
     EditorUI.startDrag('ew-resize', event, (event, dx, dy, offsetx, offsety) => {
       this.inputValue = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
-    },null);
+    }, () => {
+      this.confirm();
+    });
     this.setFocus();
   },
 
