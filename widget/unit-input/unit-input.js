@@ -230,6 +230,16 @@ Editor.registerElement({
     }, 1);
   },
 
+  _onMouseLeave ( event ) {
+    if ( this._holdingID ) {
+      clearInterval(this._holdingID);
+      this._holdingID = null;
+
+      clearTimeout(this._timeoutID);
+      this._timeoutID = null;
+    }
+  },
+
   _onHintMounseDown: function ( event ) {
     event.preventDefault();
     event.stopPropagation();
