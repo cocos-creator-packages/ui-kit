@@ -86,12 +86,14 @@ Editor.registerElement({
   },
 
   _onSelectedItemChanged () {
-    if (this.$.menu && this.$.menu.selectedItem) {
+    if (this.$.menu.selectedItem) {
       if (this.$.menu.selectedItem.text) {
         this.text = this.$.menu.selectedItem.text;
       } else {
         this.text = this.$.menu.selectedItem.innerText;
       }
+    } else {
+      this.text = '';
     }
   },
 
