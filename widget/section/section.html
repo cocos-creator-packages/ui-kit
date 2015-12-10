@@ -4,7 +4,12 @@
   <link rel="import" type="css" href="section.css">
 
   <template>
-    <div class="header" on-click="_onFoldClick">
+    <div id="header" class="header"
+      on-click="_onFoldClick"
+      on-focus="_onFocus"
+      on-blur="_onBlur"
+      on-keydown="_onKeyDown"
+      >
       <div class="center flex-1 layout horizontal">
         <i class$="{{_foldClass(folded)}}"></i>
         <img class$="{{_iconClass(icon)}}" src$="{{icon}}"/>

@@ -3,11 +3,7 @@
 Editor.registerElement({
   behaviors: [EditorUI.focusable],
 
-  listeners: {
-    'focus': '_onFocus',
-    'blur': '_onBlur',
-    'keydown': '_onKeyDown'
-  },
+  listeners: {},
 
   properties: {
     text: {
@@ -34,7 +30,7 @@ Editor.registerElement({
   },
 
   ready () {
-    this._initFocusable(this);
+    this._initFocusable(this.$.header);
   },
 
   _onFoldClick () {
@@ -57,8 +53,9 @@ Editor.registerElement({
   },
 
   _onKeyDown (event) {
-    if ( Polymer.dom(event).localTarget !== this )
+    if ( Polymer.dom(event).localTarget !== this ) {
       return;
+    }
 
     // press 'enter' and 'space'
     if (event.keyCode === 13 || event.keyCode === 32) {
