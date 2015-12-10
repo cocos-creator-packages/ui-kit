@@ -36,7 +36,9 @@ Editor.registerElement({
     this._initFocusable(this);
   },
 
-  _onClick () {
+  _onClick ( event ) {
+    event.stopPropagation();
+
     this.checked = !this.checked;
     this.async(() => {
       this.fire('end-editing');
