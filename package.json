@@ -9,8 +9,9 @@
   },
   "main": "main.js",
   "menus": {
-    "Developer/UI Preview/ui-kit": {
-      "message": "ui-kit:open"
+    "i18n:MAIN_MENU.developer.title/UI Preview/ui-kit": {
+      "message": "ui-kit:open",
+      "dev": true
     }
   },
   "panels": {
