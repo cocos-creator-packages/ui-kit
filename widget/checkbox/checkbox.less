@@ -46,7 +46,6 @@
   height: 13px;
   min-width: 13px;
   min-height: 13px;
-  margin-right: 4px;
   border: 1px solid @color-border-normal;
   font-size: 10px;
   text-align: center;
@@ -55,12 +54,10 @@
 }
 
 #togglebox {
-  display: inline-block;
+  display: none;
   position: relative;
   min-width: 4rem;
   min-height: 1.5rem;
-  display: none;
-  margin-right: 4px;
   border-radius: 500rem;
 }
 
@@ -91,6 +88,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-indent: 5px;
 }
 
 :host[checked] #togglebox:before {
