@@ -106,11 +106,13 @@ Editor.registerElement({
   },
 
   _onFocusedChanged ( event ) {
-    if ( event.detail.value ) {
-      this.value = this.inputValue;
-    } else {
-      this.confirm();
-    }
+    this._lastFocused = event.detail.value;
+
+    setTimeout(() => {
+      if ( !this._lastFocused ) {
+        this.confirm();
+      }
+    },1);
   },
 
 });

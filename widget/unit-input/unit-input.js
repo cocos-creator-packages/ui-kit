@@ -32,7 +32,7 @@ Editor.registerElement({
     step: {
       type: Number,
       notify: true,
-      value: 1,
+      value: 0.1,
     },
 
     min: {
@@ -54,7 +54,7 @@ Editor.registerElement({
 
     precision: {
       type: Number,
-      value: 2,
+      value: -1,
     },
 
     readonly: {
@@ -89,7 +89,7 @@ Editor.registerElement({
   _inputValueChanged () {
     let val = this._convert(this.inputValue);
 
-    // NOTE: this will prevent value like "0." can not remain in 
+    // NOTE: this will prevent value like "0." can not remain in
     // input field when user hit backspace on "0.1"
     if ( val !== parseFloat(this.$.input.bindValue) ) {
       this.$.input.bindValue = val.toString();
@@ -100,7 +100,7 @@ Editor.registerElement({
     this.value = this._convert(this.value);
     this.inputValue = this.value;
 
-    // NOTE: this will prevent value like "0." can not remain in 
+    // NOTE: this will prevent value like "0." can not remain in
     // input field when user hit backspace on "0.1"
     if ( this.value !== parseFloat(this.$.input.bindValue) ) {
       this.$.input.bindValue = this.value.toString();
@@ -183,18 +183,30 @@ Editor.registerElement({
   },
 
   _stepUp () {
-    if (this._nullToFloat(this.$.input.bindValue) + this.step >= this.max) {
+    let val = this._nullToFloat(this.$.input.bindValue) + this.step;
+
+    if (val >= this.max) {
       this.$.input.bindValue = this.max.toString();
     } else {
-      this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) + this.step).toFixed(this.precision);
+      let precision = this.precision;
+      if ( precision === -1 ) {
+        precision = 2;
+      }
+      this.$.input.bindValue = val.toFixed(precision);
     }
   },
 
   _stepDown () {
-    if (this._nullToFloat(this.$.input.bindValue) - this.step <= this.min) {
+    let val = this._nullToFloat(this.$.input.bindValue) - this.step;
+
+    if (val <= this.min) {
       this.$.input.bindValue = this.min.toString();
     } else {
-      this.$.input.bindValue = (this._nullToFloat(this.$.input.bindValue) - this.step).toFixed(this.precision);
+      let precision = this.precision;
+      if ( precision === -1 ) {
+        precision = 2;
+      }
+      this.$.input.bindValue = val.toFixed(precision);
     }
   },
 
@@ -280,7 +292,7 @@ Editor.registerElement({
       val = Math.min( val, this.max );
     }
 
-    if ( noFixedPrecision ) {
+    if ( noFixedPrecision || this.precision === -1 ) {
       val = parseFloat(val);
     } else {
       val = parseFloat(val.toFixed(this.precision));
@@ -315,10 +327,12 @@ Editor.registerElement({
       return;
     }
 
-    if ( event.detail.value ) {
-      this.value = this.inputValue;
-    } else {
-      this.confirm();
-    }
+    this._lastFocused = event.detail.value;
+
+    setTimeout(() => {
+      if ( !this._lastFocused ) {
+        this.confirm();
+      }
+    },1);
   },
 });
