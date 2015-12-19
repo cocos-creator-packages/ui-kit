@@ -87,16 +87,24 @@ Editor.registerElement({
   },
 
   _inputValueChanged () {
-    this.$.input.bindValue = this._convert(this.inputValue).toString();
+    let val = this._convert(this.inputValue);
+
+    // NOTE: this will prevent value like "0." can not remain in 
+    // input field when user hit backspace on "0.1"
+    if ( val !== parseFloat(this.$.input.bindValue) ) {
+      this.$.input.bindValue = val.toString();
+    }
   },
 
   _valueChanged () {
     this.value = this._convert(this.value);
-    if (this.min !== undefined && this.max !== undefined) {
-      this.value = Math.clamp(this._convert(this.value),this.min,this.max);
-    }
     this.inputValue = this.value;
-    this.$.input.bindValue = this._convert(this.value).toString();
+
+    // NOTE: this will prevent value like "0." can not remain in 
+    // input field when user hit backspace on "0.1"
+    if ( this.value !== parseFloat(this.$.input.bindValue) ) {
+      this.$.input.bindValue = this.value.toString();
+    }
   },
 
   confirm () {
@@ -257,17 +265,24 @@ Editor.registerElement({
     if (val === '' || isNaN(val)) {
       return this._lastValidValue;
     }
-    val = parseFloat(parseFloat(val));
-    if ( isNaN(val) )
+
+    val = parseFloat(val);
+    if ( isNaN(val) ) {
       val = 0;
-    if (this.min && this.max) {
-      val = Math.min( Math.max( val, this.min ), this.max );
+    }
+
+    // NOTE: do not use clamp(val, min, max), user can only define min or define max
+    if ( this.min !== undefined ) {
+      val = Math.max( val, this.min );
+    }
+
+    if ( this.max !== undefined ) {
+      val = Math.min( val, this.max );
     }
 
     if ( noFixedPrecision ) {
       val = parseFloat(val);
-    }
-    else {
+    } else {
       val = parseFloat(val.toFixed(this.precision));
     }
     this._lastValidValue = val;
