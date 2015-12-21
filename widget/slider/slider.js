@@ -40,7 +40,7 @@ Editor.registerElement({
   },
 
   _valueChanged () {
-    this.value = Math.clamp( this.value, this.min, this.max );
+    this.value = Editor.Math.clamp( this.value, this.min, this.max );
     this.value = parseFloat(this.value.toFixed(this.precision));
 
     this.$.nubbin.style.left = (this.value - this.min)/(this.max - this.min) * 100 + '%';

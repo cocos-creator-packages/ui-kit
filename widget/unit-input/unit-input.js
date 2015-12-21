@@ -266,7 +266,7 @@ Editor.registerElement({
 
     var lastValue = this.inputValue;
     EditorUI.startDrag('ew-resize', event, (event, dx, dy, offsetx, offsety) => {
-      let val = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
+      let val = Editor.Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
 
       let precision = this.precision;
       if ( precision === -1 ) {
