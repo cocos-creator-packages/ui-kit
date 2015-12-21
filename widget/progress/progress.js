@@ -33,17 +33,17 @@ Editor.registerElement({
   },
 
   _valueChanged () {
-    this.value = Math.clamp(this.value,0,1);
-    if ( Math.clamp((this.value * 100).toFixed(2),0,100) >= 100 ) {
+    this.value = Editor.Math.clamp(this.value,0,1);
+    if ( Editor.Math.clamp((this.value * 100).toFixed(2),0,100) >= 100 ) {
       this.state = 'succeed';
     }
     else {
       this.state = 'normal';
     }
-    this.$.progress.style.width = Math.clamp(this.value * 100,0,100) + '%';
+    this.$.progress.style.width = Editor.Math.clamp(this.value * 100,0,100) + '%';
   },
 
   _valueText (value) {
-    return parseFloat( Math.clamp((value * 100).toFixed(2),0,100));
+    return parseFloat( Editor.Math.clamp((value * 100).toFixed(2),0,100));
   },
 });
