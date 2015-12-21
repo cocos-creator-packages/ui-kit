@@ -266,7 +266,15 @@ Editor.registerElement({
 
     var lastValue = this.inputValue;
     EditorUI.startDrag('ew-resize', event, (event, dx, dy, offsetx, offsety) => {
-      this.inputValue = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
+      let val = Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
+
+      let precision = this.precision;
+      if ( precision === -1 ) {
+        precision = 2;
+      }
+      val = parseFloat(val.toFixed(precision));
+
+      this.inputValue = val;
     }, () => {
       this.confirm();
     });
