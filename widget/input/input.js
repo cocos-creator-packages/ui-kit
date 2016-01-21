@@ -38,6 +38,11 @@ Editor.registerElement({
       reflectToAttribute: true,
     },
 
+    type: {
+      type: String,
+      value: 'text',
+      reflectToAttribute: true
+    }
   },
 
   ready () {
