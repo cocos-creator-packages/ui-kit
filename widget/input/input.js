@@ -40,8 +40,7 @@ Editor.registerElement({
 
     type: {
       type: String,
-      value: 'text',
-      reflectToAttribute: true
+      value: 'text'
     }
   },
 
