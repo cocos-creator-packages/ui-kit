@@ -38,6 +38,12 @@ Editor.registerElement({
       reflectToAttribute: true,
     },
 
+    cancelable: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true
+    },
+
     type: {
       type: String,
       value: 'text'
@@ -118,5 +124,14 @@ Editor.registerElement({
       }
     },1);
   },
+
+  _checkCancelable (inputValue) {
+    return this.cancelable && inputValue;
+  },
+
+  _onClear ( event ) {
+    event.preventDefault();
+    this.inputValue = '';
+  }
 
 });
