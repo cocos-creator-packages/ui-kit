@@ -102,3 +102,43 @@
   -webkit-user-select: text;
   cursor: text;
 }
+
+.fa-times-circle {
+  display: block;
+  padding: 0;
+  margin: -0.5em 0 0 0;
+
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  cursor: pointer;
+}
+
+:host.mini .fa-times-circle {
+  font-size: 0.8rem;
+  height: 0.8em;
+}
+
+:host.small .fa-times-circle {
+  font-size: 1rem;
+  height: 1em;
+}
+
+:host .fa-times-circle {
+  font-size: 1.2rem;
+  height: 1.2em;
+}
+
+:host.large .fa-times-circle {
+  font-size: 1.6rem;
+  height: 1.6em;
+}
+
+:host.big .fa-times-circle {
+  font-size: 2rem;
+  height: 2em;
+}
+
+:host[cancelable] #input {
+  padding-right: 1.4em;
+}
