@@ -1,11 +1,15 @@
+'use strict';
+
 module.exports = {
-    load: function () {
-    },
+  load () {
+  },
 
-    unload: function () {
-    },
+  unload () {
+  },
 
-    'ui-kit:open': function () {
-        Editor.Panel.open('ui-kit.panel');
+  messages: {
+    open () {
+      Editor.Panel.open('ui-kit.panel');
     },
+  }
 };
