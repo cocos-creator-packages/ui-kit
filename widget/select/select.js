@@ -36,7 +36,15 @@ Editor.registerElement({
 
   add ( value, text ) {
     var el = document.createElement('editor-option');
-    Polymer.dom(el).innerHTML = text;
+    Polymer.dom(el).textContent = text;
+    el.value = value.toString();
+
+    Polymer.dom(this).appendChild(el);
+  },
+
+  addHtml ( value, html ) {
+    var el = document.createElement('editor-option');
+    Polymer.dom(el).innerHTML = html;
     el.value = value.toString();
 
     Polymer.dom(this).appendChild(el);
