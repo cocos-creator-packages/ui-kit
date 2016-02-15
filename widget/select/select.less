@@ -27,7 +27,7 @@
   border-color: rgba(29, 29, 29, 0.7);
 }
 
-:host[disabled] .border{
+:host[disabled] .border {
   background-color: #393939;
   border-color: #515151;
   color: #555;
@@ -36,6 +36,10 @@
 
 :host[disabled] #placeholder {
   opacity: 1;
+}
+
+:host[readonly] .border {
+  pointer-events: none;
 }
 
 .border {
