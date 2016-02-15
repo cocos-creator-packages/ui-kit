@@ -28,6 +28,12 @@ Editor.registerElement({
       type: String,
       value: '',
     },
+
+    readonly: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
+    },
   },
 
   ready () {
@@ -106,6 +112,10 @@ Editor.registerElement({
   },
 
   _onKeyDown (event) {
+    if ( this.readonly ) {
+      return;
+    }
+
     // up-arrow
     if (event.keyCode === 38) {
       event.preventDefault();
@@ -130,6 +140,10 @@ Editor.registerElement({
   },
 
   _onMouseDown (event) {
+    if ( this.readonly ) {
+      return;
+    }
+
     event.preventDefault();
     event.stopPropagation();
 
