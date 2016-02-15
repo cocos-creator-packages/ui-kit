@@ -8,7 +8,7 @@
     "editor-framework": "^0.4.0"
   },
   "main": "main.js",
-  "menus": {
+  "main-menu": {
     "i18n:MAIN_MENU.developer.title/UI Preview/ui-kit": {
       "message": "ui-kit:open",
       "dev": true
