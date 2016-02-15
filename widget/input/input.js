@@ -131,7 +131,9 @@ Editor.registerElement({
 
   _onClear ( event ) {
     event.preventDefault();
+    event.stopPropagation();
     this.inputValue = '';
+    this.confirm();
   }
 
 });
