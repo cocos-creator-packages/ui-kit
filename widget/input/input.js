@@ -61,6 +61,7 @@ Editor.registerElement({
   clear () {
     this.value = '';
     this.inputValue = '';
+    this.confirm();
   },
 
   confirm ( pressEnter ) {
@@ -131,7 +132,10 @@ Editor.registerElement({
 
   _onClear ( event ) {
     event.preventDefault();
+    event.stopPropagation();
+    this.fire('clear', null, {bubbles: false} );
     this.inputValue = '';
+    this.confirm();
   }
 
 });
