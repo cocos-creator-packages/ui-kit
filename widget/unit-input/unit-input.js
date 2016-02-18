@@ -301,7 +301,7 @@ Editor.registerElement({
     }
 
     if ( noFixedPrecision || this.precision === -1 ) {
-      val = parseFloat(val);
+      val = parseFloat(val.toFixed(20));
     } else {
       val = parseFloat(val.toFixed(this.precision));
     }
