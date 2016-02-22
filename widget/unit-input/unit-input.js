@@ -254,7 +254,9 @@ Editor.registerElement({
     if ( this._holdingID ) {
       clearInterval(this._holdingID);
       this._holdingID = null;
+    }
 
+    if ( this._timeoutID ) {
       clearTimeout(this._timeoutID);
       this._timeoutID = null;
     }
