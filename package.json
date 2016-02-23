@@ -10,8 +10,7 @@
   "main": "main.js",
   "main-menu": {
     "i18n:MAIN_MENU.developer.title/UI Preview/ui-kit": {
-      "message": "ui-kit:open",
-      "dev": true
+      "message": "ui-kit:open"
     }
   },
   "panels": {
