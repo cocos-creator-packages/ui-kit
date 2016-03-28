@@ -1,0 +1,18 @@
+.btn {
+    color: white;
+    background-image: linear-gradient(#7e77b2, #564F8A);
+}
+
+.disabled.btn, .btn.disabled:hover {
+    color: #908B8B;
+    background-image: linear-gradient(#544F7C, #3C3762);
+}
+
+.btn:hover {
+    background-image: linear-gradient(#928bc6, #6a639e);
+}
+
+.pressed.btn {
+    color: #ebebeb;
+    background-image: linear-gradient(#6a639e, #423b76);
+}
