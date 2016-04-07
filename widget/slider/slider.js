@@ -1,7 +1,7 @@
 'use strict';
 
 Editor.registerElement({
-  behaviors: [EditorUI.focusable],
+  behaviors: [Editor.UI.focusable],
 
   properties: {
     min: {
@@ -70,7 +70,7 @@ Editor.registerElement({
   },
 
   _onMouseDown (event) {
-    EditorUI.addDragGhost('ew-resize');
+    Editor.UI.DomUtils.addDragGhost('ew-resize');
     var rect = this.$.track.getBoundingClientRect();
     var mouseDownX = rect.left;
 
@@ -88,7 +88,7 @@ Editor.registerElement({
     var mouseUpHandle = () => {
       document.removeEventListener('mousemove', mouseMoveHandle);
       document.removeEventListener('mouseup', mouseUpHandle);
-      EditorUI.removeDragGhost();
+      Editor.UI.DomUtils.removeDragGhost();
 
       this.async(() => {
         this.fire('end-editing');

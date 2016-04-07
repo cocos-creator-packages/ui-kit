@@ -1,7 +1,7 @@
 'use strict';
 
 Editor.registerElement({
-  behaviors: [EditorUI.focusable, Polymer.IronButtonState],
+  behaviors: [Editor.UI.focusable, Polymer.IronButtonState],
 
   listeners: {
     'focus': '_onFocus',

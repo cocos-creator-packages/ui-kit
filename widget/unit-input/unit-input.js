@@ -2,7 +2,7 @@
 
 Editor.registerElement({
 
-  behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
+  behaviors: [Editor.UI.focusable, Polymer.IronValidatableBehavior],
 
   listeners: {
     'keydown': '_onKeyDown',
@@ -135,7 +135,7 @@ Editor.registerElement({
 
       this.confirm();
       this.setBlur();
-      EditorUI.focusParent(this);
+      Editor.UI.DomUtils.focusParent(this);
     }
     // keydown 'esc'
     else if (event.keyCode === 27) {
@@ -144,7 +144,7 @@ Editor.registerElement({
 
       this.cancel();
       this.setBlur();
-      EditorUI.focusParent(this);
+      Editor.UI.DomUtils.focusParent(this);
     }
   },
 
@@ -267,7 +267,7 @@ Editor.registerElement({
     event.stopPropagation();
 
     var lastValue = this.inputValue;
-    EditorUI.startDrag('ew-resize', event, (event, dx, dy, offsetx, offsety) => {
+    Editor.UI.DomUtils.startDrag('ew-resize', event, (event, dx, dy, offsetx, offsety) => {
       let val = Editor.Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
 
       let precision = this.precision;

@@ -1,7 +1,7 @@
 'use strict';
 
 Editor.registerElement({
-  behaviors: [EditorUI.focusable,Polymer.IronMultiSelectableBehavior],
+  behaviors: [Editor.UI.focusable,Polymer.IronMultiSelectableBehavior],
 
   created () {
     this.selectedAttribute = 'selected';

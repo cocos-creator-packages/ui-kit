@@ -1,7 +1,7 @@
 'use strict';
 
 Editor.registerElement({
-  behaviors: [EditorUI.focusable],
+  behaviors: [Editor.UI.focusable],
 
   listeners: {
     'focus': '_onFocus',

@@ -1,7 +1,7 @@
 'use strict';
 
 Editor.registerElement({
-  behaviors: [EditorUI.focusable, Polymer.IronMultiSelectableBehavior],
+  behaviors: [Editor.UI.focusable, Polymer.IronMultiSelectableBehavior],
 
   listeners: {
     'focus': '_onFocus',
@@ -101,7 +101,7 @@ Editor.registerElement({
     }
 
     this.hidden = true;
-    EditorUI.focusParent(this);
+    Editor.UI.DomUtils.focusParent(this);
 
     this.async(() => {
       this.fire('end-editing');
@@ -111,7 +111,7 @@ Editor.registerElement({
   cancel () {
     this.select(this.value);
     this.hidden = true;
-    EditorUI.focusParent(this);
+    Editor.UI.DomUtils.focusParent(this);
 
     this.async(() => {
       this.fire('end-editing', {cancel: true});

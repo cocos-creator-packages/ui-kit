@@ -1,7 +1,7 @@
 'use strict';
 
 Editor.registerElement({
-  behaviors: [EditorUI.focusable, Polymer.IronValidatableBehavior],
+  behaviors: [Editor.UI.focusable, Polymer.IronValidatableBehavior],
 
   listeners: {
     'focused-changed': '_onFocusedChanged',
@@ -92,7 +92,7 @@ Editor.registerElement({
 
       this.confirm(true);
       // this.setBlur();
-      // EditorUI.focusParent(this);
+      // Editor.UI.DomUtils.focusParent(this);
     }
     // keydown 'esc'
     else if (event.keyCode === 27) {
@@ -101,7 +101,7 @@ Editor.registerElement({
 
       this.cancel();
       this.setBlur();
-      EditorUI.focusParent(this);
+      Editor.UI.DomUtils.focusParent(this);
     }
   },
 
