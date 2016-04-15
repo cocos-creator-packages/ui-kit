@@ -1,6 +1,6 @@
 'use strict';
 
-Editor.registerElement({
+Editor.polymerElement({
   properties: {
     text: {
       type: String,

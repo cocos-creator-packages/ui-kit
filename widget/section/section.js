@@ -1,6 +1,6 @@
 'use strict';
 
-Editor.registerElement({
+Editor.polymerElement({
   behaviors: [Editor.UI.focusable],
 
   listeners: {},

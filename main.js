@@ -9,7 +9,7 @@ module.exports = {
 
   messages: {
     open () {
-      Editor.Panel.open('ui-kit.panel');
+      Editor.Panel.open('ui-kit');
     },
   }
 };

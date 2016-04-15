@@ -1,5 +1,5 @@
 'use strict';
 
-Editor.registerElement({
+Editor.polymerElement({
 });
 
