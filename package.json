@@ -14,7 +14,8 @@
     }
   },
   "panel": {
-    "frame": "panel/panel.html",
+    "main": "panel/panel.html",
+    "ui": "polymer",
     "type": "dockable",
     "title": "UI Kit Preview",
     "width": 800,
