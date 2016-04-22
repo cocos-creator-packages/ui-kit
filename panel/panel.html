@@ -67,10 +67,13 @@
         ];
 
         window.addEventListener('beforeunload', () => {
-          this.profiles.local.scrollTop = this.$.view.scrollTop
-          this.profiles.local.save();
         });
       },
+
+      close () {
+        this.profiles.local.scrollTop = this.$.view.scrollTop
+        this.profiles.local.save();
+      }
 
       'panel-ready' () {
         this._refresh(this.profiles.local.select);
