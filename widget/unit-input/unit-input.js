@@ -2,7 +2,7 @@
 
 Editor.polymerElement({
 
-  behaviors: [Editor.UI.focusable, Polymer.IronValidatableBehavior],
+  behaviors: [Editor.UI.PolymerFocusable, Polymer.IronValidatableBehavior],
 
   listeners: {
     'keydown': '_onKeyDown',
