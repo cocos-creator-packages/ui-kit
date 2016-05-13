@@ -4,9 +4,6 @@
   "description": "Editor Framework UI Kit",
   "author": "Firebox Technology",
   "build": true,
-  "hosts": {
-    "editor-framework": "^0.5.0"
-  },
   "main": "main.js",
   "main-menu": {
     "i18n:MAIN_MENU.developer.title/UI Preview/ui-kit": {
