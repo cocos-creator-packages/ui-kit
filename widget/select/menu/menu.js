@@ -101,7 +101,7 @@ Editor.polymerElement({
     }
 
     this.hidden = true;
-    Editor.UI.DomUtils.focusParent(this);
+    Editor.UI._focusParent(this);
 
     this.async(() => {
       this.fire('end-editing');
@@ -111,7 +111,7 @@ Editor.polymerElement({
   cancel () {
     this.select(this.value);
     this.hidden = true;
-    Editor.UI.DomUtils.focusParent(this);
+    Editor.UI._focusParent(this);
 
     this.async(() => {
       this.fire('end-editing', {cancel: true});

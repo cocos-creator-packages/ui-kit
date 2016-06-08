@@ -135,7 +135,7 @@ Editor.polymerElement({
 
       this.confirm();
       this.setBlur();
-      Editor.UI.DomUtils.focusParent(this);
+      Editor.UI._focusParent(this);
     }
     // keydown 'esc'
     else if (event.keyCode === 27) {
@@ -144,7 +144,7 @@ Editor.polymerElement({
 
       this.cancel();
       this.setBlur();
-      Editor.UI.DomUtils.focusParent(this);
+      Editor.UI._focusParent(this);
     }
   },
 
@@ -267,7 +267,7 @@ Editor.polymerElement({
     event.stopPropagation();
 
     var lastValue = this.inputValue;
-    Editor.UI.DomUtils.startDrag('ew-resize', event, (event, dx, dy, offsetx, offsety) => {
+    Editor.UI.startDrag('ew-resize', event, (event, dx, dy, offsetx, offsety) => {
       let val = Editor.Math.clamp(lastValue + offsetx * this.step,this.min,this.max);
 
       let precision = this.precision;

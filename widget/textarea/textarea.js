@@ -92,7 +92,7 @@ Editor.polymerElement({
 
       this.confirm(true);
       // this.setBlur();
-      // Editor.UI.DomUtils.focusParent(this);
+      // Editor.UI._focusParent(this);
     }
     // keydown 'esc'
     else if (event.keyCode === 27) {
@@ -101,7 +101,7 @@ Editor.polymerElement({
 
       this.cancel();
       this.setBlur();
-      Editor.UI.DomUtils.focusParent(this);
+      Editor.UI._focusParent(this);
     }
   },
 

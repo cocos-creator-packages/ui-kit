@@ -70,7 +70,7 @@ Editor.polymerElement({
   },
 
   _onMouseDown (event) {
-    Editor.UI.DomUtils.addDragGhost('ew-resize');
+    Editor.UI.addDragGhost('ew-resize');
     var rect = this.$.track.getBoundingClientRect();
     var mouseDownX = rect.left;
 
@@ -88,7 +88,7 @@ Editor.polymerElement({
     var mouseUpHandle = () => {
       document.removeEventListener('mousemove', mouseMoveHandle);
       document.removeEventListener('mouseup', mouseUpHandle);
-      Editor.UI.DomUtils.removeDragGhost();
+      Editor.UI.removeDragGhost();
 
       this.async(() => {
         this.fire('end-editing');
