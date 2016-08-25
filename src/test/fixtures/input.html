@@ -1,0 +1,23 @@
+<link rel="import" href="packages://ui-kit/widget/input/input.html">
+
+<template id="simple">
+  <editor-input></editor-input>
+</template>
+
+<template id="value">
+  <editor-input value="foobar"></editor-input>
+</template>
+
+<template id="disabled">
+  <editor-input disabled></editor-input>
+</template>
+
+<template id="invalid">
+  <editor-input invalid></editor-input>
+</template>
+
+<template id="bind">
+  <template is="dom-bind">
+    <editor-input id="input" value="{{foo}}"></editor-input>
+  </template>
+</template>

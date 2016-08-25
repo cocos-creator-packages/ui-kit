@@ -1,0 +1,99 @@
+<dom-module id="editor-loader-preview">
+  <style>
+    editor-loader {
+      margin: 5px;
+    }
+    preview-item::shadow#preview {
+      min-height: 100px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-loader[text]"
+      desc="Set attribute [text='xxx'] "
+    >
+      <editor-loader text="Loading" mask></editor-loader>
+    </preview-item>
+
+    <preview-item
+      header="editor-loader.{reverse}"
+      desc="Set class with 'reverse' "
+    >
+      <editor-loader mask class="reverse" text="Reverse"></editor-loader>
+    </preview-item>
+
+    <preview-item
+      header="editor-loader.{oneself}"
+      desc="Set class with 'oneself'"
+    >
+      <editor-loader class="oneself" mask></editor-loader>
+    </preview-item>
+
+    <preview-item
+      header="editor-loader[mask-color]"
+      desc="set mask-color"
+    >
+      <editor-loader text="Red Mask" mask mask-color="rgba(255,0,0,0.3)"></editor-loader>
+    </preview-item>
+
+    <preview-item
+      header="editor-loader"
+      desc="NO attribute 'mask'"
+    >
+      <editor-loader text="No mask"></editor-loader>
+    </preview-item>
+
+    <preview-item
+      header="editor-loader.{size}"
+      desc="Set class with different size "
+    >
+      <editor-loader class="mini" text="Mini"></editor-loader>
+      <editor-loader class="small" text="Small"></editor-loader>
+      <editor-loader text="Normal"></editor-loader>
+      <editor-loader class="large" text="Large"></editor-loader>
+      <editor-loader class="big" text="Big"></editor-loader>
+    </preview-item>
+
+    <preview-item
+      header="editor-loader.{speed}"
+      desc="Set class with different speed "
+    >
+    <editor-loader class="large very-slow" text="Very Slow"></editor-loader>
+      <editor-loader class="large slow" text="Slow"></editor-loader>
+      <editor-loader class="large" text="Normal"></editor-loader>
+      <editor-loader class="large fast" text="Fast"></editor-loader>
+      <editor-loader class="large very-fast" text="Very Fast"></editor-loader>
+    </preview-item>
+
+    <preview-item
+      header="javascript API"
+      desc="call `editor-loader.maskAt(node)`"
+    >
+      <div style="position:relative;width:100%;height:100px;text-align:center;line-height: 100px;background:rgb(4, 133, 205);" id="testNode">
+      </div>
+      <div style="margin-top:10px;">
+        <editor-button onclick="load()">Load</editor-button>
+        <editor-button onclick="clearLoader()">Clear</editor-button>
+      </div>
+      <script>
+        var loader = document.createElement('editor-loader');
+        loader.text = 'I\'m Automatically generate';
+        var node = document.getElementById('testNode');
+        loader.maskAt(node);
+        function load() {
+          loader.maskAt(node);
+        }
+        function clearLoader() {
+          loader.clear();
+        }
+      </script>
+    </preview-item>
+
+  </template>
+
+  <script>
+    Editor.polymerElement({
+    });
+  </script>
+</dom-module>

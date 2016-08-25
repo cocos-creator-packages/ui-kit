@@ -1,0 +1,110 @@
+:host {
+  display: block;
+  position: relative;
+  z-index: 999;
+}
+#animate {
+  position: relative;
+  width: auto;
+  height: auto;
+  min-width: 2.6585em;
+  font-size: 1.0em;
+  border-radius: 500rem;
+  color: #fff;
+  line-height: 50%;
+}
+#text {
+  text-align: center;
+  padding-top: 3em;
+  width: 100%;
+  font-size: 1.0em;
+  font-weight: bold;
+}
+#animate:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  border-radius: 10em;
+  border: 0.2em solid rgba(0, 0, 0, 0.2);
+  left: 50%;
+}
+#animate:after,
+#animate:before {
+  width: 2.2585em;
+  height: 2.2585em;
+  margin-left: -1.32925em;
+  margin-top: .2em;
+}
+#animate:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 50%;
+  animation: loader .8s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  border-radius: 10em;
+  border-color: #FFF transparent transparent;
+  border-style: solid;
+  border-width: .2em;
+  box-shadow: 0 0 0 1px transparent;
+}
+@keyframes loader {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader_reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+:host[mask] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* DISABLE: we use flex center above    */
+/* :host[mask] #animate {               */
+/*     position: absolute;              */
+/*     left: 50%;                       */
+/*     top: 50%;                        */
+/*     transform: translate(-50%,-50%); */
+/* }                                    */
+:host.reverse #animate:after {
+  animation: loader_reverse .8s linear;
+  animation-iteration-count: infinite;
+}
+:host.mini #animate {
+  font-size: .6em;
+}
+:host.small #animate {
+  font-size: .8em;
+}
+:host.large #animate {
+  font-size: 1.2em;
+}
+:host.big #animate {
+  font-size: 1.8em;
+}
+:host.very-slow #animate:after {
+  animation-duration: 2s;
+}
+:host.slow #animate:after {
+  animation-duration: 1s;
+}
+:host.fast #animate:after {
+  animation-duration: 0.6s;
+}
+:host.very-fast #animate:after {
+  animation-duration: 0.3s;
+}
+:host.oneself #animate:before {
+  opacity: 0;
+}

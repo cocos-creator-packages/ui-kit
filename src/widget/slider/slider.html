@@ -1,0 +1,31 @@
+<link rel="import" href="../unit-input/unit-input.html">
+
+<dom-module id="editor-slider">
+  <link rel="import" type="css" href="slider.css">
+
+  <template>
+    <div id="focus" class="flex-1"
+      on-mousedown="_onMouseDown"
+      on-keydown="_onKeyDown"
+      on-keyup="_onKeyUp"
+      on-focus="_onFocus"
+      on-blur="_onBlur"
+    >
+      <div id="track"></div>
+      <div id="nubbin"></div>
+    </div>
+
+    <editor-unit-input id="unitinput"
+      value="{{value}}"
+      input-value="{{_toFixed(value,precision)}}"
+      precision={{precision}}
+      disabled="{{disabled}}"
+      min="[[min]]"
+      max="[[max]]"
+      no-navigate
+    >
+    </editor-unit-input>
+  </template>
+
+  <script type="text/javascript" src="slider.js"></script>
+</dom-module>

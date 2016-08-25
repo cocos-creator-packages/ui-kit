@@ -1,0 +1,344 @@
+<dom-module id="editor-buttons-preview">
+  <style>
+    :host {
+    }
+
+    editor-buttons {
+      margin: 5px;
+      max-width: 400px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-buttons[disabled]"
+      desc="set Attribute with 'disabled'"
+    >
+      <editor-buttons selected="{{selected1}}">
+        <editor-buttons-item>normal</editor-buttons-item>
+        <editor-buttons-item>1</editor-buttons-item>
+        <editor-buttons-item>2</editor-buttons-item>
+        <editor-buttons-item>3</editor-buttons-item>
+        <editor-buttons-item>4</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons disabled selected="{{selected1}}">
+        <editor-buttons-item>disabled</editor-buttons-item>
+        <editor-buttons-item>1</editor-buttons-item>
+        <editor-buttons-item>2</editor-buttons-item>
+        <editor-buttons-item>3</editor-buttons-item>
+        <editor-buttons-item>4</editor-buttons-item>
+      </editor-buttons>
+    </preview-item>
+
+    <preview-item
+      header="editor-buttons[multi]"
+      desc="set Attribute 'multi', multiple selections are allowed."
+    >
+      <editor-buttons selected="{{defaultSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>single</editor-buttons-item>
+        <editor-buttons-item>4</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons multi selected-values="{{selected2}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>multi</editor-buttons-item>
+        <editor-buttons-item>4</editor-buttons-item>
+      </editor-buttons>
+    </preview-item>
+
+    <preview-item
+      header="editor-buttons.{classical}"
+      desc="set class with 'classical'"
+    >
+      <editor-buttons multi class="classical">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>multi</editor-buttons-item>
+        <editor-buttons-item>4</editor-buttons-item>
+      </editor-buttons>
+    </preview-item>
+
+    <preview-item
+      header="editor-buttons.{size}"
+      desc="set class with different size."
+      vertical
+    >
+
+      <editor-buttons class="small">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>I'm a small buttons</editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-step-forward "></i>
+        </editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons>
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>I'm a normal buttons</editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-step-forward "></i>
+        </editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="large">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>I'm a large buttons</editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-step-forward "></i>
+        </editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="big">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>I'm a big buttons</editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-step-forward "></i>
+        </editor-buttons-item>
+      </editor-buttons>
+    </preview-item>
+
+    <preview-item
+      header="editor-buttons.{size} with classical"
+      desc="set class with different size."
+      vertical
+    >
+
+      <editor-buttons class="small classical">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>I'm a small buttons</editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-step-forward "></i>
+        </editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="classical">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>I'm a normal buttons</editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-step-forward "></i>
+        </editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="large classical">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>I'm a large buttons</editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-step-forward "></i>
+        </editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="big classical">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-stop"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>I'm a big buttons</editor-buttons-item>
+        <editor-buttons-item>
+          <i class="fa fa-step-forward "></i>
+        </editor-buttons-item>
+      </editor-buttons>
+    </preview-item>
+
+    <preview-item
+      header="editor-buttons.{color}"
+      desc="set class with different colors"
+    >
+
+      <editor-buttons selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Default</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="red" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Red</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="yellow" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Yellow</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="white" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>White</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="purple" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Purple</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="orange" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Orange</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="green" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Green</editor-buttons-item>
+      </editor-buttons>
+    </preview-item>
+
+    <preview-item
+      header="editor-buttons.{color} with classical"
+      desc="set class with different colors"
+    >
+
+      <editor-buttons class="classical" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Default</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="red classical" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Red</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="yellow classical" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Yellow</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="white classical" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>White</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="purple classical" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Purple</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="orange classical" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Orange</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons class="green classical" selected="{{colorSelected}}">
+        <editor-buttons-item>
+          <i class="fa fa-play"></i>
+        </editor-buttons-item>
+        <editor-buttons-item>Green</editor-buttons-item>
+      </editor-buttons>
+    </preview-item>
+
+    <preview-item
+      header="call Event 'on-selected'"
+      desc="listen to 'on-selected-changed' and 'on-selected-values-changed' event"
+    >
+      <editor-buttons on-selected-changed="_onSelectedChanged">
+        <editor-buttons-item>1</editor-buttons-item>
+        <editor-buttons-item>2</editor-buttons-item>
+        <editor-buttons-item>3</editor-buttons-item>
+        <editor-buttons-item>4</editor-buttons-item>
+      </editor-buttons>
+
+      <editor-buttons multi on-multi-selected-changed="_onMultiSelectedChanged">
+        <editor-buttons-item>1</editor-buttons-item>
+        <editor-buttons-item>2</editor-buttons-item>
+        <editor-buttons-item>3</editor-buttons-item>
+        <editor-buttons-item>4</editor-buttons-item>
+      </editor-buttons>
+    </preview-item>
+
+  </template>
+
+  <script>
+    Editor.polymerElement({
+      ready: function () {
+        this.selected1 = 1;
+        this.defaultSelected = 2;
+        this.selected2 = [0,1,2];
+        this.colorSelected = 0;
+      },
+
+      _onSelectedChanged: function (event) {
+        Editor.log('on-selected-changed: ' + event.target.selected);
+      },
+
+      _onMultiSelectedChanged: function (event) {
+        Editor.log('on-multi-selected-changed: ' + event.target.selectedValues);
+      },
+    });
+  </script>
+</dom-module>

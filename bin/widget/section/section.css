@@ -1,0 +1,99 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  box-sizing: border-box;
+  margin-bottom: 1px;
+}
+.header {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  padding: 4px 0px 4px 6px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid #666;
+  margin-bottom: 5px;
+  color: #aaa;
+  font-weight: bold;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+.close {
+  text-align: center;
+  padding: 0px 4px;
+  width: 9px;
+  transition: width .5s ease;
+  overflow: hidden;
+  display: none;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+.title {
+  text-transform: capitalize;
+  margin-left: 5px;
+}
+.fold {
+  text-align: center;
+  width: 10px;
+}
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 5px 0px 5px 6px;
+  font-size: 1.2rem;
+}
+.icon {
+  margin-left: 4px;
+  width: 16px;
+  height: 16px;
+}
+:host[folded] .content {
+  display: none;
+}
+:host[focused] .fold {
+  color: #00a6ff;
+}
+:host[focused] .title {
+  color: #00a6ff;
+}
+:host.small {
+  font-size: 1.0rem;
+}
+:host.small .close {
+  width: 7px;
+}
+:host {
+  font-size: 1.2rem;
+}
+.close:hover {
+  color: #c80505;
+}
+.close:active {
+  color: #a30000;
+}
+:host.large {
+  font-size: 1.4rem;
+}
+:host.large .close {
+  width: 11px;
+}
+:host.big {
+  font-size: 1.6rem;
+}
+:host.big .close {
+  width: 15px;
+}
+:host.huge {
+  font-size: 1.8rem;
+}
+:host.huge .close {
+  width: 17px;
+}
+:host[closeable] .close {
+  display: inline-block;
+}
+.hidden {
+  display: none;
+}

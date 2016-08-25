@@ -1,0 +1,85 @@
+<template id="size">
+  <editor-button class="mini">Mini</editor-button>
+  <editor-button class="small">Small</editor-button>
+  <editor-button>Normal</editor-button>
+  <editor-button class="large">Large</editor-button>
+  <editor-button class="big">Big</editor-button>
+</template>
+
+<dom-module id="editor-button-preview">
+  <style>
+    :host {
+    }
+
+    editor-button {
+      margin: 5px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-button.{size}"
+      desc="Custom button size by class"
+    >
+      <editor-button class="mini">Mini</editor-button>
+      <editor-button class="small">Small</editor-button>
+      <editor-button>Normal</editor-button>
+      <editor-button class="large">Large</editor-button>
+      <editor-button class="big">Big</editor-button>
+    </preview-item>
+
+    <preview-item
+      header="editor-button.{color}"
+      desc="Custom button color by class"
+    >
+      <editor-button>Default</editor-button>
+      <editor-button class="black">Black</editor-button>
+      <editor-button class="yellow">Yellow</editor-button>
+      <editor-button class="green">Green</editor-button>
+      <editor-button class="blue">Blue</editor-button>
+      <editor-button class="orange">Orange</editor-button>
+      <editor-button class="purple">Purple</editor-button>
+      <editor-button class="red">Red</editor-button>
+      <editor-button class="gray">Gray</editor-button>
+    </preview-item>
+
+    <preview-item
+      header="editor-button[disabled]"
+      desc="Disabled the button"
+    >
+      <editor-button disabled>Default</editor-button>
+      <editor-button class="black" disabled>Black</editor-button>
+      <editor-button class="yellow" disabled>Yellow</editor-button>
+      <editor-button class="green" disabled>Green</editor-button>
+      <editor-button class="blue" disabled>Blue</editor-button>
+      <editor-button class="orange" disabled>Orange</editor-button>
+      <editor-button class="purple" disabled>Purple</editor-button>
+      <editor-button class="red" disabled>Red</editor-button>
+      <editor-button class="gray" disabled>Gray</editor-button>
+    </preview-item>
+
+    <preview-item
+      header="editor-button[nofocus]"
+      desc="Implied that the button will not focus"
+    >
+      <editor-button>Normal</editor-button>
+      <editor-button nofocus>No Focus</editor-button>
+    </preview-item>
+
+    <preview-item
+      header="editor-button with different width"
+      desc="Button with different width"
+    >
+      <editor-button style="width: 80px;">80px</editor-button>
+      <editor-button style="width: 100px;">100px</editor-button>
+      <editor-button style="width: 120px;">120px</editor-button>
+      <editor-button style="width: 140px;">140px</editor-button>
+      <editor-button>I'm a long looong loooong button </editor-button>
+    </preview-item>
+  </template>
+
+  <script>
+    Editor.polymerElement({
+    });
+  </script>
+</dom-module>

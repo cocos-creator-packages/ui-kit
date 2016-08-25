@@ -1,0 +1,166 @@
+<dom-module id="editor-slider-preview">
+  <style>
+    editor-slider {
+      margin: 5px;
+      width: 200px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-slider"
+      desc=""
+    >
+      <editor-slider></editor-slider>
+    </preview-item>
+
+    <preview-item
+      header="editor-slider[input]"
+      desc="set Attribute with 'input'"
+    >
+      <editor-slider input></editor-slider>
+    </preview-item>
+
+    <preview-item
+      header="editor-slider[disabled]"
+      desc="set Attribute with 'disabled'"
+    >
+      <editor-slider input disabled></editor-slider>
+    </preview-item>
+
+    <preview-item
+      header="editor-slider[type]"
+      desc="you can set increase type, include 'float' and 'int'"
+      vertical
+    >
+      <div>
+        <span>type="float"  (default) </span>
+        <editor-slider input type="float" value="71.32"></editor-slider>
+      </div>
+      <div>
+        <span>type="int": </span>
+        <editor-slider input type="int" value="71.32"></editor-slider>
+      </div>
+    </preview-item>
+
+    <preview-item
+      header="editor-slider[type]"
+      desc="limit value '0-10'"
+      vertical
+    >
+      <div>
+        <span>type="int": </span>
+        <editor-slider input type="int" min="0" max="10"></editor-slider>
+      </div>
+      <div>
+        <span>type="float": </span>
+        <editor-slider input type="float" min="0" max="10"></editor-slider>
+      </div>
+    </preview-item>
+
+    <preview-item
+      header="editor-slider.{colors}"
+      desc="set different colors "
+    >
+      <div>
+        <span>default</span>
+        <editor-slider input type="int" value="0"></editor-slider>
+      </div>
+
+      <div>
+        <span>black</span>
+        <editor-slider class="black" input type="float" value="10"></editor-slider>
+      </div>
+
+      <div>
+        <span>white</span>
+        <editor-slider class="white" input type="int" value="20"></editor-slider>
+      </div>
+
+      <div>
+        <span>red</span>
+        <editor-slider class="red" input type="int" value="30"></editor-slider>
+      </div>
+
+      <div>
+        <span>green</span>
+        <editor-slider class="green" input type="int" value="40"></editor-slider>
+      </div>
+
+      <div>
+        <span>purple</span>
+        <editor-slider class="purple" input type="int" value="50"></editor-slider>
+      </div>
+
+      <div>
+        <span>blue</span>
+        <editor-slider class="blue" input type="int" value="60"></editor-slider>
+      </div>
+
+      <div>
+        <span>yellow</span>
+        <editor-slider class="yellow" input type="int" value="70"></editor-slider>
+      </div>
+    </preview-item>
+
+    <preview-item
+      header="editor-slider[nofocus]"
+      desc="set attribute 'nofocus'"
+    >
+      <div>
+        <span>default</span>
+        <editor-slider nofocus input type="int" value="0"></editor-slider>
+      </div>
+
+      <div>
+        <span>black</span>
+        <editor-slider class="black" nofocus input type="float" value="10"></editor-slider>
+      </div>
+
+      <div>
+        <span>white</span>
+        <editor-slider class="white" nofocus input type="int" value="20"></editor-slider>
+      </div>
+
+      <div>
+        <span>red</span>
+        <editor-slider class="red" nofocus input type="int" value="30"></editor-slider>
+      </div>
+
+      <div>
+        <span>green</span>
+        <editor-slider class="green" nofocus input type="int" value="40"></editor-slider>
+      </div>
+
+      <div>
+        <span>purple</span>
+        <editor-slider class="purple" nofocus input type="int" value="50"></editor-slider>
+      </div>
+
+      <div>
+        <span>blue</span>
+        <editor-slider class="blue" nofocus input type="int" value="60"></editor-slider>
+      </div>
+
+      <div>
+        <span>yellow</span>
+        <editor-slider class="yellow" nofocus input type="int" value="70"></editor-slider>
+      </div>
+    </preview-item>
+
+    <preview-item
+      header="editor-slider Event 'on-value-changed'"
+      desc="listen event 'on-value-changed'"
+    >
+      <editor-slider input on-value-changed="_onValueChanged"></editor-slider>
+    </preview-item>
+  </template>
+
+  <script>
+    Editor.polymerElement ({
+      _onValueChanged: function (event) {
+        Editor.log(event.target.value);
+      },
+    });
+  </script>
+</dom-module>

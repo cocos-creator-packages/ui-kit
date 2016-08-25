@@ -1,0 +1,14 @@
+<dom-module id="editor-progress">
+  <link rel="import" type="css" href="progress.css">
+
+  <template>
+    <div class="bar">
+      <div class="progress" id="progress">
+        <div class="tip">{{_valueText(value)}}</div>
+      </div>
+    </div>
+    <content></content>
+  </template>
+
+  <script type="text/javascript" src="progress.js"></script>
+</dom-module>

@@ -1,0 +1,181 @@
+<dom-module id="editor-label-preview">
+  <style>
+    editor-label {
+      margin: 5px;
+    }
+    editor-input {
+      width: 200px;
+    }
+    .item {
+      margin: 5px;
+    }
+
+    .item editor-label {
+      margin: 0px;
+    }
+
+    .row {
+      display: flex;
+      flex-flow: row;
+    }
+  </style>
+
+  <template>
+
+    <preview-item
+      header="editor-label long text"
+      desc="insert long text"
+      vertical
+    >
+
+      <editor-label>
+        I'm a long loong looong loooong looooong loooooong looooooong looooooong looooooong text
+      </editor-label>
+    </preview-item>
+
+    <preview-item
+      header="editor-label[disabled]"
+      desc="Set attribute with 'disabled'"
+      vertical
+    >
+
+      <editor-label disabled>
+        Disabled
+      </editor-label>
+
+      <editor-label class="circle" disabled>
+        C
+      </editor-label>
+
+    </preview-item>
+
+    <preview-item
+      header="editor-label[@size]"
+      desc="Set class with different size."
+      vertical
+    >
+      <editor-label class="mini">
+        Mini Label
+      </editor-label>
+      <editor-label class="small">
+        small Label
+      </editor-label>
+      <editor-label>
+        Default Label
+      </editor-label>
+      <editor-label class="large">
+        Large Label
+      </editor-label>
+      <editor-label class="big">
+        Big Label
+      </editor-label>
+    </preview-item>
+
+    <preview-item
+      header="editor-label with icon"
+      desc="you can add icon from `FontAwesome`."
+    >
+      <editor-label>
+        <i class="fa fa-check" id="icon"></i>
+      </editor-label>
+
+      <editor-label>
+        <i class="fa fa-check" id="icon"></i>
+        icon with text
+      </editor-label>
+      <editor-label>
+        icon right
+        <i class="fa fa-check" id="icon"></i>
+      </editor-label>
+
+    </preview-item>
+
+    <preview-item
+      header="editor-label.{pointing}"
+      desc="Set class with different pointing."
+      vertical
+    >
+      <div class="item">
+        <editor-input></editor-input>
+        <editor-label class="pointing small">
+          pointing with default(up)
+        </editor-label>
+      </div>
+
+      <div class="item row">
+        <editor-input></editor-input>
+        <editor-label class="pointing left small">
+          pointing with left
+        </editor-label>
+      </div>
+
+      <div class="item row">
+        <editor-label class="pointing right small">
+          pointing with right
+        </editor-label>
+        <editor-input></editor-input>
+      </div>
+
+      <div class="item">
+        <editor-label class="pointing bottom small">
+          pointing with bottom
+        </editor-label>
+        <editor-input></editor-input>
+      </div>
+
+    </preview-item>
+
+    <preview-item
+      header="editor-label.{@color}"
+      desc="Set class with different color"
+    >
+      <editor-label>Default Label</editor-label>
+      <editor-label class="black">Black Label</editor-label>
+      <editor-label class="yellow">Yellow Label</editor-label>
+      <editor-label class="green">Green Label</editor-label>
+      <editor-label class="blue">Blue Label</editor-label>
+      <editor-label class="orange">Orange Label</editor-label>
+      <editor-label class="purple">Purple Label</editor-label>
+      <editor-label class="red">Red Label</editor-label>
+      <editor-label class="white">White Label</editor-label>
+    </preview-item>
+
+    <preview-item
+      header="editor-label[disabled] with different color"
+      desc="Set attribute with 'disabled'"
+    >
+      <editor-label disabled>Default Label</editor-label>
+      <editor-label class="black" disabled>Black Label</editor-label>
+      <editor-label class="yellow" disabled>Yellow Label</editor-label>
+      <editor-label class="green" disabled>Green Label</editor-label>
+      <editor-label class="blue" disabled>Blue Label</editor-label>
+      <editor-label class="orange" disabled>Orange Label</editor-label>
+      <editor-label class="purple" disabled>Purple Label</editor-label>
+      <editor-label class="red" disabled>Red Label</editor-label>
+      <editor-label class="white" disabled>White Label</editor-label>
+    </preview-item>
+
+    <preview-item
+      header="editor-label.{circle}"
+      desc="Set class with 'circle'"
+    >
+      <editor-label class="circle">0</editor-label>
+      <editor-label class="black circle">1</editor-label>
+      <editor-label class="yellow circle">2</editor-label>
+      <editor-label class="green circle">3</editor-label>
+      <editor-label class="blue circle">4</editor-label>
+      <editor-label class="orange circle">5</editor-label>
+      <editor-label class="purple circle">6</editor-label>
+      <editor-label class="red circle">7</editor-label>
+      <editor-label class="white circle">8</editor-label>
+
+      <editor-label class="circle">I'm a looooooooooooooooong text</editor-label>
+    </preview-item>
+
+  </template>
+
+  <script>
+    Editor.polymerElement({
+    });
+  </script>
+</dom-module>
