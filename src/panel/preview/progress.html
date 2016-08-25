@@ -1,0 +1,88 @@
+<dom-module id="editor-progress-preview">
+  <style>
+    editor-progress {
+      margin: 5px;
+      width: 100%;
+    }
+
+    editor-button {
+      margin: 5px 10px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-progress.{size}"
+      desc="Custom button size by class"
+    >
+      <editor-progress value=".8"></editor-progress>
+    </preview-item>
+
+    <preview-item
+      header="editor-progress[notip]"
+      desc="hidden the percentage tip"
+    >
+      <editor-progress notip value=".5"></editor-progress>
+    </preview-item>
+
+    <preview-item
+      header="editor-progress.{size}"
+      desc="Custom size by class"
+    >
+      <editor-progress class="mini">mini</editor-progress>
+      <editor-progress class="small">small</editor-progress>
+      <editor-progress>normal</editor-progress>
+      <editor-progress class="large">large</editor-progress>
+    </preview-item>
+
+    <preview-item
+      header="editor-progress.{color}"
+      desc="different color"
+    >
+      <editor-progress class="red" value="0.5">red</editor-progress>
+      <editor-progress class="blue" value="0.5">blue</editor-progress>
+      <editor-progress class="yellow" value="0.5">yellow</editor-progress>
+      <editor-progress class="purple" value="0.5">purple</editor-progress>
+      <editor-progress class="green" value="0.5">green</editor-progress>
+      <editor-progress class="orange" value="0.5">orange</editor-progress>
+    </preview-item>
+
+    <preview-item
+      header="editor-progress value"
+      desc="change value"
+    >
+      <editor-progress class="small" id="testProgress" value="{{testValue}}">mini</editor-progress>
+      <editor-button on-click="_onDeclineClick">-</editor-button>
+      <editor-button on-click="_onIncreaseClick">+</editor-button>
+      <editor-button on-click="_onSucceedClick">succeed</editor-button>
+      <editor-button on-click="_onResetClick">reset</editor-button>
+    </preview-item>
+  </template>
+
+  <script>
+    Editor.polymerElement ({
+      properties: {
+        testValue: {
+          type: Number,
+          value: 0,
+        }
+      },
+
+      _onIncreaseClick: function (event) {
+        this.testValue += 0.05;
+      },
+
+      _onDeclineClick: function(event) {
+        this.testValue -= 0.05;
+      },
+
+      _onResetClick: function (event) {
+        this.$.testProgress.reset();
+      },
+
+      _onSucceedClick: function (event) {
+        this.testValue = 1.0;
+      },
+    });
+  </script>
+</dom-module>

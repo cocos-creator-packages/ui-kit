@@ -1,0 +1,104 @@
+<link rel="import" href="packages://ui-kit/widget/index.html">
+<link rel="import" href="preview-item.html">
+
+<link rel="import" href="preview/button.html">
+<link rel="import" href="preview/buttons.html">
+<link rel="import" href="preview/input.html">
+<link rel="import" href="preview/checkbox.html">
+<link rel="import" href="preview/label.html">
+<link rel="import" href="preview/loader.html">
+<link rel="import" href="preview/progress.html">
+<link rel="import" href="preview/section.html">
+<link rel="import" href="preview/select.html">
+<link rel="import" href="preview/slider.html">
+<link rel="import" href="preview/textarea.html">
+<link rel="import" href="preview/toolbar.html">
+<link rel="import" href="preview/unit-input.html">
+
+<dom-module id="ui-kit-preview">
+  <template>
+    <style>
+      :host {
+        @apply(--layout-vertical);
+      }
+
+      .toolbar {
+        margin: 10px;
+      }
+
+      #view {
+        margin: 10px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+    </style>
+
+    <div class="toolbar">
+      <select id="select" on-change="_onSelect">
+        <template is="dom-repeat" items="{{previewPages}}">
+          <option value="{{item.value}}">{{item.name}}</option>
+        </template>
+      </select>
+    </div>
+    <div id="view" flex-1>
+    </div>
+  </template>
+
+  <script>
+    'use strict';
+
+    Editor.polymerPanel( 'ui-kit', {
+      ready () {
+        // NOTE: add preview page here
+        this.previewPages = [
+          { name: '<editor-button>'     , value: 'editor-button-preview'      } ,
+          { name: '<editor-buttons>'    , value: 'editor-buttons-preview'     } ,
+          { name: '<editor-checkbox>'   , value: 'editor-checkbox-preview'    } ,
+          { name: '<editor-input>'      , value: 'editor-input-preview'       } ,
+          { name: '<editor-label>'      , value: 'editor-label-preview'       } ,
+          { name: '<editor-loader>'     , value: 'editor-loader-preview'      } ,
+          { name: '<editor-progress>'   , value: 'editor-progress-preview'    } ,
+          { name: '<editor-section>'    , value: 'editor-section-preview'     } ,
+          { name: '<editor-select>'     , value: 'editor-select-preview'      } ,
+          { name: '<editor-slider>'     , value: 'editor-slider-preview'      } ,
+          { name: '<editor-textarea>'   , value: 'editor-textarea-preview'    } ,
+          { name: '<editor-toolbar>'    , value: 'editor-toolbar-preview'     } ,
+          { name: '<editor-unit-input>' , value: 'editor-unit-input-preview'  } ,
+        ];
+
+        window.addEventListener('beforeunload', () => {
+        });
+      },
+
+      close () {
+        this.profiles.local.scrollTop = this.$.view.scrollTop
+        this.profiles.local.save();
+      },
+
+      'panel-ready' () {
+        this._refresh(this.profiles.local.select);
+        setTimeout(() => {
+          this.$.select.value = this.profiles.local.select;
+          this.$.view.scrollTop = this.profiles.local.scrollTop;
+        }, 1);
+      },
+
+      _refresh ( elementName ) {
+        let viewDOM = Polymer.dom(this.$.view);
+        if ( viewDOM.firstElementChild ) {
+          viewDOM.removeChild(viewDOM.firstElementChild);
+        }
+
+        let el = document.createElement(elementName);
+        viewDOM.appendChild(el);
+      },
+
+      _onSelect (event) {
+        this._refresh(event.target.value)
+
+        this.profiles.local.select = event.target.value;
+        this.profiles.local.save();
+      },
+    });
+  </script>
+</dom-module>

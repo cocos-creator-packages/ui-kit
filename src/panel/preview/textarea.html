@@ -1,0 +1,47 @@
+<dom-module id="editor-textarea-preview">
+  <style>
+    editor-textarea {
+      margin: 5px;
+      width: 200px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-textarea[placeholder]"
+      desc="Set placeholder attribute"
+    >
+      <editor-textarea placeholder="placeholder"></editor-textarea>
+      <editor-textarea></editor-textarea>
+    </preview-item>
+  </template>
+
+  <script>
+    Editor.polymerElement({
+      properties: {
+        myValue: {
+          type: String,
+          notify: true,
+          value: 'My Value',
+        },
+
+        myInputValue: {
+          type: String,
+          notify: true,
+          value: 'My Input Value',
+        }
+      },
+
+      ready: function () {
+      },
+
+      _onChanged: function (event) {
+        Editor.log('on-changed invoked, event.target.value = ' + event.target.value);
+      },
+
+      _onInputChanged: function () {
+        Editor.log('on-input-changed invoked, event.target.inputValue = ' + event.target.inputValue);
+      },
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,24 @@
+<link rel="import" href="app://bower_components/iron-input/iron-input.html">
+
+<dom-module id="editor-input">
+  <link rel="import" type="css" href="input.css">
+
+  <template>
+    <input is="iron-input" id="input" bind-value="{{inputValue}}"
+      type="{{type}}"
+      readonly$="{{readonly}}"
+      placeholder="{{placeholder}}"
+      on-focus="_onFocus"
+      on-blur="_onBlur"
+      on-keydown="_onKeyDown"
+    >
+    </input>
+
+    <template is="dom-if" if="{{_checkCancelable(inputValue)}}">
+      <i class="fa fa-times-circle" on-click="_onClear"></i>
+    </template>
+
+  </template>
+
+  <script type="text/javascript" src="input.js"></script>
+</dom-module>

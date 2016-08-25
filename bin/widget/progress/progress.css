@@ -1,0 +1,93 @@
+:host {
+  text-align: center;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  background: #232323;
+  border-radius: .2rem;
+  color: #515151;
+  font-size: 12px;
+  padding: 2px;
+}
+.progress {
+  background-color: white;
+  text-align: right;
+  padding-right: 2px;
+  line-height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  overflow: hidden;
+  border-radius: .2rem;
+  transition-duration: 300ms;
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+.tip::after {
+  content: '%';
+}
+:host[notip] .tip {
+  display: none;
+}
+:host[notip] .tip::after {
+  content: '';
+}
+:host.mini .bar,
+:host.mini .progress {
+  min-height: 5px;
+  min-width: 15px;
+  height: 5px;
+}
+:host.mini .tip {
+  display: none;
+}
+:host.small .bar,
+:host.small .progress {
+  font-size: 10px;
+  line-height: 14px;
+  min-width: 18px;
+  min-height: 14px;
+}
+:host.large .bar,
+:host.large .progress {
+  font-size: 14px;
+  line-height: 25px;
+  min-width: 24px;
+  min-height: 25px;
+  height: 25px;
+}
+:host.red .progress {
+  background-color: #BD0000;
+  color: #ddd;
+}
+:host.blue .progress {
+  background-color: #0093db;
+  color: #ddd;
+}
+:host.yellow .progress {
+  background-color: #e5f900;
+  color: #696868;
+}
+:host.orange .progress {
+  background-color: #ffa100;
+  color: #ddd;
+}
+:host.purple .progress {
+  background-color: #9200d6;
+  color: #ddd;
+}
+:host.green .progress {
+  background-color: #47A029;
+  color: white;
+}
+:host[state^=succeed] .progress {
+  background-color: #47A029;
+  color: white;
+}
+:host[state^=failed] .progress {
+  background-color: #900;
+  color: white;
+}
+:host[_no-animate] .progress {
+  transition-duration: none;
+  transition: none;
+}

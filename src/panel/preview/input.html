@@ -1,0 +1,111 @@
+<dom-module id="editor-input-preview">
+  <style>
+    editor-input {
+      margin: 5px;
+      width: 200px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-input[placeholder]"
+      desc="Set placeholder attribute"
+    >
+      <editor-input placeholder="placeholder"></editor-input>
+      <editor-input></editor-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-input[disabled]"
+      desc="Disable the input"
+    >
+      <editor-input placeholder="normal"></editor-input>
+      <editor-input placeholder="disabled" disabled></editor-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-input[readonly]"
+      desc="Set attribute 'readonly'"
+    >
+      <editor-input value="readonly" readonly></editor-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-input[invalid]"
+      desc="Invalid the input"
+    >
+      <editor-input value="Invalid input" invalid></editor-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-input.{size}"
+      desc="Different size for the input"
+      vertical
+    >
+      <editor-input class="mini input" placeholder="mini"></editor-input>
+      <editor-input class="small input" placeholder="small"></editor-input>
+      <editor-input class="input" placeholder="normal"></editor-input>
+      <editor-input class="large input" placeholder="large"></editor-input>
+      <editor-input class="big input" placeholder="big"></editor-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-input[value]"
+      desc="Binds the value"
+    >
+      <div>
+        <span>bind to input-value</span>
+        <editor-input input-value="{{myInputValue}}"></editor-input>
+        <editor-input input-value="{{myInputValue}}"></editor-input>
+      </div>
+      <div>
+        <span>bind to value</span>
+        <editor-input value="{{myValue}}"></editor-input>
+        <editor-input value="{{myValue}}"></editor-input>
+      </div>
+    </preview-item>
+
+    <preview-item
+      header="editor-input[event]"
+      desc="Binds the value"
+    >
+      <div>
+        <span>on-changed: </span>
+        <editor-input on-value-changed="_onChanged"></editor-input>
+      </div>
+      <div>
+        <span>on-input-changed: </span>
+        <editor-input on-input-value-changed="_onInputChanged"></editor-input>
+      </div>
+    </preview-item>
+  </template>
+
+  <script>
+    Editor.polymerElement({
+      properties: {
+        myValue: {
+          type: String,
+          notify: true,
+          value: 'My Value',
+        },
+
+        myInputValue: {
+          type: String,
+          notify: true,
+          value: 'My Input Value',
+        }
+      },
+
+      ready: function () {
+      },
+
+      _onChanged: function (event) {
+        Editor.log('on-changed invoked, event.target.value = ' + event.target.value);
+      },
+
+      _onInputChanged: function () {
+        Editor.log('on-input-changed invoked, event.target.inputValue = ' + event.target.inputValue);
+      },
+    });
+  </script>
+</dom-module>

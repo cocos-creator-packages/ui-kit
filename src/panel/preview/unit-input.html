@@ -1,0 +1,151 @@
+<dom-module id="editor-unit-input-preview">
+  <style>
+    editor-unit-input {
+      margin: 5px;
+      width: 200px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-unit-input[placeholder]"
+      desc="Set placeholder attribute"
+    >
+      <editor-unit-input value="123"></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[disabled]"
+      desc="Set attribute disabled "
+    >
+      <editor-unit-input disabled></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[readonly]"
+      desc="Set attribute 'readonly'"
+    >
+      <editor-unit-input readonly></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[invalid]"
+      desc="Set attribute 'invalid'"
+    >
+      <editor-unit-input value="invalid" invalid></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input.{@size}"
+      desc="Set class with different size"
+      vertical
+    >
+      <editor-unit-input class="mini" ></editor-unit-input>
+      <editor-unit-input class="small"></editor-unit-input>
+      <editor-unit-input></editor-unit-input>
+      <editor-unit-input class="large"></editor-unit-input>
+      <editor-unit-input class="big"></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[value]"
+      desc="Binds the value"
+    >
+      <div>
+        <span>bind to input-value</span>
+        <editor-unit-input input-value="{{myInputValue}}"></editor-unit-input>
+        <editor-unit-input input-value="{{myInputValue}}"></editor-unit-input>
+      </div>
+      <div>
+        <span>bind to value</span>
+        <editor-unit-input value="{{myValue}}"></editor-unit-input>
+        <editor-unit-input value="{{myValue}}"></editor-unit-input>
+      </div>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[min&max]"
+      desc="limit value '0-10' "
+    >
+      <editor-unit-input value="{{minMaxValue}}" min="0" max="10"></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[step]"
+      desc="set attribute 'step'"
+    >
+      <editor-unit-input value="{{stepValue}}" step="0.1"></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[hint]"
+      desc="set attribute 'hint'"
+    >
+      <editor-unit-input value="12" hint="H"></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[hint-color]"
+      desc="set attribute 'hint-color'"
+    >
+      <editor-unit-input hint="Default" hint-color="default"></editor-unit-input>
+      <editor-unit-input hint="Red" hint-color="red"></editor-unit-input>
+      <editor-unit-input hint="Green" hint-color="green"></editor-unit-input>
+      <editor-unit-input hint="Blue" hint-color="blue"></editor-unit-input>
+      <editor-unit-input hint="Orange" hint-color="orange"></editor-unit-input>
+      <editor-unit-input hint="Yellow" hint-color="yellow"></editor-unit-input>
+    </preview-item>
+
+    <preview-item
+      header="editor-unit-input[event]"
+      desc="Binds the value"
+    >
+      <div>
+        <span>on-changed: </span>
+        <editor-unit-input on-value-changed="_onChanged"></editor-unit-input>
+      </div>
+      <div>
+        <span>on-input-changed: </span>
+        <editor-unit-input on-input-value-changed="_onInputChanged"></editor-unit-input>
+      </div>
+    </preview-item>
+
+  </template>
+
+  <script>
+    Editor.polymerElement({
+      properties: {
+        myValue: {
+          type: Number,
+          notify: true,
+          value: 2,
+        },
+
+        myInputValue: {
+          type: Number,
+          notify: true,
+          value: 0,
+        },
+
+        minMaxValue: {
+          type: Number,
+          notify: true,
+          value: 1,
+        },
+        stepValue: {
+          type: Number,
+          notify: true,
+          value: 1,
+        }
+      },
+
+      _onChanged: function (event) {
+        console.log(event.target.value);
+      },
+
+      _onInputChanged: function () {
+        console.log(event.target.inputValue);
+      },
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,110 @@
+<dom-module id="preview-item">
+  <style>
+    :host {
+      display: block;
+      margin: 10px;
+    }
+
+    .header {
+      margin: 0px;
+      padding: 5px;
+      font-size: 18px;
+      font-weight: bold;
+
+      color: #ccc;
+    }
+
+    .desc {
+      font-size: 12px;
+      color: rgb(126, 126, 126);
+      padding-left: 10px;
+      margin: 10px;
+      border-left: 2px solid rgb(126, 126, 126);
+    }
+
+    .content {
+      border-top: 1px solid #666;
+      padding: 20px;
+      position: relative;
+
+    }
+
+    .content .btn {
+      font-size: 10px;
+      width: 40px;
+      height: 16px;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      background: white;
+      opacity: 0.6;
+      color: black;
+      cursor: pointer;
+      text-align: center;
+    }
+    .content .btn.prev {
+      right: 41px;
+    }
+
+    #preview {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+    }
+
+    :host[vertical] #preview {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: flex-start;
+    }
+  </style>
+
+  <template>
+    <div class="header">{{header}}</div>
+    <div class="desc">{{desc}}</div>
+    <div class="content">
+      <div class="btn prev">Preview</div>
+      <div class="btn">Source</div>
+      <div id="preview">
+        <content></content>
+      </div>
+      <div id="code"></div>
+    </div>
+  </template>
+
+  <script>
+    Editor.polymerElement ({
+      properties: {
+        vertical: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        },
+
+        header: {
+          type: String,
+          value: 'Title',
+        },
+
+        desc: {
+          type: String,
+          value: 'Description',
+        },
+
+        tmpl: {
+          type: String,
+          value: '',
+        },
+      },
+
+      ready: function () {
+        // var template = Polymer.dom(this.$.tmpl).querySelector('template');
+        // var fixturedFragment = document.importNode(template.content, true);
+        // var el = fixturedFragment.firstElementChild;
+        // Polymer.dom(this.$.preview).appendChild(el);
+        // Polymer.dom(this.$.code).innerHTML = template.content;
+      },
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,160 @@
+<dom-module id="editor-checkbox-preview">
+  <style>
+    editor-checkbox {
+      margin: 5px;
+    }
+  </style>
+
+  <template>
+    <preview-item
+      header="editor-checkbox[checked]"
+      desc="set Attribute 'checked'"
+    >
+      <editor-checkbox>checked = "false"</editor-checkbox>
+      <editor-checkbox checked="true">checked = "true"</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="<editor-checkbox>text<editor-checkbox>"
+      desc="insert your text in content."
+    >
+      <editor-checkbox></editor-checkbox>
+      <editor-checkbox>text</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="editor-checkbox[readonly]"
+      desc="set Attribute 'readonly'"
+    >
+      <editor-checkbox readonly></editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="editor-checkbox.{toggle}"
+      desc="set class 'toggle'"
+    >
+      <editor-checkbox class="toggle" ></editor-checkbox>
+      <editor-checkbox class="toggle" checked="{{checked}}">toggle</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="editor-checkbox.{@color}"
+      desc="set class with different color"
+    >
+      <editor-checkbox checked="true">default</editor-checkbox>
+      <editor-checkbox class="green" checked="true">green</editor-checkbox>
+      <editor-checkbox class="white" checked="true">white</editor-checkbox>
+      <editor-checkbox class="blue" checked="true">blue</editor-checkbox>
+      <editor-checkbox class="red" checked="true">red</editor-checkbox>
+      <editor-checkbox class="black" checked="true">black</editor-checkbox>
+      <editor-checkbox class="yellow" checked="true">yellow</editor-checkbox>
+      <editor-checkbox class="orange" checked="true">orange</editor-checkbox>
+      <editor-checkbox class="purple" checked="true">purple</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="editor-checkbox.{toggle @color}"
+      desc="set class with different color"
+    >
+      <editor-checkbox class="toggle" checked="true">default</editor-checkbox>
+      <editor-checkbox class="toggle green" checked="true">green</editor-checkbox>
+      <editor-checkbox class="toggle white" checked="true">white</editor-checkbox>
+      <editor-checkbox class="toggle blue" checked="true">blue</editor-checkbox>
+      <editor-checkbox class="toggle red" checked="true">red</editor-checkbox>
+      <editor-checkbox class="toggle black" checked="true">black</editor-checkbox>
+      <editor-checkbox class="toggle yellow" checked="true">yellow</editor-checkbox>
+      <editor-checkbox class="toggle orange" checked="true">orange</editor-checkbox>
+      <editor-checkbox class="toggle purple" checked="true">purple</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="editor-checkbox[nofocus] with default style"
+      desc="set attribute 'nofocus'"
+    >
+      <editor-checkbox class="toggle" nofocus checked="true">default</editor-checkbox>
+      <editor-checkbox class="toggle green" nofocus checked="true">green</editor-checkbox>
+      <editor-checkbox class="toggle white" nofocus checked="true">white</editor-checkbox>
+      <editor-checkbox class="toggle blue" nofocus checked="true">blue</editor-checkbox>
+      <editor-checkbox class="toggle red" nofocus checked="true">red</editor-checkbox>
+      <editor-checkbox class="toggle black" nofocus checked="true">black</editor-checkbox>
+      <editor-checkbox class="toggle yellow" nofocus checked="true">yellow</editor-checkbox>
+      <editor-checkbox class="toggle orange" nofocus checked="true">orange</editor-checkbox>
+      <editor-checkbox class="toggle purple" nofocus checked="true">purple</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="editor-checkbox[nofocus] with toggle style"
+      desc="set attribute 'nofocus'"
+    >
+      <editor-checkbox nofocus checked="true">default</editor-checkbox>
+      <editor-checkbox class="green" nofocus checked="true">green</editor-checkbox>
+      <editor-checkbox class="white" nofocus checked="true">white</editor-checkbox>
+      <editor-checkbox class="blue" nofocus checked="true">blue</editor-checkbox>
+      <editor-checkbox class="red" nofocus checked="true">red</editor-checkbox>
+      <editor-checkbox class="black" nofocus checked="true">black</editor-checkbox>
+      <editor-checkbox class="yellow" nofocus checked="true">yellow</editor-checkbox>
+      <editor-checkbox class="orange" nofocus checked="true">orange</editor-checkbox>
+      <editor-checkbox class="purple" nofocus checked="true">purple</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="editor-checkbox[disabled] with default style"
+      desc="set attribute 'disabled'"
+    >
+      <editor-checkbox disabled checked="true">default</editor-checkbox>
+      <editor-checkbox class="green" disabled checked="true">green</editor-checkbox>
+      <editor-checkbox class="white" disabled checked="true">white</editor-checkbox>
+      <editor-checkbox class="blue" disabled checked="true">blue</editor-checkbox>
+      <editor-checkbox class="red" disabled checked="true">red</editor-checkbox>
+      <editor-checkbox class="black" disabled checked="true">black</editor-checkbox>
+      <editor-checkbox class="yellow" disabled checked="true">yellow</editor-checkbox>
+      <editor-checkbox class="orange" disabled checked="true">orange</editor-checkbox>
+      <editor-checkbox class="purple" disabled checked="true">purple</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="eidtor-checkbox[disabled] with toggle style"
+      desc="set attribute 'disabled'"
+    >
+      <editor-checkbox class="toggle" disabled checked="true">default</editor-checkbox>
+      <editor-checkbox class="toggle green" disabled checked="true">green</editor-checkbox>
+      <editor-checkbox class="toggle white" disabled checked="true">white</editor-checkbox>
+      <editor-checkbox class="toggle blue" disabled checked="true">blue</editor-checkbox>
+      <editor-checkbox class="toggle red" disabled checked="true">red</editor-checkbox>
+      <editor-checkbox class="toggle black" disabled checked="true">black</editor-checkbox>
+      <editor-checkbox class="toggle yellow" disabled checked="true">yellow</editor-checkbox>
+      <editor-checkbox class="toggle orange" disabled checked="true">orange</editor-checkbox>
+      <editor-checkbox class="toggle purple" disabled checked="true">purple</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="eidtor-checkbox data Binding"
+      desc="set checked value"
+    >
+      <editor-checkbox checked="{{checked}}">default</editor-checkbox>
+      <editor-checkbox checked="{{checked}}" disabled>default</editor-checkbox>
+      <editor-checkbox class="toggle" checked="{{checked}}">default</editor-checkbox>
+      <editor-checkbox class="toggle" checked="{{checked}}" disabled>default</editor-checkbox>
+    </preview-item>
+
+    <preview-item
+      header="call Event 'on-changed'"
+      desc="listen to 'on-changed' event"
+    >
+      <editor-checkbox checked="true" on-checked-changed="_onChecked">default</editor-checkbox>
+    </preview-item>
+
+  </template>
+
+  <script>
+    Editor.polymerElement({
+      ready: function () {
+        this.checked = true;
+      },
+
+      _onChecked: function (event) {
+        Editor.log('on-checked,checked:' + event.target.checked);
+      },
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,169 @@
+:host {
+  position: relative;
+  min-height: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex: none;
+  padding: 4px 2px;
+  font-size: 1.0rem;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #aaa;
+  background-color: #474747;
+}
+:host ::content > * {
+  margin-right: 5px;
+}
+:host ::content:last-child {
+  margin-right: 0px;
+}
+:host ::content .btn.editor-button {
+  font-size: 1.0rem;
+  padding: 0.3rem 0.3rem;
+  font-weight: normal;
+  background: none;
+  border: none;
+  border-radius: 0px;
+}
+:host ::content .btn.editor-button .fa {
+  font-size: 1.0rem;
+}
+:host ::content .btn.editor-button:hover {
+  background: #515151;
+}
+:host ::content[pressed] .btn.editor-button {
+  background: #363535;
+  box-shadow: none;
+}
+:host ::content.red .btn.editor-button {
+  background-image: none;
+  color: #ff1717;
+}
+:host ::content.red:hover .btn.editor-button {
+  background-image: none;
+  color: #ff1717;
+}
+:host ::content[pressed].red .btn.editor-button {
+  background-image: none;
+  color: #ff1717;
+}
+:host ::content.black .btn.editor-button {
+  background-image: none;
+  color: black;
+}
+:host ::content.black:hover .btn.editor-button {
+  background-image: none;
+  color: black;
+}
+:host ::content[pressed].black .btn.editor-button {
+  background-image: none;
+  color: black;
+}
+:host ::content.yellow .btn.editor-button {
+  background-image: none;
+  color: #fff50f;
+}
+:host ::content.yellow:hover .btn.editor-button {
+  background-image: none;
+  color: #fff50f;
+}
+:host ::content[pressed].yellow .btn.editor-button {
+  background-image: none;
+  color: #fff50f;
+}
+:host ::content.green .btn.editor-button {
+  background-image: none;
+  color: #15e811;
+}
+:host ::content.green:hover .btn.editor-button {
+  background-image: none;
+  color: #15e811;
+}
+:host ::content[pressed].green .btn.editor-button {
+  background-image: none;
+  color: #15e811;
+}
+:host ::content.blue .btn.editor-button {
+  background-image: none;
+  color: #1a73fa;
+}
+:host ::content.blue:hover .btn.editor-button {
+  background-image: none;
+  color: #1a73fa;
+}
+:host ::content[pressed].blue .btn.editor-button {
+  background-image: none;
+  color: #1a73fa;
+}
+:host ::content.orange .btn.editor-button {
+  background-image: none;
+  color: #ff9b06;
+}
+:host ::content.orange:hover .btn.editor-button {
+  background-image: none;
+  color: #ff9b06;
+}
+:host ::content[pressed].orange .btn.editor-button {
+  background-image: none;
+  color: #ff9b06;
+}
+:host ::content.purple .btn.editor-button {
+  background-image: none;
+  color: #861bff;
+}
+:host ::content.purple:hover .btn.editor-button {
+  background-image: none;
+  color: #861bff;
+}
+:host ::content[pressed].purple .btn.editor-button {
+  background-image: none;
+  color: #861bff;
+}
+:host ::content.white .btn.editor-button {
+  background-image: none;
+  color: white;
+}
+:host ::content.white:hover .btn.editor-button {
+  background-image: none;
+  color: white;
+}
+:host ::content[pressed].white .btn.editor-button {
+  background-image: none;
+  color: white;
+}
+:host ::content[disabled] .btn.editor-button {
+  background-image: none !important;
+}
+:host ::content .editor-input {
+  height: 18px;
+}
+:host::shadow editor-select {
+  min-height: 18px;
+}
+:host ::content .border.editor-select {
+  padding: 0px 4px;
+}
+:host::shadow editor-buttons {
+  height: 18px;
+  font-size: 0.8rem;
+  border: 1px solid #2a2a2a;
+}
+:host::shadow editor-buttons editor-buttons-item:first-child {
+  border-radius: 0px;
+}
+:host::shadow editor-buttons editor-buttons-item:last-child {
+  border-radius: 0px;
+}
+:host::shadow editor-buttons-item {
+  background-color: #555555;
+  border-right: 1px solid #555555;
+  padding: .1rem;
+}
+:host::shadow editor-buttons-item[selected] {
+  border-color: #555555;
+}
